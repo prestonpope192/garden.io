@@ -1,0 +1,23 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+  <rect x="92" y="106" width="456" height="250" rx="24" fill="#F7F1E5" stroke="#6C5A3A" stroke-width="3"/>
+  <path d="M142 156H498M142 206H498M142 256H498M142 306H498" stroke="#D1BE99" stroke-width="2"/>
+  <path d="M194 130V332M286 130V332M378 130V332M470 130V332" stroke="#D1BE99" stroke-width="2"/>
+  <circle cx="240" cy="182" r="24" fill="#D6C29A" fill-opacity="0.46" stroke="#6C5A3A" stroke-width="3"/>
+  <circle cx="424" cy="280" r="24" fill="#D6C29A" fill-opacity="0.46" stroke="#6C5A3A" stroke-width="3"/>
+  <path d="M240 161V203M219 182H261" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M424 259V301M403 280H445" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M178 501C210 437 250 409 302 414C285 474 245 503 178 501Z" fill="#D8C59E" fill-opacity="0.32" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M334 516C366 452 406 424 458 429C441 489 401 518 334 516Z" fill="#D8C59E" fill-opacity="0.32" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M304 612C311 558 312 495 309 426" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M309 425C343 396 370 356 392 304" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M307 441C270 408 242 372 222 330" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M214 491L132 531" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <path d="M430 470L521 452" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <text x="58" y="548" fill="#7D6740" font-family="serif" font-size="24">bloom window opens</text>
+  <text x="526" y="454" fill="#7D6740" font-family="serif" font-size="24">cut back after flush</text>
+  <path d="M90 652H548" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="698" fill="#6C5A3A" font-family="serif" font-size="32">Seasonal planner plate</text>
+  <text x="60" y="734" fill="#7D6740" font-family="serif" font-size="24">Plate 21 · Bloom timing and task rhythm</text>
+</svg>

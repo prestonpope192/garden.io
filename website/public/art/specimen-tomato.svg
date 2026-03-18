@@ -1,0 +1,23 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+  <path d="M321 144C327 172 341 197 360 219C379 241 403 254 430 258" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M320 146C311 178 294 203 270 225C246 247 216 258 180 259" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M321 145V516" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M321 150C346 116 386 98 438 98C429 149 389 178 321 185" stroke="#7D6740" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M319 183C264 171 224 140 205 95C259 98 299 120 319 183Z" stroke="#7D6740" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M285 276C250 281 228 308 228 345C228 385 258 412 297 412C335 412 364 383 364 345C364 304 331 274 285 276Z" fill="#D3BF98" fill-opacity="0.55" stroke="#6C5A3A" stroke-width="4"/>
+  <path d="M377 331C343 336 321 363 321 400C321 440 351 468 390 468C428 468 457 438 457 401C457 359 423 329 377 331Z" fill="#D8C49C" fill-opacity="0.46" stroke="#6C5A3A" stroke-width="4"/>
+  <path d="M266 422C231 427 209 455 209 493C209 533 239 561 278 561C316 561 345 530 345 493C345 451 311 420 266 422Z" fill="#D2BE98" fill-opacity="0.44" stroke="#6C5A3A" stroke-width="4"/>
+  <path d="M282 279L297 245L311 278M373 333L389 297L404 331M265 425L279 390L293 424" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M139 598H498" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M139 640H498" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M140 211L120 193" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <path d="M488 253L520 231" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <path d="M182 498L127 520" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <text x="103" y="183" fill="#7D6740" font-family="serif" font-size="26">stem prune</text>
+  <text x="524" y="228" fill="#7D6740" font-family="serif" font-size="26">first bloom</text>
+  <text x="54" y="548" fill="#7D6740" font-family="serif" font-size="26">mulched root zone</text>
+  <text x="56" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Solanum lycopersicum</text>
+  <text x="56" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 17 · Cherokee Purple study</text>
+</svg>

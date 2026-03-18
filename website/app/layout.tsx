@@ -1,5 +1,24 @@
 import type { Metadata } from "next";
+import { Caveat, EB_Garamond, Ibarra_Real_Nova } from "next/font/google";
 import "./globals.css";
+
+const bodyFont = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"]
+});
+
+const labelFont = Ibarra_Real_Nova({
+  subsets: ["latin"],
+  variable: "--font-label",
+  weight: ["400", "500", "600", "700"]
+});
+
+const scriptFont = Caveat({
+  subsets: ["latin"],
+  variable: "--font-script",
+  weight: ["400", "500", "600", "700"]
+});
 
 export const metadata: Metadata = {
   title: "Garden.io | The Living Notebook for Growing",
@@ -22,7 +41,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${bodyFont.variable} ${labelFont.variable} ${scriptFont.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

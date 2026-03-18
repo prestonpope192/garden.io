@@ -1,0 +1,24 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+  <rect x="82" y="92" width="214" height="258" rx="18" fill="#F9F4E9" stroke="#C7B38A" stroke-width="2"/>
+  <path d="M123 176H255M123 214H255M123 252H255" stroke="#D1BE99" stroke-width="2"/>
+  <circle cx="146" cy="145" r="12" fill="#D8C59E" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="2.5"/>
+  <circle cx="187" cy="145" r="12" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="2.5"/>
+  <circle cx="228" cy="145" r="12" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="2.5"/>
+  <path d="M361 150C387 129 423 120 470 124C459 164 422 182 361 180" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M357 180C333 152 302 136 263 132C276 175 307 191 357 180Z" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M360 152V486" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M360 266C388 245 426 238 472 244C460 284 422 301 360 298Z" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M360 300C334 272 301 255 261 251C274 296 307 312 360 300Z" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M360 386C391 369 427 365 470 372C454 411 418 425 360 420Z" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M360 423C332 396 296 382 253 381C268 423 304 439 360 423Z" fill="#D8C59E" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <rect x="92" y="492" width="456" height="150" rx="16" fill="#F8F2E7" stroke="#C7B38A" stroke-width="2"/>
+  <path d="M120 536H520M120 576H520" stroke="#D1BE99" stroke-width="2"/>
+  <path d="M500 116L541 104L529 145" stroke="#A78545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250 423L214 452" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <text x="494" y="96" fill="#7D6740" font-family="serif" font-size="24">zone sketch</text>
+  <text x="138" y="469" fill="#7D6740" font-family="serif" font-size="24">field note insert</text>
+  <text x="60" y="706" fill="#6C5A3A" font-family="serif" font-size="32">Oak Orchard notebook spread</text>
+  <text x="60" y="742" fill="#7D6740" font-family="serif" font-size="24">Plate 23 · Property folio and clipped specimens</text>
+</svg>

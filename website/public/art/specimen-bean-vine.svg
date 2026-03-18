@@ -1,0 +1,21 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+  <path d="M328 688C329 618 331 566 336 520C343 453 358 392 377 326C396 258 422 202 458 146" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M334 584C303 550 263 532 216 533C231 580 272 602 334 584Z" fill="#D6C29A" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M348 472C394 476 433 459 465 419C421 396 380 414 348 472Z" fill="#D6C29A" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M352 370C311 347 286 314 274 272C322 269 348 301 352 370Z" fill="#D6C29A" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M382 280C426 281 462 261 492 219C445 202 407 221 382 280Z" fill="#D6C29A" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M386 199C350 174 327 142 320 104C366 106 391 138 386 199Z" fill="#D6C29A" fill-opacity="0.3" stroke="#6C5A3A" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M416 532C438 520 456 520 471 534C456 549 438 549 416 532Z" stroke="#6C5A3A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M404 555C426 543 444 543 459 557C444 572 426 572 404 555Z" stroke="#6C5A3A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M300 331L247 307" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <path d="M421 251L518 241" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <path d="M375 514L500 501" stroke="#A78545" stroke-width="3" stroke-linecap="round"/>
+  <text x="160" y="302" fill="#7D6740" font-family="serif" font-size="24">cool pocket leaf</text>
+  <text x="525" y="244" fill="#7D6740" font-family="serif" font-size="24">wind-trained vine</text>
+  <text x="506" y="506" fill="#7D6740" font-family="serif" font-size="24">pollinator draw</text>
+  <path d="M120 626H508" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="684" fill="#6C5A3A" font-family="serif" font-size="32">Phaseolus coccineus</text>
+  <text x="60" y="720" fill="#7D6740" font-family="serif" font-size="24">Plate 32 · Scarlet runner study</text>
+</svg>
