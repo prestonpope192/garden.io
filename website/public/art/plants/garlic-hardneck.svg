@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Bulb with visible clove divisions at base -->
+  <ellipse cx="320" cy="520" rx="45" ry="52" fill="#D3BF98" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="2"/>
+  <ellipse cx="320" cy="520" rx="43" ry="50" fill="none" stroke="#D8C49C" stroke-width="1" stroke-opacity="0.6"/>
+
+  <!-- Clove divisions (radial lines) -->
+  <line x1="320" y1="470" x2="320" y2="565" stroke="#7D6740" stroke-width="2"/>
+  <line x1="297" y1="475" x2="310" y2="560" stroke="#7D6740" stroke-width="2"/>
+  <line x1="343" y1="475" x2="330" y2="560" stroke="#7D6740" stroke-width="2"/>
+  <line x1="285" y1="500" x2="305" y2="555" stroke="#7D6740" stroke-width="2"/>
+  <line x1="355" y1="500" x2="335" y2="555" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Roots at base -->
+  <path d="M 300 565 Q 290 590 285 610" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 320 568 Q 318 595 315 615" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 340 565 Q 350 590 355 610" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Straight flat leaves rising from bulb -->
+  <path d="M 310 520 Q 305 420 300 320 Q 300 240 302 160" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M 320 525 Q 318 420 315 320 Q 315 240 318 160" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M 330 520 Q 335 420 340 320 Q 340 240 338 160" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Leaf veins -->
+  <path d="M 308 380 Q 310 340 312 300" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 318 380 Q 316 340 314 300" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 328 380 Q 326 340 324 300" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 338 380 Q 336 340 334 300" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <!-- Curling looped scape at top -->
+  <path d="M 315 160 Q 280 140 270 110 Q 275 85 310 80" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <path d="M 310 80 Q 340 75 355 100 Q 350 130 330 150" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Scape curls detail -->
+  <path d="M 330 150 Q 345 165 360 175" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Small bulbil cluster at scape tip (alternative scape bulbil representation) -->
+  <circle cx="360" cy="75" r="5" fill="#D3BF98" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+  <circle cx="368" cy="80" r="5" fill="#D3BF98" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+  <circle cx="365" cy="90" r="5" fill="#D3BF98" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+
+  <!-- Annotation leaders and labels -->
+  <line x1="330" y1="150" x2="450" y2="140" stroke="#A78545" stroke-width="3"/>
+  <text x="455" y="150" font-family="serif" font-size="24" fill="#7D6740">curling scape</text>
+
+  <line x1="320" y1="520" x2="480" y2="520" stroke="#A78545" stroke-width="3"/>
+  <text x="485" y="530" font-family="serif" font-size="24" fill="#7D6740">clove wrapper</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Allium sativum var. ophioscorodon</text>
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 119 · Garlic hardneck study</text>
+</svg>

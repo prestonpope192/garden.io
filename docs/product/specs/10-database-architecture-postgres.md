@@ -99,12 +99,10 @@ The DDL file is the exact FK source of truth. The following is the explicit card
 - `catalog.plant_profiles (1) -> (N) catalog.plant_profile_uses`
 - `catalog.plant_profiles (1) -> (1) catalog.plant_climate_profiles`
 - `catalog.plant_profiles (1) -> (1) catalog.plant_growth_profiles`
-- `catalog.plant_profiles (1) -> (1) catalog.plant_propagation_profiles`
-- `catalog.plant_profiles (1) -> (N) catalog.plant_propagation_methods`
+- `catalog.plant_profiles (1) -> (N) catalog.plant_propagation_methods` including method-specific propagation details
 - `catalog.plant_profiles (1) -> (1) catalog.plant_flowering_profiles`
 - `catalog.plant_profiles (1) -> (1) catalog.plant_fruiting_profiles`
-- `catalog.plant_profiles (1) -> (1) catalog.plant_soil_profiles`
-- `catalog.plant_profiles (1) -> (N) catalog.plant_soil_texture_preferences`
+- `catalog.plant_profiles (1) -> (1) catalog.plant_soil_profiles` including structured texture preferences
 - `catalog.plant_profiles (1) -> (1) catalog.plant_water_profiles`
 - `catalog.plant_profiles (1) -> (N) catalog.plant_water_establishment_profiles`
 - `catalog.plant_profiles (1) -> (N) catalog.plant_water_seasonal_profiles`
@@ -186,9 +184,9 @@ The schema covers all requested plant-data buckets and missing-field additions:
 - Functional uses with evidence strength: `plant_profile_uses` + `evidence_strength_levels`.
 - Climate/tolerance: `plant_climate_profiles`.
 - Size/habit/root/spread/support: `plant_growth_profiles`.
-- Reproduction/propagation: `plant_propagation_profiles`, `plant_propagation_methods`.
+- Reproduction/propagation: `plant_propagation_methods`.
 - Flowering/fruiting/yield: `plant_flowering_profiles`, `plant_fruiting_profiles`.
-- Soil/chemistry: `plant_soil_profiles`, `plant_soil_texture_preferences`.
+- Soil/chemistry/texture: `plant_soil_profiles`.
 - Water layered model: `plant_water_profiles`, `plant_water_establishment_profiles`, `plant_water_seasonal_profiles`.
 - Safety/toxicity by subject: `plant_safety_profiles`, `safety_subject_types`, `safety_levels`.
 - Plant relationships: `plant_relationships`, `relationship_types`.

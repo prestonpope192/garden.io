@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://garden.io/schemas/plant-profile-record.schema.json",
+  "title": "Garden.io Catalog Plant Profile Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "slug", "taxonomy", "profile", "names"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "2026-06-plant-profile-v1"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "taxonomy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["genus_name", "botanical_name_full", "taxon_rank"],
+      "properties": {
+        "kingdom_name": { "type": ["string", "null"] },
+        "family_name": { "type": ["string", "null"] },
+        "genus_name": { "type": "string", "minLength": 1 },
+        "species_name": { "type": ["string", "null"] },
+        "subspecies_name": { "type": ["string", "null"] },
+        "variety_name": { "type": ["string", "null"] },
+        "botanical_name_full": { "type": "string", "minLength": 1 },
+        "taxon_rank": { "$ref": "#/$defs/taxon_rank" },
+        "native_range": { "type": ["string", "null"] },
+        "origin_type": { "$ref": "#/$defs/origin_type" }
+      }
+    },
+    "names": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "name_type"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "name_type": { "enum": ["common", "synonym", "trade", "latin_variant"] },
+          "locale": { "type": "string", "default": "en" },
+          "is_primary": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "plant_type_code", "lifecycle_type"],
+      "properties": {
+        "display_name": { "type": "string", "minLength": 1 },
+        "plant_type_code": { "$ref": "#/$defs/plant_type_code" },
+        "lifecycle_type": { "$ref": "#/$defs/lifecycle_type" },
+        "confidence_score": { "$ref": "#/$defs/confidence" },
+        "evidence_count": { "type": "integer", "minimum": 0 },
+        "source_count": { "type": "integer", "minimum": 0 },
+        "source_last_reviewed_at": { "type": ["string", "null"], "format": "date-time" },
+        "ai_generated_summary": { "type": "boolean" },
+        "human_verified": { "type": "boolean" },
+        "conflict_flag": { "type": "boolean" },
+        "region_specific_conflict_notes": { "type": ["string", "null"] },
+        "is_ai_generated": { "type": "boolean" },
+        "generation_status": { "enum": ["human_curated", "ai_generated", "ai_reviewed", "community_generated"] },
+        "is_published": { "type": "boolean" },
+        "review_status": { "enum": ["draft", "pending_review", "approved", "rejected"] }
+      }
+    },
+    "cultivar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cultivar_name"],
+      "properties": {
+        "cultivar_name": { "type": "string", "minLength": 1 },
+        "market_name": { "type": ["string", "null"] },
+        "description": { "type": ["string", "null"] },
+        "chill_hours_min": { "type": ["integer", "null"], "minimum": 0 },
+        "chill_hours_max": { "type": ["integer", "null"], "minimum": 0 },
+        "disease_resistance_notes": { "type": ["string", "null"] },
+        "is_active": { "type": "boolean" }
+      }
+    },
+    "cultivar_overrides": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/cultivar_override" }
+    },
+    "narratives": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locale": { "type": "string", "default": "en" },
+        "short_description": { "type": ["string", "null"] },
+        "why_plant_it": { "type": ["string", "null"] },
+        "pros_summary": { "type": ["string", "null"] },
+        "cons_summary": { "type": ["string", "null"] },
+        "primary_use_cases": { "type": ["string", "null"] },
+        "notes_for_homestead": { "type": ["string", "null"] },
+        "notes_for_small_garden": { "type": ["string", "null"] },
+        "notes_for_container_growing": { "type": ["string", "null"] },
+        "editorial_summary": { "type": ["string", "null"] }
+      }
+    },
+    "aesthetic_styles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/aesthetic_style" }
+    },
+    "uses": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/use" }
+    },
+    "ornamental": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "evergreen_deciduous": { "enum": ["evergreen", "deciduous", "semi_evergreen", "unknown", null] },
+        "ornamental_season_interest": { "$ref": "#/$defs/string_array" },
+        "visual_texture": { "type": ["string", "null"] },
+        "foliage_color": { "type": ["string", "null"] },
+        "evergreen_foliage": { "type": ["boolean", "null"] },
+        "winter_interest": { "type": ["boolean", "null"] }
+      }
+    },
+    "climate": { "$ref": "#/$defs/climate" },
+    "growth": { "$ref": "#/$defs/growth" },
+    "propagation_methods": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/propagation_method" }
+    },
+    "flowering": { "$ref": "#/$defs/flowering" },
+    "fruiting": { "$ref": "#/$defs/fruiting" },
+    "soil": { "$ref": "#/$defs/soil" },
+    "water": { "$ref": "#/$defs/water" },
+    "water_establishment": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/water_establishment" }
+    },
+    "water_seasonal": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/water_seasonal" }
+    },
+    "ecology": { "$ref": "#/$defs/ecology" },
+    "maintenance": { "$ref": "#/$defs/maintenance" },
+    "safety": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/safety" }
+    },
+    "relationships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relationship" }
+    },
+    "phenology_templates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/phenology_template" }
+    },
+    "zone_profiles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/zone_profile" }
+    },
+    "care_events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/care_event" }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claim" }
+    },
+    "images": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/image" }
+    },
+    "ratings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/rating" }
+    },
+    "import_notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "$defs": {
+    "string_array": {
+      "type": ["array", "null"],
+      "items": { "type": "string" }
+    },
+    "confidence": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "zero_to_ten": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 10
+    },
+    "one_to_five": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "week": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 53
+    },
+    "month": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 12
+    },
+    "taxon_rank": {
+      "enum": ["genus", "species", "subspecies", "variety", "hybrid", "unknown"]
+    },
+    "origin_type": {
+      "enum": ["native", "naturalized", "exotic", "invasive_risk", "unknown", null]
+    },
+    "plant_type_code": {
+      "enum": ["tree", "shrub", "subshrub", "vine", "groundcover", "grass", "sedge", "fern", "forb", "succulent", "aquatic", "herb", "vegetable", "grain", "legume", "fruit_cane", "bulb", "tuber"]
+    },
+    "lifecycle_type": {
+      "enum": ["annual", "biennial", "perennial", "self_seed_annual", "unknown"]
+    },
+    "aesthetic_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["style_code"],
+      "properties": {
+        "style_code": { "enum": ["formal", "cottage", "meadow", "tropical", "edible_landscape", "xeric", "woodland"] },
+        "weight_score": { "$ref": "#/$defs/zero_to_ten" }
+      }
+    },
+    "use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["use_type_code", "evidence_strength_code"],
+      "properties": {
+        "use_type_code": { "enum": ["culinary", "medicinal", "pollinator_support", "erosion_control", "chop_and_drop", "nitrogen_fixation", "dynamic_accumulator", "pest_confusion", "trap_crop", "privacy_screen", "fodder", "cut_flower", "shade", "edible_fruit", "edible_leaf", "living_mulch"] },
+        "evidence_strength_code": { "$ref": "#/$defs/evidence_strength_code" },
+        "supports_use": { "type": "boolean" },
+        "mechanism_description": { "type": ["string", "null"] },
+        "target_benefit": { "type": ["string", "null"] },
+        "target_pest": { "type": ["string", "null"] },
+        "target_soil_effect": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "cultivar_override": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field_key", "override_scope", "override_value"],
+      "properties": {
+        "field_key": { "type": "string", "pattern": "^[a-z0-9_.]+$" },
+        "override_scope": { "enum": ["trait", "climate", "yield", "disease", "phenology", "water", "other"] },
+        "override_value": {},
+        "region_type": { "enum": ["usda_zone", "climate_band", "state", "region", "generic", null] },
+        "region_value": { "type": ["string", "null"] },
+        "evidence_strength_code": { "$ref": "#/$defs/evidence_strength_code" },
+        "source_notes": { "type": ["string", "null"] }
+      }
+    },
+    "tolerance_code": {
+      "enum": ["very_low", "low", "medium", "high", "very_high", "unknown", null]
+    },
+    "safety_level_code": {
+      "enum": ["safe", "caution", "toxic", "severe_toxicity", "unknown"]
+    },
+    "evidence_strength_code": {
+      "enum": ["strong", "moderate", "weak", "traditional", "anecdotal", "unknown", null]
+    },
+    "method_code": {
+      "enum": ["direct_sow", "transplant_seedling", "cutting", "division", "bare_root", "crown", "tuber", "rhizome", "bulb", "grafted_tree"]
+    },
+    "soil_texture_code": {
+      "enum": ["sand", "sandy_loam", "loam", "silt_loam", "clay", "rocky", "peaty"]
+    },
+    "climate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "usda_hardiness_min": { "type": ["string", "null"] },
+        "usda_hardiness_max": { "type": ["string", "null"] },
+        "ahs_heat_zone_min": { "type": ["string", "null"] },
+        "ahs_heat_zone_max": { "type": ["string", "null"] },
+        "cold_tolerance_absolute_f": { "type": ["number", "null"] },
+        "cold_tolerance_established_f": { "type": ["number", "null"] },
+        "heat_tolerance_f": { "type": ["number", "null"] },
+        "humidity_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "drought_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "flood_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "wind_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "salt_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "chill_hours_min": { "type": ["integer", "null"], "minimum": 0 },
+        "chill_hours_max": { "type": ["integer", "null"], "minimum": 0 },
+        "frost_tender": { "type": ["boolean", "null"] },
+        "reemergence_after_freeze_behavior": { "type": ["string", "null"] },
+        "sun_min_hours": { "type": ["number", "null"], "minimum": 0, "maximum": 24 },
+        "sun_max_hours": { "type": ["number", "null"], "minimum": 0, "maximum": 24 },
+        "preferred_light": { "type": ["string", "null"] },
+        "shade_tolerance_score": { "$ref": "#/$defs/zero_to_ten" },
+        "afternoon_sun_tolerance_score": { "$ref": "#/$defs/zero_to_ten" },
+        "reflected_heat_tolerance_score": { "$ref": "#/$defs/zero_to_ten" }
+      }
+    },
+    "growth": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mature_height_min_in": { "type": ["number", "null"] },
+        "mature_height_max_in": { "type": ["number", "null"] },
+        "mature_width_min_in": { "type": ["number", "null"] },
+        "mature_width_max_in": { "type": ["number", "null"] },
+        "annual_growth_height_in": { "type": ["number", "null"] },
+        "annual_growth_width_in": { "type": ["number", "null"] },
+        "growth_rate_code": { "$ref": "#/$defs/tolerance_code" },
+        "growth_habit": { "type": ["string", "null"] },
+        "root_behavior": { "type": ["string", "null"] },
+        "spread_aggressiveness": { "$ref": "#/$defs/zero_to_ten" },
+        "pruning_response": { "type": ["string", "null"] },
+        "transplant_tolerance": { "$ref": "#/$defs/zero_to_ten" },
+        "container_tolerance": { "$ref": "#/$defs/zero_to_ten" },
+        "trellis_needed": { "type": ["boolean", "null"] },
+        "support_type": { "type": ["string", "null"] }
+      }
+    },
+    "propagation_method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planting_method_code"],
+      "properties": {
+        "planting_method_code": { "$ref": "#/$defs/method_code" },
+        "allowed": { "type": "boolean", "default": true },
+        "is_preferred": { "type": "boolean", "default": false },
+        "depth_min_in": { "type": ["number", "null"] },
+        "depth_max_in": { "type": ["number", "null"] },
+        "spacing_min_in": { "type": ["number", "null"] },
+        "spacing_max_in": { "type": ["number", "null"] },
+        "proliferation_behavior": { "type": ["string", "null"] },
+        "self_seeds": { "type": ["boolean", "null"] },
+        "reseeding_intensity": { "$ref": "#/$defs/zero_to_ten" },
+        "spreads_by_runners": { "type": ["boolean", "null"] },
+        "spreads_by_rhizomes": { "type": ["boolean", "null"] },
+        "grafted_common": { "type": ["boolean", "null"] },
+        "seed_viability_duration_months": { "type": ["integer", "null"], "minimum": 0 },
+        "germination_days_min": { "type": ["integer", "null"], "minimum": 0 },
+        "germination_days_max": { "type": ["integer", "null"], "minimum": 0 },
+        "cold_stratification_required": { "type": ["boolean", "null"] },
+        "scarification_required": { "type": ["boolean", "null"] },
+        "rooting_hormone_helpful": { "type": ["boolean", "null"] },
+        "transplant_shock_risk_code": { "$ref": "#/$defs/tolerance_code" },
+        "establishment_difficulty": { "$ref": "#/$defs/zero_to_ten" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "flowering": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "flowering_bool": { "type": ["boolean", "null"] },
+        "flower_color": { "type": ["string", "null"] },
+        "flower_size": { "type": ["string", "null"] },
+        "bloom_start_week": { "$ref": "#/$defs/week" },
+        "bloom_end_week": { "$ref": "#/$defs/week" },
+        "bloom_duration_days": { "type": ["integer", "null"], "minimum": 0 },
+        "flower_abundance": { "type": ["string", "null"] },
+        "flower_fragrance_strength": { "$ref": "#/$defs/zero_to_ten" },
+        "pollinator_value": { "$ref": "#/$defs/zero_to_ten" },
+        "nectar_value": { "$ref": "#/$defs/zero_to_ten" },
+        "pollen_value": { "$ref": "#/$defs/zero_to_ten" },
+        "attracts_bees": { "type": ["boolean", "null"] },
+        "attracts_butterflies": { "type": ["boolean", "null"] },
+        "attracts_hummingbirds": { "type": ["boolean", "null"] },
+        "larval_host": { "type": ["boolean", "null"] },
+        "native_pollinator_value": { "$ref": "#/$defs/zero_to_ten" }
+      }
+    },
+    "fruiting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fruiting_bool": { "type": ["boolean", "null"] },
+        "fruit_color": { "type": ["string", "null"] },
+        "fruit_size": { "type": ["string", "null"] },
+        "fruit_flavor": { "type": ["string", "null"] },
+        "fruiting_start_age_years": { "type": ["number", "null"], "minimum": 0 },
+        "yield_lb_per_plant_year_min": { "type": ["number", "null"], "minimum": 0 },
+        "yield_lb_per_plant_year_max": { "type": ["number", "null"], "minimum": 0 },
+        "harvest_window_start_week": { "$ref": "#/$defs/week" },
+        "harvest_window_end_week": { "$ref": "#/$defs/week" },
+        "fruit_drop_behavior": { "type": ["string", "null"] },
+        "wildlife_attraction": { "$ref": "#/$defs/zero_to_ten" },
+        "first_harvest_time_from_planting_days": { "type": ["integer", "null"], "minimum": 0 },
+        "productive_years_min": { "type": ["integer", "null"], "minimum": 0 },
+        "productive_years_max": { "type": ["integer", "null"], "minimum": 0 },
+        "harvest_frequency": { "type": ["string", "null"] },
+        "preservation_uses": { "type": ["string", "null"] },
+        "edible_parts": { "$ref": "#/$defs/string_array" },
+        "medicinal_parts": { "$ref": "#/$defs/string_array" },
+        "fodder_parts": { "$ref": "#/$defs/string_array" }
+      }
+    },
+    "soil": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "drainage_requirement": { "type": ["string", "null"] },
+        "organic_matter_preference": { "type": ["string", "null"] },
+        "compaction_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "rocky_soil_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "ph_min": { "type": ["number", "null"], "minimum": 0, "maximum": 14 },
+        "ph_max": { "type": ["number", "null"], "minimum": 0, "maximum": 14 },
+        "ph_ideal_min": { "type": ["number", "null"], "minimum": 0, "maximum": 14 },
+        "ph_ideal_max": { "type": ["number", "null"], "minimum": 0, "maximum": 14 },
+        "ph_sensitivity_code": { "$ref": "#/$defs/tolerance_code" },
+        "fertility_need": { "type": ["string", "null"] },
+        "nitrogen_need": { "type": ["string", "null"] },
+        "phosphorus_need": { "type": ["string", "null"] },
+        "potassium_need": { "type": ["string", "null"] },
+        "calcium_sensitivity_code": { "$ref": "#/$defs/tolerance_code" },
+        "soil_oxygen_need": { "type": ["string", "null"] },
+        "mycorrhizal_association_notes": { "type": ["string", "null"] },
+        "mulch_preference": { "type": ["string", "null"] },
+        "mulch_depth_preference_in": { "type": ["number", "null"], "minimum": 0 },
+        "waterlogging_sensitivity_code": { "$ref": "#/$defs/tolerance_code" },
+        "texture_preferences": { "type": "object" },
+        "preferred_soil_texture_codes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/soil_texture_code" },
+          "uniqueItems": true
+        },
+        "soil_texture_summary": { "type": ["string", "null"] }
+      }
+    },
+    "water": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "water_need_level": { "enum": ["very_low", "low", "medium", "high", "very_high", null] },
+        "drought_tolerance_code": { "$ref": "#/$defs/tolerance_code" },
+        "moisture_sensitivity_code": { "$ref": "#/$defs/tolerance_code" },
+        "preferred_irrigation_method": { "type": ["string", "null"] },
+        "root_zone_depth_in": { "type": ["number", "null"], "minimum": 0 },
+        "container_water_multiplier": { "type": ["number", "null"], "minimum": 0 },
+        "mulched_water_reduction_factor": { "type": ["number", "null"], "minimum": 0 },
+        "summer_heat_adjustment_factor": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "water_establishment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["week_from_planting_start", "week_from_planting_end"],
+      "properties": {
+        "week_from_planting_start": { "type": "integer", "minimum": 0 },
+        "week_from_planting_end": { "type": "integer", "minimum": 0 },
+        "gallons_per_week": { "type": ["number", "null"], "minimum": 0 },
+        "frequency_per_week": { "type": ["number", "null"], "minimum": 0 },
+        "deep_vs_frequent": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "water_seasonal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["month_no"],
+      "properties": {
+        "region_type": { "enum": ["usda_zone", "region", "state", "generic"] },
+        "region_value": { "type": ["string", "null"] },
+        "month_no": { "$ref": "#/$defs/month" },
+        "lifecycle_stage_code": { "type": ["string", "null"] },
+        "estimated_inches_per_week": { "type": ["number", "null"], "minimum": 0 },
+        "estimated_gallons_per_week": { "type": ["number", "null"], "minimum": 0 },
+        "preferred_method": { "type": ["string", "null"] },
+        "stress_watchouts": { "type": ["string", "null"] }
+      }
+    },
+    "ecology": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "invasive_risk_code": { "$ref": "#/$defs/safety_level_code" },
+        "wildlife_food_value": { "$ref": "#/$defs/zero_to_ten" },
+        "erosion_control_value": { "$ref": "#/$defs/zero_to_ten" },
+        "biomass_value": { "$ref": "#/$defs/zero_to_ten" },
+        "compost_value": { "$ref": "#/$defs/zero_to_ten" },
+        "chop_drop_value": { "$ref": "#/$defs/zero_to_ten" }
+      }
+    },
+    "maintenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pruning_frequency": { "type": ["string", "null"] },
+        "deadheading_helpful": { "type": ["boolean", "null"] },
+        "division_interval_years": { "type": ["number", "null"], "minimum": 0 },
+        "staking_needed": { "type": ["boolean", "null"] },
+        "suckering_management": { "type": ["string", "null"] },
+        "cleanup_intensity": { "$ref": "#/$defs/zero_to_ten" },
+        "disease_susceptibility_level": { "$ref": "#/$defs/zero_to_ten" },
+        "pest_susceptibility_level": { "$ref": "#/$defs/zero_to_ten" },
+        "humidity_disease_risk": { "$ref": "#/$defs/zero_to_ten" },
+        "air_flow_importance": { "$ref": "#/$defs/zero_to_ten" }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_type_code", "safety_level_code"],
+      "properties": {
+        "subject_type_code": { "enum": ["human", "cow", "chicken", "dog", "cat", "horse", "goat"] },
+        "safety_level_code": { "$ref": "#/$defs/safety_level_code" },
+        "toxic_parts": { "$ref": "#/$defs/string_array" },
+        "condition_notes": { "type": ["string", "null"] },
+        "symptoms": { "type": ["string", "null"] },
+        "evidence_source_type": { "type": ["string", "null"] },
+        "safe_use_notes": { "type": ["string", "null"] }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["related_slug", "relationship_type_code"],
+      "properties": {
+        "related_slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "relationship_type_code": { "enum": ["good_companion", "bad_companion", "nurse_plant", "trap_crop_helper", "shade_conflict", "root_competition", "allelopathy_risk", "shared_disease_risk", "pollination_partner"] },
+        "rank_value": { "type": ["integer", "null"], "minimum": 0 },
+        "evidence_strength_code": { "$ref": "#/$defs/evidence_strength_code" },
+        "rationale": { "type": ["string", "null"] },
+        "distance_notes": { "type": ["string", "null"] },
+        "overlap_window_start_week": { "$ref": "#/$defs/week" },
+        "overlap_window_end_week": { "$ref": "#/$defs/week" },
+        "source_notes": { "type": ["string", "null"] },
+        "is_published": { "type": "boolean" }
+      }
+    },
+    "phenology_template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["region_type"],
+      "properties": {
+        "region_type": { "enum": ["usda_zone", "climate_band", "state", "region", "generic"] },
+        "region_value": { "type": ["string", "null"] },
+        "is_default": { "type": "boolean" },
+        "notes": { "type": ["string", "null"] },
+        "events": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/phenology_event" }
+        }
+      }
+    },
+    "phenology_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage_code", "trigger_type", "timing_type"],
+      "properties": {
+        "stage_code": { "type": "string" },
+        "stage_name": { "type": ["string", "null"] },
+        "trigger_type": { "enum": ["date", "temperature", "soil_temp", "frost", "rainfall", "daylight", "gdd", "plant_observation", "calendar"] },
+        "trigger_rule": { "type": ["string", "null"] },
+        "timing_type": { "enum": ["calendar", "temp_threshold", "soil_temp", "gdd", "rainfall", "photoperiod", "event_offset"] },
+        "earliest_date": { "type": ["string", "null"], "format": "date" },
+        "typical_date": { "type": ["string", "null"], "format": "date" },
+        "latest_date": { "type": ["string", "null"], "format": "date" },
+        "week_start_of_year": { "$ref": "#/$defs/week" },
+        "week_end_of_year": { "$ref": "#/$defs/week" },
+        "month_start": { "$ref": "#/$defs/month" },
+        "month_end": { "$ref": "#/$defs/month" },
+        "offset_days_from_planting": { "type": ["integer", "null"] },
+        "repeat_every_days": { "type": ["integer", "null"], "minimum": 0 },
+        "cues": { "type": ["string", "null"] },
+        "recommended_action": { "type": ["string", "null"] },
+        "recurrence": { "type": ["string", "null"] },
+        "urgency_code": { "enum": ["low", "medium", "high", "critical", null] },
+        "failure_risk_if_missed": { "type": ["string", "null"] },
+        "priority_weight": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+        "repeatable": { "type": "boolean" }
+      }
+    },
+    "zone_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["region_type"],
+      "properties": {
+        "region_type": { "enum": ["usda_zone", "climate_band", "state", "region", "generic"] },
+        "region_value": { "type": ["string", "null"] },
+        "usda_zone_min": { "type": ["string", "null"] },
+        "usda_zone_max": { "type": ["string", "null"] },
+        "planting_window_start_week": { "$ref": "#/$defs/week" },
+        "planting_window_end_week": { "$ref": "#/$defs/week" },
+        "harvest_window_start_week": { "$ref": "#/$defs/week" },
+        "harvest_window_end_week": { "$ref": "#/$defs/week" },
+        "bloom_window_start_week": { "$ref": "#/$defs/week" },
+        "bloom_window_end_week": { "$ref": "#/$defs/week" },
+        "dieback_window_start_week": { "$ref": "#/$defs/week" },
+        "reemergence_window_start_week": { "$ref": "#/$defs/week" },
+        "proliferation_behavior": { "type": ["string", "null"] },
+        "maintenance_timing_notes": { "type": ["string", "null"] },
+        "seasonal_risk_notes": { "type": ["string", "null"] }
+      }
+    },
+    "care_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_type_code", "source_type_code", "title"],
+      "properties": {
+        "stage_code": { "type": ["string", "null"] },
+        "task_type_code": { "type": "string" },
+        "source_type_code": { "type": "string" },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": ["string", "null"] },
+        "recurrence_rule": { "type": ["string", "null"] },
+        "lead_days": { "type": ["integer", "null"] },
+        "window_days": { "type": ["integer", "null"], "minimum": 0 },
+        "priority_code": { "enum": ["low", "medium", "high", "critical", null] },
+        "requires_confirmation": { "type": "boolean" },
+        "repeatable": { "type": "boolean" },
+        "is_active": { "type": "boolean" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_ref", "source_name", "source_type"],
+      "properties": {
+        "source_ref": { "type": "string", "pattern": "^[a-zA-Z0-9_.:-]+$" },
+        "source_name": { "type": "string", "minLength": 1 },
+        "source_type": { "enum": ["extension", "academic", "government", "community", "internal_curation", "ai_extraction", "other"] },
+        "publisher": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "source_url": { "type": ["string", "null"] },
+        "citation_text": { "type": ["string", "null"] },
+        "published_on": { "type": ["string", "null"], "format": "date" },
+        "credibility_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "license": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] },
+        "last_reviewed_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_type", "value_json"],
+      "properties": {
+        "claim_type": { "type": "string", "pattern": "^[a-z_]+\\.[a-z0-9_]+$" },
+        "value_json": {},
+        "evidence_strength_code": { "$ref": "#/$defs/evidence_strength_code" },
+        "confidence_score": { "$ref": "#/$defs/confidence" },
+        "source_ref": { "type": ["string", "null"] },
+        "source_quote_or_excerpt": { "type": ["string", "null"] },
+        "source_url": { "type": ["string", "null"] },
+        "reviewed_by_human": { "type": "boolean" },
+        "review_status": { "enum": ["pending_review", "approved", "rejected", "needs_more_evidence"] },
+        "region_scope": { "type": ["string", "null"] },
+        "cultivar_scope": { "type": ["string", "null"] },
+        "ai_generated_summary": { "type": "boolean" },
+        "human_verified": { "type": "boolean" },
+        "conflict_flag": { "type": "boolean" },
+        "region_specific_conflict_notes": { "type": ["string", "null"] }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_ref": { "type": ["string", "null"] },
+        "stage_code": { "type": ["string", "null"] },
+        "image_url": { "type": ["string", "null"] },
+        "storage_key": { "type": ["string", "null"] },
+        "mime_type": { "type": ["string", "null"] },
+        "width_px": { "type": ["integer", "null"], "minimum": 0 },
+        "height_px": { "type": ["integer", "null"], "minimum": 0 },
+        "attribution_text": { "type": ["string", "null"] },
+        "license": { "type": ["string", "null"] },
+        "is_primary": { "type": "boolean" },
+        "is_public": { "type": "boolean" }
+      }
+    },
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension_code", "rating"],
+      "properties": {
+        "dimension_code": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "rating": { "$ref": "#/$defs/one_to_five" },
+        "description": { "type": ["string", "null"] },
+        "evidence_strength_code": { "$ref": "#/$defs/evidence_strength_code" },
+        "confidence_score": { "$ref": "#/$defs/confidence" },
+        "source_notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

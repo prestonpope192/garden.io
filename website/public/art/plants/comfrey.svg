@@ -1,0 +1,57 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main stem curve arching rightward -->
+  <path d="M 320 560 Q 340 480 335 380 Q 330 280 315 180" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Secondary stem branch left -->
+  <path d="M 320 400 Q 280 350 260 280" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Basal clump left leaf -->
+  <path d="M 280 560 Q 240 520 220 420" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Basal clump right leaf -->
+  <path d="M 360 560 Q 400 520 420 430" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Large coarse lance leaf 1 (left, overlapping) -->
+  <path d="M 260 480 Q 220 470 210 430 Q 215 420 250 430 Q 280 440 275 480 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+  <path d="M 230 450 Q 240 435" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 235 460 Q 250 445" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Large coarse lance leaf 2 (right) -->
+  <path d="M 350 490 Q 400 470 420 410 Q 415 395 375 415 Q 340 435 350 490 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.45"/>
+  <path d="M 375 455 Q 395 430" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 380 465 Q 405 440" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Basal leaf 1 -->
+  <path d="M 250 560 Q 230 540 225 500 Q 235 495 260 520 Q 270 545 250 560 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+
+  <!-- Basal leaf 2 -->
+  <path d="M 390 560 Q 410 535 425 490 Q 410 495 380 530 Q 370 550 390 560 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+
+  <!-- Drooping bell flower cluster (tubular shapes) -->
+  <circle cx="310" cy="160" r="14" fill="#D3BF98" fill-opacity="0.4" stroke="#7D6740" stroke-width="2.5"/>
+  <circle cx="320" cy="145" r="13" fill="#D3BF98" fill-opacity="0.35" stroke="#7D6740" stroke-width="2.5"/>
+  <circle cx="300" cy="145" r="13" fill="#D3BF98" fill-opacity="0.35" stroke="#7D6740" stroke-width="2.5"/>
+  <circle cx="315" cy="128" r="12" fill="#D3BF98" fill-opacity="0.3" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Annotation lines and labels -->
+  <!-- Drooping bells annotation -->
+  <path d="M 315 140 L 480 100" stroke="#A78545" stroke-width="3" fill="none"/>
+  <text x="485" y="115" font-family="serif" font-size="24" fill="#7D6740">drooping bells</text>
+
+  <!-- Coarse basal leaf annotation -->
+  <path d="M 265 500 L 420 540" stroke="#A78545" stroke-width="3" fill="none"/>
+  <text x="425" y="555" font-family="serif" font-size="24" fill="#7D6740">coarse basal leaf</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Symphytum officinale</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 106 · Comfrey study</text>
+</svg>

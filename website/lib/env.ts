@@ -24,11 +24,12 @@ function optionalEnv(name: string): string | undefined {
 export function loadWaitlistConfig(): WaitlistConfig {
   const supabaseAnonKey =
     optionalEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY") ??
+    optionalEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY") ??
     optionalEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY");
 
   if (!supabaseAnonKey) {
     throw new Error(
-      "Missing NEXT_PUBLIC_SUPABASE_ANON_KEY (or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY)"
+      "Missing NEXT_PUBLIC_SUPABASE_ANON_KEY, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY"
     );
   }
 

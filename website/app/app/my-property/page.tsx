@@ -1,5 +1,5 @@
-import { MyPropertyFlipbook } from "@/components/my-property-flipbook";
+import { PrivateBetaApp } from "@/components/private-beta-app";
 
 export default function MyPropertyPage() {
-  return <MyPropertyFlipbook />;
+  return <PrivateBetaApp view="property" />;
 }

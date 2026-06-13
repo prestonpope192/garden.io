@@ -1,0 +1,80 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main upright stem -->
+  <path d="M 320 560 Q 318 500 320 440 Q 322 380 320 320 Q 318 260 320 200 Q 322 160 320 120" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Left branch -->
+  <path d="M 320 320 Q 280 300 250 280" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Right branch -->
+  <path d="M 320 260 Q 360 240 390 220" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Lance leaf 1 (left, lower) -->
+  <path d="M 300 400 Q 280 410 270 430 Q 280 445 310 440 Q 320 435 310 410" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+  <!-- Leaf vein -->
+  <path d="M 280 415 L 310 435" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Lance leaf 2 (right, lower) -->
+  <path d="M 340 400 Q 360 410 370 430 Q 360 445 330 440 Q 320 435 330 410" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Leaf vein -->
+  <path d="M 360 415 L 330 435" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Lance leaf 3 (left, mid) -->
+  <path d="M 290 280 Q 265 285 250 305 Q 270 315 300 305 Q 310 295 295 280" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.5"/>
+  <!-- Leaf vein -->
+  <path d="M 270 295 L 295 310" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Lance leaf 4 (right, mid) -->
+  <path d="M 350 280 Q 375 285 390 305 Q 370 315 340 305 Q 330 295 345 280" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+  <!-- Leaf vein -->
+  <path d="M 370 295 L 345 310" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Lance leaf 5 (left, upper) -->
+  <path d="M 305 200 Q 285 205 275 220 Q 290 230 315 220 Q 320 210 310 200" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Leaf vein -->
+  <path d="M 285 210 L 310 225" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Large open daisy-like rayed bloom (main flower) -->
+  <!-- Center disk -->
+  <circle cx="320" cy="140" r="12" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Ray petals (8 rays) -->
+  <ellipse cx="320" cy="100" rx="8" ry="18" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="355" cy="110" rx="8" ry="18" transform="rotate(45 355 110)" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="360" cy="140" rx="8" ry="18" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="355" cy="170" rx="8" ry="18" transform="rotate(45 355 170)" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="320" cy="180" rx="8" ry="18" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="285" cy="170" rx="8" ry="18" transform="rotate(45 285 170)" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="280" cy="140" rx="8" ry="18" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <ellipse cx="285" cy="110" rx="8" ry="18" transform="rotate(45 285 110)" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+
+  <!-- Side bud (closed flower) -->
+  <path d="M 250 280 Q 240 275 240 290 Q 245 300 260 298" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="#D6C29A" fill-opacity="0.3"/>
+  <ellipse cx="245" cy="283" rx="6" ry="10" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.4"/>
+
+  <!-- Sticky bracts beneath main bloom -->
+  <path d="M 310 155 Q 305 165 310 175" stroke="#7D6740" stroke-width="2.5"/>
+  <path d="M 320 160 Q 320 170 320 180" stroke="#7D6740" stroke-width="2.5"/>
+  <path d="M 330 155 Q 335 165 330 175" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Calendula officinalis</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 112 · Calendula study</text>
+
+  <!-- Annotation 1: ray petals -->
+  <line x1="360" y1="100" x2="480" y2="60" stroke="#A78545" stroke-width="3"/>
+  <text x="480" y="80" font-family="serif" font-size="24" fill="#7D6740">ray petals</text>
+
+  <!-- Annotation 2: sticky bract -->
+  <line x1="320" y1="175" x2="420" y2="240" stroke="#A78545" stroke-width="3"/>
+  <text x="420" y="265" font-family="serif" font-size="24" fill="#7D6740">sticky bract</text>
+</svg>

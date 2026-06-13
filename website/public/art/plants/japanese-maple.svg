@@ -1,0 +1,137 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main branch entering bottom-right, sweeping up-left -->
+  <path d="M 480 555 C 452 530 418 508 380 490 C 342 472 300 460 265 444 C 232 429 206 412 188 392 C 172 374 165 355 168 336" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twig 1: from mid-branch upper-left -->
+  <path d="M 220 452 C 204 434 190 412 178 388" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twig 2: from upper branch area, going upper-right -->
+  <path d="M 280 462 C 278 440 278 416 280 392" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Twig 3: from upper branch, going upper-left toward samaras -->
+  <path d="M 200 412 C 196 392 194 368 196 344" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Palmate leaf 1: large, 7 lobes, from main branch ~x340 y472 -->
+  <!-- petiole -->
+  <path d="M 338 472 C 326 454 312 436 300 418" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- 7 lobes radiating from center x=300 y=418 -->
+  <!-- Lobe 1: top center -->
+  <path d="M 300 418 C 296 404 292 386 294 370 C 296 358 302 352 308 354 C 314 356 318 366 316 380 C 314 394 308 410 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.42"/>
+  <!-- Lobe 2: upper-right -->
+  <path d="M 300 418 C 312 408 326 398 336 386 C 344 376 346 365 340 358 C 334 351 323 353 315 362 C 307 371 302 390 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- Lobe 3: right -->
+  <path d="M 300 418 C 316 416 332 410 342 400 C 352 390 352 378 344 372 C 336 366 322 370 312 382 C 305 392 301 408 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 4: lower-right -->
+  <path d="M 300 418 C 312 424 326 428 338 422 C 350 416 354 404 347 396 C 340 388 326 386 312 396 C 306 402 301 412 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.38"/>
+  <!-- Lobe 5: left -->
+  <path d="M 300 418 C 286 416 270 410 262 398 C 254 386 256 374 264 368 C 272 362 284 366 292 378 C 298 390 301 408 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- Lobe 6: upper-left -->
+  <path d="M 300 418 C 288 408 276 396 268 382 C 260 368 262 356 270 350 C 278 344 290 348 296 360 C 302 372 303 396 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- Lobe 7: lower-left -->
+  <path d="M 300 418 C 288 424 274 428 262 424 C 250 420 246 408 254 400 C 262 392 278 392 290 402 C 296 408 300 415 300 418 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.38"/>
+
+  <!-- Palmate leaf 2: smaller, from twig 1 ~x178 y388 -->
+  <path d="M 178 388 C 168 374 158 358 150 342" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 7 lobes from center x=150 y=342 — smaller radius ~36px -->
+  <!-- Lobe 1 top -->
+  <path d="M 150 342 C 146 330 144 316 147 305 C 150 296 156 293 162 296 C 168 299 170 308 168 318 C 166 328 158 338 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.42"/>
+  <!-- Lobe 2 upper-right -->
+  <path d="M 150 342 C 160 334 170 326 178 316 C 184 308 185 299 180 294 C 175 289 166 290 159 298 C 153 306 150 326 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.40"/>
+  <!-- Lobe 3 right -->
+  <path d="M 150 342 C 162 340 174 336 180 326 C 186 316 184 306 177 302 C 170 298 160 302 154 312 C 150 322 149 335 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.38"/>
+  <!-- Lobe 4 lower-right -->
+  <path d="M 150 342 C 160 348 170 350 178 345 C 186 340 188 330 182 324 C 176 318 165 318 157 326 C 152 332 150 340 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.36"/>
+  <!-- Lobe 5 left -->
+  <path d="M 150 342 C 140 340 128 336 123 326 C 118 316 120 306 128 302 C 136 298 146 302 150 312 C 152 322 152 336 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.38"/>
+  <!-- Lobe 6 upper-left -->
+  <path d="M 150 342 C 140 334 130 325 124 314 C 118 303 120 294 128 291 C 136 288 146 294 150 306 C 153 318 152 334 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.40"/>
+  <!-- Lobe 7 lower-left -->
+  <path d="M 150 342 C 140 348 130 350 122 344 C 114 338 113 328 120 322 C 127 316 140 318 148 328 C 150 333 150 340 150 342 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.36"/>
+
+  <!-- Palmate leaf 3: medium, from twig 2 ~x280 y392 -->
+  <path d="M 280 392 C 278 376 274 360 270 344" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 7 lobes from x=270 y=344 -->
+  <!-- Lobe 1 top -->
+  <path d="M 270 344 C 267 330 265 315 268 304 C 271 295 278 291 284 294 C 290 297 292 308 290 320 C 288 332 280 341 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- Lobe 2 upper-right -->
+  <path d="M 270 344 C 280 336 292 326 300 314 C 307 304 308 294 302 289 C 296 284 285 287 278 296 C 271 305 269 328 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 3 right -->
+  <path d="M 270 344 C 282 342 295 337 302 326 C 309 315 307 304 298 300 C 289 296 278 301 272 313 C 268 324 268 338 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.36"/>
+  <!-- Lobe 4 lower-right -->
+  <path d="M 270 344 C 280 350 292 352 300 346 C 308 340 309 329 302 323 C 295 317 283 318 274 327 C 269 334 268 342 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.36"/>
+  <!-- Lobe 5 left -->
+  <path d="M 270 344 C 259 341 246 336 240 325 C 234 314 237 304 246 300 C 255 296 266 301 270 313 C 272 324 272 338 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 6 upper-left -->
+  <path d="M 270 344 C 259 336 248 326 242 314 C 236 302 238 292 247 289 C 256 286 267 293 271 307 C 274 320 273 336 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 7 lower-left -->
+  <path d="M 270 344 C 260 350 250 352 242 346 C 234 340 234 330 242 324 C 250 318 263 320 270 330 C 271 336 271 342 270 344 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.36"/>
+
+  <!-- Palmate leaf 4: rotated, from main branch ~x400 y480 -->
+  <path d="M 400 480 C 400 462 398 442 396 422" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 7 lobes from x=396 y=422 — medium -->
+  <!-- Lobe 1 top -->
+  <path d="M 396 422 C 392 408 390 392 394 380 C 398 370 406 367 412 372 C 418 377 418 390 414 403 C 410 415 402 422 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.42"/>
+  <!-- Lobe 2 right -->
+  <path d="M 396 422 C 410 418 424 412 432 400 C 440 388 437 375 428 370 C 419 365 407 370 400 382 C 395 393 394 411 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.40"/>
+  <!-- Lobe 3 lower-right -->
+  <path d="M 396 422 C 408 428 420 430 428 422 C 436 414 436 402 428 396 C 420 390 408 392 400 402 C 396 410 395 419 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.38"/>
+  <!-- Lobe 4 lower-left -->
+  <path d="M 396 422 C 386 430 376 432 368 424 C 360 416 360 404 368 398 C 376 392 389 395 396 406 C 398 413 397 420 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D6C29A" fill-opacity="0.36"/>
+  <!-- Lobe 5 left -->
+  <path d="M 396 422 C 382 418 368 410 362 398 C 356 386 360 374 370 370 C 380 366 392 372 396 386 C 398 398 398 414 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.38"/>
+  <!-- Lobe 6 upper-left -->
+  <path d="M 396 422 C 384 412 374 400 372 386 C 370 372 378 362 388 362 C 398 362 408 372 408 386 C 408 400 402 414 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.40"/>
+  <!-- Lobe 7 top-right -->
+  <path d="M 396 422 C 406 410 418 398 424 384 C 430 370 426 358 416 356 C 406 354 395 364 394 380 C 393 396 394 413 396 422 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.38"/>
+
+  <!-- Palmate leaf 5: small, from twig 3 tip ~x196 y344 -->
+  <path d="M 196 344 C 195 330 194 315 194 300" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- 7 slim lobes from x=194 y=300 -->
+  <!-- Lobe 1 top -->
+  <path d="M 194 300 C 191 288 190 273 194 263 C 198 254 206 252 212 257 C 218 262 218 274 214 285 C 210 295 202 300 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- Lobe 2 upper-right -->
+  <path d="M 194 300 C 204 292 214 282 220 270 C 226 258 224 248 217 244 C 210 240 199 244 194 256 C 190 268 190 286 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 3 right -->
+  <path d="M 194 300 C 206 298 218 292 224 282 C 230 272 228 260 220 256 C 212 252 200 257 195 268 C 192 278 192 293 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.36"/>
+  <!-- Lobe 4 lower-right -->
+  <path d="M 194 300 C 204 306 216 308 223 302 C 230 296 230 285 222 279 C 214 273 202 274 196 284 C 193 291 193 298 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D6C29A" fill-opacity="0.35"/>
+  <!-- Lobe 5 left -->
+  <path d="M 194 300 C 184 297 172 291 167 281 C 162 271 165 260 174 256 C 183 252 194 258 196 270 C 197 281 196 294 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.37"/>
+  <!-- Lobe 6 upper-left -->
+  <path d="M 194 300 C 184 292 174 282 170 270 C 166 258 169 248 177 245 C 185 242 196 248 198 261 C 200 274 198 290 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Lobe 7 lower-left -->
+  <path d="M 194 300 C 184 306 174 307 167 301 C 160 295 161 284 168 279 C 175 274 187 275 193 285 C 194 292 194 298 194 300 Z" stroke="#7D6740" stroke-width="2" fill="#D6C29A" fill-opacity="0.34"/>
+
+  <!-- Pair of samaras (winged seeds) hanging from twig 3 -->
+  <!-- Samara stalk -->
+  <path d="M 196 344 C 200 334 206 326 214 320" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Samara seed body -->
+  <ellipse cx="214" cy="316" rx="6" ry="5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.55"/>
+  <!-- Wing 1 (left) -->
+  <path d="M 214 316 C 204 308 196 298 192 286 C 188 274 192 266 200 265 C 208 264 216 272 218 284 C 220 296 218 309 214 316 Z" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- Wing 2 (right) -->
+  <path d="M 214 316 C 224 308 234 298 238 286 C 242 274 238 266 230 265 C 222 264 214 272 212 284 C 210 296 212 309 214 316 Z" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.38"/>
+
+  <!-- Annotation 1: palmate leaf (left) -->
+  <line x1="150" y1="305" x2="106" y2="274" stroke="#A78545" stroke-width="3"/>
+  <text x="64" y="278" font-family="serif" font-size="24" fill="#7D6740">palmate leaf</text>
+
+  <!-- Annotation 2: winged samara (right, anchor end) -->
+  <line x1="238" y1="280" x2="302" y2="248" stroke="#A78545" stroke-width="3"/>
+  <text x="572" y="244" font-family="serif" font-size="24" fill="#7D6740" text-anchor="end">winged samara</text>
+
+  <!-- Caption dividers -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Acer palmatum</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 123 · Japanese Maple study</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Specimen: Vaccinium corymbosum (Blueberry) -->
+  <!-- Woody branched shrub stem structure -->
+  <path d="M 320 540 Q 318 480 320 420 Q 322 360 320 300" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Left branch -->
+  <path d="M 320 420 Q 270 400 240 370 Q 230 360 225 345" stroke="#6C5A3A" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+
+  <!-- Right branch -->
+  <path d="M 320 420 Q 370 400 400 370 Q 410 360 415 345" stroke="#6C5A3A" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+
+  <!-- Small upright branch -->
+  <path d="M 320 360 Q 325 330 328 300 Q 330 270 328 240" stroke="#6C5A3A" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+
+  <!-- Oval leaves distributed on branches -->
+  <!-- Left branch leaves -->
+  <ellipse cx="280" cy="385" rx="18" ry="26" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.36" transform="rotate(-35 280 385)"/>
+  <path d="M 265 372 Q 280 380 295 375" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <ellipse cx="250" cy="355" rx="17" ry="25" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.36" transform="rotate(-40 250 355)"/>
+  <path d="M 237 345 Q 250 352 263 348" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <!-- Right branch leaves -->
+  <ellipse cx="360" cy="385" rx="18" ry="26" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.36" transform="rotate(35 360 385)"/>
+  <path d="M 345 375 Q 360 380 375 372" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <ellipse cx="390" cy="355" rx="17" ry="25" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.36" transform="rotate(40 390 355)"/>
+  <path d="M 377 348 Q 390 352 403 345" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <!-- Upper branch leaves -->
+  <ellipse cx="318" cy="310" rx="17" ry="24" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.38" transform="rotate(15 318 310)"/>
+  <path d="M 310 298 Q 318 310 328 308" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <ellipse cx="340" cy="280" rx="16" ry="23" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.38" transform="rotate(25 340 280)"/>
+  <path d="M 333 270 Q 340 280 350 278" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <!-- Bell-shaped blossoms (2-3) -->
+  <g id="blossoms">
+    <!-- Blossom 1 - upper left -->
+    <path d="M 245 330 Q 238 325 238 318 Q 238 310 245 308 Q 252 310 252 318 Q 252 325 245 330" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.45" stroke-linecap="round"/>
+    <path d="M 242 322 Q 245 318 248 322" stroke="#7D6740" stroke-width="1.5" fill="none"/>
+
+    <!-- Blossom 2 - center -->
+    <path d="M 315 270 Q 308 265 308 258 Q 308 250 315 248 Q 322 250 322 258 Q 322 265 315 270" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.45" stroke-linecap="round"/>
+    <path d="M 312 262 Q 315 258 318 262" stroke="#7D6740" stroke-width="1.5" fill="none"/>
+
+    <!-- Blossom 3 - upper right -->
+    <path d="M 405 330 Q 398 325 398 318 Q 398 310 405 308 Q 412 310 412 318 Q 412 325 405 330" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.45" stroke-linecap="round"/>
+    <path d="M 402 322 Q 405 318 408 322" stroke="#7D6740" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Ripening berry cluster (5-8 round berries) -->
+  <g id="berry-cluster">
+    <!-- Large central berry (darkest, ripest) -->
+    <ellipse cx="320" cy="440" rx="16" ry="18" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.55"/>
+    <ellipse cx="318" cy="438" rx="12" ry="14" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.5"/>
+
+    <!-- Upper left berry -->
+    <ellipse cx="295" cy="420" rx="14" ry="16" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.48"/>
+    <ellipse cx="297" cy="418" rx="10" ry="12" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.42"/>
+
+    <!-- Upper right berry -->
+    <ellipse cx="345" cy="420" rx="14" ry="16" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.48"/>
+    <ellipse cx="343" cy="418" rx="10" ry="12" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.42"/>
+
+    <!-- Lower left berry -->
+    <ellipse cx="305" cy="455" rx="13" ry="15" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+    <ellipse cx="307" cy="453" rx="9" ry="11" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.38"/>
+
+    <!-- Lower right berry -->
+    <ellipse cx="335" cy="455" rx="13" ry="15" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+    <ellipse cx="333" cy="453" rx="9" ry="11" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.38"/>
+
+    <!-- Smaller side berry (left) -->
+    <ellipse cx="280" cy="440" rx="11" ry="13" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.4"/>
+    <ellipse cx="282" cy="438" rx="8" ry="10" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.35"/>
+
+    <!-- Smaller side berry (right) -->
+    <ellipse cx="360" cy="440" rx="11" ry="13" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.4"/>
+    <ellipse cx="358" cy="438" rx="8" ry="10" stroke="#7D6740" stroke-width="0" fill="#D6C29A" fill-opacity="0.35"/>
+  </g>
+
+  <!-- Annotation 1: ripening cluster -->
+  <line x1="320" y1="450" x2="420" y2="480" stroke="#A78545" stroke-width="3"/>
+  <text x="425" y="498" font-family="serif" font-size="24" fill="#7D6740">ripening cluster</text>
+
+  <!-- Annotation 2: bell blossom -->
+  <line x1="315" y1="265" x2="200" y2="220" stroke="#A78545" stroke-width="3"/>
+  <text x="45" y="235" font-family="serif" font-size="24" fill="#7D6740">bell blossom</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Vaccinium corymbosum</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 105 · Blueberry study</text>
+</svg>

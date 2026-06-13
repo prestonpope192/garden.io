@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper background -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Curved flower stalk -->
+  <path d="M 320 200 Q 310 280 320 360 Q 330 420 340 480" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Leaf stalk (lower) -->
+  <path d="M 330 450 Q 320 480 300 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Palmately-divided leaf segments (5 lobes) -->
+  <path d="M 300 520 Q 270 520 250 540 Q 250 560 270 565 Q 290 555 300 520 Z" fill="#D3BF98" fill-opacity="0.42" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 270 535 L 268 555" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 280 535 L 282 560" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 300 520 Q 305 545 310 570 Q 325 575 330 560 Q 320 545 300 520 Z" fill="#D3BF98" fill-opacity="0.44" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 310 540 L 315 565" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 318 540 L 320 565" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 300 520 Q 320 515 340 520 Q 345 540 330 550 Q 315 535 300 520 Z" fill="#D3BF98" fill-opacity="0.46" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 315 520 L 330 535" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 325 520 L 335 538" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 300 520 Q 305 545 295 570 Q 285 575 280 560 Q 290 535 300 520 Z" fill="#D3BF98" fill-opacity="0.43" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 290 545 L 290 568" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Nodding cup-shaped flower -->
+  <!-- Outer sepal structure (5 overlapping sepals forming cup) -->
+  <path d="M 305 360 Q 290 380 285 410 Q 290 430 310 435 Q 330 430 340 410 Q 340 380 330 360 Z" fill="#D3BF98" fill-opacity="0.50" stroke="#6C5A3A" stroke-width="3.5"/>
+  <ellipse cx="315" cy="375" rx="20" ry="25" fill="#D8C49C" fill-opacity="0.35"/>
+
+  <!-- Upper right sepal -->
+  <path d="M 325 365 Q 345 370 355 390 Q 350 420 330 430 Q 320 410 325 365 Z" fill="#D3BF98" fill-opacity="0.48" stroke="#6C5A3A" stroke-width="3.5"/>
+
+  <!-- Upper left sepal -->
+  <path d="M 305 365 Q 285 370 275 390 Q 280 420 300 430 Q 310 410 305 365 Z" fill="#D3BF98" fill-opacity="0.46" stroke="#6C5A3A" stroke-width="3.5"/>
+
+  <!-- Center bottom sepal -->
+  <path d="M 315 385 Q 310 410 315 435 Q 330 438 335 420 Q 328 400 315 385 Z" fill="#D3BF98" fill-opacity="0.44" stroke="#6C5A3A" stroke-width="3.5"/>
+
+  <!-- Sepal veining -->
+  <path d="M 300 375 Q 310 395 315 430" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 330 375 Q 320 395 318 430" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 290 385 Q 305 405 310 430" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 340 385 Q 325 405 320 430" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Center detail -->
+  <circle cx="315" cy="400" r="8" fill="#D6C29A" fill-opacity="0.4"/>
+  <path d="M 315 395 L 315 405" stroke="#7D6740" stroke-width="1.5"/>
+  <path d="M 310 400 L 320 400" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Annotation 1: nodding sepals -->
+  <path d="M 280 410 L 180 480" stroke="#A78545" stroke-width="3"/>
+  <text x="120" y="500" font-family="serif" font-size="24" fill="#7D6740">nodding sepals</text>
+
+  <!-- Annotation 2: leathery leaf -->
+  <path d="M 290 550 L 200 600" stroke="#A78545" stroke-width="3"/>
+  <text x="120" y="620" font-family="serif" font-size="24" fill="#7D6740">leathery leaf</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Helleborus orientalis</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 124 · Hellebores study</text>
+</svg>

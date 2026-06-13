@@ -7,6 +7,8 @@ const waitlistSchema = z.object({
   company: z.string().trim().max(200).optional()
 });
 
+const genericFailureMessage = "Unable to join the waitlist right now. Please try again later.";
+
 export type WaitlistSignupResult =
   | {
       ok: true;
@@ -80,11 +82,12 @@ export async function processWaitlistSignup(
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown signup error";
+    console.error("WAITLIST_SIGNUP_FAILED", { message });
 
     return {
       ok: false,
       status: 500,
-      message
+      message: genericFailureMessage
     };
   }
 }

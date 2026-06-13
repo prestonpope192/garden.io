@@ -2,51 +2,61 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FieldIcon } from "@/components/field-icons";
-import { InkStamp, MarginNote, PlateCard, SpecimenLabel } from "@/components/journal-primitives";
+import { MarginNote, PlateCard, SpecimenLabel } from "@/components/journal-primitives";
+import { plantCatalogueEntries } from "@/lib/plant-catalogue-data";
 import { WaitlistForm } from "@/components/waitlist-form";
 
 const productPillars = [
   {
     title: "Space-first planning",
-    description: "Navigate Property → Zone → Bed → Plant before the week gets noisy."
+    description: "Move through Property, Zone, Bed, and Plant so work always stays tied to place."
   },
   {
     title: "Seasonal memory",
-    description: "Keep notes, outcomes, and plant records attached to the exact place they happened."
+    description: "Keep notes, outcomes, and observations attached to the exact beds and plants where they happened."
   },
   {
-    title: "Ambient guidance",
-    description: "Suggestions live in context as margin notes and planning cues, not as a generic chatbot."
+    title: "Calm guidance",
+    description: "See suggestions in context as part of the workflow instead of relying on disconnected task lists."
   }
 ];
 
-const prototypeModules = [
+const productFeatures = [
   {
     href: "/app/my-property",
     title: "My Property",
-    summary: "The spatial notebook for land, zones, beds, and live plant records."
+    summary: "Navigate your land the way it actually exists: Property → Zone → Bed → Plant."
   },
   {
     href: "/app/calendar",
     title: "Calendar",
-    summary: "The temporal mirror of the property hierarchy, tuned for weekly field planning."
+    summary: "Turn weather, timing windows, and plant context into a calmer weekly planning rhythm."
   },
   {
     href: "/app/my-plants",
     title: "My Plants",
-    summary: "A specimen cabinet of active, wishlist, and archived plant memory."
+    summary: "Keep active plants, wishlist ideas, and past seasons in one plant memory system."
   },
   {
-    href: "/app/plant-catalogue",
+    href: "/catalog",
     title: "Plant Catalogue",
-    summary: "Reference entries that feel like a field guide instead of a sterile database."
+    summary: "Browse public plant profiles before login, then carry those records into the rest of the app."
   }
 ];
 
-const audienceFit = [
-  "Home growers managing 4 to 12+ productive beds",
-  "Homesteaders balancing annuals, perennials, and soil-building work",
-  "Small diversified farms that need continuity across spaces and seasons"
+const audienceProfiles = [
+  {
+    title: "Multi-bed home growers",
+    summary: "You are managing several productive beds and need one place to track what to do, where, and when."
+  },
+  {
+    title: "Homesteaders",
+    summary: "You are balancing annuals, perennials, soil work, and longer-term system thinking across seasons."
+  },
+  {
+    title: "Small diversified farms",
+    summary: "You need better continuity across beds, timing windows, harvest notes, and recurring seasonal work."
+  }
 ];
 
 const audienceNotFit = [
@@ -55,52 +65,39 @@ const audienceNotFit = [
   "Large monocrop operations needing full ERP and compliance suites"
 ];
 
-const fieldSignals = [
+const whyCards = [
   {
-    label: "Notebook rule",
-    note: "Plan by bed and zone, not by disconnected task lists."
+    label: "For your land",
+    note: "See the property structure clearly before the week turns into disconnected tasks."
   },
   {
-    label: "Emotional target",
-    note: "Calm, confidence, continuity, and trust."
+    label: "For your memory",
+    note: "Keep notes, outcomes, and observations tied to the exact plant or bed they belong to."
   },
   {
-    label: "Why now",
-    note: "Growers already keep notebooks. Garden.io becomes the digital evolution of that habit."
+    label: "For your week",
+    note: "Turn timing, weather, and context into calmer next actions that feel grounded in the season."
   }
 ];
 
-const marketSignals = [
-  {
-    metric: "80%",
-    detail: "U.S. household participation in gardening activities in the 2022 National Gardening Survey, reported by AP in 2024."
-  },
-  {
-    metric: "61%",
-    detail: "Canadian households growing fruits, herbs, vegetables, or flowers, with higher participation in single-detached homes."
-  },
-  {
-    metric: "33M+",
-    detail: "People engaged in community gardening in U.S. research highlighted by NRPA."
-  }
-];
+const catalogPreview = plantCatalogueEntries.slice(0, 3);
 
 const faqs = [
   {
     q: "Who is Garden.io built for first?",
-    a: "The first audience is multi-bed home growers and homesteaders in North America who need one calm system for place, timing, and memory."
+    a: "Garden.io is built first for multi-bed home growers and homesteaders who need one calm system for place, timing, and memory."
   },
   {
-    q: "Is this a task app?",
+    q: "Can I use the plant catalogue without logging in?",
+    a: "Yes. The public plant catalogue is designed as an open front door so growers can browse profiles before signing up."
+  },
+  {
+    q: "Is this just a task app?",
     a: "No. Tasks are a byproduct of the property record, seasonal timing, and observation history."
   },
   {
     q: "What is included in early access?",
     a: "Core hierarchy navigation, contextual notes, calendar planning surfaces, and guided add flows."
-  },
-  {
-    q: "Can I preview the direction before the product is built?",
-    a: "Yes. This site now includes a clickable prototype shell that shows the notebook-style product direction."
   }
 ];
 
@@ -109,7 +106,6 @@ export default function HomePage() {
     <main className="site site--marketing">
       <header className="topbar">
         <div className="topbar__brand">
-          <SpecimenLabel tone="olive">Field edition 01</SpecimenLabel>
           <a className="brand" href="#top">
             Garden.io
           </a>
@@ -117,14 +113,14 @@ export default function HomePage() {
 
         <nav aria-label="Primary" className="topnav">
           <a href="#why">Why</a>
-          <a href="#prototype">Prototype</a>
-          <a href="#fit">Fit</a>
+          <a href="#features">Features</a>
+          <a href="#audience">Who It&apos;s For</a>
           <a href="#faq">FAQ</a>
         </nav>
 
         <div className="topbar__actions">
-          <Link className="topbar-secondary" href="/app">
-            Open Prototype
+          <Link className="topbar-secondary" href="/catalog">
+            Catalog
           </Link>
           <a className="topbar-cta" href="#join">
             Join Waitlist
@@ -137,17 +133,17 @@ export default function HomePage() {
           <SpecimenLabel>Plate 001 · Public folio</SpecimenLabel>
           <h1>The living notebook for growers managing real complexity.</h1>
           <p className="lead">
-            Garden.io turns land, timing, and plant memory into one tactile system with a botanical field-journal feel. It should
-            feel like opening a field notebook, not logging into a generic productivity app.
+            Garden.io turns land, timing, and plant memory into one tactile system. Start in the public plant catalogue, then
+            carry that knowledge into place-based planning across properties, zones, beds, and plants.
           </p>
 
           <div className="cover-sheet__actions">
-            <a className="folio-link" href="#join">
+            <Link className="folio-link" href="/catalog">
+              Browse Plant Catalog
+            </Link>
+            <a className="folio-link folio-link--secondary" href="#join">
               Request Early Access
             </a>
-            <Link className="folio-link folio-link--secondary" href="/app">
-              View prototype notebook
-            </Link>
           </div>
 
           <div className="chip-row">
@@ -163,16 +159,10 @@ export default function HomePage() {
         <div className="cover-sheet__aside">
           <PlateCard
             plateNumber="17"
-            subtitle="Early access specimen"
+            subtitle="Public catalog profile"
             title="Cherokee Purple Tomato"
             illustration={
-              <Image
-                alt="Sepia botanical tomato illustration."
-                className="specimen-art"
-                height={420}
-                src="/art/specimen-tomato.svg"
-                width={340}
-              />
+              <Image alt="Sepia botanical tomato illustration." className="specimen-art" height={420} src="/art/specimen-tomato.svg" width={340} />
             }
           >
             <dl className="detail-list">
@@ -200,78 +190,102 @@ export default function HomePage() {
             </dl>
           </PlateCard>
 
-          <MarginNote icon="journal" title="Notebook marginalia">
-            <p>Prune lower stems early. Companion plant: basil. Harvest window expected in late June if nights stay warm.</p>
+          <MarginNote icon="sprout" title="Public plant catalogue">
+            <p>Browse starter plant profiles without logging in, then move from plant knowledge into planning and place-aware records.</p>
           </MarginNote>
         </div>
       </section>
 
       <section className="section-card" id="why">
         <div className="section-card__header">
-          <SpecimenLabel tone="clay">Why this exists</SpecimenLabel>
-          <h2>Growing breaks when memory, timing, and context are split across tools.</h2>
+          <SpecimenLabel tone="clay">Why Garden.io</SpecimenLabel>
+          <h2>Growing gets harder when place, timing, and memory are split apart.</h2>
           <p>
-            Most growers juggle notebooks, screenshots, weather apps, seed packet notes, and memory. Garden.io unifies those
-            fragments into one calm surface that stays tied to real places and real seasons.
+            Most growers juggle notebooks, screenshots, weather apps, seed packet notes, and memory. Garden.io brings those
+            fragments back together so the system feels grounded in real land and real seasons.
           </p>
         </div>
 
         <div className="annotated-grid">
-          {fieldSignals.map((signal) => (
-            <article className="annotation-card" key={signal.label}>
-              <span className="annotation-card__label">{signal.label}</span>
-              <p>{signal.note}</p>
+          {whyCards.map((card) => (
+            <article className="annotation-card" key={card.label}>
+              <span className="annotation-card__label">{card.label}</span>
+              <p>{card.note}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section-card" id="prototype">
+      <section className="section-card" id="features">
         <div className="section-card__header">
-          <SpecimenLabel tone="olive">Prototype routes</SpecimenLabel>
-          <h2>The public site stays readable. The prototype shell carries the stronger notebook metaphor.</h2>
+          <SpecimenLabel tone="olive">What it does</SpecimenLabel>
+          <h2>One system across place, time, plant memory, and public plant knowledge.</h2>
           <p>
-            The routes below are live in this repo now. They show the future Garden.io product as a set of spreads, specimen
-            labels, margin notes, and slower paper-like interactions.
+            Garden.io is designed so each part of the product reinforces the others. The plant catalogue is public. The rest of
+            the app turns that knowledge into planning, memory, and context-aware action.
           </p>
         </div>
 
-        <div className="prototype-route-grid">
-          {prototypeModules.map((module) => (
-            <Link className="prototype-route-card" href={module.href} key={module.href}>
-              <SpecimenLabel>{module.title}</SpecimenLabel>
-              <strong>{module.title}</strong>
-              <span>{module.summary}</span>
+        <div className="feature-grid">
+          {productFeatures.map((feature) => (
+            <Link className="feature-card feature-card--link" href={feature.href} key={feature.title}>
+              <strong>{feature.title}</strong>
+              <p>{feature.summary}</p>
             </Link>
           ))}
         </div>
-
-        <InkStamp>Click any route to open the notebook shell</InkStamp>
       </section>
 
       <section className="section-card">
         <div className="section-card__header">
-          <SpecimenLabel tone="clay">Disclosure boundary</SpecimenLabel>
-          <h2>What we share publicly vs what we keep private before launch</h2>
+          <SpecimenLabel tone="olive">Plant catalogue</SpecimenLabel>
+          <h2>Start with the public catalogue before you ever log in.</h2>
           <p>
-            We share the workflows, who Garden.io is for, and the shape of the experience. We do not publish proprietary
-            recommendation logic, full model internals, or complete weighting methods before launch.
+            The catalog is the most accessible public surface in Garden.io. Browse plant profiles, compare fit, and understand
+            how each entry will later connect to planning and plant records inside the app.
           </p>
+        </div>
+
+        <div className="catalog-preview-grid">
+          {catalogPreview.map((plant) => (
+            <Link className="catalog-preview-card" href={`/catalog/${plant.slug}`} key={plant.slug}>
+              <Image alt={plant.commonName} className="specimen-art specimen-art--small" height={240} src={plant.illustration} width={200} />
+              <div className="catalog-preview-card__body">
+                <SpecimenLabel>{plant.commonName}</SpecimenLabel>
+                <strong>{plant.latinName}</strong>
+                <span>{plant.summary}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="section-actions">
+          <Link className="folio-link" href="/catalog">
+            Browse all catalog plants
+          </Link>
         </div>
       </section>
 
-      <section className="section-card" id="fit">
-        <div className="section-card__split">
-          <article className="paper-panel">
-            <SpecimenLabel tone="olive">Best fit right now</SpecimenLabel>
-            <h3>Built for growers managing living systems.</h3>
-            <ul className="note-list">
-              {audienceFit.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+      <section className="section-card" id="audience">
+        <div className="section-card__header">
+          <SpecimenLabel tone="clay">Who it&apos;s for</SpecimenLabel>
+          <h2>Built for growers managing living systems, not ornamental chores.</h2>
+          <p>
+            The strongest fit is people who already feel the pain of fragmented notes, missed timing windows, and too many places
+            to keep track of what happened.
+          </p>
+        </div>
 
+        <div className="feature-grid">
+          {audienceProfiles.map((profile) => (
+            <article className="feature-card" key={profile.title}>
+              <strong>{profile.title}</strong>
+              <p>{profile.summary}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="section-card__split section-card__split--tight">
           <article className="paper-panel paper-panel--muted">
             <SpecimenLabel tone="clay">Not the focus today</SpecimenLabel>
             <h3>Not every grower needs this much structure.</h3>
@@ -284,30 +298,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-card" id="signals">
-        <div className="section-card__header">
-          <SpecimenLabel tone="olive">Why now</SpecimenLabel>
-          <h2>The audience is large, active, and ready for better planning tools.</h2>
-        </div>
-
-        <div className="annotated-grid">
-          {marketSignals.map((signal) => (
-            <article className="annotation-card" key={signal.metric}>
-              <span className="annotation-card__label">{signal.metric}</span>
-              <p>{signal.detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section-card section-card--join" id="join">
         <div className="section-card__split">
           <article className="paper-panel">
             <SpecimenLabel tone="olive">Waitlist</SpecimenLabel>
             <h2>Join early access and help shape the first production release.</h2>
             <p>
-              Early users help tune templates, planning defaults, and recommendation quality before public launch. Join the
-              notebook list to get pilot invites and release notes.
+              Early users help tune templates, planning defaults, and recommendation quality before public launch. Join the list
+              for launch updates and access waves.
             </p>
             <WaitlistForm idPrefix="join" submitLabel="Join the Waitlist" />
             <p className="trust-note">We only use your email for Garden.io updates. No spam and easy unsubscribe.</p>
@@ -317,8 +315,8 @@ export default function HomePage() {
             <PlateCard
               className="plate-card--compact"
               plateNumber="23"
-              subtitle="Prototype shell study"
-              title="Oak Orchard folio"
+              subtitle="Product flow"
+              title="Property, planning, and plant records"
               illustration={
                 <Image
                   alt="Sepia herbarium-style botanical notebook illustration."
@@ -330,8 +328,8 @@ export default function HomePage() {
               }
             >
               <p>
-                Left page: context and hierarchy. Right page: detail, tasks, and notes. The live prototype shell shows how that
-                metaphor can carry the actual product.
+                Start in the public catalogue, then move into property structure, weekly planning, and long-term plant memory as
+                the season unfolds.
               </p>
             </PlateCard>
           </article>
@@ -341,7 +339,7 @@ export default function HomePage() {
       <section className="section-card" id="faq">
         <div className="section-card__header">
           <SpecimenLabel tone="clay">FAQ</SpecimenLabel>
-          <h2>Questions growers ask before joining the notebook.</h2>
+          <h2>Questions growers ask before joining.</h2>
         </div>
 
         <div className="faq-list">
@@ -353,6 +351,11 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <footer className="site-footer">
+        <p>Garden.io</p>
+        <p>Prototype website v0.1</p>
+      </footer>
     </main>
   );
 }

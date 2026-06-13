@@ -3,8 +3,27 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { WaitlistConfig } from "@/lib/env";
 import type { WaitlistEmailInput, WaitlistMailer } from "@/lib/waitlist-types";
 
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (character) => {
+    switch (character) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      case "'":
+        return "&#39;";
+      default:
+        return character;
+    }
+  });
+}
+
 function welcomeHtml(name?: string): string {
-  const greeting = name ? `Hi ${name},` : "Hi there,";
+  const greeting = name ? `Hi ${escapeHtml(name)},` : "Hi there,";
 
   return [
     `<p>${greeting}</p>`,

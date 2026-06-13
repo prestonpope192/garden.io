@@ -11,3 +11,16 @@ export function createWaitlistSupabaseClient(config: WaitlistConfig) {
     }
   });
 }
+
+export function createSupabaseServiceClient(config: WaitlistConfig) {
+  if (!config.supabaseServiceRoleKey) {
+    throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
+  }
+
+  return createClient(config.supabaseUrl, config.supabaseServiceRoleKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false
+    }
+  });
+}

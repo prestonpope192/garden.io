@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper background -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main stem -->
+  <path d="M 320 140 Q 330 220 320 320 Q 310 420 330 500" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Left leaflet branch -->
+  <path d="M 280 200 L 200 180" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Right leaflet branch -->
+  <path d="M 360 240 L 450 220" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Left side leaflets (5-6) -->
+  <path d="M 280 200 Q 260 170 240 160 Q 235 180 255 195 Q 270 205 280 200 Z" fill="#D3BF98" fill-opacity="0.42" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 250 175 L 258 188" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 270 220 Q 245 210 220 210 Q 215 230 240 240 Q 265 235 270 220 Z" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 235 220 L 250 232" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 285 250 Q 250 250 220 270 Q 220 290 250 295 Q 280 270 285 250 Z" fill="#D3BF98" fill-opacity="0.48" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 240 270 L 265 290" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 290 290 Q 250 300 220 330 Q 225 350 255 345 Q 290 315 290 290 Z" fill="#D3BF98" fill-opacity="0.46" stroke="#7D6740" stroke-width="3"/>
+
+  <!-- Right side leaflets (5-6) -->
+  <path d="M 360 240 Q 390 220 420 210 Q 425 230 400 245 Q 375 255 360 240 Z" fill="#D3BF98" fill-opacity="0.44" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 395 225 L 410 240" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 350 270 Q 390 250 430 240 Q 435 260 410 280 Q 360 295 350 270 Z" fill="#D3BF98" fill-opacity="0.47" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 410 255 L 425 275" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 340 310 Q 390 280 440 270 Q 445 290 415 315 Q 355 335 340 310 Z" fill="#D3BF98" fill-opacity="0.43" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 415 290 L 430 310" stroke="#7D6740" stroke-width="1.5"/>
+
+  <path d="M 330 350 Q 380 320 430 310 Q 435 330 405 355 Q 345 370 330 350 Z" fill="#D3BF98" fill-opacity="0.46" stroke="#7D6740" stroke-width="3"/>
+
+  <!-- Terminal leaflet -->
+  <path d="M 320 320 Q 320 300 305 285 Q 295 300 305 330 Q 320 345 320 320 Z" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 308 310 L 318 328" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Nut 1 (whole, oval) -->
+  <ellipse cx="250" cy="420" rx="28" ry="42" fill="#D3BF98" fill-opacity="0.52" stroke="#6C5A3A" stroke-width="3.5"/>
+  <ellipse cx="248" cy="418" rx="26" ry="40" fill="#D8C49C" fill-opacity="0.38"/>
+  <path d="M 260 410 Q 268 425 264 445" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Nut 2 (husk splitting) -->
+  <ellipse cx="400" cy="440" rx="32" ry="45" fill="#D3BF98" fill-opacity="0.55" stroke="#6C5A3A" stroke-width="3.5"/>
+  <ellipse cx="398" cy="438" rx="30" ry="43" fill="#D8C49C" fill-opacity="0.4"/>
+  <!-- Husk sections: four-part split -->
+  <path d="M 400 395 Q 385 420 390 460" stroke="#7D6740" stroke-width="2.5"/>
+  <path d="M 400 395 Q 415 420 410 460" stroke="#7D6740" stroke-width="2.5"/>
+  <path d="M 385 420 Q 400 435 398 460" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 415 420 Q 400 435 402 460" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Annotation 1: pinnate leaflets -->
+  <path d="M 250 220 L 160 280" stroke="#A78545" stroke-width="3"/>
+  <text x="100" y="300" font-family="serif" font-size="24" fill="#7D6740">pinnate leaflets</text>
+
+  <!-- Annotation 2: splitting husk -->
+  <path d="M 390 460 L 490 520" stroke="#A78545" stroke-width="3"/>
+  <text x="460" y="540" font-family="serif" font-size="24" fill="#7D6740">splitting husk</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Carya illinoinensis</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 122 · Pecan study</text>
+</svg>

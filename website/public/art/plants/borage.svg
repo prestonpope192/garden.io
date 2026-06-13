@@ -1,0 +1,97 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Upright bristly main stem -->
+  <path d="M 320 560 Q 318 500 320 440 Q 322 380 320 320 Q 318 260 320 200 Q 322 140 320 100" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Bristles along stem (short perpendicular strokes) -->
+  <path d="M 315 520 L 308 515" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 325 520 L 332 515" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 312 460 L 305 455" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 328 460 L 335 455" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 315 380 L 308 375" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 325 380 L 332 375" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 312 280 L 305 275" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 328 280 L 335 275" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Rough oval leaf 1 (lower left) -->
+  <path d="M 280 480 Q 265 490 260 510 Q 265 530 285 535 Q 300 530 305 510 Q 305 495 290 480" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+  <!-- Rough texture veins -->
+  <path d="M 280 490 L 275 515" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 285 485 L 280 520" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 290 490 L 295 520" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Rough oval leaf 2 (lower right) -->
+  <path d="M 360 480 Q 375 490 380 510 Q 375 530 355 535 Q 340 530 335 510 Q 335 495 350 480" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Texture veins -->
+  <path d="M 360 490 L 365 515" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 355 485 L 360 520" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 350 490 L 345 520" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Rough oval leaf 3 (mid left) -->
+  <path d="M 275 380 Q 260 390 255 410 Q 260 430 280 435 Q 295 430 300 410 Q 300 395 285 380" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.5"/>
+  <!-- Texture veins -->
+  <path d="M 275 390 L 270 415" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 280 385 L 275 420" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 285 390 L 290 420" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Rough oval leaf 4 (mid right) -->
+  <path d="M 365 380 Q 380 390 385 410 Q 380 430 360 435 Q 345 430 340 410 Q 340 395 355 380" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+  <!-- Texture veins -->
+  <path d="M 365 390 L 370 415" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 360 385 L 365 420" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 355 390 L 350 420" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Rough oval leaf 5 (upper left) -->
+  <path d="M 290 260 Q 275 270 270 290 Q 275 310 295 315 Q 310 310 315 290 Q 315 275 300 260" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Texture veins -->
+  <path d="M 290 270 L 285 295" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 295 265 L 290 305" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Nodding cluster of 5-pointed star flowers (drooping down) -->
+  <!-- Main flower (center) -->
+  <circle cx="320" cy="180" r="4" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <!-- Five petals (star shape) -->
+  <path d="M 320 165 Q 318 155 320 145" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <path d="M 332 172 Q 340 165 348 165" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <path d="M 328 188 Q 335 198 340 205" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <path d="M 312 188 Q 305 198 300 205" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+  <path d="M 308 172 Q 300 165 292 165" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+
+  <!-- Side flower 1 (left-nodding) -->
+  <circle cx="300" cy="210" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <path d="M 300 200 Q 298 190 300 180" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+  <path d="M 308 215 Q 315 220 320 225" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+  <path d="M 292 215 Q 285 220 280 225" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+
+  <!-- Side flower 2 (right-nodding) -->
+  <circle cx="340" cy="210" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <path d="M 340 200 Q 342 190 340 180" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+  <path d="M 332 215 Q 325 220 320 225" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+  <path d="M 348 215 Q 355 220 360 225" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.3"/>
+
+  <!-- Small nodding flower below center -->
+  <circle cx="320" cy="235" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <path d="M 320 225 L 320 220" stroke="#7D6740" stroke-width="2.5"/>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Borago officinalis</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 115 · Borage study</text>
+
+  <!-- Annotation 1: star flower -->
+  <line x1="320" y1="145" x2="420" y2="110" stroke="#A78545" stroke-width="3"/>
+  <text x="420" y="130" font-family="serif" font-size="24" fill="#7D6740">star flower</text>
+
+  <!-- Annotation 2: bristled stem -->
+  <line x1="315" y1="400" x2="450" y2="420" stroke="#A78545" stroke-width="3"/>
+  <text x="450" y="445" font-family="serif" font-size="24" fill="#7D6740">bristled stem</text>
+</svg>

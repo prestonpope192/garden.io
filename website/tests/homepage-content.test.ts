@@ -8,25 +8,25 @@ describe("HomePage", () => {
     const html = renderToStaticMarkup(createElement(HomePage));
 
     expect(html).toContain("The living notebook for growers managing real complexity.");
-    expect(html).toContain("Built for growers managing living systems.");
-    expect(html).toContain("Best fit right now");
-    expect(html).toContain("Not the focus today");
+    expect(html).toContain("Built for growers managing living systems, not ornamental chores.");
+    expect(html).toContain("Multi-bed home growers");
+    expect(html).toContain("Homesteaders");
   });
 
-  it("renders both conversion CTAs and disclosure boundary", () => {
+  it("renders plant catalogue entry points and waitlist CTA", () => {
     const html = renderToStaticMarkup(createElement(HomePage));
 
     expect(html).toContain("Request Early Access");
-    expect(html).toContain("Join the Waitlist");
-    expect(html).toContain("What we share publicly vs what we keep private before launch");
+    expect(html).toContain("Browse Plant Catalog");
+    expect(html).toContain("The public plant catalogue is designed as an open front door");
   });
 
-  it("includes source-backed market signal section", () => {
+  it("describes product features as real product surfaces", () => {
     const html = renderToStaticMarkup(createElement(HomePage));
 
-    expect(html).toContain("The audience is large, active, and ready for better planning tools.");
-    expect(html).toContain("80%");
-    expect(html).toContain("61%");
-    expect(html).toContain("33M+");
+    expect(html).toContain("What it does");
+    expect(html).toContain("My Property");
+    expect(html).toContain("Calendar");
+    expect(html).toContain("Plant Catalogue");
   });
 });

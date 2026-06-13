@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper background -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main stem (arching) -->
+  <path d="M 320 120 Q 280 200 290 300 Q 295 400 320 480" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Left branch -->
+  <path d="M 320 180 Q 200 200 150 240" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Right branch -->
+  <path d="M 320 280 Q 380 300 420 340" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Drooping leaf 1 (large obovate, left) -->
+  <path d="M 150 240 Q 120 260 110 310 Q 100 350 130 380 Q 150 385 160 350 Q 165 300 155 250 Z" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 135 280 Q 125 310 130 350" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 145 270 Q 140 300 145 340" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Drooping leaf 2 (large obovate, left-lower) -->
+  <path d="M 310 260 Q 270 290 240 350 Q 220 400 260 430 Q 290 420 300 360 Q 305 300 320 280 Z" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 270 310 Q 250 350 260 410" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 290 300 Q 275 340 280 400" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Drooping leaf 3 (large obovate, right) -->
+  <path d="M 420 340 Q 450 360 480 410 Q 490 460 460 480 Q 430 475 425 425 Q 422 380 410 350 Z" fill="#D3BF98" fill-opacity="0.48" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 450 370 Q 470 400 465 460" stroke="#7D6740" stroke-width="2"/>
+  <path d="M 460 360 Q 475 390 470 450" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Upper small leaf -->
+  <path d="M 300 150 Q 270 140 250 160 Q 245 180 270 195 Q 290 185 305 170 Z" fill="#D3BF98" fill-opacity="0.4" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 260 160 Q 268 170 275 180" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Custard fruit (plump oblong hanging) -->
+  <ellipse cx="330" cy="480" rx="35" ry="50" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="3.5"/>
+  <ellipse cx="330" cy="475" rx="33" ry="45" fill="#D8C49C" fill-opacity="0.35"/>
+  <ellipse cx="325" cy="485" rx="30" ry="42" fill="#D6C29A" fill-opacity="0.3"/>
+
+  <!-- Fruit stem -->
+  <path d="M 320 430 Q 325 450 330 480" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Annotation 1: drooping leaf -->
+  <path d="M 130 350 L 80 420" stroke="#A78545" stroke-width="3"/>
+  <text x="50" y="435" font-family="serif" font-size="24" fill="#7D6740">drooping leaf</text>
+
+  <!-- Annotation 2: custard fruit -->
+  <path d="M 340 520 L 420 580" stroke="#A78545" stroke-width="3"/>
+  <text x="380" y="600" font-family="serif" font-size="24" fill="#7D6740">custard fruit</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Asimina triloba 'Mango'</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 121 · Pawpaw-Mango study</text>
+</svg>

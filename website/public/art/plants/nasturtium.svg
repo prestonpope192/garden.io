@@ -1,0 +1,97 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Trailing main stem: enters bottom-left, meanders right with S-curves -->
+  <path d="M 175 545 C 200 535 228 530 255 528 C 288 526 318 530 344 524 C 372 518 394 505 416 490 C 440 474 458 455 468 434" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Peltate leaf 1: large, 105px circle, attached left of stem ~x200 y520 -->
+  <!-- Petiole curving to leaf underside center point -->
+  <path d="M 198 528 C 192 510 185 490 180 468" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Leaf circle with slightly off-center petiole attach point -->
+  <circle cx="180" cy="430" r="52" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.42"/>
+  <!-- 7 veins radiating from off-center point (petiole attach at 180,468) -->
+  <path d="M 180 468 L 180 380" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 128 440" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 132 410" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 228 408" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 230 438" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 152 388" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 180 468 L 210 390" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Peltate leaf 2: medium, 75px circle, attached ~x290 y520 -->
+  <path d="M 286 526 C 282 508 278 486 276 464" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="276" cy="428" r="37" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.40"/>
+  <path d="M 276 464 L 276 392" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 240 440" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 244 418" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 308 418" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 312 440" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 258 396" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 276 464 L 295 396" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Peltate leaf 3: small, 60px, angled up from stem ~x360 y518 -->
+  <path d="M 356 520 C 356 504 356 484 358 462" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="358" cy="428" r="30" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.38"/>
+  <path d="M 358 462 L 358 398" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 330 440" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 332 422" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 384 422" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 386 440" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 342 402" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 358 462 L 374 402" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Peltate leaf 4: medium-large, 88px, from upper stem ~x438 y476 -->
+  <path d="M 434 482 C 434 464 434 444 436 420" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="436" cy="383" r="44" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.42"/>
+  <path d="M 436 420 L 436 340" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 393 394" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 396 368" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 478 368" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 478 394" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 414 346" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M 436 420 L 458 346" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Flower stalk for funnel flower, upper right -->
+  <path d="M 460 450 C 468 430 476 410 482 388" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- 5 overlapping rounded petals, fanning from throat -->
+  <!-- petal 1 top -->
+  <path d="M 482 388 C 478 372 480 352 490 340 C 500 328 514 328 516 342 C 518 356 506 374 490 382 C 487 384 484 388 482 388 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.40"/>
+  <!-- petal 2 upper-right -->
+  <path d="M 482 388 C 492 374 506 362 520 358 C 534 354 544 362 540 376 C 536 390 520 396 504 394 C 494 392 484 390 482 388 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.38"/>
+  <!-- petal 3 right -->
+  <path d="M 482 388 C 496 382 512 382 522 392 C 532 402 528 418 514 422 C 500 426 486 416 482 404 C 481 398 481 392 482 388 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.36"/>
+  <!-- petal 4 lower-left -->
+  <path d="M 482 388 C 474 398 464 408 450 408 C 436 408 428 398 434 386 C 440 374 458 370 472 378 C 478 382 482 386 482 388 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.38"/>
+  <!-- petal 5 upper-left -->
+  <path d="M 482 388 C 470 378 462 362 466 348 C 470 334 484 328 494 336 C 504 344 506 362 498 376 C 493 384 487 388 482 388 Z" stroke="#7D6740" stroke-width="2.5" fill="#D8C49C" fill-opacity="0.36"/>
+  <!-- spur extending behind/below: curved tapering -->
+  <path d="M 482 388 C 472 396 456 404 440 406 C 424 408 408 400 406 390" stroke="#6C5A3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 406 390 C 400 380 402 368 410 366" stroke="#6C5A3A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- throat center -->
+  <circle cx="482" cy="388" r="5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.55"/>
+
+  <!-- Closed bud on a stalk -->
+  <path d="M 460 450 C 464 436 470 422 474 410" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M 474 410 C 472 402 474 392 480 386 C 486 380 492 380 494 388 C 496 396 492 408 482 414 C 478 416 475 414 474 410 Z" stroke="#7D6740" stroke-width="2.5" fill="#D3BF98" fill-opacity="0.44"/>
+
+  <!-- Annotation 1: peltate leaf (left) -->
+  <line x1="143" y1="430" x2="100" y2="400" stroke="#A78545" stroke-width="3"/>
+  <text x="64" y="404" font-family="serif" font-size="24" fill="#7D6740">peltate leaf</text>
+
+  <!-- Annotation 2: nectar spur (right, anchor end) -->
+  <line x1="410" y1="385" x2="354" y2="344" stroke="#A78545" stroke-width="3"/>
+  <text x="572" y="332" font-family="serif" font-size="24" fill="#7D6740" text-anchor="end">nectar spur</text>
+
+  <!-- Caption dividers -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Tropaeolum majus</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 114 · Nasturtium study</text>
+</svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main tall arching cane -->
+  <path d="M 320 560 Q 330 470 340 380 Q 350 290 345 200" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Compound 3-leaflet leaves - left side -->
+  <g>
+    <!-- Leaf 1 -->
+    <path d="M 318 450 Q 270 445 245 460 Q 265 450 290 445" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 315 440 Q 280 420 265 410 Q 285 425 305 430" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 322 450 Q 305 425 295 405 Q 310 430 325 445" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <!-- Leaf 2 -->
+    <path d="M 318 340 Q 260 330 235 345 Q 265 340 295 335" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 315 330 Q 275 305 255 290 Q 280 310 305 325" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 322 340 Q 305 310 290 285 Q 310 315 330 335" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  </g>
+
+  <!-- Compound 3-leaflet leaves - right side -->
+  <g>
+    <!-- Leaf 1 -->
+    <path d="M 322 450 Q 370 445 395 460 Q 375 450 350 445" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 325 440 Q 360 420 375 410 Q 355 425 335 430" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 318 450 Q 335 425 345 405 Q 330 430 315 445" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <!-- Leaf 2 -->
+    <path d="M 322 340 Q 380 330 405 345 Q 375 340 345 335" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 325 330 Q 365 305 385 290 Q 360 310 335 325" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 318 340 Q 335 310 350 285 Q 330 315 310 335" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  </g>
+
+  <!-- Cluster of 3-4 aggregate berries at top -->
+  <g>
+    <!-- Berry 1 - upper left -->
+    <circle cx="310" cy="170" r="14" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="2"/>
+    <circle cx="308" cy="172" r="8" fill="#D3BF98" fill-opacity="0.35"/>
+
+    <!-- Berry 2 - upper right -->
+    <circle cx="340" cy="165" r="14" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="2"/>
+    <circle cx="342" cy="168" r="8" fill="#D3BF98" fill-opacity="0.35"/>
+
+    <!-- Berry 3 - lower left -->
+    <circle cx="315" cy="195" r="13" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="2"/>
+    <circle cx="313" cy="197" r="7" fill="#D3BF98" fill-opacity="0.35"/>
+
+    <!-- Berry 4 - lower right -->
+    <circle cx="345" cy="190" r="13" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="2"/>
+    <circle cx="347" cy="192" r="7" fill="#D3BF98" fill-opacity="0.35"/>
+  </g>
+
+  <!-- Annotation leaders and labels -->
+  <line x1="345" y1="200" x2="480" y2="210" stroke="#A78545" stroke-width="3"/>
+  <text x="485" y="220" font-family="serif" font-size="24" fill="#7D6740">arching floricane</text>
+
+  <line x1="330" y1="380" x2="520" y2="380" stroke="#A78545" stroke-width="3"/>
+  <text x="525" y="390" font-family="serif" font-size="24" fill="#7D6740">aggregate drupelets</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Rubus idaeus</text>
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 117 · Raspberry study</text>
+</svg>

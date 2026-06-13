@@ -1,3 +1,4 @@
+
 :root {
   --paper: #f6f1e7;
   --paper-soft: #fbf7ef;
@@ -17,8 +18,29 @@
   --line-strong: rgba(94, 74, 46, 0.42);
   --shadow-paper: 0 28px 60px rgba(75, 57, 33, 0.14);
   --shadow-note: 0 16px 32px rgba(75, 57, 33, 0.11);
+  /* Radius scale */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-pill: 999px;
+  /* Legacy aliases — prefer the scale above for new work */
   --radius-page: 28px;
   --radius-card: 22px;
+
+  /* Motion */
+  --duration-fast: 160ms;
+  --duration-base: 220ms;
+  --duration-slow: 360ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Semantic surface tokens */
+  --surface-page: linear-gradient(180deg, rgba(248, 244, 235, 0.98), rgba(241, 233, 219, 0.94));
+  --surface-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 14%), linear-gradient(180deg, rgba(248, 244, 235, 0.96), rgba(243, 236, 224, 0.92));
+  --surface-inset: rgba(255, 251, 245, 0.58);
+  --surface-inset-active: linear-gradient(180deg, rgba(225, 232, 217, 0.74), rgba(248, 244, 235, 0.94));
+
   --space-1: 0.45rem;
   --space-2: 0.75rem;
   --space-3: 1rem;
@@ -120,8 +142,7 @@ button {
 }
 
 .topbar,
-.journal-shell__header,
-.journal-shell__meta {
+.journal-shell__header {
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(246, 241, 231, 0.94));
   box-shadow: var(--shadow-note);
@@ -129,10 +150,10 @@ button {
 
 .topbar {
   display: grid;
-  gap: var(--space-3);
+  gap: 0.85rem;
   align-items: center;
-  padding: var(--space-3) var(--space-4);
-  border-radius: 24px;
+  padding: 0.95rem 1.1rem;
+  border-radius: 28px;
 }
 
 .topbar__brand,
@@ -159,7 +180,14 @@ button {
 }
 
 .topnav a,
-.journal-shell__nav-link,
+.journal-shell__nav-link {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease;
+}
+
 .topbar-secondary,
 .topbar-cta,
 .folio-link,
@@ -178,8 +206,26 @@ button {
     box-shadow 220ms ease;
 }
 
+.topnav a:hover,
+.journal-shell__nav-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+}
+
 .topnav a,
-.journal-shell__nav-link,
+.journal-shell__nav-link {
+  min-height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 .topbar-secondary,
 .topbar-cta {
   min-height: 44px;
@@ -200,8 +246,6 @@ button {
   background: linear-gradient(180deg, rgba(227, 221, 208, 0.88), rgba(240, 232, 216, 0.96));
 }
 
-.topnav a:hover,
-.journal-shell__nav-link:hover,
 .topbar-secondary:hover,
 .topbar-cta:hover,
 .folio-link:hover,
@@ -284,8 +328,8 @@ button {
   display: grid;
   gap: var(--space-4);
   margin-top: var(--space-4);
-  padding: clamp(1.4rem, 3vw, 2.3rem);
-  border-radius: 34px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 36px;
 }
 
 .cover-sheet__copy,
@@ -333,13 +377,13 @@ button {
 .annotation-card,
 .prototype-route-card,
 .prototype-module-card {
-  padding: 1rem 1.05rem;
+  padding: 1.05rem 1.1rem;
   border-radius: 18px;
 }
 
 .chip-row__item {
   border: 1px dashed rgba(90, 101, 79, 0.28);
-  background: rgba(237, 242, 229, 0.56);
+  background: rgba(237, 242, 229, 0.5);
 }
 
 .chip-row__item strong,
@@ -360,12 +404,14 @@ button {
 
 .section-card {
   margin-top: var(--space-5);
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.3rem, 3vw, 2.15rem);
   border-radius: 30px;
 }
 
 .section-card__header {
-  margin-bottom: var(--space-4);
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: var(--space-5);
 }
 
 .section-card__header p,
@@ -386,12 +432,16 @@ button {
   gap: var(--space-3);
 }
 
+.section-card__split--tight {
+  grid-template-columns: 1fr;
+}
+
 .section-card--join .paper-panel {
   min-height: 100%;
 }
 
 .paper-panel {
-  padding: 1.35rem;
+  padding: 1.4rem;
   border-radius: 24px;
 }
 
@@ -408,6 +458,8 @@ button {
 .annotation-card {
   border-style: dashed;
   border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 246, 0.78), rgba(245, 237, 223, 0.9));
 }
 
 .annotation-card__label {
@@ -418,20 +470,655 @@ button {
   font-size: 1.3rem;
 }
 
+.feature-grid,
+.catalog-grid,
+.catalog-preview-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.feature-card,
+.catalog-preview-card,
+.catalog-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 14%),
+    linear-gradient(180deg, rgba(250, 246, 238, 0.96), rgba(241, 232, 217, 0.92));
+  box-shadow: var(--shadow-note);
+}
+
+.feature-card strong,
+.catalog-preview-card strong,
+.catalog-card strong {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.1rem;
+}
+
+.feature-card p,
+.catalog-preview-card span,
+.catalog-card p {
+  color: var(--ink-soft);
+}
+
+.feature-card--link,
+.catalog-preview-card,
+.catalog-card {
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.feature-card--link:hover,
+.catalog-preview-card:hover,
+.catalog-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  box-shadow: 0 14px 28px rgba(72, 54, 31, 0.08);
+}
+
+.catalog-preview-card {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.catalog-preview-card__body {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.catalog-card .plate-card {
+  box-shadow: none;
+  margin: 0;
+}
+
+.catalog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.catalog-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.82);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+button.catalog-tag {
+  cursor: pointer;
+}
+
+.folio-link--small {
+  min-height: 38px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.95rem;
+}
+
+.public-catalogue-hero .lead {
+  max-width: 42rem;
+}
+
+.public-catalogue-hero h1 {
+  max-width: 12ch;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  line-height: 0.98;
+}
+
+.public-catalogue-hero .specimen-art,
+.plant-profile-hero .specimen-art {
+  max-height: 300px;
+}
+
+.plant-profile-hero h1 {
+  font-size: clamp(3.4rem, 7vw, 6.2rem);
+}
+
+.plant-profile-hero .cover-sheet__copy {
+  align-content: start;
+}
+
+.public-catalogue-hero__folio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  align-items: center;
+}
+
+.public-catalogue-hero__folio > span:not(.specimen-label) {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plant-profile-record-strip {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 43rem;
+  margin-top: var(--space-4);
+  padding: 0.8rem;
+  border-block: 1px solid var(--line-strong);
+  background:
+    linear-gradient(90deg, rgba(90, 101, 79, 0.12), transparent 38%),
+    repeating-linear-gradient(0deg, rgba(94, 74, 46, 0.08) 0, rgba(94, 74, 46, 0.08) 1px, transparent 1px, transparent 34px);
+}
+
+.plant-profile-record-strip div {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.plant-profile-hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 36rem;
+  margin-top: var(--space-4);
+}
+
+.plant-profile-hero__facts div {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px dashed rgba(94, 74, 46, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 251, 245, 0.56);
+}
+
+.plant-profile-hero__facts span,
+.plant-profile-record-strip span {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.plant-profile-hero__facts strong,
+.plant-profile-record-strip strong {
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.public-catalogue-search {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  min-height: 58px;
+  width: min(100%, 680px);
+  margin: var(--space-4) 0 0;
+  padding: 0 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(167, 133, 69, 0.18), transparent 2.7rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(250, 246, 238, 0.88));
+  box-shadow: 0 10px 24px rgba(72, 54, 31, 0.08);
+}
+
+.public-catalogue-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: 0;
+}
+
+.public-catalogue-search input::placeholder {
+  color: var(--ink-muted);
+}
+
+.public-catalogue-index-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  max-width: 46rem;
+  margin-top: var(--space-3);
+}
+
+.public-catalogue-index-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 38px;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 244, 0.72);
+  color: var(--ink-soft);
+}
+
+.public-catalogue-index-tabs button.is-active {
+  border-color: rgba(90, 101, 79, 0.5);
+  background: linear-gradient(180deg, rgba(216, 222, 204, 0.82), rgba(246, 241, 231, 0.96));
+  color: var(--olive);
+}
+
+.public-catalogue-index-tabs small {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: rgba(167, 133, 69, 0.18);
+  color: var(--clay);
+}
+
+.public-catalogue-hero__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: var(--space-4);
+}
+
+.public-catalogue-hero__meta div,
+.public-catalogue-filters,
+.public-catalogue-preview,
+.public-catalogue-empty,
+.plant-profile-nav,
+.plant-profile-aside,
+.plant-profile-section,
+.plant-detail-fact {
+  border: 1px solid rgba(94, 74, 46, 0.16);
+  background: rgba(255, 251, 245, 0.58);
+}
+
+.public-catalogue-hero__meta div {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 8px;
+}
+
+.public-catalogue-hero__meta strong {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.22rem;
+}
+
+.public-catalogue-hero__meta span {
+  color: var(--ink-soft);
+}
+
+.public-catalogue-workbench {
+  display: grid;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.public-catalogue-filters,
+.public-catalogue-preview,
+.public-catalogue-empty,
+.plant-profile-nav,
+.plant-profile-aside {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.public-catalogue-filter-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.public-catalogue-filter-list button {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  align-items: center;
+  min-height: 46px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(94, 74, 46, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 250, 244, 0.62);
+  color: var(--ink);
+  text-align: left;
+}
+
+.public-catalogue-filter-list button.is-active {
+  border-color: rgba(85, 104, 79, 0.42);
+  background: linear-gradient(180deg, rgba(225, 232, 217, 0.72), rgba(248, 244, 235, 0.92));
+  color: var(--olive);
+}
+
+.public-catalogue-filter-list button > span {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.public-catalogue-filter-list small {
+  color: var(--ink-muted);
+}
+
+.public-catalogue-filter-list b {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(94, 74, 46, 0.18);
+  border-radius: 999px;
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-weight: 400;
+}
+
+.public-catalogue-results,
+.plant-profile-main {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.public-catalogue-results__header,
+.public-catalogue-row__title {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.public-catalogue-results__header h2,
+.public-catalogue-row__title h3,
+.plant-profile-section__header h2 {
+  margin: 0;
+}
+
+.plant-profile-section__header h2 {
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  line-height: 1;
+}
+
+.public-catalogue-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.public-catalogue-row {
+  display: grid;
+  gap: 1rem;
+  padding: 0.95rem;
+  border: 1px solid rgba(94, 74, 46, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(90, 101, 79, 0.08), transparent 5.8rem),
+    repeating-linear-gradient(0deg, transparent 0, transparent 40px, rgba(94, 74, 46, 0.06) 40px, rgba(94, 74, 46, 0.06) 41px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 16%),
+    linear-gradient(180deg, rgba(250, 246, 238, 0.92), rgba(241, 232, 217, 0.78));
+  box-shadow: 0 10px 20px rgba(75, 57, 33, 0.08);
+}
+
+.public-catalogue-row.is-previewed {
+  border-color: rgba(85, 104, 79, 0.38);
+  background:
+    linear-gradient(180deg, rgba(226, 233, 218, 0.44), transparent 18%),
+    linear-gradient(180deg, rgba(250, 246, 238, 0.96), rgba(241, 232, 217, 0.84));
+}
+
+.public-catalogue-row__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 0.75rem;
+  border: 1px dashed rgba(94, 74, 46, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.public-catalogue-row__body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.public-catalogue-row__folio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  align-items: center;
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.public-catalogue-row__folio span:first-child {
+  color: var(--olive);
+}
+
+.public-catalogue-row__taxonomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.65rem;
+}
+
+.public-catalogue-row__taxonomy span {
+  color: var(--ink-muted);
+}
+
+.public-catalogue-row__body > p,
+.public-catalogue-row__title p,
+.public-catalogue-preview p,
+.public-catalogue-empty p,
+.plant-profile-section p,
+.plant-profile-fineprint {
+  color: var(--ink-soft);
+}
+
+.public-catalogue-metrics,
+.plant-detail-facts,
+.plant-requirements-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.public-catalogue-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.public-catalogue-metrics div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem;
+  border: 1px dashed rgba(94, 74, 46, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 251, 245, 0.58);
+}
+
+.public-catalogue-metrics dt,
+.plant-detail-fact span {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.public-catalogue-metrics dd {
+  margin: 0;
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.catalogue-plate-note {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0;
+  border-block: 1px dotted rgba(94, 74, 46, 0.28);
+}
+
+.catalogue-plate-note span {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.catalogue-plate-note strong {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.plant-profile-guide {
+  display: grid;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.plant-profile-nav {
+  align-content: start;
+}
+
+.plant-profile-nav a {
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted rgba(94, 74, 46, 0.24);
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.plant-profile-nav a:hover {
+  color: var(--ink);
+}
+
+.plant-profile-section {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border-radius: 8px;
+}
+
+.plant-profile-section__header {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.plant-detail-facts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plant-detail-fact {
+  display: grid;
+  gap: 0.3rem;
+  align-content: start;
+  min-height: 132px;
+  padding: 0.9rem;
+  border-radius: 8px;
+}
+
+.plant-detail-fact .field-icon {
+  width: 1.45rem;
+  min-width: 1.45rem;
+}
+
+.plant-detail-fact strong {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.12rem;
+}
+
+.plant-requirements-list {
+  padding: 0.95rem;
+  border: 1px dashed rgba(94, 74, 46, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 251, 245, 0.48);
+}
+
+.plant-profile-section--sheet {
+  background:
+    linear-gradient(90deg, rgba(123, 96, 69, 0.08), transparent 4.5rem),
+    repeating-linear-gradient(0deg, rgba(94, 74, 46, 0.07) 0, rgba(94, 74, 46, 0.07) 1px, transparent 1px, transparent 38px),
+    rgba(255, 251, 245, 0.58);
+}
+
+.plant-lifecycle-sheet {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.plant-lifecycle-sheet article {
+  display: grid;
+  grid-template-columns: auto minmax(7rem, 0.32fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px dotted rgba(94, 74, 46, 0.28);
+}
+
+.plant-lifecycle-sheet article:last-child {
+  border-bottom: 0;
+}
+
+.plant-lifecycle-sheet span,
+.plant-lifecycle-sheet strong {
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.plant-lifecycle-sheet span {
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+.plant-lifecycle-sheet strong {
+  color: var(--ink);
+}
+
+.plant-profile-aside-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+}
+
+.plant-profile-aside-list div {
+  display: grid;
+  gap: 0.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dotted rgba(94, 74, 46, 0.24);
+}
+
+.plant-profile-aside-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.plant-profile-aside-list dt {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.plant-profile-aside-list dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.plant-profile-fineprint {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.section-actions {
+  margin-top: var(--space-4);
+  display: flex;
+  justify-content: flex-start;
+}
+
 .specimen-label {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   width: fit-content;
-  padding: 0.3rem 0.7rem;
+  padding: 0.32rem 0.72rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(250, 246, 239, 0.86);
-  color: var(--ink-muted);
+  border-radius: 0.4rem;
+  background: rgba(250, 246, 239, 0.92);
+  color: var(--ink-soft);
   font-family: var(--font-label), "Baskerville", serif;
   font-size: 0.79rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(72, 54, 31, 0.03);
 }
 
 .specimen-label--olive {
@@ -586,7 +1273,7 @@ p {
 
 .detail-list__row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(4.5rem, max-content) minmax(0, 1fr);
   gap: 0.85rem;
   align-items: center;
   padding-bottom: 0.55rem;
@@ -608,6 +1295,8 @@ p {
 
 .detail-list dd {
   margin: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .note-list {
@@ -646,30 +1335,137 @@ p {
 
 .journal-shell__header {
   display: grid;
-  gap: var(--space-3);
-  padding: 1rem 1.2rem;
+  gap: 0.55rem;
+  padding: 0.85rem 1.1rem;
   border-radius: 28px;
+}
+
+.journal-shell__topline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
 }
 
 .journal-shell__identity {
   display: flex;
-  gap: 1rem;
+  gap: 1.1rem;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.journal-shell__meta {
-  margin-top: 1rem;
+.journal-shell__brand {
+  white-space: nowrap;
+}
+
+.journal-shell__tagline {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.journal-shell__nav {
   display: flex;
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0.85rem 1rem;
-  border-radius: 22px;
+}
+
+.journal-shell__nav-link {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.journal-shell__nav-link:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+}
+
+.journal-shell__nav-link.is-active {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.22rem;
+}
+
+.journal-shell__user-menu {
+  position: relative;
+}
+
+.journal-shell__user-toggle {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.journal-shell__user-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.journal-shell__avatar {
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.9);
+  color: var(--ink);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.journal-shell__user-dropdown {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  min-width: 180px;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 16%),
+    linear-gradient(180deg, rgba(248, 244, 235, 0.98), rgba(243, 236, 224, 0.96));
+  box-shadow: var(--shadow-note);
+  z-index: 5;
+}
+
+.journal-shell__user-dropdown a,
+.journal-shell__user-dropdown button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.75rem;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+}
+
+.journal-shell__user-dropdown a:hover,
+.journal-shell__user-dropdown button:hover {
+  background: rgba(225, 232, 217, 0.58);
 }
 
 .journal-shell__body {
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
   padding: clamp(1rem, 2vw, 1.5rem);
   border: 1px solid var(--line);
   border-radius: 32px;
@@ -682,10 +1478,26 @@ p {
   gap: var(--space-3);
 }
 
+.journal-spread--feature-left,
+.journal-spread--feature-right {
+  align-items: start;
+}
+
 .journal-page {
   min-height: 720px;
   padding: clamp(1.15rem, 2vw, 1.6rem);
   border-radius: var(--radius-page);
+}
+
+.journal-page--editorial {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.48), transparent 16%),
+    linear-gradient(180deg, rgba(249, 244, 235, 0.98), rgba(241, 233, 219, 0.94));
+}
+
+.journal-page--ledger {
+  background:
+    linear-gradient(180deg, rgba(252, 248, 241, 0.96), rgba(238, 230, 214, 0.95));
 }
 
 .journal-page--left::after,
@@ -717,6 +1529,24 @@ p {
   border-bottom: 1px solid rgba(94, 74, 46, 0.16);
 }
 
+.journal-page__header-copy,
+.journal-page__header-side,
+.journal-page__meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.journal-page__header-side {
+  justify-items: end;
+  text-align: right;
+}
+
+.journal-page__kicker {
+  color: var(--clay);
+  font-family: var(--font-script), cursive;
+  font-size: 1.42rem;
+}
+
 .journal-page__header h2 {
   margin-top: 0.6rem;
   font-size: clamp(1.45rem, 3vw, 2.35rem);
@@ -727,6 +1557,12 @@ p {
   font-family: var(--font-script), cursive;
   font-size: 1.5rem;
   white-space: nowrap;
+}
+
+.journal-page__meta {
+  max-width: 20ch;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
 }
 
 .journal-page__body,
@@ -775,6 +1611,214 @@ p {
   grid-template-columns: 1fr;
 }
 
+.planner-spread .journal-page__body,
+.catalogue-journal-spread .journal-page__body,
+.specimen-cabinet-spread .journal-page__body {
+  gap: 1rem;
+}
+
+.planner-sheet,
+.planner-detail,
+.catalogue-journal,
+.catalogue-journal__detail,
+.specimen-cabinet,
+.specimen-cabinet__records {
+  display: grid;
+  gap: 1rem;
+}
+
+.planner-sheet__hero,
+.planner-sheet__bands,
+.planner-detail__aside,
+.catalogue-search-sheet,
+.catalogue-journal__aside,
+.specimen-cabinet__overview,
+.specimen-cabinet__metrics,
+.specimen-cabinet__drawers,
+.specimen-cabinet__footer {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.planner-sheet__hero {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.planner-sheet__intro,
+.catalogue-journal__field {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.planner-sheet__bands {
+  grid-template-columns: 1fr;
+}
+
+.planner-band {
+  display: grid;
+  grid-template-columns: minmax(92px, 0.28fr) minmax(0, 1fr);
+  gap: 0.9rem;
+  padding: 0.9rem 0 1rem;
+  border-top: 1px solid rgba(94, 74, 46, 0.12);
+}
+
+.planner-band:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.planner-band__day {
+  display: grid;
+  gap: 0.2rem;
+  color: var(--ink);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.planner-band__day span {
+  font-size: 1.1rem;
+}
+
+.planner-band__day small {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.planner-ledger {
+  padding: 1rem 1.05rem;
+  border-radius: 20px;
+  background: rgba(255, 250, 244, 0.54);
+}
+
+.planner-ledger__row {
+  padding-bottom: 0.8rem;
+}
+
+.planner-ledger__row:last-child {
+  padding-bottom: 0;
+}
+
+.planner-sheet__margin {
+  justify-self: end;
+  max-width: 26rem;
+}
+
+.planner-detail__plate,
+.catalogue-search-sheet,
+.specimen-cabinet__notes {
+  background: rgba(255, 250, 244, 0.5);
+}
+
+.planner-detail__metrics,
+.specimen-cabinet__metrics {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.catalogue-search-sheet {
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(94, 74, 46, 0.16);
+  border-radius: 22px;
+}
+
+.catalogue-search-sheet__bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.catalogue-search-sheet__input {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink-soft);
+}
+
+.catalogue-search-sheet__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.catalogue-search-sheet__results {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.catalogue-result-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 0.8rem 0;
+  border-top: 1px dashed rgba(94, 74, 46, 0.24);
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalogue-result-row:first-child {
+  border-top: 0;
+  padding-top: 0.15rem;
+}
+
+.catalogue-result-row strong {
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.catalogue-result-row p,
+.catalogue-result-row span {
+  color: var(--ink-soft);
+}
+
+.catalogue-journal__grid {
+  gap: 1rem;
+}
+
+.catalogue-journal__aside {
+  align-items: start;
+}
+
+.specimen-cabinet__drawers {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cabinet-drawer {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem;
+  border: 1px dashed rgba(94, 74, 46, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 250, 244, 0.58);
+}
+
+.cabinet-drawer strong {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.05rem;
+}
+
+.cabinet-drawer p {
+  color: var(--ink-soft);
+}
+
+.cabinet-drawer small {
+  color: var(--ink-muted);
+}
+
+.specimen-cabinet__grid {
+  gap: 1rem;
+}
+
+.specimen-cabinet__footer {
+  align-items: start;
+}
+
 .prototype-module-card,
 .prototype-route-card {
   display: grid;
@@ -784,6 +1828,362 @@ p {
 
 .prototype-module-card .field-icon {
   color: var(--olive);
+}
+
+.folio-workspace {
+  display: grid;
+  gap: 1rem;
+}
+
+.folio-workspace__rail,
+.folio-workspace__main,
+.folio-workspace__aside,
+.property-archive-list {
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow-paper);
+}
+
+.folio-workspace__rail,
+.folio-workspace__aside,
+.property-archive-list {
+  padding: 1rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 16%),
+    linear-gradient(180deg, rgba(248, 244, 235, 0.98), rgba(243, 236, 224, 0.94));
+}
+
+.folio-workspace__main {
+  min-height: 720px;
+  padding: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent 16%),
+    linear-gradient(180deg, rgba(249, 244, 235, 0.98), rgba(241, 233, 219, 0.94));
+}
+
+.folio-workspace__rail,
+.folio-workspace__main,
+.folio-workspace__aside,
+.folio-rail__head,
+.folio-rail__section,
+.folio-rail__stack,
+.folio-main__meta,
+.planner-atmosphere,
+.planner-atmosphere__head,
+.planner-atmosphere__grid,
+.planner-day-column,
+.planner-day-column__entries,
+.folio-context-card,
+.folio-context-icons,
+.folio-record-stack,
+.catalog-library-grid,
+.library-card,
+.library-card__body,
+.cabinet-drawer-grid,
+.cabinet-card-grid,
+.property-archive-list__items {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.folio-rail__kicker,
+.property-browser__eyebrow {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.folio-rail__caption {
+  margin: 0;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.folio-rail__item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(94, 74, 46, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 251, 245, 0.64);
+  color: var(--ink);
+  text-align: left;
+}
+
+.folio-rail__item.is-active {
+  background: linear-gradient(180deg, rgba(225, 232, 217, 0.74), rgba(248, 244, 235, 0.94));
+  border-color: rgba(85, 104, 79, 0.36);
+  color: var(--olive);
+}
+
+.folio-rail__button,
+.property-browser__action {
+  width: 100%;
+}
+
+.folio-rail__footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  color: var(--ink-muted);
+}
+
+.folio-rail__footer-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.folio-rail__tags,
+.library-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.folio-main__header {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(94, 74, 46, 0.16);
+}
+
+.folio-main__header h1 {
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+}
+
+.folio-main__eyebrow {
+  margin: 0 0 0.4rem;
+  color: var(--clay);
+  font-family: var(--font-script), cursive;
+  font-size: 1.2rem;
+}
+
+.folio-main__subtitle {
+  max-width: 58ch;
+  color: var(--ink-soft);
+}
+
+.folio-main__meta {
+  align-content: start;
+}
+
+.folio-panel,
+.planner-day-column,
+.folio-context-card,
+.library-card,
+.cabinet-drawer-card,
+.property-archive-list__item {
+  padding: 1rem;
+  border: 1px solid rgba(94, 74, 46, 0.14);
+  border-radius: 22px;
+  background: rgba(255, 251, 245, 0.58);
+}
+
+.folio-panel__note {
+  color: var(--ink-soft);
+}
+
+.planner-atmosphere__head,
+.folio-context-icons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.planner-atmosphere__title,
+.planner-day-column__head,
+.folio-context-icons div {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.planner-atmosphere__title span {
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.planner-atmosphere__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.planner-atmosphere__day {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 0.5rem;
+  border: 1px dashed rgba(94, 74, 46, 0.22);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.planner-week-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.planner-day-column {
+  align-content: start;
+  min-height: 280px;
+}
+
+.planner-day-column__head {
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(94, 74, 46, 0.14);
+}
+
+.planner-day-column__head strong {
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.planner-day-column__head span {
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.planner-entry-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.8rem 0.85rem;
+  border-left: 2px solid rgba(94, 74, 46, 0.24);
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.planner-entry-card small {
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.planner-entry-card p,
+.planner-day-column__entries p,
+.folio-record p,
+.library-card__body p,
+.cabinet-drawer-card small,
+.property-archive-list__item span {
+  color: var(--ink-soft);
+}
+
+.folio-context-card {
+  align-content: start;
+}
+
+.folio-context-icons div {
+  grid-template-columns: auto minmax(0, 1fr);
+  display: grid;
+  padding: 0.85rem;
+  border: 1px dashed rgba(94, 74, 46, 0.2);
+  border-radius: 16px;
+}
+
+.folio-context-list {
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1rem;
+}
+
+.folio-record {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+  border-top: 1px dashed rgba(94, 74, 46, 0.18);
+}
+
+.folio-record:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.folio-quote {
+  padding: 1rem;
+  border: 1px solid rgba(94, 74, 46, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 251, 245, 0.58);
+  color: var(--ink-soft);
+  font-family: var(--font-script), cursive;
+  font-size: 1.25rem;
+}
+
+.catalog-searchbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0 1rem;
+  border: 1px solid rgba(94, 74, 46, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 251, 245, 0.64);
+  color: var(--ink-soft);
+}
+
+.catalog-library-grid,
+.cabinet-card-grid {
+  grid-template-columns: 1fr;
+}
+
+.library-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.library-card__image {
+  display: flex;
+  justify-content: center;
+  padding: 0.85rem;
+  border: 1px solid rgba(94, 74, 46, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.library-card__body h2 {
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+
+.library-card__subtitle {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.library-card__tags span,
+.property-archive-list__item span {
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(235, 228, 214, 0.62);
+  font-size: 0.84rem;
+}
+
+.cabinet-drawer-card strong,
+.property-archive-list__item strong {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.05rem;
+}
+
+.property-browser__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.property-browser__note {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.property-archive-list__item {
+  text-align: left;
+}
+
+.property-archive-list__item.is-active {
+  background: linear-gradient(180deg, rgba(225, 232, 217, 0.74), rgba(248, 244, 235, 0.94));
+  border-color: rgba(85, 104, 79, 0.36);
 }
 
 .prototype-route-title {
@@ -826,6 +2226,511 @@ p {
 
 .flipbook-sheet {
   padding: 0.2rem;
+}
+
+.property-browser {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.property-browser__toolbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.property-browser__note {
+  color: var(--ink-muted);
+  font-size: 0.96rem;
+  font-style: italic;
+}
+
+.property-breadcrumbs,
+.property-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.property-breadcrumb,
+.property-selector__button {
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 244, 0.88);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+}
+
+.property-breadcrumb.is-active,
+.property-selector__button.is-active {
+  background: linear-gradient(180deg, rgba(222, 229, 216, 0.92), rgba(240, 238, 226, 0.98));
+  border-color: rgba(85, 104, 79, 0.42);
+  color: var(--olive);
+}
+
+.property-hierarchy-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.property-hierarchy-nav__separator {
+  color: var(--ink-muted);
+}
+
+.property-hierarchy-nav__link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  text-transform: capitalize;
+}
+
+.property-hierarchy-nav__link:not(:disabled):hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.property-hierarchy-nav__link.is-current {
+  color: var(--ink);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.property-hierarchy-nav__link.is-disabled {
+  color: var(--ink-muted);
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+.property-workspace {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.property-notebook-pane,
+.property-info-panel {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow-paper);
+}
+
+.property-notebook-pane {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.52), transparent 16%),
+    linear-gradient(180deg, rgba(248, 244, 235, 0.96), rgba(243, 236, 224, 0.92));
+  padding: 1.15rem;
+}
+
+.property-notebook-pane__header,
+.property-notebook-pane__level-controls,
+.property-notebook__footer,
+.property-record-sheet,
+.property-record-sheet__ledger,
+.property-record-sheet__columns,
+.property-roster {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.property-notebook-pane__header {
+  margin-bottom: var(--space-3);
+}
+
+.property-notebook-pane__title {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  color: var(--ink);
+}
+
+.property-info-panel__subtitle {
+  margin-top: 0.65rem;
+  color: var(--ink-soft);
+}
+
+.property-notebook {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.property-notebook__page {
+  position: relative;
+  min-height: 780px;
+  padding: 1.3rem;
+  border: 1px solid rgba(94, 74, 46, 0.2);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 12%),
+    linear-gradient(180deg, rgba(251, 247, 239, 0.98), rgba(243, 235, 221, 0.92));
+  overflow: hidden;
+}
+
+.property-notebook__page::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  right: -3px;
+  width: 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(145, 121, 79, 0.1), transparent 30%, rgba(145, 121, 79, 0.2));
+}
+
+.property-notebook__page-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+  padding-bottom: 1rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(94, 74, 46, 0.16);
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.property-notebook__page-head-copy {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.property-notebook__page-head-copy--right {
+  justify-items: end;
+  text-align: right;
+}
+
+.property-notebook__page-caption {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.property-notebook__folio {
+  color: var(--clay);
+  font-family: var(--font-script), cursive;
+  font-size: 1.45rem;
+}
+
+.property-notebook__page-body,
+.property-record-sheet__body {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.property-notebook__page-body--grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.property-notebook__art {
+  display: flex;
+  justify-content: center;
+}
+
+.property-notebook__copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.property-notebook__subtitle {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.property-notebook__empty {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+}
+
+.property-child-card {
+  display: grid;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.95rem 0.1rem 1rem;
+  border: 0;
+  border-bottom: 1px dashed rgba(94, 74, 46, 0.24);
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.property-child-card.is-active {
+  background: linear-gradient(90deg, rgba(228, 234, 220, 0.55), transparent 72%);
+}
+
+.property-child-card:last-child {
+  border-bottom: 0;
+}
+
+.property-child-card__meta,
+.property-child-card__body,
+.property-child-card__copy {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.property-child-card__meta {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+}
+
+.property-child-card__body {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.property-child-card__art {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  padding: 0.4rem;
+  border: 1px dashed rgba(94, 74, 46, 0.22);
+  border-radius: 18px;
+  background: rgba(255, 250, 244, 0.54);
+}
+
+.property-child-card__body h3 {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+}
+
+.property-child-card__focus {
+  color: var(--clay);
+  font-family: var(--font-script), cursive;
+  font-size: 1.18rem;
+}
+
+.property-notebook__footer {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.property-notebook__helper {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.property-info-panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(252, 248, 240, 0.92), rgba(241, 233, 219, 0.96));
+  padding: 1.3rem;
+  overflow: hidden;
+}
+
+.property-info-panel::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(94, 74, 46, 0.08);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+.property-info-panel__header {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(94, 74, 46, 0.16);
+}
+
+.property-info-panel__header-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.property-info-panel__header-meta {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.property-info-panel__kicker {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.property-info-panel__folio-line {
+  color: var(--clay);
+  font-family: var(--font-script), cursive;
+  font-size: 1.45rem;
+}
+
+.property-record-sheet__hero {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.property-record-sheet__copy {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.property-record-sheet__lead {
+  max-width: 56ch;
+  color: var(--ink);
+  font-size: 1.06rem;
+}
+
+.property-record-sheet__plate {
+  display: grid;
+  gap: 0.7rem;
+  justify-items: center;
+  padding: 1rem;
+  border: 1px dashed rgba(94, 74, 46, 0.24);
+  border-radius: 24px;
+  background: rgba(255, 251, 245, 0.54);
+}
+
+.property-record-sheet__plate-note {
+  max-width: 24ch;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.property-edit-button {
+  display: inline-flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.9);
+  color: var(--ink);
+}
+
+.property-edit-button.is-active {
+  background: rgba(225, 232, 217, 0.82);
+  color: var(--olive);
+}
+
+.property-edit-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.property-field-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.property-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.property-field span {
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.property-textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.property-info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.property-record-sheet {
+  position: relative;
+  z-index: 1;
+  gap: 1rem;
+}
+
+.property-record-sheet__ledger {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem 1rem;
+}
+
+.property-ledger-entry {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px dotted rgba(94, 74, 46, 0.24);
+}
+
+.property-ledger-entry__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.property-manuscript-section {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(94, 74, 46, 0.12);
+}
+
+.property-manuscript-section__head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.property-manuscript-section__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(94, 74, 46, 0.28), transparent);
+}
+
+.property-record-sheet__margin-note {
+  margin-top: 0.15rem;
+}
+
+.property-roster {
+  grid-template-columns: 1fr;
+}
+
+.property-roster__item {
+  padding: 0.95rem 1rem;
+  text-align: left;
+  display: grid;
+  gap: 0.45rem;
+  border: 1px dashed rgba(94, 74, 46, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 251, 245, 0.56);
+}
+
+.property-roster__item.is-active {
+  background: linear-gradient(180deg, rgba(225, 232, 217, 0.74), rgba(248, 244, 235, 0.9));
+  border-color: rgba(85, 104, 79, 0.36);
+}
+
+.property-roster__item span {
+  color: var(--ink-soft);
+}
+
+.property-record-sheet__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(94, 74, 46, 0.12);
+}
+
+.property-record-sheet__footer p {
+  color: var(--ink-muted);
 }
 
 .form {
@@ -903,6 +2808,17 @@ p {
   margin-top: 0.75rem;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: var(--space-5);
+  padding: 0.5rem 0 0.25rem;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -934,6 +2850,40 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-preview-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .public-catalogue-results__header,
+  .public-catalogue-row__title {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .plant-profile-record-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .public-catalogue-row {
+    grid-template-columns: 132px minmax(0, 1fr);
+  }
+
+  .plant-detail-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .plant-requirements-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+    align-items: start;
+  }
+
   .section-card__split {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -943,8 +2893,25 @@ p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .journal-spread--feature-left {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  }
+
+  .journal-spread--feature-right {
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+  }
+
   .prototype-module-grid,
   .prototype-plate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-library-grid,
+  .cabinet-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-week-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -952,18 +2919,160 @@ p {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
   }
+
+  .property-notebook-pane__header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .property-notebook-pane__level-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .property-workspace {
+    grid-template-columns: minmax(300px, 0.62fr) minmax(0, 1.18fr);
+    align-items: start;
+  }
+
+  .property-info-panel {
+    order: 1;
+  }
+
+  .property-notebook-pane {
+    order: 2;
+  }
+
+  .property-record-sheet__hero,
+  .property-record-sheet__columns {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.56fr);
+  }
+
+  .property-field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .planner-detail,
+  .catalogue-journal__detail,
+  .specimen-cabinet__records {
+    grid-template-columns: minmax(0, 1.04fr) minmax(240px, 0.76fr);
+    align-items: start;
+  }
 }
 
 @media (min-width: 1080px) {
+  .folio-workspace {
+    grid-template-columns: 220px minmax(0, 1fr) 240px;
+    align-items: start;
+  }
+
+  .folio-main__header {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.36fr);
+    align-items: start;
+  }
+
+  .planner-atmosphere__grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .planner-week-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
   .prototype-route-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .public-catalogue-workbench {
+    grid-template-columns: minmax(210px, 0.58fr) minmax(0, 1.42fr) minmax(250px, 0.72fr);
+  }
+
+  .public-catalogue-filters,
+  .public-catalogue-preview,
+  .plant-profile-nav,
+  .plant-profile-aside {
+    position: sticky;
+    top: 1rem;
+  }
+
+  .plant-profile-guide {
+    grid-template-columns: minmax(190px, 0.46fr) minmax(0, 1.48fr) minmax(230px, 0.58fr);
+  }
+
+  .property-browser {
+    grid-template-columns: 220px minmax(0, 1.06fr) minmax(320px, 0.78fr);
+    align-items: start;
+    column-gap: var(--space-3);
+  }
+
+  .property-browser__toolbar,
+  .property-archive-list,
+  .property-breadcrumbs,
+  .property-hierarchy-nav {
+    grid-column: 1;
+  }
+
+  .property-breadcrumbs,
+  .property-hierarchy-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .property-hierarchy-nav__separator {
+    display: none;
+  }
+
+  .property-breadcrumb,
+  .property-hierarchy-nav__link {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid rgba(94, 74, 46, 0.12);
+    border-radius: 16px;
+    background: rgba(255, 251, 245, 0.62);
+    text-align: left;
+  }
+
+  .property-hierarchy-nav__link.is-current {
+    background: linear-gradient(180deg, rgba(225, 232, 217, 0.74), rgba(248, 244, 235, 0.94));
+    border-color: rgba(85, 104, 79, 0.36);
+    color: var(--olive);
+  }
+
+  .property-hierarchy-nav__link.is-disabled {
+    opacity: 0.6;
+  }
+
+  .property-workspace {
+    display: contents;
+  }
+
+  .property-info-panel,
+  .property-notebook-pane {
+    grid-row: 1 / span 4;
+  }
+
+  .property-info-panel {
+    grid-column: 2;
+    order: initial;
+  }
+
+  .property-notebook-pane {
+    grid-column: 3;
+    order: initial;
+  }
+
+  .property-notebook__page {
+    min-height: 660px;
   }
 }
 
 @media (max-width: 759px) {
   .site,
   .journal-shell {
-    width: min(var(--max-width), calc(100vw - 0.5rem));
+    width: min(var(--max-width), calc(100% - 0.5rem));
   }
 
   .journal-page {
@@ -974,8 +3083,97 @@ p {
     flex-direction: column;
   }
 
+  .journal-page__header-side {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .property-notebook__page-head {
+    grid-template-columns: 1fr;
+  }
+
+  .property-notebook__page-head-copy--right {
+    justify-items: start;
+    text-align: left;
+  }
+
   .detail-list__row {
     grid-template-columns: 1fr;
+  }
+
+  .detail-list dd {
+    text-align: left;
+  }
+
+  .folio-main__header,
+  .planner-atmosphere__head,
+  .planner-atmosphere__grid,
+  .planner-week-grid,
+  .folio-context-icons,
+  .catalog-library-grid,
+  .cabinet-card-grid,
+  .property-browser__toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-preview-card {
+    grid-template-columns: 1fr;
+  }
+
+  .public-catalogue-hero__meta,
+  .public-catalogue-metrics,
+  .plant-profile-hero__facts,
+  .plant-detail-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .public-catalogue-search {
+    min-height: 52px;
+    border-radius: 8px;
+  }
+
+  .public-catalogue-row__preview {
+    min-height: 140px;
+  }
+
+  .plant-lifecycle-sheet article {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .property-child-card__body,
+  .property-record-sheet__ledger,
+  .property-notebook__footer {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-sheet__hero,
+  .catalogue-search-sheet__bar,
+  .planner-band,
+  .catalogue-result-row,
+  .specimen-cabinet__drawers {
+    grid-template-columns: 1fr;
+  }
+
+  .property-notebook__helper {
+    text-align: left;
+  }
+
+  .journal-shell__topline {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-shell__identity {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journal-shell__nav {
+    gap: 0.8rem;
+  }
+
+  .journal-shell__user-menu {
+    justify-self: end;
   }
 }
 
@@ -990,6 +3188,3577 @@ p {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.private-beta-auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: clamp(1rem, 4vw, 4rem);
+  background:
+    linear-gradient(140deg, rgba(78, 91, 55, 0.11), transparent 38%),
+    var(--paper);
+}
+
+.private-beta-auth__panel {
+  min-width: 0;
+  width: 100%;
+  max-width: 520px;
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-paper);
+}
+
+.private-beta-auth__panel h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 0.95;
+}
+
+.private-beta-auth__form,
+.beta-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.private-beta-auth__form label,
+.beta-form label {
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.beta-app-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(137, 107, 61, 0.12), transparent 32rem),
+    var(--paper);
+  color: var(--ink);
+}
+
+.beta-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(246, 241, 231, 0.96));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(75, 57, 33, 0.07);
+}
+
+.beta-app-header__identity,
+.beta-app-header__account,
+.beta-app-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.beta-app-header__nav {
+  flex-wrap: wrap;
+}
+
+.beta-app-header__nav a {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color var(--duration-base) ease, border-color var(--duration-base) ease, background-color var(--duration-base) ease;
+}
+
+.beta-app-header__nav a:hover {
+  color: var(--ink);
+}
+
+.beta-app-header__nav a.is-active {
+  color: var(--olive);
+  border-color: rgba(85, 104, 79, 0.42);
+  background: linear-gradient(180deg, rgba(222, 229, 216, 0.92), rgba(240, 238, 226, 0.98));
+}
+
+.beta-app-header__account {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.beta-app-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.beta-app-rail,
+.beta-app-main,
+.beta-panel {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-paper);
+}
+
+.beta-app-rail {
+  align-self: start;
+  position: sticky;
+  top: 5rem;
+  display: grid;
+  gap: 1.2rem;
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+  background: var(--surface-panel);
+}
+
+.beta-app-main {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.7rem);
+  border-radius: var(--radius-xl);
+  background: var(--surface-page);
+}
+
+.beta-app-title,
+.beta-calendar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.beta-app-title h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 0.9;
+}
+
+.beta-app-title p,
+.beta-record-summary p,
+.beta-panel p,
+.beta-rail-section p {
+  color: var(--ink-soft);
+}
+
+.beta-notice {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(78, 91, 55, 0.25);
+  border-radius: var(--radius-md);
+  background: rgba(78, 91, 55, 0.08);
+}
+
+.beta-notice.is-error {
+  border-color: rgba(130, 55, 42, 0.32);
+  background: rgba(130, 55, 42, 0.09);
+}
+
+.beta-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.beta-breadcrumb__crumb {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  cursor: default;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+button.beta-breadcrumb__crumb {
+  cursor: pointer;
+}
+
+button.beta-breadcrumb__crumb:hover {
+  border-color: var(--line-strong);
+}
+
+.beta-breadcrumb__sep {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  line-height: 1;
+}
+
+.beta-readiness,
+.beta-rail-section,
+.beta-list,
+.beta-task-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.beta-readiness__row {
+  display: grid;
+  grid-template-columns: 0.7rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.beta-readiness__row span {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+
+.beta-readiness__row span.is-complete {
+  background: var(--olive);
+  border-color: var(--olive);
+}
+
+.beta-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.beta-grid--property {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.beta-grid--plants {
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr);
+}
+
+.beta-panel {
+  min-width: 0;
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+}
+
+.beta-panel--primary,
+.beta-panel--wide {
+  grid-column: 1 / -1;
+}
+
+.beta-panel h2,
+.beta-panel h3 {
+  margin: 0.25rem 0 0.4rem;
+}
+
+.beta-form--compact {
+  margin-top: 0.8rem;
+}
+
+.beta-form .input,
+.private-beta-auth__form .input,
+.beta-rail-section .input {
+  width: 100%;
+}
+
+.beta-textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.beta-list button,
+.beta-list article,
+.beta-record-grid article,
+.beta-task-card {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(94, 74, 46, 0.16);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  color: var(--ink);
+  transition: border-color var(--duration-base) ease, background var(--duration-base) ease;
+}
+
+.beta-list button {
+  cursor: pointer;
+}
+
+.beta-list button:hover {
+  border-color: rgba(85, 104, 79, 0.32);
+}
+
+.beta-list button.is-active {
+  border-color: rgba(85, 104, 79, 0.42);
+  background: var(--surface-inset-active);
+  color: var(--olive);
+}
+
+.beta-list span,
+.beta-list article span,
+.beta-task-card span {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.beta-two-column,
+.beta-record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.beta-task-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.beta-catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.beta-catalogue-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.35fr) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-note);
+}
+
+.beta-catalogue-card__heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  align-items: baseline;
+}
+
+.beta-catalogue-card__heading h2 {
+  margin: 0;
+}
+
+.beta-catalogue-card__heading span,
+.beta-catalogue-card__status {
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+.beta-catalogue-metrics,
+.beta-catalogue-overrides {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.beta-catalogue-metrics span,
+.beta-catalogue-overrides span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(94, 74, 46, 0.18);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.beta-catalogue-overrides span {
+  border-color: rgba(58, 105, 71, 0.26);
+  background: rgba(222, 235, 210, 0.48);
+}
+
+.beta-catalogue-card__status {
+  margin-top: 0.8rem;
+}
+
+.beta-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 980px) {
+  .beta-app-layout,
+  .beta-grid--property,
+  .beta-grid--plants,
+  .beta-two-column,
+  .beta-record-grid,
+  .beta-catalogue-grid,
+  .beta-catalogue-card,
+  .beta-task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-app-rail {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .beta-app-header,
+  .beta-app-header__identity {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .beta-app-header__account {
+    justify-content: flex-start;
+  }
+
+  .beta-app-title,
+  .beta-calendar-header {
+    flex-direction: column;
+  }
+}
+
+/* ==== Inlined view styles (calendar, plants, catalogue) ==== */
+
+/* Calendar view — weekly planning timeline (private beta)
+   Namespace: beta-cal-*
+   Reuses: planner-week-grid, planner-day-column, planner-entry-card
+   from globals.css for the core grid/card look. */
+
+/* ── View shell ─────────────────────────────────────────────────────────────── */
+
+.beta-cal-view {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────────── */
+
+.beta-cal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.beta-cal-header__text {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.beta-cal-heading {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.beta-cal-subheading {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+/* ── Week navigation ─────────────────────────────────────────────────────────── */
+
+.beta-cal-nav {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.beta-cal-nav__btn {
+  min-height: 36px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.88rem;
+}
+
+.beta-cal-nav__btn--today {
+  font-family: var(--font-label), "Baskerville", serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── Week grid overrides ──────────────────────────────────────────────────────
+   globals.css sets grid-template-columns at breakpoints via .planner-week-grid.
+   We extend it only for mobile (default single-col) and fine-tune for this view.
+   The existing breakpoints (760px → 2-col, 1080px → 5-col) are inherited. */
+
+.beta-cal-week-grid {
+  align-items: start;
+}
+
+/* Override the planner default from 5-col → 7-col at desktop to show all 7 days */
+@media (min-width: 1080px) {
+  .beta-cal-week-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
+/* At tablet keep 2-col (inherited), bump to 4 at a mid-size point */
+@media (min-width: 760px) and (max-width: 1079px) {
+  .beta-cal-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── Day column ───────────────────────────────────────────────────────────────── */
+
+.beta-cal-day-column {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-height: 220px;
+}
+
+.beta-cal-day-column--today {
+  background: var(--surface-inset-active);
+  border-color: rgba(85, 104, 79, 0.32);
+}
+
+.beta-cal-day-column__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-cal-day-abbrev {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.beta-cal-day-num {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.beta-cal-day-num--today {
+  color: var(--olive);
+}
+
+.beta-cal-day-column__entries {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* ── Empty states ─────────────────────────────────────────────────────────────── */
+
+.beta-cal-empty-day {
+  margin: 0;
+  padding: var(--space-2) 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+.beta-cal-empty-week {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  text-align: center;
+}
+
+/* ── Task card ────────────────────────────────────────────────────────────────── */
+
+.beta-cal-task-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  padding: var(--space-2) var(--space-3);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal-task-card:hover {
+  border-color: var(--line-strong);
+}
+
+.beta-cal-task-card__body {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.beta-cal-task-card__title {
+  margin: 0;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.beta-cal-task-card__context {
+  font-size: 0.77rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-family: var(--font-label), "Baskerville", serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.beta-cal-task-card__notes {
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.beta-cal-task-card__action {
+  align-self: start;
+  min-height: 32px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+/* ── Rails (overdue / unscheduled / later) ───────────────────────────────────── */
+
+.beta-cal-rail {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.beta-cal-rail__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.beta-cal-rail__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  font-size: 0.76rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  color: var(--ink-muted);
+  line-height: 1;
+}
+
+.beta-cal-rail__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.beta-cal-rail__card {
+  flex: 1 1 280px;
+  max-width: 400px;
+}
+
+/* ── Completed history ────────────────────────────────────────────────────────── */
+
+.beta-cal-history {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.beta-cal-history__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-inset);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal-history__toggle:hover {
+  background: var(--paper-inkwash);
+}
+
+.beta-cal-history__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  font-size: 0.76rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  color: var(--ink-muted);
+  line-height: 1;
+}
+
+.beta-cal-history__chevron {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+.beta-cal-history__body {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--line);
+  background: var(--surface-panel);
+}
+
+.beta-cal-history__card {
+  opacity: 0.76;
+}
+
+.beta-cal-history__overflow {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ── Mobile (< 760px): single column, nav wraps ──────────────────────────────── */
+
+@media (max-width: 759px) {
+  .beta-cal-header {
+    flex-direction: column;
+  }
+
+  .beta-cal-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .beta-cal-week-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-cal-day-column {
+    min-height: auto;
+  }
+
+  .beta-cal-rail__card {
+    max-width: 100%;
+  }
+}
+
+
+/* Plants view — beta-plants-* namespace */
+
+/* ─── Container ─────────────────────────────────────────────────────────────── */
+
+.beta-plants-view {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* ─── Toolbar ────────────────────────────────────────────────────────────────── */
+
+.beta-plants-toolbar {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.beta-plants-search-wrap {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 50px;
+  padding: 0 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(90deg, rgba(167, 133, 69, 0.14), transparent 2.5rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(250, 246, 238, 0.88));
+  box-shadow: 0 8px 20px rgba(72, 54, 31, 0.07);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.beta-plants-search-wrap:focus-within {
+  border-color: rgba(85, 104, 79, 0.5);
+}
+
+.beta-plants-search-icon {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.beta-plants-search {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: 0;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+.beta-plants-search::placeholder {
+  color: var(--ink-muted);
+}
+
+/* hide browser-native clear button */
+.beta-plants-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* ─── Filter chips ───────────────────────────────────────────────────────────── */
+
+.beta-plants-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.beta-plants-chips--beds {
+  padding-left: var(--space-2);
+  border-left: 2px solid var(--line);
+}
+
+.beta-plants-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0.28rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.beta-plants-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.beta-plants-chip.is-active {
+  border-color: rgba(85, 104, 79, 0.48);
+  background: var(--surface-inset-active);
+  color: var(--olive);
+}
+
+.beta-plants-chip--bed {
+  font-size: 0.82rem;
+  min-height: 30px;
+}
+
+/* ─── Status tabs ────────────────────────────────────────────────────────────── */
+
+.beta-plants-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-plants-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.93rem;
+  letter-spacing: 0.03em;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.beta-plants-tab:hover {
+  background: var(--surface-inset);
+  color: var(--ink);
+}
+
+.beta-plants-tab.is-active {
+  border-color: rgba(85, 104, 79, 0.42);
+  background: linear-gradient(180deg, rgba(222, 229, 216, 0.92), rgba(240, 238, 226, 0.98));
+  color: var(--olive);
+}
+
+.beta-plants-tab__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.55rem;
+  height: 1.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(167, 133, 69, 0.16);
+  color: var(--clay);
+  font-size: 0.8rem;
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.beta-plants-tab.is-active .beta-plants-tab__count {
+  background: rgba(90, 101, 79, 0.2);
+  color: var(--olive);
+}
+
+/* ─── Results header ─────────────────────────────────────────────────────────── */
+
+.beta-plants-results-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.beta-plants-results-count {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+}
+
+.beta-plants-clear {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-inset);
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.beta-plants-clear:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+/* ─── Tab panel ──────────────────────────────────────────────────────────────── */
+
+.beta-plants-panel {
+  min-height: 280px;
+  min-width: 0;
+}
+
+/* ─── Card grid ──────────────────────────────────────────────────────────────── */
+
+.beta-plants-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--space-3);
+}
+
+/* ─── Plant card ─────────────────────────────────────────────────────────────── */
+
+.beta-plants-card {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-note);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.beta-plants-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 14px 30px rgba(75, 57, 33, 0.11);
+}
+
+.beta-plants-card--archived {
+  opacity: 0.82;
+}
+
+.beta-plants-card--archived:hover {
+  opacity: 1;
+}
+
+.beta-plants-card--wishlist {
+  border-style: dashed;
+}
+
+/* ─── Thumbnail ──────────────────────────────────────────────────────────────── */
+
+.beta-plants-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 251, 245, 0.54);
+  flex-shrink: 0;
+}
+
+.beta-plants-thumb--fallback {
+  padding: 0.4rem;
+}
+
+.beta-plants-thumb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(0.94);
+}
+
+.beta-plants-thumb--fallback .beta-plants-thumb__img {
+  object-fit: contain;
+}
+
+/* ─── Card body ──────────────────────────────────────────────────────────────── */
+
+.beta-plants-card__body {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.beta-plants-card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.65rem;
+}
+
+.beta-plants-card__name {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.beta-plants-card__botanical {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.beta-plants-card__context {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.03em;
+}
+
+.beta-plants-card__meta {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+}
+
+.beta-plants-card__actions {
+  margin-top: 0.45rem;
+}
+
+.beta-plants-card__actions .folio-button {
+  min-height: 38px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.9rem;
+}
+
+/* ─── Empty state ────────────────────────────────────────────────────────────── */
+
+.beta-plants-empty {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--space-2);
+  min-height: 220px;
+  padding: var(--space-5);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  background: var(--surface-inset);
+}
+
+.beta-plants-empty p {
+  color: var(--ink-muted);
+  font-style: italic;
+  max-width: 32ch;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 760px) {
+  .beta-plants-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .beta-plants-thumb {
+    width: 72px;
+    height: 72px;
+  }
+
+  .beta-plants-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ─── Catalogue View (private beta) ───────────────────────────────────────── */
+/* All new classes use the beta-cat-* prefix.                                  */
+/* beta-catalogue-grid / beta-catalogue-card / beta-cat-card__* extend the     */
+/* existing beta-catalogue-* shape from globals.css.                           */
+
+/* Root wrapper ---------------------------------------------------------------- */
+.beta-cat-root {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+.beta-cat-toolbar {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3) var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-note);
+}
+
+/* Search bar */
+.beta-cat-search {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 var(--space-3);
+  min-height: 48px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(90deg, rgba(167, 133, 69, 0.12), transparent 2.4rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(250, 246, 238, 0.88));
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.beta-cat-search:focus-within {
+  border-color: rgba(90, 101, 79, 0.52);
+}
+
+.beta-cat-search__label {
+  color: var(--clay);
+  cursor: text;
+  line-height: 0;
+}
+
+.beta-cat-search__icon {
+  display: block;
+  color: var(--clay);
+  opacity: 0.72;
+}
+
+.beta-cat-search__input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  outline: 0;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+.beta-cat-search__input::placeholder {
+  color: var(--ink-muted);
+}
+
+/* Remove native search-clear chrome */
+.beta-cat-search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Toolbar second row: type chips + sort */
+.beta-cat-toolbar__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ── Type filter chips ───────────────────────────────────────────────────── */
+.beta-cat-type-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.beta-cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 34px;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 250, 244, 0.72);
+  color: var(--ink-soft);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.beta-cat-chip:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.beta-cat-chip.is-active {
+  border-color: rgba(90, 101, 79, 0.52);
+  background: linear-gradient(180deg, rgba(216, 222, 204, 0.82), rgba(246, 241, 231, 0.96));
+  color: var(--olive);
+}
+
+.beta-cat-chip small {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-pill);
+  background: rgba(167, 133, 69, 0.16);
+  color: var(--clay);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.beta-cat-chip.is-active small {
+  background: rgba(90, 101, 79, 0.16);
+  color: var(--olive);
+}
+
+/* ── Sort select ─────────────────────────────────────────────────────────── */
+.beta-cat-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.beta-cat-sort__label {
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.79rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.beta-cat-sort__select {
+  min-height: 34px;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 250, 244, 0.72);
+  color: var(--ink);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.beta-cat-sort__select:hover {
+  border-color: var(--line-strong);
+}
+
+/* ── Results meta row ────────────────────────────────────────────────────── */
+.beta-cat-results-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.79rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Clear-filters button ────────────────────────────────────────────────── */
+.beta-cat-clear {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--clay);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out);
+}
+
+.beta-cat-clear:hover {
+  border-color: var(--line-strong);
+  background: rgba(239, 226, 209, 0.42);
+}
+
+.beta-cat-clear--inline {
+  display: inline;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  color: var(--clay);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.beta-cat-empty {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 250, 244, 0.48);
+  text-align: center;
+}
+
+.beta-cat-empty__heading {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.22rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.beta-cat-empty__note {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ── Card image column ───────────────────────────────────────────────────── */
+/* The existing .beta-catalogue-card grid layout already handles two columns; */
+/* we just name the sub-elements for clarity.                                  */
+.beta-cat-card__image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--space-1);
+}
+
+.beta-cat-card__body {
+  display: grid;
+  gap: var(--space-1);
+  align-content: start;
+}
+
+.beta-cat-card__desc {
+  color: var(--ink-soft);
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+/* ── Expandable Field Notes ──────────────────────────────────────────────── */
+.beta-cat-expand {
+  margin-top: var(--space-2);
+  border-top: 1px dotted rgba(94, 74, 46, 0.24);
+  padding-top: var(--space-2);
+}
+
+.beta-cat-expand__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 32px;
+  padding: 0.22rem 0.65rem 0.22rem 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 250, 244, 0.72);
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
+}
+
+.beta-cat-expand__toggle:hover {
+  border-color: var(--line-strong);
+  background: rgba(239, 226, 209, 0.48);
+}
+
+.beta-cat-expand__toggle[aria-expanded="true"] {
+  border-color: rgba(90, 101, 79, 0.42);
+  background: linear-gradient(180deg, rgba(216, 222, 204, 0.72), rgba(246, 241, 231, 0.92));
+  color: var(--olive);
+}
+
+.beta-cat-expand__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid currentColor;
+  font-size: 0.9rem;
+  line-height: 1;
+  font-style: normal;
+  flex-shrink: 0;
+}
+
+/* Panel: revealed when expanded */
+.beta-cat-expand__panel {
+  /* Smooth open/close via grid-rows trick */
+  display: grid;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  margin-top: var(--space-2);
+  transition: grid-template-rows var(--duration-slow) var(--ease-out);
+}
+
+.beta-cat-expand__panel[data-open="false"] {
+  grid-template-rows: 0fr;
+}
+
+/* hidden attribute means display:none from the DOM; JS toggles both
+   hidden and data-open so there's no flash on first open */
+.beta-cat-expand__panel[hidden] {
+  display: grid; /* override UA hidden so grid-rows transition can work */
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .beta-cat-expand__panel {
+    transition: none;
+  }
+}
+
+/* ── Field Notes content ─────────────────────────────────────────────────── */
+.beta-cat-field-notes {
+  min-height: 0; /* required by grid-rows trick */
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+}
+
+.beta-cat-field-notes__section {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.beta-cat-field-notes__label {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.beta-cat-field-notes p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.beta-cat-field-notes strong {
+  color: var(--ink);
+}
+
+/* Cultivar overrides list */
+.beta-cat-overrides-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.beta-cat-overrides-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.beta-cat-overrides-list li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--clay);
+}
+
+.beta-cat-overrides-list strong {
+  color: var(--ink);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.beta-cat-overrides-list span {
+  color: var(--ink-muted);
+}
+
+/* ── Mobile: single column under 980px ──────────────────────────────────── */
+/* (the beta-catalogue-grid itself already collapses via globals.css)         */
+@media (max-width: 980px) {
+  .beta-cat-toolbar__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .beta-cat-sort {
+    align-self: flex-end;
+  }
+}
+
+/* ==== My Property — plot map + contextual drawer (private beta) ====
+   Namespaces: beta-property (layout), beta-plot/beta-zone/beta-bed/beta-chip
+   (spatial canvas), beta-drawer (Info/Tasks/Actions), beta-tree (rail),
+   beta-field/beta-detail-list (forms + read views). Reuses --surface-*,
+   --radius-*, --shadow-*, --space-*, --font-label tokens. */
+
+/* ── Rail hierarchy tree ─────────────────────────────────────────────────── */
+
+.beta-rail-head {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.beta-rail-name {
+  margin: 0;
+  font-family: var(--font-label), serif;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.beta-tree {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.beta-tree__empty {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.beta-tree__group {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.beta-tree__zone,
+.beta-tree__bed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-label), serif;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.beta-tree__bed {
+  margin-left: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+}
+
+.beta-tree__zone:hover,
+.beta-tree__bed:hover {
+  background: var(--surface-inset);
+  color: var(--ink);
+}
+
+.beta-tree__zone.is-active,
+.beta-tree__bed.is-active {
+  background: var(--surface-inset-active);
+  border-color: rgba(85, 104, 79, 0.32);
+  color: var(--olive);
+}
+
+.beta-tree__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.beta-tree__count {
+  flex: none;
+  min-width: 1.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+/* ── Property layout: plot canvas + drawer ───────────────────────────────── */
+
+.beta-property {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.beta-plot {
+  min-width: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.beta-plot__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.beta-plot__name {
+  margin: 0.3rem 0 0.15rem;
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  line-height: 0.98;
+}
+
+.beta-plot__meta {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.beta-plot__compass {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label), serif;
+  color: var(--ink-muted);
+  background: var(--surface-inset);
+}
+
+.beta-plot__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: var(--space-3);
+}
+
+.beta-plot__empty,
+.beta-plot__firstrun,
+.beta-plot__loading {
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface-inset);
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  color: var(--ink-soft);
+}
+
+.beta-plot__firstrun {
+  max-width: 30rem;
+}
+
+.beta-plot__firstrun h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.beta-plot--solo {
+  grid-template-columns: 1fr;
+}
+
+/* ── Zone tile ───────────────────────────────────────────────────────────── */
+
+.beta-zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-note);
+  transition: border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
+}
+
+.beta-zone.is-active {
+  border-color: rgba(85, 104, 79, 0.5);
+  box-shadow: 0 0 0 1px rgba(85, 104, 79, 0.3), var(--shadow-note);
+}
+
+.beta-zone__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.beta-zone__name {
+  font-family: var(--font-label), serif;
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+
+.beta-zone__tag {
+  flex: none;
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.beta-zone__sub {
+  margin: -0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.beta-zone__beds {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.beta-zone__add {
+  align-self: flex-start;
+  margin-top: 0.2rem;
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0;
+  color: var(--olive);
+  font-family: var(--font-label), serif;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.beta-zone__add:hover {
+  text-decoration: underline;
+}
+
+.beta-zone--new {
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 130px;
+  border-style: dashed;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink-soft);
+  font-family: var(--font-label), serif;
+  cursor: pointer;
+}
+
+.beta-zone--new:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.beta-zone__plus {
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--ink-muted);
+}
+
+/* ── Bed cell ────────────────────────────────────────────────────────────── */
+
+.beta-bed {
+  border: 1px solid rgba(94, 74, 46, 0.16);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  padding: 0.6rem 0.7rem;
+  transition: border-color var(--duration-base) var(--ease-out), background var(--duration-base) var(--ease-out);
+}
+
+.beta-bed.is-active {
+  border-color: rgba(85, 104, 79, 0.45);
+  background: var(--surface-inset-active);
+}
+
+.beta-bed--empty {
+  width: 100%;
+  text-align: left;
+  border-style: dashed;
+  color: var(--ink-soft);
+  font-family: var(--font-label), serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.beta-bed__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.beta-bed__name {
+  font-size: 0.98rem;
+}
+
+.beta-bed__count {
+  flex: none;
+  min-width: 1.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+.beta-bed__plants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.beta-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--paper-soft);
+  color: var(--ink);
+  font-size: 0.78rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
+}
+
+.beta-chip:hover {
+  border-color: var(--line-strong);
+}
+
+.beta-chip.is-active {
+  border-color: rgba(85, 104, 79, 0.5);
+  background: var(--surface-inset-active);
+  color: var(--olive);
+}
+
+.beta-chip--more {
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: default;
+}
+
+.beta-chip--add {
+  border-style: dashed;
+  color: var(--olive);
+  background: transparent;
+}
+
+/* ── Contextual drawer ───────────────────────────────────────────────────── */
+
+.beta-drawer {
+  position: sticky;
+  top: 5rem;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: calc(100vh - 6rem);
+  overflow: auto;
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-paper);
+}
+
+.beta-drawer__scope {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.beta-drawer__scope > span {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.beta-drawer__tabs {
+  display: flex;
+  gap: 0.3rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-drawer__tab {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-label), serif;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.beta-drawer__tab:hover {
+  color: var(--ink);
+}
+
+.beta-drawer__tab.is-active {
+  background: var(--surface-inset-active);
+  border-color: rgba(85, 104, 79, 0.32);
+  color: var(--olive);
+}
+
+.beta-drawer__body {
+  min-height: 0;
+}
+
+.beta-drawer__section {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.beta-drawer__actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.beta-drawer__muted {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.beta-drawer__danger {
+  justify-self: start;
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0;
+  color: var(--berry);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.beta-drawer__danger:hover {
+  text-decoration: underline;
+}
+
+/* ── Forms + detail rows inside drawer ───────────────────────────────────── */
+
+.beta-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.beta-field > span {
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.beta-field .input {
+  width: 100%;
+}
+
+.beta-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+
+.beta-detail-list {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0;
+}
+
+.beta-detail-list__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.beta-detail-list__row dt {
+  font-family: var(--font-label), serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.beta-detail-list__row dd {
+  margin: 0;
+  text-align: right;
+  color: var(--ink);
+}
+
+.beta-note-feed {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.beta-note-feed__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.beta-note-feed__item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.beta-link-button {
+  flex: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.beta-link-button:hover {
+  color: var(--berry);
+}
+
+/* ── Confirm + danger button ─────────────────────────────────────────────── */
+
+.beta-confirm {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(113, 77, 77, 0.32);
+  border-radius: var(--radius-md);
+  background: rgba(113, 77, 77, 0.07);
+}
+
+.beta-confirm p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.beta-confirm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.button.button--danger {
+  background: var(--berry);
+  border-color: var(--berry);
+  color: var(--paper-soft);
+}
+
+/* ── Task rows ───────────────────────────────────────────────────────────── */
+
+.beta-task-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-task-row__check {
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.beta-task-row__check.is-checked,
+.beta-task-row__check:hover {
+  background: var(--olive);
+  border-color: var(--olive);
+}
+
+.beta-task-row__body {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.beta-task-row__body strong {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.beta-task-row__body span {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.beta-task-row.is-done .beta-task-row__body strong {
+  text-decoration: line-through;
+  color: var(--ink-muted);
+}
+
+.beta-done {
+  margin-top: 0.3rem;
+}
+
+.beta-done summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-family: var(--font-label), serif;
+}
+
+/* ── Responsive: collapse drawer beneath the plot ────────────────────────── */
+
+@media (max-width: 1024px) {
+  .beta-property {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-drawer {
+    position: static;
+    max-height: none;
+  }
+}
+
+/* ============================================================
+   Calendar v2 — beta-cal2-* namespace
+   Two-column layout: main timeline + right insights rail.
+   Reuses design tokens from :root.
+   ============================================================ */
+
+/* ── Page layout ──────────────────────────────────────────── */
+
+.beta-cal2-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.beta-cal2-main {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+/* ── Seasonal context strip ───────────────────────────────── */
+
+.beta-cal2-season-strip {
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.beta-cal2-season-strip__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.beta-cal2-season-strip__region {
+  font-size: 0.84rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+.beta-cal2-season-strip__bullets {
+  margin: 0;
+  padding: 0 0 0 var(--space-4);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.beta-cal2-season-strip__bullets li {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  line-height: 1.45;
+}
+
+/* ── Toolbar (view toggle + nav + label) ──────────────────── */
+
+.beta-cal2-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.beta-cal2-period-label {
+  margin: 0 0 0 auto;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+/* ── View toggle (Week | Month) ───────────────────────────── */
+
+.beta-cal2-view-toggle {
+  display: flex;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.beta-cal2-view-toggle__btn {
+  padding: 0.35rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal2-view-toggle__btn + .beta-cal2-view-toggle__btn {
+  border-left: 1px solid var(--line-strong);
+}
+
+.beta-cal2-view-toggle__btn.is-active {
+  background: var(--surface-inset-active);
+  color: var(--olive);
+}
+
+.beta-cal2-view-toggle__btn:hover:not(.is-active) {
+  background: var(--paper-inkwash);
+  color: var(--ink);
+}
+
+/* ── Nav buttons ──────────────────────────────────────────── */
+
+.beta-cal2-nav {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.beta-cal2-nav__btn {
+  min-height: 34px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.beta-cal2-nav__btn--today {
+  font-family: var(--font-label), "Baskerville", serif;
+  letter-spacing: 0.04em;
+}
+
+/* ── Filter chips ─────────────────────────────────────────── */
+
+.beta-cal2-filters {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.beta-cal2-filters__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.beta-cal2-filters__select {
+  flex: 0 1 auto;
+  min-width: 120px;
+}
+
+.beta-cal2-filters__select span.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.beta-cal2-filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.beta-cal2-filters__clear {
+  align-self: start;
+  font-size: 0.82rem;
+}
+
+/* ── Empty states ─────────────────────────────────────────── */
+
+.beta-cal2-empty-state {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  color: var(--ink-soft);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  font-style: italic;
+}
+
+.beta-cal2-empty-day {
+  margin: 0;
+  padding: var(--space-2) 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+/* ── Week view grid ───────────────────────────────────────── */
+
+.beta-cal2-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--space-2);
+  align-items: start;
+}
+
+.beta-cal2-day-col {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-height: 200px;
+  padding: var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.beta-cal2-day-col--today {
+  background: var(--surface-inset-active);
+  border-color: rgba(85, 104, 79, 0.32);
+}
+
+.beta-cal2-day-col__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-cal2-day-abbrev {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.beta-cal2-day-num {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.beta-cal2-day-num--today {
+  color: var(--olive);
+}
+
+.beta-cal2-day-col__entries {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Compact task card — used inside the narrow weekly day columns */
+.beta-cal2-card--compact {
+  gap: 6px;
+  padding: 8px 9px;
+}
+
+.beta-cal2-card--compact .beta-cal2-card__title {
+  font-size: 0.82rem;
+  line-height: 1.25;
+}
+
+.beta-cal2-card--compact .beta-cal2-card__context {
+  font-size: 0.7rem;
+}
+
+.beta-cal2-card--compact .beta-cal2-type-tag {
+  display: none;
+}
+
+.beta-cal2-card--compact .beta-cal2-card__footer {
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.beta-cal2-card--compact .beta-cal2-card__due {
+  font-size: 0.7rem;
+}
+
+.beta-cal2-card--compact .beta-cal2-card__btn {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+}
+
+/* ── Month view ───────────────────────────────────────────── */
+
+.beta-cal2-month {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.beta-cal2-month-header {
+  display: grid;
+  grid-template-columns: 2rem repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.beta-cal2-month-header__cell {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-muted);
+  text-align: center;
+  padding: var(--space-1) 0;
+  grid-column: span 1;
+}
+
+/* The first cell is for week labels; skip it */
+.beta-cal2-month-header::before {
+  content: "";
+}
+
+.beta-cal2-month-grid {
+  display: grid;
+  gap: 2px;
+}
+
+.beta-cal2-month-week {
+  display: grid;
+  grid-template-columns: 2rem repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.beta-cal2-month-week__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal2-month-week__label:hover {
+  background: var(--paper-inkwash);
+  color: var(--ink-soft);
+}
+
+.beta-cal2-month-day {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  min-height: 72px;
+  padding: var(--space-1);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal2-month-day:hover {
+  border-color: var(--line-strong);
+}
+
+.beta-cal2-month-day--today {
+  border-color: var(--olive);
+}
+
+.beta-cal2-month-day--out {
+  opacity: 0.42;
+}
+
+.beta-cal2-month-day--selected {
+  background: var(--surface-inset-active);
+  border-color: rgba(85, 104, 79, 0.5);
+}
+
+.beta-cal2-month-day__num {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.beta-cal2-month-day--today .beta-cal2-month-day__num {
+  color: var(--olive);
+  font-weight: 600;
+}
+
+.beta-cal2-month-day__count {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+}
+
+.beta-cal2-month-day__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-muted);
+}
+
+.beta-cal2-month-day__dot--planting { background: var(--olive); }
+.beta-cal2-month-day__dot--watering { background: #6a9cb5; }
+.beta-cal2-month-day__dot--harvest  { background: var(--gold); }
+.beta-cal2-month-day__dot--maintenance { background: var(--clay); }
+.beta-cal2-month-day__dot--inspection { background: var(--berry); }
+.beta-cal2-month-day__dot--observation { background: var(--ink-muted); }
+.beta-cal2-month-day__dot--other    { background: var(--ink-muted); }
+
+/* Month detail panel */
+
+.beta-cal2-month-detail {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-2);
+}
+
+.beta-cal2-month-detail__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.beta-cal2-month-detail__cards {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* ── Task card v2 ─────────────────────────────────────────── */
+
+.beta-cal2-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal2-card:hover {
+  border-color: var(--line-strong);
+}
+
+.beta-cal2-card--done {
+  opacity: 0.72;
+}
+
+.beta-cal2-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Checkbox */
+.beta-cal2-card__check {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  transition: background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.beta-cal2-card__check.is-checked {
+  background: var(--olive-soft);
+  border-color: var(--olive);
+}
+
+.beta-cal2-card__check.is-checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--olive);
+  line-height: 1;
+  top: 1px;
+  left: 1px;
+}
+
+.beta-cal2-card__body {
+  flex: 1;
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.beta-cal2-card__title {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.beta-cal2-card--done .beta-cal2-card__title {
+  text-decoration: line-through;
+  color: var(--ink-muted);
+}
+
+.beta-cal2-card__context {
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-label), "Baskerville", serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.beta-cal2-card__notes {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.beta-cal2-card__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.beta-cal2-card__due {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.beta-cal2-card__actions {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.beta-cal2-card__btn {
+  min-height: 28px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+.beta-cal2-card__reschedule {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  padding-top: var(--space-1);
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+/* ── Event type tag ───────────────────────────────────────── */
+
+.beta-cal2-type-tag {
+  flex-shrink: 0;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  font-size: 0.7rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  background: var(--surface-inset);
+  white-space: nowrap;
+}
+
+.beta-cal2-type-tag--planting    { color: var(--olive);    border-color: var(--olive-soft); }
+.beta-cal2-type-tag--watering    { color: #4a8caa;          border-color: rgba(74,140,170,0.28); }
+.beta-cal2-type-tag--harvest     { color: var(--gold);     border-color: rgba(167,133,69,0.28); }
+.beta-cal2-type-tag--maintenance { color: var(--clay);     border-color: var(--clay-soft); }
+.beta-cal2-type-tag--inspection  { color: var(--berry);    border-color: rgba(113,77,77,0.28); }
+.beta-cal2-type-tag--observation { color: var(--ink-soft); border-color: var(--line); }
+.beta-cal2-type-tag--other       { color: var(--ink-muted); border-color: var(--line); }
+
+/* ── Right insights rail ──────────────────────────────────── */
+
+.beta-cal2-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.beta-cal2-rail__section {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.beta-cal2-rail__empty {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--font-body), "Palatino Linotype", serif;
+}
+
+.beta-cal2-rail__signals {
+  margin: 0;
+  padding: 0 0 0 var(--space-3);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.beta-cal2-rail__signals li {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  line-height: 1.45;
+}
+
+/* ── Upcoming task list ───────────────────────────────────── */
+
+.beta-cal2-upcoming-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.beta-cal2-upcoming-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.1rem var(--space-2);
+  align-items: start;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.beta-cal2-upcoming-item:last-child {
+  border-bottom: none;
+}
+
+.beta-cal2-upcoming-item__due {
+  grid-row: 1 / 3;
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-variant-numeric: tabular-nums;
+  align-self: center;
+}
+
+.beta-cal2-upcoming-item__title {
+  font-size: 0.85rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  color: var(--ink);
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.beta-cal2-upcoming-item__ctx {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.beta-cal2-upcoming-item .beta-link-button {
+  grid-row: 1 / 3;
+  align-self: center;
+  font-size: 0.78rem;
+}
+
+/* ── Locked premium cards ─────────────────────────────────── */
+
+.beta-cal2-locked-card {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: var(--surface-inset);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  opacity: 0.82;
+}
+
+.beta-cal2-locked-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.beta-cal2-locked-card__lock {
+  margin-left: auto;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  line-height: 1;
+}
+
+.beta-cal2-locked-card__name {
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.beta-cal2-locked-card__benefit {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  font-family: var(--font-body), "Palatino Linotype", serif;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+/* Tablet and below: stack rail under main */
+@media (max-width: 1024px) {
+  .beta-cal2-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-cal2-rail {
+    position: static;
+  }
+
+  .beta-cal2-week-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .beta-cal2-month-day {
+    min-height: 56px;
+  }
+}
+
+/* Mobile: single column week grid, compact month */
+@media (max-width: 640px) {
+  .beta-cal2-week-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-cal2-day-col {
+    min-height: auto;
+  }
+
+  .beta-cal2-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .beta-cal2-period-label {
+    margin-left: 0;
+  }
+
+  .beta-cal2-month-header {
+    grid-template-columns: 1.5rem repeat(7, minmax(0, 1fr));
+  }
+
+  .beta-cal2-month-week {
+    grid-template-columns: 1.5rem repeat(7, minmax(0, 1fr));
+  }
+
+  .beta-cal2-month-day {
+    min-height: 40px;
+    padding: 2px;
+  }
+
+  .beta-cal2-month-day__num {
+    font-size: 0.72rem;
+  }
+
+  .beta-cal2-upcoming-item {
+    grid-template-columns: 4.5rem 1fr auto;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .beta-cal2-card,
+  .beta-cal2-month-day,
+  .beta-cal2-view-toggle__btn,
+  .beta-cal2-card__check {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* My Plants v2 — beta-plants2-* namespace                                    */
+/* Extends existing beta-plants-* rules; adds layout, list, drawer, urgency.  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Top-level layout: canvas + drawer ────────────────────────────────────── */
+
+.beta-plants2-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.beta-plants2-canvas {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.beta-plants2-drawer {
+  position: sticky;
+  top: var(--space-3);
+  align-self: start;
+}
+
+/* ─── Toolbar row (search + view toggle) ────────────────────────────────────── */
+
+.beta-plants2-toolbar-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* ─── Grid / List view toggle ───────────────────────────────────────────────── */
+
+.beta-plants2-view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.beta-plants2-view-toggle__btn {
+  min-height: 36px;
+  padding: 0.3rem 0.75rem;
+  border: none;
+  border-radius: 0;
+  background: var(--surface-inset);
+  color: var(--ink-soft);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.03em;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+  cursor: pointer;
+}
+
+.beta-plants2-view-toggle__btn + .beta-plants2-view-toggle__btn {
+  border-left: 1px solid var(--line-strong);
+}
+
+.beta-plants2-view-toggle__btn.is-active {
+  background: linear-gradient(180deg, rgba(222, 229, 216, 0.92), rgba(240, 238, 226, 0.98));
+  color: var(--olive);
+}
+
+/* ─── Card grid overrides ───────────────────────────────────────────────────── */
+
+/* Override the existing minmax so cards never collapse to slivers */
+.beta-plants2-card-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* ─── Card: selection state + clickable thumbnail ───────────────────────────── */
+
+.beta-plants2-card {
+  position: relative;
+}
+
+.beta-plants2-card.is-selected {
+  border-color: rgba(85, 104, 79, 0.55);
+  box-shadow:
+    0 0 0 2px rgba(85, 104, 79, 0.22),
+    var(--shadow-note);
+}
+
+.beta-plants2-card__select-btn {
+  display: contents; /* pass through to thumbnail */
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* ─── Task row inside growing card ─────────────────────────────────────────── */
+
+.beta-plants2-card__task-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.beta-plants2-card__task-title {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+.beta-plants2-card__task-name {
+  font-style: italic;
+}
+
+/* ─── Urgency markers (non-colour cues: shape + text) ───────────────────────── */
+
+.beta-plants2-urgency {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.42rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.beta-plants2-urgency--overdue {
+  /* border pattern: dashed to signal "past due" without relying on red */
+  border: 1.5px dashed rgba(160, 60, 40, 0.58);
+  background: rgba(160, 60, 40, 0.08);
+  color: rgba(140, 50, 30, 0.9);
+}
+
+.beta-plants2-urgency--soon {
+  border: 1.5px solid rgba(167, 133, 69, 0.55);
+  background: rgba(167, 133, 69, 0.1);
+  color: var(--clay);
+}
+
+/* ─── List view ─────────────────────────────────────────────────────────────── */
+
+.beta-plants2-list-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+}
+
+.beta-plants2-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.beta-plants2-list-th {
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--line-strong);
+  background: var(--surface-inset);
+  color: var(--ink-muted);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.beta-plants2-list-row {
+  border-bottom: 1px solid var(--line);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.beta-plants2-list-row:last-child {
+  border-bottom: none;
+}
+
+.beta-plants2-list-row:hover {
+  background: var(--surface-inset);
+}
+
+.beta-plants2-list-row.is-selected {
+  background: rgba(222, 229, 216, 0.5);
+}
+
+.beta-plants2-list-row--archived {
+  opacity: 0.8;
+}
+
+.beta-plants2-list-col {
+  padding: 0.6rem 0.85rem;
+  vertical-align: top;
+}
+
+.beta-plants2-list-col--name {
+  min-width: 140px;
+  max-width: 220px;
+}
+
+.beta-plants2-list-col--location {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.beta-plants2-list-col--planted {
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.beta-plants2-list-col--task {
+  min-width: 160px;
+}
+
+.beta-plants2-list-col--actions {
+  white-space: nowrap;
+}
+
+.beta-plants2-list-select-btn {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.93rem;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.beta-plants2-list-select-btn:hover {
+  color: var(--olive);
+  text-decoration: underline;
+  text-decoration-color: rgba(85, 104, 79, 0.45);
+  text-underline-offset: 2px;
+}
+
+.beta-plants2-list-botanical {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.beta-plants2-list-task {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.4rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.beta-plants2-list-task__due {
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+
+.beta-plants2-list-empty {
+  color: var(--ink-muted);
+  font-style: italic;
+  font-size: 0.86rem;
+}
+
+/* ─── Drawer info: preview block ────────────────────────────────────────────── */
+
+.beta-plants2-drawer-preview {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+  display: grid;
+  gap: var(--space-1);
+}
+
+.beta-plants2-drawer-preview__body {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.beta-plants2-drawer-preview__botanical {
+  display: block;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+/* ─── Drawer tab: Filters active dot ───────────────────────────────────────── */
+
+.beta-plants2-filter-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clay);
+  vertical-align: middle;
+  margin-left: 0.3rem;
+  flex-shrink: 0;
+}
+
+/* ─── Filters drawer: needs-attention toggle row ────────────────────────────── */
+
+.beta-plants2-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.beta-plants2-toggle-row input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--olive);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive: collapse drawer below 1024px ──────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .beta-plants2-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-plants2-drawer {
+    position: static;
+  }
+}
+
+/* ─── Responsive: fewer card columns at narrow widths ──────────────────────── */
+
+@media (max-width: 760px) {
+  .beta-plants2-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-plants2-toolbar-top {
+    grid-template-columns: 1fr;
+  }
+
+  .beta-plants2-view-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .beta-plants2-list-col--planted,
+  .beta-plants2-list-col--task {
+    display: none;
+  }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .beta-plants2-list-row,
+  .beta-plants2-view-toggle__btn,
+  .beta-plants2-card {
+    transition: none;
+  }
+}
+
+/* ==== Ideas / suggestion cards (My Property drawer — specs 05/06) ==== */
+
+.beta-ideas {
+  gap: var(--space-2);
+}
+
+.beta-idea {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--olive);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.beta-idea--warning {
+  border-left-color: var(--berry);
+}
+
+.beta-idea--opportunity {
+  border-left-color: var(--gold);
+}
+
+.beta-idea--insight {
+  border-left-color: var(--clay);
+}
+
+.beta-idea__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.beta-idea__type {
+  font-family: var(--font-label), serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.beta-idea--warning .beta-idea__type {
+  color: var(--berry);
+}
+
+.beta-idea__confidence {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+}
+
+.beta-idea__title {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.beta-idea__why {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+.beta-idea__why span {
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.beta-idea__window {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.beta-idea__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.beta-idea__actions .button {
+  padding: 0.4rem 0.8rem;
+  min-height: 0;
+}
+
+/* ==== Shared gardens — interface-only affordance (spec 08 FR-12) ==== */
+
+.beta-share-card {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.beta-share-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.beta-share-card__soon {
+  font-family: var(--font-label), serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.beta-share-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.beta-share-card button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ==== Accessibility sweep ==== */
+
+/* Visible focus ring for the app's custom interactive surfaces that otherwise
+   signal state only through border/background colour. */
+.beta-tree__zone:focus-visible,
+.beta-tree__bed:focus-visible,
+.beta-drawer__tab:focus-visible,
+.beta-chip:focus-visible,
+.beta-zone__head:focus-visible,
+.beta-bed__head:focus-visible,
+.beta-cal2-view-toggle__btn:focus-visible,
+.beta-cal2-month-day:focus-visible,
+.beta-plants2-view-toggle__btn:focus-visible,
+.beta-plants2-card__select-btn:focus-visible,
+.beta-idea__actions button:focus-visible,
+.beta-breadcrumb__crumb:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
+}
+
+/* Honour reduced-motion across the app shell + private-beta surfaces. */
+@media (prefers-reduced-motion: reduce) {
+  .beta-app-shell *,
+  .beta-property *,
+  .beta-cal2-layout *,
+  .beta-plants-view *,
+  .beta-plants2-layout * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main thorned arching cane -->
+  <path d="M 320 560 Q 335 465 350 370 Q 360 275 355 180" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Thorns/barbs along stem -->
+  <line x1="325" y1="500" x2="340" y2="495" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="340" y1="430" x2="352" y2="422" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="355" y1="350" x2="370" y2="340" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="350" y1="270" x2="365" y2="262" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="315" y1="520" x2="300" y2="515" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="330" y1="400" x2="318" y2="395" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+  <line x1="360" y1="300" x2="375" y2="295" stroke="#7D6740" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Palmate 5-leaflet leaves - left side -->
+  <g>
+    <!-- Upper leaflet set -->
+    <path d="M 318 380 Q 280 365 255 375 Q 275 370 295 365" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 315 375 Q 275 345 255 320 Q 280 350 305 370" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 322 380 Q 305 350 295 320 Q 310 350 325 375" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 325 378 Q 320 340 318 305 Q 325 340 330 375" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 320 382 Q 345 360 365 335 Q 345 360 330 380" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+
+    <!-- Lower leaflet set -->
+    <path d="M 318 480 Q 270 465 245 475 Q 270 470 295 465" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 315 475 Q 265 445 240 415 Q 275 450 305 470" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 322 480 Q 300 450 285 420 Q 310 450 330 475" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  </g>
+
+  <!-- Palmate 5-leaflet leaves - right side -->
+  <g>
+    <!-- Upper leaflet set -->
+    <path d="M 322 380 Q 360 365 385 375 Q 365 370 345 365" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 325 375 Q 365 345 385 320 Q 360 350 335 370" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 318 380 Q 335 350 345 320 Q 330 350 315 375" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 315 378 Q 320 340 322 305 Q 315 340 310 375" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 320 382 Q 295 360 275 335 Q 295 360 310 380" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+
+    <!-- Lower leaflet set -->
+    <path d="M 322 480 Q 370 465 395 475 Q 370 470 345 465" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 325 475 Q 375 445 400 415 Q 365 450 335 470" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+    <path d="M 318 480 Q 340 450 355 420 Q 330 450 310 475" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  </g>
+
+  <!-- Cluster of packed drupelets (ripening berry) -->
+  <g>
+    <!-- Outer ring of drupelets -->
+    <circle cx="340" cy="160" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="350" cy="155" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="355" cy="170" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="350" cy="185" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="340" cy="190" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="330" cy="185" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="325" cy="170" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="330" cy="155" r="6" fill="#D3BF98" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+
+    <!-- Inner drupelets -->
+    <circle cx="340" cy="170" r="5" fill="#D8C49C" fill-opacity="0.55" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="345" cy="175" r="5" fill="#D8C49C" fill-opacity="0.55" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="335" cy="175" r="5" fill="#D8C49C" fill-opacity="0.55" stroke="#6C5A3A" stroke-width="1.5"/>
+  </g>
+
+  <!-- Annotation leaders and labels -->
+  <line x1="350" y1="370" x2="520" y2="350" stroke="#A78545" stroke-width="3"/>
+  <text x="525" y="360" font-family="serif" font-size="24" fill="#7D6740">thorned cane</text>
+
+  <line x1="340" y1="175" x2="450" y2="240" stroke="#A78545" stroke-width="3"/>
+  <text x="455" y="250" font-family="serif" font-size="24" fill="#7D6740">ripening drupe</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Rubus fruticosus</text>
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 118 · Blackberry study</text>
+</svg>

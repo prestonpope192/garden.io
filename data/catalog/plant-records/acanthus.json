@@ -1,0 +1,1013 @@
+{
+  "schema_version": "2026-06-plant-profile-v1",
+  "slug": "acanthus",
+  "taxonomy": {
+    "kingdom_name": "Plantae",
+    "family_name": "Acanthaceae",
+    "genus_name": "Acanthus",
+    "species_name": "mollis",
+    "subspecies_name": null,
+    "variety_name": null,
+    "botanical_name_full": "Acanthus mollis",
+    "taxon_rank": "species",
+    "native_range": "Mediterranean region",
+    "origin_type": "exotic"
+  },
+  "names": [
+    {
+      "name": "Bear's Breeches",
+      "name_type": "common",
+      "locale": "en",
+      "is_primary": true
+    },
+    {
+      "name": "Acanthus",
+      "name_type": "common",
+      "locale": "en",
+      "is_primary": false
+    },
+    {
+      "name": "Acanthus mollis",
+      "name_type": "latin_variant",
+      "locale": "en",
+      "is_primary": false
+    }
+  ],
+  "profile": {
+    "display_name": "Acanthus (Bear's Breeches)",
+    "plant_type_code": "forb",
+    "lifecycle_type": "perennial",
+    "confidence_score": 0.82,
+    "evidence_count": 2,
+    "source_count": 2,
+    "source_last_reviewed_at": null,
+    "ai_generated_summary": false,
+    "human_verified": true,
+    "conflict_flag": false,
+    "region_specific_conflict_notes": null,
+    "is_ai_generated": false,
+    "generation_status": "human_curated",
+    "is_published": true,
+    "review_status": "approved"
+  },
+  "aesthetic_styles": [
+    {
+      "style_code": "formal",
+      "weight_score": 8
+    },
+    {
+      "style_code": "woodland",
+      "weight_score": 7
+    }
+  ],
+  "uses": [
+    {
+      "use_type_code": "pollinator_support",
+      "evidence_strength_code": "moderate",
+      "supports_use": true,
+      "mechanism_description": "Tall flower spikes provide bloom structure and insect visitation value.",
+      "target_benefit": "Seasonal floral resource",
+      "target_pest": null,
+      "target_soil_effect": null,
+      "notes": "Ornamental perennial with pollinator-support value."
+    },
+    {
+      "use_type_code": "cut_flower",
+      "evidence_strength_code": "weak",
+      "supports_use": true,
+      "mechanism_description": "Architectural flower spikes can be cut for arrangements.",
+      "target_benefit": "Cut stems",
+      "target_pest": null,
+      "target_soil_effect": null,
+      "notes": "Use when flower spikes are clean and upright."
+    }
+  ],
+  "narratives": {
+    "locale": "en",
+    "short_description": "Architectural herbaceous perennial with glossy, deeply lobed foliage and upright flower spikes.",
+    "why_plant_it": "Use as a bold foliage anchor in part-shade borders where a sculptural, formal, or woodland edge plant is useful.",
+    "pros_summary": "Strong visual structure, showy flower spikes, tolerates part shade, and can anchor mixed perennial plantings.",
+    "cons_summary": "Can spread from root sections and may be difficult to remove once established; avoid cramped or highly cultivated beds.",
+    "primary_use_cases": "Specimen planting, part-shade structure, formal border, woodland edge, Mediterranean-style perennial bed.",
+    "notes_for_homestead": "Best treated as a placed perennial, not a casual filler. Plant where spread is acceptable or manageable.",
+    "notes_for_small_garden": "Use sparingly; root spread can be frustrating in tight beds.",
+    "notes_for_container_growing": "Container culture can help control spread but requires consistent moisture and winter protection in colder areas.",
+    "editorial_summary": null
+  },
+  "ornamental": {
+    "evergreen_deciduous": "semi_evergreen",
+    "ornamental_season_interest": [
+      "spring foliage",
+      "summer flowers",
+      "architectural seed heads"
+    ],
+    "visual_texture": "Bold, glossy, deeply lobed foliage with vertical flower spikes.",
+    "foliage_color": "Deep green",
+    "evergreen_foliage": false,
+    "winter_interest": false
+  },
+  "climate": {
+    "usda_hardiness_min": "7",
+    "usda_hardiness_max": "10",
+    "ahs_heat_zone_min": null,
+    "ahs_heat_zone_max": null,
+    "cold_tolerance_absolute_f": 0,
+    "cold_tolerance_established_f": 10,
+    "heat_tolerance_f": 95,
+    "humidity_tolerance_code": "medium",
+    "drought_tolerance_code": "medium",
+    "flood_tolerance_code": "low",
+    "wind_tolerance_code": "medium",
+    "salt_tolerance_code": "unknown",
+    "chill_hours_min": null,
+    "chill_hours_max": null,
+    "frost_tender": false,
+    "reemergence_after_freeze_behavior": "May die back in colder winters and re-emerge from crown/root if protected.",
+    "sun_min_hours": 3,
+    "sun_max_hours": 8,
+    "preferred_light": "Full sun to part shade; afternoon shade preferred in hot sites.",
+    "shade_tolerance_score": 7,
+    "afternoon_sun_tolerance_score": 5,
+    "reflected_heat_tolerance_score": 4
+  },
+  "growth": {
+    "mature_height_min_in": 36,
+    "mature_height_max_in": 60,
+    "mature_width_min_in": 24,
+    "mature_width_max_in": 36,
+    "annual_growth_height_in": 24,
+    "annual_growth_width_in": 12,
+    "growth_rate_code": "medium",
+    "growth_habit": "Clump-forming herbaceous perennial with upright flower spikes.",
+    "root_behavior": "Creeping rootstocks; small root sections can resprout.",
+    "spread_aggressiveness": 8,
+    "pruning_response": "Cut spent flower stalks after bloom; remove unwanted shoots promptly.",
+    "transplant_tolerance": 3,
+    "container_tolerance": 6,
+    "trellis_needed": false,
+    "support_type": null
+  },
+  "propagation_methods": [
+    {
+      "planting_method_code": "division",
+      "allowed": true,
+      "is_preferred": true,
+      "depth_min_in": null,
+      "depth_max_in": null,
+      "spacing_min_in": 24,
+      "spacing_max_in": 36,
+      "proliferation_behavior": "Established plants can persist and spread from root sections; division is the practical control/move method.",
+      "self_seeds": null,
+      "reseeding_intensity": null,
+      "spreads_by_runners": false,
+      "spreads_by_rhizomes": true,
+      "grafted_common": false,
+      "seed_viability_duration_months": null,
+      "germination_days_min": null,
+      "germination_days_max": null,
+      "cold_stratification_required": null,
+      "scarification_required": null,
+      "rooting_hormone_helpful": null,
+      "transplant_shock_risk_code": "medium",
+      "establishment_difficulty": 4,
+      "notes": "Preferred practical method when controlling or moving clumps."
+    },
+    {
+      "planting_method_code": "direct_sow",
+      "allowed": true,
+      "is_preferred": false,
+      "depth_min_in": 0.25,
+      "depth_max_in": 0.5,
+      "spacing_min_in": 24,
+      "spacing_max_in": 36,
+      "proliferation_behavior": "Slow to establish from seed; seed-grown plants may be variable and slower than divided plants.",
+      "self_seeds": true,
+      "reseeding_intensity": 3,
+      "spreads_by_runners": false,
+      "spreads_by_rhizomes": false,
+      "grafted_common": false,
+      "seed_viability_duration_months": null,
+      "germination_days_min": null,
+      "germination_days_max": null,
+      "cold_stratification_required": false,
+      "scarification_required": false,
+      "rooting_hormone_helpful": false,
+      "transplant_shock_risk_code": "medium",
+      "establishment_difficulty": 6,
+      "notes": "Seed-grown plants may be slow to establish."
+    },
+    {
+      "planting_method_code": "cutting",
+      "allowed": true,
+      "is_preferred": false,
+      "depth_min_in": null,
+      "depth_max_in": null,
+      "spacing_min_in": 24,
+      "spacing_max_in": 36,
+      "proliferation_behavior": "Root cuttings may resprout because small root sections can regenerate; treat as a controlled propagation method.",
+      "self_seeds": null,
+      "reseeding_intensity": null,
+      "spreads_by_runners": false,
+      "spreads_by_rhizomes": true,
+      "grafted_common": false,
+      "seed_viability_duration_months": null,
+      "germination_days_min": null,
+      "germination_days_max": null,
+      "cold_stratification_required": false,
+      "scarification_required": false,
+      "rooting_hormone_helpful": false,
+      "transplant_shock_risk_code": "medium",
+      "establishment_difficulty": 5,
+      "notes": "Use root sections/cuttings only where spread can be managed."
+    }
+  ],
+  "flowering": {
+    "flowering_bool": true,
+    "flower_color": "White to pink flowers with purple bracts",
+    "flower_size": "Tall upright spikes",
+    "bloom_start_week": 18,
+    "bloom_end_week": 30,
+    "bloom_duration_days": 45,
+    "flower_abundance": "Moderate to showy",
+    "flower_fragrance_strength": 1,
+    "pollinator_value": 5,
+    "nectar_value": 4,
+    "pollen_value": 3,
+    "attracts_bees": true,
+    "attracts_butterflies": true,
+    "attracts_hummingbirds": false,
+    "larval_host": false,
+    "native_pollinator_value": 2
+  },
+  "fruiting": {
+    "fruiting_bool": false,
+    "fruit_color": null,
+    "fruit_size": null,
+    "fruit_flavor": null,
+    "fruiting_start_age_years": null,
+    "yield_lb_per_plant_year_min": null,
+    "yield_lb_per_plant_year_max": null,
+    "harvest_window_start_week": null,
+    "harvest_window_end_week": null,
+    "fruit_drop_behavior": null,
+    "wildlife_attraction": 2,
+    "first_harvest_time_from_planting_days": null,
+    "productive_years_min": null,
+    "productive_years_max": null,
+    "harvest_frequency": null,
+    "preservation_uses": null,
+    "edible_parts": [],
+    "medicinal_parts": [],
+    "fodder_parts": []
+  },
+  "soil": {
+    "drainage_requirement": "Well-drained soil required; avoid persistently wet sites.",
+    "organic_matter_preference": "Average to fertile soil with moderate organic matter.",
+    "compaction_tolerance_code": "medium",
+    "rocky_soil_tolerance_code": "medium",
+    "ph_min": 6,
+    "ph_max": 7.8,
+    "ph_ideal_min": 6.5,
+    "ph_ideal_max": 7.2,
+    "ph_sensitivity_code": "medium",
+    "fertility_need": "average_to_fertile",
+    "nitrogen_need": "medium",
+    "phosphorus_need": "medium",
+    "potassium_need": "medium",
+    "calcium_sensitivity_code": "unknown",
+    "soil_oxygen_need": "Moderate; roots resent anaerobic, waterlogged soil.",
+    "mycorrhizal_association_notes": null,
+    "mulch_preference": "Organic mulch helpful for even moisture and winter crown protection.",
+    "mulch_depth_preference_in": 2,
+    "waterlogging_sensitivity_code": "high",
+    "texture_preferences": {
+      "loam": {
+        "preference_level": 8,
+        "description": "Best overall texture when drainage is good."
+      },
+      "sandy_loam": {
+        "preference_level": 7,
+        "description": "Good texture if moisture is consistent."
+      },
+      "silt_loam": {
+        "preference_level": 6,
+        "description": "Acceptable with drainage and airflow."
+      },
+      "clay": {
+        "preference_level": 4,
+        "description": "Possible only if drainage is improved; avoid waterlogging."
+      }
+    },
+    "preferred_soil_texture_codes": [
+      "loam",
+      "sandy_loam",
+      "silt_loam",
+      "clay"
+    ],
+    "soil_texture_summary": "Prefers loam or sandy loam; accepts silt loam and improved clay only where drainage is reliable."
+  },
+  "water": {
+    "water_need_level": "medium",
+    "drought_tolerance_code": "medium",
+    "moisture_sensitivity_code": "high",
+    "preferred_irrigation_method": "Deep, infrequent watering at soil level during establishment and summer dry spells.",
+    "root_zone_depth_in": 18,
+    "container_water_multiplier": 1.25,
+    "mulched_water_reduction_factor": 0.85,
+    "summer_heat_adjustment_factor": 1.2
+  },
+  "water_establishment": [
+    {
+      "week_from_planting_start": 1,
+      "week_from_planting_end": 8,
+      "gallons_per_week": 2,
+      "frequency_per_week": 2,
+      "deep_vs_frequent": "deep",
+      "notes": "Keep evenly moist while establishing."
+    },
+    {
+      "week_from_planting_start": 9,
+      "week_from_planting_end": 20,
+      "gallons_per_week": 1,
+      "frequency_per_week": 1,
+      "deep_vs_frequent": "deep",
+      "notes": "Reduce once roots are active; avoid soggy soil."
+    }
+  ],
+  "water_seasonal": [
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "month_no": 5,
+      "lifecycle_stage_code": "maintenance",
+      "estimated_inches_per_week": 0.75,
+      "estimated_gallons_per_week": 1,
+      "preferred_method": "soil-level deep watering",
+      "stress_watchouts": "Watch wilting in hot afternoon sun."
+    },
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "month_no": 6,
+      "lifecycle_stage_code": "flowering",
+      "estimated_inches_per_week": 1,
+      "estimated_gallons_per_week": 1.5,
+      "preferred_method": "soil-level deep watering",
+      "stress_watchouts": "Consistent moisture supports bloom spikes."
+    },
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "month_no": 7,
+      "lifecycle_stage_code": "flowering",
+      "estimated_inches_per_week": 1,
+      "estimated_gallons_per_week": 1.5,
+      "preferred_method": "soil-level deep watering",
+      "stress_watchouts": "Avoid waterlogging during humid weather."
+    },
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "month_no": 8,
+      "lifecycle_stage_code": "maintenance",
+      "estimated_inches_per_week": 0.75,
+      "estimated_gallons_per_week": 1,
+      "preferred_method": "soil-level deep watering",
+      "stress_watchouts": "Supplement during dry spells."
+    }
+  ],
+  "ecology": {
+    "invasive_risk_code": "caution",
+    "wildlife_food_value": 2,
+    "erosion_control_value": 3,
+    "biomass_value": 5,
+    "compost_value": 4,
+    "chop_drop_value": 2
+  },
+  "maintenance": {
+    "pruning_frequency": "Remove spent flower stalks after bloom; cut damaged foliage as needed.",
+    "deadheading_helpful": true,
+    "division_interval_years": 4,
+    "staking_needed": false,
+    "suckering_management": "Remove unwanted shoots and root pieces promptly; consider root barriers.",
+    "cleanup_intensity": 5,
+    "disease_susceptibility_level": 4,
+    "pest_susceptibility_level": 4,
+    "humidity_disease_risk": 5,
+    "air_flow_importance": 5
+  },
+  "safety": [
+    {
+      "subject_type_code": "human",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Ornamental use only in this catalog profile.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Do not treat as edible without a verified source."
+    },
+    {
+      "subject_type_code": "dog",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Pet safety not verified for this profile.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Use caution until verified."
+    },
+    {
+      "subject_type_code": "cat",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Pet safety not verified for this profile.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Use caution until verified."
+    },
+    {
+      "subject_type_code": "chicken",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Livestock/poultry safety not verified for this profile.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Use caution until verified."
+    }
+  ],
+  "relationships": [
+    {
+      "related_slug": "christmas-fern",
+      "relationship_type_code": "good_companion",
+      "rank_value": 40,
+      "evidence_strength_code": "anecdotal",
+      "rationale": "Compatible shade/part-shade foliage pairing for woodland-edge texture; verify in local bed context.",
+      "distance_notes": "Use as visual companions rather than tight root-zone interplanting until performance is observed.",
+      "overlap_window_start_week": null,
+      "overlap_window_end_week": null,
+      "source_notes": "Garden.io starter property context; needs external evidence before high-confidence publication.",
+      "is_published": false
+    }
+  ],
+  "phenology_templates": [
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "is_default": true,
+      "notes": "Generic Zone 7-10 perennial timing; adjust by local observations.",
+      "events": [
+        {
+          "stage_code": "reemergence",
+          "stage_name": "Spring foliage re-emergence",
+          "trigger_type": "calendar",
+          "trigger_rule": "After hard frost risk decreases",
+          "timing_type": "calendar",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 10,
+          "week_end_of_year": 16,
+          "month_start": 3,
+          "month_end": 4,
+          "offset_days_from_planting": null,
+          "repeat_every_days": null,
+          "cues": "New crown growth visible",
+          "recommended_action": "Inspect crown and remove winter-damaged foliage.",
+          "recurrence": "annual",
+          "urgency_code": "medium",
+          "failure_risk_if_missed": "Delayed cleanup can hide slug damage or crown issues.",
+          "priority_weight": 45,
+          "repeatable": true
+        },
+        {
+          "stage_code": "flowering",
+          "stage_name": "Flower spike emergence and bloom",
+          "trigger_type": "calendar",
+          "trigger_rule": "Late spring to midsummer",
+          "timing_type": "calendar",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 18,
+          "week_end_of_year": 30,
+          "month_start": 5,
+          "month_end": 7,
+          "offset_days_from_planting": null,
+          "repeat_every_days": null,
+          "cues": "Flower spikes elongating",
+          "recommended_action": "Maintain even moisture and remove damaged foliage.",
+          "recurrence": "annual",
+          "urgency_code": "medium",
+          "failure_risk_if_missed": "Dry stress can reduce bloom quality.",
+          "priority_weight": 50,
+          "repeatable": true
+        },
+        {
+          "stage_code": "trim",
+          "stage_name": "Post-bloom cleanup",
+          "trigger_type": "plant_observation",
+          "trigger_rule": "Flower spikes spent",
+          "timing_type": "event_offset",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 27,
+          "week_end_of_year": 34,
+          "month_start": 7,
+          "month_end": 8,
+          "offset_days_from_planting": null,
+          "repeat_every_days": null,
+          "cues": "Spent spikes or seed heads",
+          "recommended_action": "Cut spent stalks and remove unwanted shoots.",
+          "recurrence": "annual",
+          "urgency_code": "medium",
+          "failure_risk_if_missed": "Self-seeding/spread management may be harder later.",
+          "priority_weight": 55,
+          "repeatable": true
+        },
+        {
+          "stage_code": "dormant_entry",
+          "stage_name": "Winter protection check",
+          "trigger_type": "calendar",
+          "trigger_rule": "Before sustained freezes in marginal zones",
+          "timing_type": "calendar",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 42,
+          "week_end_of_year": 48,
+          "month_start": 10,
+          "month_end": 11,
+          "offset_days_from_planting": null,
+          "repeat_every_days": null,
+          "cues": "Cold weather approaching",
+          "recommended_action": "Mulch crown lightly in marginal cold sites; avoid wet crowns.",
+          "recurrence": "annual",
+          "urgency_code": "low",
+          "failure_risk_if_missed": "Winter wet and exposed crowns increase loss risk.",
+          "priority_weight": 35,
+          "repeatable": true
+        }
+      ]
+    }
+  ],
+  "zone_profiles": [
+    {
+      "region_type": "usda_zone",
+      "region_value": "7-10",
+      "usda_zone_min": "7",
+      "usda_zone_max": "10",
+      "planting_window_start_week": 10,
+      "planting_window_end_week": 18,
+      "harvest_window_start_week": null,
+      "harvest_window_end_week": null,
+      "bloom_window_start_week": 18,
+      "bloom_window_end_week": 30,
+      "dieback_window_start_week": 45,
+      "reemergence_window_start_week": 10,
+      "proliferation_behavior": "Clumping perennial that can spread by root sections after establishment.",
+      "maintenance_timing_notes": "Clean up in spring, manage spent stalks after bloom, and remove unwanted shoots during active growth.",
+      "seasonal_risk_notes": "Winter wet and marginal cold can damage crowns; hot afternoon sun can stress foliage."
+    }
+  ],
+  "care_events": [
+    {
+      "stage_code": "reemergence",
+      "task_type_code": "inspect",
+      "source_type_code": "lifecycle",
+      "title": "Inspect Acanthus crown and new foliage",
+      "description": "Check for winter damage, slugs, snails, and crown health as new growth emerges.",
+      "recurrence_rule": "FREQ=YEARLY",
+      "lead_days": 0,
+      "window_days": 14,
+      "priority_code": "medium",
+      "requires_confirmation": false,
+      "repeatable": true,
+      "is_active": true
+    },
+    {
+      "stage_code": "maintenance",
+      "task_type_code": "water",
+      "source_type_code": "maintenance",
+      "title": "Water Acanthus during dry spells",
+      "description": "Deep-water during establishment and summer dry periods while avoiding waterlogged soil.",
+      "recurrence_rule": "FREQ=WEEKLY;INTERVAL=1",
+      "lead_days": 0,
+      "window_days": 7,
+      "priority_code": "medium",
+      "requires_confirmation": true,
+      "repeatable": true,
+      "is_active": true
+    },
+    {
+      "stage_code": "trim",
+      "task_type_code": "prune",
+      "source_type_code": "lifecycle",
+      "title": "Cut spent Acanthus flower stalks",
+      "description": "Remove spent flower stalks after bloom and watch for unwanted spread.",
+      "recurrence_rule": "FREQ=YEARLY",
+      "lead_days": 0,
+      "window_days": 21,
+      "priority_code": "medium",
+      "requires_confirmation": false,
+      "repeatable": true,
+      "is_active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_ref": "mobot-acanthus",
+      "source_name": "Missouri Botanical Garden Plant Finder: Acanthus mollis",
+      "source_type": "extension",
+      "publisher": "Missouri Botanical Garden",
+      "author": null,
+      "source_url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?%22=&taxonid=275338",
+      "citation_text": "Missouri Botanical Garden Plant Finder profile for Acanthus mollis.",
+      "published_on": null,
+      "credibility_score": 0.88,
+      "license": null,
+      "notes": "Used for hardiness, soil, water, light, habit, and spread caution.",
+      "last_reviewed_at": null
+    },
+    {
+      "source_ref": "ncstate-acanthus",
+      "source_name": "NC State Extension Gardener Plant Toolbox: Acanthus mollis",
+      "source_type": "extension",
+      "publisher": "North Carolina State Extension",
+      "author": null,
+      "source_url": "https://plants.ces.ncsu.edu/plants/acanthus-mollis/",
+      "citation_text": "NC State Extension Plant Toolbox profile for Acanthus mollis.",
+      "published_on": null,
+      "credibility_score": 0.86,
+      "license": null,
+      "notes": "Used for spread, maintenance, and pest/disease watchouts.",
+      "last_reviewed_at": null
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "climate.usda_hardiness_range",
+      "value_json": {
+        "usda_hardiness_min": "7",
+        "usda_hardiness_max": "10"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.88,
+      "source_ref": "mobot-acanthus",
+      "source_quote_or_excerpt": "Zone 7 to 10.",
+      "source_url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?%22=&taxonid=275338",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "USDA Zones 7-10",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "climate.light_requirement",
+      "value_json": {
+        "preferred_light": "full sun to part shade",
+        "sun_min_hours": 3,
+        "sun_max_hours": 8
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_ref": "mobot-acanthus",
+      "source_quote_or_excerpt": "Full sun to part shade.",
+      "source_url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?%22=&taxonid=275338",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "USDA Zones 7-10",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "soil.drainage_requirement",
+      "value_json": {
+        "drainage_requirement": "well_drained",
+        "waterlogging_sensitivity_code": "high"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_ref": "mobot-acanthus",
+      "source_quote_or_excerpt": "Average, fertile, medium moisture, well-drained soils.",
+      "source_url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?%22=&taxonid=275338",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "USDA Zones 7-10",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "water.water_need_level",
+      "value_json": {
+        "water_need_level": "medium",
+        "moisture_sensitivity_code": "high"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.84,
+      "source_ref": "mobot-acanthus",
+      "source_quote_or_excerpt": "Medium moisture.",
+      "source_url": "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?%22=&taxonid=275338",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "USDA Zones 7-10",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "growth.spread_aggressiveness",
+      "value_json": {
+        "spread_mode": "rhizomes/root sections",
+        "rating": 4,
+        "management": "site intentionally and remove unwanted shoots"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.84,
+      "source_ref": "ncstate-acanthus",
+      "source_quote_or_excerpt": "Spreads by rhizomes and may need root barriers to prevent unwanted spread.",
+      "source_url": "https://plants.ces.ncsu.edu/plants/acanthus-mollis/",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "North America garden context",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "maintenance.disease_susceptibility",
+      "value_json": {
+        "disease_susceptibility_rating": 2,
+        "watchouts": [
+          "powdery mildew"
+        ]
+      },
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.74,
+      "source_ref": "ncstate-acanthus",
+      "source_quote_or_excerpt": "Watch for powdery mildew.",
+      "source_url": "https://plants.ces.ncsu.edu/plants/acanthus-mollis/",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "Humid garden context",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "maintenance.pest_susceptibility",
+      "value_json": {
+        "pest_susceptibility_rating": 2,
+        "watchouts": [
+          "slugs",
+          "snails"
+        ]
+      },
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.74,
+      "source_ref": "ncstate-acanthus",
+      "source_quote_or_excerpt": "Watch for slugs and snails.",
+      "source_url": "https://plants.ces.ncsu.edu/plants/acanthus-mollis/",
+      "reviewed_by_human": true,
+      "review_status": "approved",
+      "region_scope": "Humid garden context",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": true,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    }
+  ],
+  "images": [
+    {
+      "source_ref": null,
+      "stage_code": "flowering",
+      "image_url": "/art/specimen-herbarium-sheet.svg",
+      "storage_key": "art/specimen-herbarium-sheet.svg",
+      "mime_type": "image/svg+xml",
+      "width_px": null,
+      "height_px": null,
+      "attribution_text": "Garden.io placeholder specimen illustration",
+      "license": "internal placeholder",
+      "is_primary": true,
+      "is_public": true
+    }
+  ],
+  "ratings": [
+    {
+      "dimension_code": "sun_need",
+      "rating": 3,
+      "description": "Best treated as part sun/part shade: tolerates full sun, but appreciates some shade in hotter conditions.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.82,
+      "source_notes": "Derived from curated climate profile and source claims."
+    },
+    {
+      "dimension_code": "shade_tolerance",
+      "rating": 4,
+      "description": "Performs well in part shade and woodland-edge conditions.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.82,
+      "source_notes": "Derived from preferred light and shade tolerance score."
+    },
+    {
+      "dimension_code": "afternoon_sun_tolerance",
+      "rating": 3,
+      "description": "Handles some afternoon sun with moisture, but hotter sites benefit from shade.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.72,
+      "source_notes": "Derived from curated light notes."
+    },
+    {
+      "dimension_code": "water_need",
+      "rating": 3,
+      "description": "Medium water need; keep evenly moist during establishment and dry periods.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.82,
+      "source_notes": "Derived from water profile."
+    },
+    {
+      "dimension_code": "drought_tolerance",
+      "rating": 3,
+      "description": "Moderate drought tolerance after establishment, not a true xeric plant.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.74,
+      "source_notes": "Derived from water and climate profiles."
+    },
+    {
+      "dimension_code": "wet_feet_tolerance",
+      "rating": 1,
+      "description": "Poor tolerance for saturated or poorly drained soil.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.84,
+      "source_notes": "Derived from soil drainage and waterlogging sensitivity."
+    },
+    {
+      "dimension_code": "soil_drainage_need",
+      "rating": 4,
+      "description": "Requires well-drained soil for reliable performance.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_notes": "Derived from soil profile and source claim."
+    },
+    {
+      "dimension_code": "soil_fertility_need",
+      "rating": 3,
+      "description": "Average to fertile soil is appropriate.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.78,
+      "source_notes": "Derived from soil profile."
+    },
+    {
+      "dimension_code": "soil_compaction_tolerance",
+      "rating": 3,
+      "description": "Moderate tolerance, but better in loose, aerated soil.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.62,
+      "source_notes": "Derived from compaction tolerance."
+    },
+    {
+      "dimension_code": "soil_texture_flexibility",
+      "rating": 3,
+      "description": "Accepts several garden textures if drainage is adequate.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.74,
+      "source_notes": "Derived from soil texture preferences."
+    },
+    {
+      "dimension_code": "maintenance_need",
+      "rating": 3,
+      "description": "Moderate management due to spent stalk cleanup and spread control.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.8,
+      "source_notes": "Derived from maintenance profile."
+    },
+    {
+      "dimension_code": "beginner_friendliness",
+      "rating": 3,
+      "description": "Manageable for beginners with clear siting and spread expectations.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.76,
+      "source_notes": "Derived from plant profile."
+    },
+    {
+      "dimension_code": "spread_aggressiveness",
+      "rating": 4,
+      "description": "Assertive root spread; can be hard to remove once established.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_notes": "Derived from growth profile and spread claim."
+    },
+    {
+      "dimension_code": "container_suitability",
+      "rating": 3,
+      "description": "Containers can work and help control spread, but need consistent care.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.64,
+      "source_notes": "Derived from profile/container notes."
+    },
+    {
+      "dimension_code": "transplant_tolerance",
+      "rating": 2,
+      "description": "Moving established plants can be messy because root sections resprout.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.62,
+      "source_notes": "Derived from growth/propagation profile."
+    },
+    {
+      "dimension_code": "pollinator_value",
+      "rating": 3,
+      "description": "Useful seasonal floral resource but not a primary pollinator powerhouse.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.7,
+      "source_notes": "Derived from flowering and use profile."
+    },
+    {
+      "dimension_code": "wildlife_food_value",
+      "rating": 1,
+      "description": "Low wildlife food value in this profile.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.58,
+      "source_notes": "Derived from ecology profile."
+    },
+    {
+      "dimension_code": "erosion_control_value",
+      "rating": 2,
+      "description": "Some soil-holding value from perennial clumps, but not a primary erosion plant.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.58,
+      "source_notes": "Derived from ecology profile."
+    },
+    {
+      "dimension_code": "biomass_value",
+      "rating": 3,
+      "description": "Moderate biomass from large foliage.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.6,
+      "source_notes": "Derived from ecology profile."
+    },
+    {
+      "dimension_code": "invasive_risk",
+      "rating": 3,
+      "description": "Moderate nuisance-spread risk in garden beds; not marked as published invasive claim.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.78,
+      "source_notes": "Derived from ecology profile and spread claim."
+    },
+    {
+      "dimension_code": "disease_susceptibility",
+      "rating": 2,
+      "description": "Some powdery mildew risk, especially with humidity or poor airflow.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.7,
+      "source_notes": "Derived from maintenance and claim records."
+    },
+    {
+      "dimension_code": "pest_susceptibility",
+      "rating": 2,
+      "description": "Some slug and snail pressure possible.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.7,
+      "source_notes": "Derived from maintenance and claim records."
+    },
+    {
+      "dimension_code": "humidity_disease_risk",
+      "rating": 3,
+      "description": "Airflow matters in humid conditions because powdery mildew can appear.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.68,
+      "source_notes": "Derived from maintenance profile."
+    },
+    {
+      "dimension_code": "deer_resistance",
+      "rating": 4,
+      "description": "Usually treated as meaningfully deer resistant, but still context-dependent.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.62,
+      "source_notes": "Derived from plant profile score."
+    },
+    {
+      "dimension_code": "rabbit_resistance",
+      "rating": 3,
+      "description": "Moderate rabbit resistance.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.58,
+      "source_notes": "Derived from plant profile score."
+    }
+  ],
+  "import_notes": "Golden JSON record transformed from the curated Acanthus SQL POC and normalized rating migration."
+}

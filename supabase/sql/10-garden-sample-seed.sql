@@ -715,69 +715,6 @@ values
   )
 on conflict (id) do nothing;
 
-insert into catalog.plant_propagation_profiles (
-  id,
-  plant_profile_id,
-  proliferation_behavior,
-  self_seeds,
-  reseeding_intensity,
-  spreads_by_runners,
-  spreads_by_rhizomes,
-  division_possible,
-  cutting_possible,
-  grafted_common,
-  seed_viability_duration_months,
-  germination_days_min,
-  germination_days_max,
-  cold_stratification_required,
-  scarification_required,
-  rooting_hormone_helpful,
-  transplant_shock_risk_code,
-  establishment_difficulty
-)
-values
-  (
-    '20000000-0000-0000-0000-000000000111',
-    '20000000-0000-0000-0000-000000000061',
-    'Annual crop, occasional volunteer seedlings.',
-    false,
-    2,
-    false,
-    false,
-    false,
-    true,
-    false,
-    48,
-    5,
-    10,
-    false,
-    false,
-    true,
-    'medium',
-    5
-  ),
-  (
-    '20000000-0000-0000-0000-000000000112',
-    '20000000-0000-0000-0000-000000000062',
-    'Annual herb with potential self-seeding in warm climates.',
-    true,
-    4,
-    false,
-    false,
-    false,
-    true,
-    false,
-    36,
-    5,
-    10,
-    false,
-    false,
-    false,
-    'low',
-    3
-  )
-on conflict (id) do nothing;
-
 insert into catalog.plant_propagation_methods (
   id,
   plant_profile_id,
@@ -788,11 +725,75 @@ insert into catalog.plant_propagation_methods (
   depth_max_in,
   spacing_min_in,
   spacing_max_in,
+  proliferation_behavior,
+  self_seeds,
+  reseeding_intensity,
+  spreads_by_runners,
+  spreads_by_rhizomes,
+  grafted_common,
+  seed_viability_duration_months,
+  germination_days_min,
+  germination_days_max,
+  cold_stratification_required,
+  scarification_required,
+  rooting_hormone_helpful,
+  transplant_shock_risk_code,
+  establishment_difficulty,
   notes
 )
 values
-  ('20000000-0000-0000-0000-000000000121', '20000000-0000-0000-0000-000000000061', 'transplant_seedling', true, true, 2, 4, 18, 30, 'Transplant after frost risk.'),
-  ('20000000-0000-0000-0000-000000000122', '20000000-0000-0000-0000-000000000062', 'transplant_seedling', true, true, 1, 3, 8, 12, 'Plant when nights stay warm.')
+  (
+    '20000000-0000-0000-0000-000000000121',
+    '20000000-0000-0000-0000-000000000061',
+    'transplant_seedling',
+    true,
+    true,
+    2,
+    4,
+    18,
+    30,
+    'Annual crop, occasional volunteer seedlings.',
+    false,
+    2,
+    false,
+    false,
+    false,
+    48,
+    5,
+    10,
+    false,
+    false,
+    true,
+    'medium',
+    5,
+    'Transplant after frost risk.'
+  ),
+  (
+    '20000000-0000-0000-0000-000000000122',
+    '20000000-0000-0000-0000-000000000062',
+    'transplant_seedling',
+    true,
+    true,
+    1,
+    3,
+    8,
+    12,
+    'Annual herb with potential self-seeding in warm climates.',
+    true,
+    4,
+    false,
+    false,
+    false,
+    36,
+    5,
+    10,
+    false,
+    false,
+    false,
+    'low',
+    3,
+    'Plant when nights stay warm.'
+  )
 on conflict (id) do nothing;
 
 insert into catalog.plant_flowering_profiles (
@@ -913,7 +914,10 @@ insert into catalog.plant_soil_profiles (
   mycorrhizal_association_notes,
   mulch_preference,
   mulch_depth_preference_in,
-  waterlogging_sensitivity_code
+  waterlogging_sensitivity_code,
+  texture_preferences,
+  preferred_soil_texture_codes,
+  soil_texture_summary
 )
 values
   (
@@ -937,7 +941,13 @@ values
     'Benefits from biologically active soils.',
     'organic mulch',
     2.0,
-    'high'
+    'high',
+    jsonb_build_object(
+      'sandy_loam', jsonb_build_object('preference_level', 9),
+      'loam', jsonb_build_object('preference_level', 8)
+    ),
+    array['sandy_loam', 'loam'],
+    'Prefers sandy loam or loam with strong drainage.'
   ),
   (
     '20000000-0000-0000-0000-000000000152',
@@ -960,15 +970,13 @@ values
     'Moderate biological activity preferred.',
     'light mulch',
     1.0,
-    'medium'
+    'medium',
+    jsonb_build_object(
+      'loam', jsonb_build_object('preference_level', 8)
+    ),
+    array['loam'],
+    'Prefers loam with steady moisture and good drainage.'
   )
-on conflict (id) do nothing;
-
-insert into catalog.plant_soil_texture_preferences (id, plant_profile_id, soil_type_code, preference_level)
-values
-  ('20000000-0000-0000-0000-000000000161', '20000000-0000-0000-0000-000000000061', 'sandy_loam', 9),
-  ('20000000-0000-0000-0000-000000000162', '20000000-0000-0000-0000-000000000061', 'loam', 8),
-  ('20000000-0000-0000-0000-000000000163', '20000000-0000-0000-0000-000000000062', 'loam', 8)
 on conflict (id) do nothing;
 
 insert into catalog.plant_water_profiles (

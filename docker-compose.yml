@@ -1,0 +1,15 @@
+services:
+  website:
+    container_name: gardenio-website
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_SUPABASE_URL: "https://example.supabase.co"
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: "demo-anon-key"
+      WAITLIST_TABLE: "waitlist_signups"
+      WAITLIST_EMAIL_REDIRECT_TO: "http://localhost:3000"
+    restart: unless-stopped

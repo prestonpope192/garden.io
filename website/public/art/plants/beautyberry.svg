@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper background -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Long arching cane -->
+  <path d="M 380 140 Q 360 220 340 300 Q 320 380 300 480" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Opposite leaf pairs and berry clusters along stem -->
+
+  <!-- Pair 1 (upper) -->
+  <path d="M 375 180 Q 390 170 410 175 Q 415 190 400 200 Q 385 195 375 180 Z" fill="#D3BF98" fill-opacity="0.44" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 400 180 L 408 195" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 375 180 Q 360 170 340 175 Q 335 190 350 200 Q 365 195 375 180 Z" fill="#D3BF98" fill-opacity="0.42" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 350 180 L 342 195" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Berry cluster 1 -->
+  <circle cx="375" cy="210" r="6" fill="#D3BF98" fill-opacity="0.55" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="368" cy="215" r="5" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="382" cy="218" r="5" fill="#D3BF98" fill-opacity="0.48" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="375" cy="225" r="5" fill="#D8C49C" fill-opacity="0.4" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="370" cy="228" r="4" fill="#D8C49C" fill-opacity="0.38" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="380" cy="230" r="4" fill="#D8C49C" fill-opacity="0.4" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Pair 2 -->
+  <path d="M 355 250 Q 370 240 390 240 Q 398 255 385 265 Q 365 260 355 250 Z" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 382 245 L 392 260" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 355 250 Q 340 240 320 240 Q 312 255 325 265 Q 345 260 355 250 Z" fill="#D3BF98" fill-opacity="0.43" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 328 245 L 318 260" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Berry cluster 2 -->
+  <circle cx="355" cy="280" r="6" fill="#D3BF98" fill-opacity="0.54" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="348" cy="285" r="5" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="362" cy="288" r="5" fill="#D3BF98" fill-opacity="0.49" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="355" cy="295" r="5" fill="#D8C49C" fill-opacity="0.42" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="350" cy="298" r="4" fill="#D8C49C" fill-opacity="0.4" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="360" cy="300" r="4" fill="#D8C49C" fill-opacity="0.38" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="355" cy="310" r="4" fill="#D6C29A" fill-opacity="0.35" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Pair 3 -->
+  <path d="M 335 320 Q 350 310 370 310 Q 378 325 365 335 Q 345 330 335 320 Z" fill="#D3BF98" fill-opacity="0.46" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 362 315 L 372 330" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 335 320 Q 320 310 300 310 Q 292 325 305 335 Q 325 330 335 320 Z" fill="#D3BF98" fill-opacity="0.44" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 308 315 L 298 330" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Berry cluster 3 -->
+  <circle cx="335" cy="350" r="6" fill="#D3BF98" fill-opacity="0.56" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="328" cy="355" r="5" fill="#D3BF98" fill-opacity="0.51" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="342" cy="358" r="5" fill="#D3BF98" fill-opacity="0.48" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="335" cy="365" r="5" fill="#D8C49C" fill-opacity="0.41" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="330" cy="368" r="4" fill="#D8C49C" fill-opacity="0.39" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="340" cy="370" r="4" fill="#D8C49C" fill-opacity="0.4" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="335" cy="380" r="4" fill="#D6C29A" fill-opacity="0.36" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="328" cy="378" r="3" fill="#D6C29A" fill-opacity="0.33" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Pair 4 -->
+  <path d="M 315 410 Q 330 400 350 400 Q 358 415 345 425 Q 325 420 315 410 Z" fill="#D3BF98" fill-opacity="0.47" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 342 405 L 352 420" stroke="#7D6740" stroke-width="2"/>
+
+  <path d="M 315 410 Q 300 400 280 400 Q 272 415 285 425 Q 305 420 315 410 Z" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="3"/>
+  <path d="M 288 405 L 278 420" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Berry cluster 4 -->
+  <circle cx="315" cy="440" r="6" fill="#D3BF98" fill-opacity="0.53" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="308" cy="445" r="5" fill="#D3BF98" fill-opacity="0.49" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="322" cy="448" r="5" fill="#D3BF98" fill-opacity="0.47" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="315" cy="455" r="5" fill="#D8C49C" fill-opacity="0.43" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="310" cy="458" r="4" fill="#D8C49C" fill-opacity="0.41" stroke="#7D6740" stroke-width="1.5"/>
+  <circle cx="320" cy="460" r="4" fill="#D8C49C" fill-opacity="0.39" stroke="#7D6740" stroke-width="1.5"/>
+
+  <!-- Annotation 1: berry cluster at node -->
+  <path d="M 335 350 L 420 400" stroke="#A78545" stroke-width="3"/>
+  <text x="390" y="420" font-family="serif" font-size="24" fill="#7D6740">berry cluster</text>
+
+  <!-- Annotation 2: arching cane -->
+  <path d="M 340 300 L 250 350" stroke="#A78545" stroke-width="3"/>
+  <text x="170" y="370" font-family="serif" font-size="24" fill="#7D6740">arching cane</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Callicarpa americana</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 125 · Beautyberry study</text>
+</svg>

@@ -97,6 +97,7 @@ describe("processWaitlistSignup", () => {
   });
 
   it("returns server errors when email sending fails", async () => {
+    const consoleError = vi.spyOn(console, "error").mockImplementation(() => undefined);
     const result = await processWaitlistSignup(
       {
         email: "person@example.com"
@@ -114,7 +115,11 @@ describe("processWaitlistSignup", () => {
     expect(result).toEqual({
       ok: false,
       status: 500,
+      message: "Unable to join the waitlist right now. Please try again later."
+    });
+    expect(consoleError).toHaveBeenCalledWith("WAITLIST_SIGNUP_FAILED", {
       message: "WAITLIST_EMAIL_FAILED: provider down"
     });
+    consoleError.mockRestore();
   });
 });
