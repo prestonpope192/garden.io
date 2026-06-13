@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
 import { InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primitives";
 import { getTodayISO, sortByCreatedAt } from "@/lib/garden-app-helpers";
 import { generateSuggestions, deriveSeason, dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
+import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import type {
   GardenBed,
   GardenObservation,
@@ -53,6 +54,7 @@ export type PropertyViewProps = {
   createZone: (input: ZoneInput) => Promise<void>;
   updateZone: (id: string, patch: Partial<Pick<GardenZone, "name" | "purpose" | "light" | "water" | "notes">>) => Promise<void>;
   deleteZone: (id: string) => Promise<void>;
+  persistZoneLayout: (id: string, layout: { layout_x: number; layout_y: number; layout_w: number; layout_h: number }) => Promise<void>;
   createBed: (input: BedInput) => Promise<void>;
   updateBed: (id: string, patch: Partial<Pick<GardenBed, "name" | "sun" | "water" | "soil" | "notes">>) => Promise<void>;
   deleteBed: (id: string) => Promise<void>;
@@ -69,6 +71,13 @@ export type PropertyViewProps = {
 
 type FocusLevel = "property" | "zone" | "bed" | "plant";
 type DrawerMode = "info" | "tasks" | "ideas" | "actions";
+
+// Normalized (0–1) plot geometry for the draggable Arrange mode.
+type ZoneBox = { x: number; y: number; w: number; h: number };
+type DragState = { id: string; mode: "move" | "resize"; startX: number; startY: number; orig: ZoneBox; box?: ZoneBox; moved: boolean };
+const DEFAULT_ZONE_W = 0.46;
+const DEFAULT_ZONE_H = 0.3;
+const clampTo = (value: number, max: number) => Math.max(0, Math.min(value, max));
 
 const EMPTY_PROPERTY: PropertyInput = { name: "", label: "Garden", region: "", growingZone: "", season: "" };
 const EMPTY_ZONE: ZoneInput = { name: "", purpose: "", light: "", water: "" };
@@ -123,6 +132,10 @@ export function PropertyView(props: PropertyViewProps) {
   const [dismissedIdeas, setDismissedIdeas] = useState<Set<string>>(new Set());
   const [isEditing, setIsEditing] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState<{ message: string; run: () => void } | null>(null);
+  const [arranging, setArranging] = useState(false);
+  const [liveLayout, setLiveLayout] = useState<Record<string, ZoneBox>>({});
+  const canvasRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef<DragState | null>(null);
 
   const [propertyDraft, setPropertyDraft] = useState<PropertyInput>(EMPTY_PROPERTY);
   const [zoneDraft, setZoneDraft] = useState<ZoneInput>(EMPTY_ZONE);
@@ -172,6 +185,134 @@ export function PropertyView(props: PropertyViewProps) {
     if (mode) setDrawerMode(mode);
   };
 
+  const zoneBox = (zone: GardenZone, index: number): ZoneBox => {
+    const live = liveLayout[zone.id];
+    if (live) return live;
+    if (zone.layout_x != null && zone.layout_y != null) {
+      return { x: zone.layout_x, y: zone.layout_y, w: zone.layout_w ?? DEFAULT_ZONE_W, h: zone.layout_h ?? DEFAULT_ZONE_H };
+    }
+    const col = index % 2;
+    const row = Math.floor(index / 2);
+    return { x: 0.03 + col * 0.5, y: 0.03 + row * 0.34, w: DEFAULT_ZONE_W, h: DEFAULT_ZONE_H };
+  };
+
+  const beginDrag = (event: ReactPointerEvent<HTMLElement>, zone: GardenZone, index: number) => {
+    if (!arranging) return;
+    const isResize = (event.target as HTMLElement).dataset.resize === "1";
+    event.preventDefault();
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      /* pointer capture is an enhancement, not required */
+    }
+    dragRef.current = {
+      id: zone.id,
+      mode: isResize ? "resize" : "move",
+      startX: event.clientX,
+      startY: event.clientY,
+      orig: zoneBox(zone, index),
+      moved: false
+    };
+  };
+
+  const moveDrag = (event: ReactPointerEvent<HTMLElement>) => {
+    const drag = dragRef.current;
+    const canvas = canvasRef.current;
+    if (!drag || !canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const dx = (event.clientX - drag.startX) / rect.width;
+    const dy = (event.clientY - drag.startY) / rect.height;
+    if (Math.abs(event.clientX - drag.startX) > 3 || Math.abs(event.clientY - drag.startY) > 3) drag.moved = true;
+    const o = drag.orig;
+    const box: ZoneBox =
+      drag.mode === "move"
+        ? { ...o, x: clampTo(o.x + dx, 1 - o.w), y: clampTo(o.y + dy, 1 - o.h) }
+        : { ...o, w: Math.max(0.18, Math.min(o.w + dx, 1 - o.x)), h: Math.max(0.14, Math.min(o.h + dy, 1 - o.y)) };
+    drag.box = box;
+    setLiveLayout((prev) => ({ ...prev, [drag.id]: box }));
+  };
+
+  const endDrag = (event: ReactPointerEvent<HTMLElement>) => {
+    const drag = dragRef.current;
+    dragRef.current = null;
+    if (!drag) return;
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    } catch {
+      /* pointer already released */
+    }
+    const clearLive = () =>
+      setLiveLayout((prev) => {
+        const next = { ...prev };
+        delete next[drag.id];
+        return next;
+      });
+    if (!drag.moved || !drag.box) {
+      clearLive();
+      return;
+    }
+    const round = (v: number) => Math.round(v * 100) / 100;
+    void props
+      .persistZoneLayout(drag.id, {
+        layout_x: round(drag.box.x),
+        layout_y: round(drag.box.y),
+        layout_w: round(drag.box.w),
+        layout_h: round(drag.box.h)
+      })
+      .finally(clearLive);
+  };
+
+  const renderZoneInner = (zone: GardenZone) => {
+    const zoneBeds = sortByCreatedAt(props.beds.filter((bed) => bed.zone_id === zone.id));
+    return (
+      <>
+        <button className="beta-zone__head" type="button" onClick={() => goZone(zone, "info")}>
+          <span className="beta-zone__name">{zone.name}</span>
+          <span className="beta-zone__tag">{zoneBeds.length} {zoneBeds.length === 1 ? "bed" : "beds"}</span>
+        </button>
+        {zone.light || zone.purpose ? (
+          <p className="beta-zone__sub">{[zone.purpose, zone.light].filter(Boolean).join(" · ")}</p>
+        ) : null}
+        <div className="beta-zone__beds">
+          {zoneBeds.length === 0 ? (
+            <button className="beta-bed beta-bed--empty" type="button" onClick={() => goZone(zone, "actions")}>
+              Add your first bed
+            </button>
+          ) : (
+            zoneBeds.map((bed) => {
+              const bedPlants = growing(props.plants.filter((plant) => plant.bed_id === bed.id));
+              const bedFocused = activeBed?.id === bed.id;
+              return (
+                <div className={`beta-bed ${bedFocused ? "is-active" : ""}`} key={bed.id}>
+                  <button className="beta-bed__head" type="button" onClick={() => goBed(bed, "info")}>
+                    <span className="beta-bed__name">{bed.name}</span>
+                    <span className="beta-bed__count">{bedPlants.length}</span>
+                  </button>
+                  <div className="beta-bed__plants">
+                    {bedPlants.slice(0, 4).map((plant) => (
+                      <button
+                        className={`beta-chip ${activePlant?.id === plant.id ? "is-active" : ""}`}
+                        key={plant.id}
+                        type="button"
+                        onClick={() => goPlant(plant, "info")}
+                      >
+                        {getCatalogPlantName(plant)}
+                        {plant.quantity > 1 ? ` ·${formatQuantity(plant.quantity)}` : ""}
+                      </button>
+                    ))}
+                    {bedPlants.length > 4 ? <span className="beta-chip beta-chip--more">+{bedPlants.length - 4}</span> : null}
+                    <button className="beta-chip beta-chip--add" type="button" onClick={() => goBed(bed, "actions")}>+ plant</button>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+        <button className="beta-zone__add" type="button" onClick={() => goZone(zone, "actions")}>+ add bed</button>
+      </>
+    );
+  };
+
   // ---- No property yet: a single, calm first-run prompt ----------------------
   if (!activeProperty) {
     return (
@@ -208,6 +349,7 @@ export function PropertyView(props: PropertyViewProps) {
   }
 
   const sortedZones = sortByCreatedAt(props.zones);
+  const hasGeometry = sortedZones.some((zone) => zone.layout_x != null);
 
   // ---- Drawer body builders --------------------------------------------------
 
@@ -391,6 +533,18 @@ export function PropertyView(props: PropertyViewProps) {
     } else if (focus === "plant" && activePlant) {
       rows.push(["Quantity", `${formatQuantity(activePlant.quantity)} growing`]);
       if (activePlant.planted_on) rows.push(["Planted", activePlant.planted_on]);
+      const stage = deriveLifecycleStage(activePlant);
+      if (stage) rows.push(["Stage", stage.label]);
+      const harvest = harvestReadiness(activePlant);
+      const ph = activePlant.plant_profile;
+      if (harvest) rows.push(["Harvest", harvest.label]);
+      else if (ph?.perennial_first_harvest_label) rows.push(["Harvest", ph.perennial_first_harvest_label]);
+      else if (ph?.harvest_window_label) rows.push(["Harvest", ph.harvest_window_label]);
+      if (ph?.days_to_maturity_min) {
+        const dmax = ph.days_to_maturity_max ?? ph.days_to_maturity_min;
+        rows.push(["Days to maturity", ph.days_to_maturity_min === dmax ? `${dmax}` : `${ph.days_to_maturity_min}–${dmax}`]);
+      }
+      if (ph?.planting_window_label) rows.push(["Planting", ph.planting_window_label]);
       if (activePlant.plant_profile?.botanical_name_full) rows.push(["Botanical", activePlant.plant_profile.botanical_name_full]);
       rows.push(["Status", activePlant.status]);
     }
@@ -694,7 +848,15 @@ export function PropertyView(props: PropertyViewProps) {
                 .join(" · ") || "Your land"}
             </p>
           </div>
-          <span aria-hidden="true" className="beta-plot__compass">N</span>
+          <div className="beta-plot__tools">
+            {sortedZones.length > 0 ? (
+              <button className="folio-button" type="button" aria-pressed={arranging} onClick={() => setArranging((value) => !value)}>
+                {arranging ? "Done" : "Arrange"}
+              </button>
+            ) : null}
+            <button className="folio-button" type="button" onClick={() => goProperty("actions")}>+ Zone</button>
+            <span aria-hidden="true" className="beta-plot__compass">N</span>
+          </div>
         </header>
 
         {sortedZones.length === 0 ? (
@@ -702,58 +864,38 @@ export function PropertyView(props: PropertyViewProps) {
             <p>Your plot is empty. Lay out the first zone — a bed area, an orchard row, a shade border.</p>
             <button className="button" type="button" onClick={() => goProperty("actions")}>Start your first zone</button>
           </div>
+        ) : arranging || hasGeometry ? (
+          <>
+            {arranging ? (
+              <p className="beta-plot__hint">Drag a zone to move it; drag its corner to resize. Changes save as you go.</p>
+            ) : null}
+            <div className={`beta-plot__canvas ${arranging ? "is-arranging" : ""}`} ref={canvasRef}>
+              {sortedZones.map((zone, index) => {
+                const box = zoneBox(zone, index);
+                const zoneFocused = activeZone?.id === zone.id;
+                return (
+                  <article
+                    key={zone.id}
+                    className={`beta-zone beta-zone--placed ${zoneFocused ? "is-active" : ""} ${arranging ? "is-arranging" : ""}`}
+                    style={{ left: `${box.x * 100}%`, top: `${box.y * 100}%`, width: `${box.w * 100}%`, height: `${box.h * 100}%` }}
+                    onPointerDown={arranging ? (event) => beginDrag(event, zone, index) : undefined}
+                    onPointerMove={arranging ? moveDrag : undefined}
+                    onPointerUp={arranging ? endDrag : undefined}
+                  >
+                    {renderZoneInner(zone)}
+                    {arranging ? <span className="beta-zone__resize" data-resize="1" aria-hidden="true" /> : null}
+                  </article>
+                );
+              })}
+            </div>
+          </>
         ) : (
           <div className="beta-plot__grid">
             {sortedZones.map((zone) => {
-              const zoneBeds = sortByCreatedAt(props.beds.filter((bed) => bed.zone_id === zone.id));
               const zoneFocused = activeZone?.id === zone.id;
               return (
                 <article className={`beta-zone ${zoneFocused ? "is-active" : ""}`} key={zone.id}>
-                  <button className="beta-zone__head" type="button" onClick={() => goZone(zone, "info")}>
-                    <span className="beta-zone__name">{zone.name}</span>
-                    <span className="beta-zone__tag">{zoneBeds.length} {zoneBeds.length === 1 ? "bed" : "beds"}</span>
-                  </button>
-                  {zone.light || zone.purpose ? (
-                    <p className="beta-zone__sub">{[zone.purpose, zone.light].filter(Boolean).join(" · ")}</p>
-                  ) : null}
-
-                  <div className="beta-zone__beds">
-                    {zoneBeds.length === 0 ? (
-                      <button className="beta-bed beta-bed--empty" type="button" onClick={() => goZone(zone, "actions")}>
-                        Add your first bed
-                      </button>
-                    ) : (
-                      zoneBeds.map((bed) => {
-                        const bedPlants = growing(props.plants.filter((plant) => plant.bed_id === bed.id));
-                        const bedFocused = activeBed?.id === bed.id;
-                        return (
-                          <div className={`beta-bed ${bedFocused ? "is-active" : ""}`} key={bed.id}>
-                            <button className="beta-bed__head" type="button" onClick={() => goBed(bed, "info")}>
-                              <span className="beta-bed__name">{bed.name}</span>
-                              <span className="beta-bed__count">{bedPlants.length}</span>
-                            </button>
-                            <div className="beta-bed__plants">
-                              {bedPlants.slice(0, 4).map((plant) => (
-                                <button
-                                  className={`beta-chip ${activePlant?.id === plant.id ? "is-active" : ""}`}
-                                  key={plant.id}
-                                  type="button"
-                                  onClick={() => goPlant(plant, "info")}
-                                >
-                                  {getCatalogPlantName(plant)}
-                                  {plant.quantity > 1 ? ` ·${formatQuantity(plant.quantity)}` : ""}
-                                </button>
-                              ))}
-                              {bedPlants.length > 4 ? <span className="beta-chip beta-chip--more">+{bedPlants.length - 4}</span> : null}
-                              <button className="beta-chip beta-chip--add" type="button" onClick={() => goBed(bed, "actions")}>+ plant</button>
-                            </div>
-                          </div>
-                        );
-                      })
-                    )}
-                  </div>
-
-                  <button className="beta-zone__add" type="button" onClick={() => goZone(zone, "actions")}>+ add bed</button>
+                  {renderZoneInner(zone)}
                 </article>
               );
             })}

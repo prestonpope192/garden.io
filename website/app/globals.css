@@ -6762,3 +6762,111 @@ button.beta-breadcrumb__crumb:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==== Phenology: lifecycle stage + harvest readiness (My Plants cards) ==== */
+
+.beta-plants-stage-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.1rem 0 0;
+}
+
+.beta-plants-stage-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.5rem;
+  border: 1px solid rgba(85, 104, 79, 0.3);
+  border-radius: var(--radius-pill);
+  background: var(--olive-soft);
+  color: var(--olive);
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.beta-plants-harvest {
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+}
+
+.beta-plants-harvest.is-ready {
+  color: var(--berry);
+  font-weight: 500;
+}
+
+/* ==== Draggable plot canvas (My Property — Arrange mode) ==== */
+
+.beta-plot__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.beta-plot__hint {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.beta-plot__canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 480px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(rgba(94, 74, 46, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 74, 46, 0.05) 1px, transparent 1px),
+    var(--surface-inset);
+  background-size: 28px 28px, 28px 28px, auto;
+  overflow: hidden;
+}
+
+.beta-zone--placed {
+  position: absolute;
+  margin: 0;
+  overflow: auto;
+}
+
+.beta-zone--placed.is-arranging {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  box-shadow: 0 0 0 1px rgba(85, 104, 79, 0.35), var(--shadow-note);
+}
+
+.beta-zone--placed.is-arranging:active {
+  cursor: grabbing;
+}
+
+.beta-zone--placed.is-arranging * {
+  pointer-events: none;
+}
+
+.beta-zone--placed.is-arranging .beta-zone__resize {
+  pointer-events: auto;
+}
+
+.beta-zone__resize {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid var(--line-strong);
+  border-bottom: 2px solid var(--line-strong);
+  border-bottom-right-radius: var(--radius-sm);
+  cursor: nwse-resize;
+  touch-action: none;
+}
+
+@media (max-width: 760px) {
+  .beta-plot__canvas {
+    aspect-ratio: auto;
+    min-height: 600px;
+  }
+}

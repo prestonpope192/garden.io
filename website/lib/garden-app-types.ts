@@ -11,6 +11,13 @@ export type GardenProperty = {
   updated_at: string;
 };
 
+export type GardenLayout = {
+  layout_x?: number | null;
+  layout_y?: number | null;
+  layout_w?: number | null;
+  layout_h?: number | null;
+};
+
 export type GardenZone = {
   id: string;
   property_id: string;
@@ -22,7 +29,7 @@ export type GardenZone = {
   sort_order: number;
   created_at: string;
   updated_at: string;
-};
+} & GardenLayout;
 
 export type GardenBed = {
   id: string;
@@ -36,7 +43,7 @@ export type GardenBed = {
   sort_order: number;
   created_at: string;
   updated_at: string;
-};
+} & GardenLayout;
 
 export type GardenPlantStatus = "growing" | "wishlist" | "archived";
 
@@ -95,6 +102,12 @@ export type GardenPlantProfile = {
   mature_width_max_in?: string | number | null;
   growth_rate_code?: string | null;
   growth_habit?: string | null;
+  days_to_maturity_min?: number | null;
+  days_to_maturity_max?: number | null;
+  maturity_basis?: string | null;
+  planting_window_label?: string | null;
+  harvest_window_label?: string | null;
+  perennial_first_harvest_label?: string | null;
   water_need_level: string | null;
   propagation_methods: Record<string, GardenPlantRequirementValue>[];
   drainage_requirement: string | null;

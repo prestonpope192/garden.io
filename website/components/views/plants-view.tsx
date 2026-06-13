@@ -16,6 +16,7 @@ import type {
   GardenWishlistItem,
   GardenZone,
 } from "@/lib/garden-app-types";
+import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import {
   getCatalogPlantName,
   formatQuantity,
@@ -246,6 +247,8 @@ function GrowingCardGrid({
   const nextTask = getSoonestTask(plant.id, tasks);
   const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
   const name = getCatalogPlantName(plant);
+  const stage = deriveLifecycleStage(plant);
+  const harvest = harvestReadiness(plant);
 
   return (
     <article
@@ -280,6 +283,16 @@ function GrowingCardGrid({
             ? ` · ${formatDaysInGround(plant.planted_on, today)}`
             : ""}
         </p>
+        {(stage || harvest) && (
+          <p className="beta-plants-stage-row">
+            {stage && <span className="beta-plants-stage-chip">{stage.label}</span>}
+            {harvest && (
+              <span className={`beta-plants-harvest${harvest.ready ? " is-ready" : ""}`}>
+                {harvest.label}
+              </span>
+            )}
+          </p>
+        )}
         {nextTask && (
           <div className="beta-plants2-card__task-row">
             <UrgencyMarker urgency={urgency} />

@@ -28,6 +28,12 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
         c.cultivar_name,
         c.market_name,
         c.description as cultivar_description,
+        ph.days_to_maturity_min,
+        ph.days_to_maturity_max,
+        ph.maturity_basis,
+        ph.planting_window_label,
+        ph.harvest_window_label,
+        ph.perennial_first_harvest_label,
         coalesce(
           (
             select jsonb_agg(
@@ -47,6 +53,7 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
         ) as cultivar_overrides
       from catalog.plant_profile_catalogue_view v
       left join catalog.plant_cultivars c on c.id = v.plant_cultivar_id
+      left join catalog.plant_phenology_profiles ph on ph.plant_profile_id = v.plant_profile_id
       where ($1::text is null or v.slug = $1)
       order by v.display_name asc
     `,

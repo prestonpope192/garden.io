@@ -307,6 +307,22 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       if (error) throw error;
     }, "Zone updated.");
 
+  // Layout drag: optimistic local patch + persist, no full reload (keeps drag smooth).
+  const persistZoneLayout = async (
+    id: string,
+    layout: { layout_x: number; layout_y: number; layout_w: number; layout_h: number }
+  ) => {
+    setSnapshot((current) => ({
+      ...current,
+      zones: current.zones.map((zone) => (zone.id === id ? { ...zone, ...layout } : zone))
+    }));
+    const { error } = await supabase.from("garden_zones").update(layout).eq("id", id);
+    if (error) {
+      setNotice("Could not save the new layout. Refreshing…");
+      await loadGardenData();
+    }
+  };
+
   const deleteZone = (id: string) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_zones").delete().eq("id", id);
@@ -752,6 +768,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               createZone={createZone}
               updateZone={updateZone}
               deleteZone={deleteZone}
+              persistZoneLayout={persistZoneLayout}
               createBed={createBed}
               updateBed={updateBed}
               deleteBed={deleteBed}

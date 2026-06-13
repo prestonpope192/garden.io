@@ -95,6 +95,16 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const t = plantText(plant);
     const name = plantName(plant);
     const key = (k: string) => `plant:${plant.id}:${k}`;
+    // Data-driven harvest timing (curated phenology): supersedes type heuristics.
+    const ph = plant.plant_profile;
+    if (ph?.days_to_maturity_min && ph.maturity_basis !== "perennial" && plant.planted_on) {
+      const left = ph.days_to_maturity_min - daysSince(plant.planted_on);
+      if (left <= 0) {
+        push({ id: key("harvest-now"), type: "opportunity", title: `Harvest ${name} — it has reached maturity`, rationale: `${name} is past its ${ph.days_to_maturity_min}-day maturity window; check and pick what's ready.`, confidence: "high", taskTitle: `Harvest ${name}`, windowLabel: "now", dueInDays: 1 });
+      } else if (left <= 14) {
+        push({ id: key("harvest-soon"), type: "insight", title: `${name} is sizing up — plan your harvest`, rationale: `About ${left} day${left === 1 ? "" : "s"} from its maturity window.`, confidence: "medium", taskTitle: `Check ${name} for harvest`, windowLabel: `~${left} days`, dueInDays: Math.max(left - 2, 1) });
+      }
+    }
     if (isNightshade(t) && season === "Summer") {
       push({ id: key("sucker"), type: "suggestion", title: `Prune suckers and scout ${name} for hornworms`, rationale: `${name} is in its summer push — pinching suckers and checking leaves now keeps fruit set strong.`, confidence: "high", taskTitle: `Prune suckers and check ${name} for hornworms`, windowLabel: "this week", dueInDays: 4 });
     } else if (isNightshade(t) && season === "Spring") {
