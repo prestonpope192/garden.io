@@ -323,6 +323,21 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
     }
   };
 
+  const persistBedLayout = async (
+    id: string,
+    layout: { layout_x: number; layout_y: number; layout_w: number; layout_h: number }
+  ) => {
+    setSnapshot((current) => ({
+      ...current,
+      beds: current.beds.map((bed) => (bed.id === id ? { ...bed, ...layout } : bed))
+    }));
+    const { error } = await supabase.from("garden_beds").update(layout).eq("id", id);
+    if (error) {
+      setNotice("Could not save the new layout. Refreshing…");
+      await loadGardenData();
+    }
+  };
+
   const deleteZone = (id: string) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_zones").delete().eq("id", id);
@@ -769,6 +784,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               updateZone={updateZone}
               deleteZone={deleteZone}
               persistZoneLayout={persistZoneLayout}
+              persistBedLayout={persistBedLayout}
               createBed={createBed}
               updateBed={updateBed}
               deleteBed={deleteBed}
