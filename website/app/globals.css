@@ -7183,3 +7183,52 @@ button.beta-breadcrumb__crumb:hover {
   font-style: italic;
   color: var(--muted, var(--clay));
 }
+
+.beta-diagnose__skeleton {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.beta-diagnose__skel-line {
+  height: 0.8rem;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--olive) 10%, transparent) 25%,
+    color-mix(in srgb, var(--olive) 22%, transparent) 50%,
+    color-mix(in srgb, var(--olive) 10%, transparent) 75%
+  );
+  background-size: 200% 100%;
+  animation: beta-diagnose-shimmer 1.3s ease-in-out infinite;
+}
+
+.beta-diagnose__skel-line--wide {
+  height: 1.1rem;
+  width: 88%;
+}
+
+.beta-diagnose__skel-line--short {
+  width: 56%;
+}
+
+.beta-diagnose__skel-note {
+  margin: 0.15rem 0 0;
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--clay);
+}
+
+@keyframes beta-diagnose-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beta-diagnose__skel-line {
+    animation: none;
+  }
+}

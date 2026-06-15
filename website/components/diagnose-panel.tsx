@@ -27,6 +27,8 @@ type DiagnosePanelProps = {
   addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
 };
 
+const MAX_IMAGE_DIM = 1024;
+
 function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -34,6 +36,36 @@ function fileToDataUrl(file: File): Promise<string> {
     reader.onerror = () => reject(new Error("Could not read the photo."));
     reader.readAsDataURL(file);
   });
+}
+
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error("Could not load the photo."));
+    image.src = src;
+  });
+}
+
+// Downscale photos to ~1024px JPEG before upload. Cuts payload size and the
+// vision-model token cost dramatically, with no meaningful loss for diagnosis.
+async function compressImage(file: File): Promise<string> {
+  if (!file.type.startsWith("image/")) return fileToDataUrl(file);
+  try {
+    const original = await fileToDataUrl(file);
+    const image = await loadImage(original);
+    const scale = Math.min(1, MAX_IMAGE_DIM / Math.max(image.width, image.height));
+    if (scale === 1 && file.size < 600_000) return original;
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(image.width * scale);
+    canvas.height = Math.round(image.height * scale);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return original;
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL("image/jpeg", 0.82);
+  } catch {
+    return fileToDataUrl(file);
+  }
 }
 
 export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
@@ -60,7 +92,7 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
     setResult(null);
     setAdded(new Set());
     try {
-      const imageDataUrl = file ? await fileToDataUrl(file) : null;
+      const imageDataUrl = file ? await compressImage(file) : null;
       const response = await fetch("/api/diagnose", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -108,6 +140,15 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
         {loading ? "Thinking…" : "Diagnose"}
       </button>
       {error ? <p className="beta-diagnose__error">{error}</p> : null}
+
+      {loading ? (
+        <div className="beta-diagnose__skeleton" aria-live="polite" aria-label="Reading this plant’s record…">
+          <span className="beta-diagnose__skel-line beta-diagnose__skel-line--wide" />
+          <span className="beta-diagnose__skel-line" />
+          <span className="beta-diagnose__skel-line beta-diagnose__skel-line--short" />
+          <p className="beta-diagnose__skel-note">Reading {context.name}’s record…</p>
+        </div>
+      ) : null}
 
       {result ? (
         <div className="beta-diagnose__result">

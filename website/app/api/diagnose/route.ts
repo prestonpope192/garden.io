@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getRequestUser } from "@/lib/supabase-server";
+import { checkDiagnoseRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+// Guardrails. Each call hits a paid vision model, so we cap input size and the
+// time we'll wait on OpenAI.
+const MAX_SYMPTOMS_LEN = 2000;
+const MAX_IMAGE_DATA_URL_LEN = 7_000_000; // ~5 MB image encoded as base64
+const ALLOWED_IMAGE_MIME = /^data:image\/(jpeg|jpg|png|webp|gif);base64,/i;
+const OPENAI_TIMEOUT_MS = 45_000;
 
 // Observation & diagnosis assistant (Phase 3B). The OpenAI key stays server-side.
 // The client assembles the plant's personal context (real record data) and posts
@@ -84,6 +93,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, message: "The AI assistant is not configured." }, { status: 503 });
   }
 
+  // Auth gate: only signed-in beta users may spend AI budget.
+  const { configured, user } = await getRequestUser(request);
+  if (!configured) {
+    return NextResponse.json({ ok: false, message: "The AI assistant is not configured." }, { status: 503 });
+  }
+  if (!user) {
+    return NextResponse.json({ ok: false, message: "Please sign in to use the assistant." }, { status: 401 });
+  }
+
+  // Per-user rate limit.
+  const limited = checkDiagnoseRateLimit(user.id);
+  if (!limited.ok) {
+    return NextResponse.json({ ok: false, message: limited.message }, { status: limited.status });
+  }
+
   let body: DiagnoseBody;
   try {
     body = (await request.json()) as DiagnoseBody;
@@ -95,12 +119,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, message: "Add a description or a photo to diagnose." }, { status: 400 });
   }
 
+  // Input caps.
+  const symptoms = body.symptoms?.trim().slice(0, MAX_SYMPTOMS_LEN) || "";
+  if (body.imageDataUrl) {
+    if (!ALLOWED_IMAGE_MIME.test(body.imageDataUrl)) {
+      return NextResponse.json({ ok: false, message: "That image format isn't supported. Use a JPEG, PNG, or WebP." }, { status: 400 });
+    }
+    if (body.imageDataUrl.length > MAX_IMAGE_DATA_URL_LEN) {
+      return NextResponse.json({ ok: false, message: "That photo is too large — please use one under ~5 MB." }, { status: 413 });
+    }
+  }
+
   const userContent: Array<Record<string, unknown>> = [
     {
       type: "text",
       text:
         `${buildContextText(body.context)}\n\n` +
-        `What I'm seeing: ${body.symptoms?.trim() || "(see the attached photo)"}\n\n` +
+        `What I'm seeing: ${symptoms || "(see the attached photo)"}\n\n` +
         "Give likely causes with confidence and a short why-for-this-plant, concrete next actions, and one follow-up check."
     }
   ];
@@ -108,11 +143,15 @@ export async function POST(request: NextRequest) {
     userContent.push({ type: "image_url", image_url: { url: body.imageDataUrl } });
   }
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), OPENAI_TIMEOUT_MS);
+
   let openaiResponse: Response;
   try {
     openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      signal: controller.signal,
       body: JSON.stringify({
         model: process.env.OPENAI_MODEL || "gpt-4o",
         temperature: 0.3,
@@ -127,13 +166,22 @@ export async function POST(request: NextRequest) {
         }
       })
     });
-  } catch {
-    return NextResponse.json({ ok: false, message: "Could not reach the AI service." }, { status: 502 });
+  } catch (error) {
+    const aborted = error instanceof Error && error.name === "AbortError";
+    return NextResponse.json(
+      { ok: false, message: aborted ? "The assistant took too long to respond. Please try again." : "Could not reach the AI service." },
+      { status: aborted ? 504 : 502 }
+    );
+  } finally {
+    clearTimeout(timeout);
   }
 
   if (!openaiResponse.ok) {
-    const detail = (await openaiResponse.text()).slice(0, 300);
-    return NextResponse.json({ ok: false, message: "The AI request failed.", detail }, { status: 502 });
+    // Pass rate limiting / overload through as a friendly retryable message.
+    if (openaiResponse.status === 429 || openaiResponse.status === 503) {
+      return NextResponse.json({ ok: false, message: "The assistant is busy right now. Please try again in a moment." }, { status: 503 });
+    }
+    return NextResponse.json({ ok: false, message: "The AI request failed. Please try again." }, { status: 502 });
   }
 
   const payload = (await openaiResponse.json()) as {
