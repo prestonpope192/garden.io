@@ -7056,3 +7056,130 @@ button.beta-breadcrumb__crumb:hover {
   border-radius: var(--radius-md);
   border: 1px solid var(--line);
 }
+
+/* Diagnosis assistant (Phase 3B) */
+.beta-diagnose {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+}
+
+.beta-diagnose__preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.beta-diagnose__error {
+  margin: 0;
+  color: var(--berry);
+  font-size: 0.85rem;
+}
+
+.beta-diagnose__result {
+  display: grid;
+  gap: 0.7rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.beta-diagnose__summary {
+  margin: 0;
+  font-family: var(--font-script), serif;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.beta-diagnose__cause {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+.beta-diagnose__cause p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.beta-diagnose__cause-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.beta-diagnose__conf {
+  flex: none;
+  font-family: var(--font-label), serif;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.12rem 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.beta-diagnose__conf--high {
+  background: color-mix(in srgb, var(--olive) 20%, transparent);
+  color: var(--olive);
+}
+
+.beta-diagnose__conf--medium {
+  background: color-mix(in srgb, var(--clay) 18%, transparent);
+  color: var(--clay);
+}
+
+.beta-diagnose__conf--low {
+  background: color-mix(in srgb, var(--berry) 14%, transparent);
+  color: var(--berry);
+}
+
+.beta-diagnose__group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.beta-diagnose__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+}
+
+.beta-diagnose__action button {
+  flex: none;
+}
+
+.beta-diagnose__followup {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.beta-diagnose__followup span {
+  font-family: var(--font-label), serif;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  color: var(--clay);
+  margin-right: 0.35rem;
+}
+
+.beta-diagnose__disclaimer {
+  margin: 0;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: var(--muted, var(--clay));
+}

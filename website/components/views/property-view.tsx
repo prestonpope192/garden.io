@@ -5,6 +5,7 @@ import { InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primit
 import { getTodayISO, sortByCreatedAt } from "@/lib/garden-app-helpers";
 import { generateSuggestions, deriveSeason, dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
+import { DiagnosePanel } from "@/components/diagnose-panel";
 import type {
   GardenBed,
   GardenObservation,
@@ -724,6 +725,26 @@ export function PropertyView(props: PropertyViewProps) {
   };
 
   const renderActions = () => {
+    const diagnoseContext =
+      focus === "plant" && activePlant
+        ? {
+            name: getCatalogPlantName(activePlant),
+            botanical: activePlant.plant_profile?.botanical_name_full ?? null,
+            type: activePlant.plant_profile?.plant_type_code ?? null,
+            stage: deriveLifecycleStage(activePlant)?.label ?? null,
+            location: [activeZone?.name, activeBed?.name].filter(Boolean).join(" › ") || null,
+            sun: activeBed?.sun ?? activePlant.plant_profile?.preferred_light ?? null,
+            water: activeBed?.water ?? activePlant.plant_profile?.water_need_level ?? null,
+            soil: activeBed?.soil ?? null,
+            plantedOn: activePlant.planted_on ?? null,
+            season: deriveSeason(new Date().getMonth()),
+            hardinessZone: activeProperty.growing_zone ?? null,
+            recentNotes: props.observations
+              .filter((observation) => observation.plant_instance_id === activePlant.id)
+              .slice(0, 5)
+              .map((observation) => observation.note)
+          }
+        : null;
     return (
       <div className="beta-drawer__section">
         {focus === "property" ? (
@@ -801,10 +822,12 @@ export function PropertyView(props: PropertyViewProps) {
         ) : null}
 
         {focus === "plant" && activePlant ? (
-          <div className="beta-form">
-            <p className="beta-drawer__muted">Plant actions live here. Use the buttons below to file this specimen.</p>
-            <button className="folio-button" type="button" onClick={() => props.updatePlantStatus(activePlant, "archived")} disabled={busy}>Archive plant</button>
-          </div>
+          <>
+            <div className="beta-form">
+              <button className="folio-button" type="button" onClick={() => props.updatePlantStatus(activePlant, "archived")} disabled={busy}>Archive plant</button>
+            </div>
+            {diagnoseContext ? <DiagnosePanel context={diagnoseContext} addTask={props.addTask} /> : null}
+          </>
         ) : null}
 
         <form
