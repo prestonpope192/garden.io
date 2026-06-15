@@ -146,6 +146,7 @@ export function PropertyView(props: PropertyViewProps) {
   const [bedDraft, setBedDraft] = useState<BedInput>(EMPTY_BED);
   const [plantDraft, setPlantDraft] = useState<PlantInput>({ slug: "", quantity: "1", plantedOn: getTodayISO(), notes: "" });
   const [noteDraft, setNoteDraft] = useState("");
+  const [diagnoseSeed, setDiagnoseSeed] = useState<{ text: string; nonce: number }>({ text: "", nonce: 0 });
   const [taskDraft, setTaskDraft] = useState<TaskInput>({ title: "", dueOn: getTodayISO(), notes: "" });
   const [editDraft, setEditDraft] = useState<Record<string, string>>({});
 
@@ -826,7 +827,9 @@ export function PropertyView(props: PropertyViewProps) {
             <div className="beta-form">
               <button className="folio-button" type="button" onClick={() => props.updatePlantStatus(activePlant, "archived")} disabled={busy}>Archive plant</button>
             </div>
-            {diagnoseContext ? <DiagnosePanel context={diagnoseContext} addTask={props.addTask} /> : null}
+            {diagnoseContext ? (
+              <DiagnosePanel context={diagnoseContext} addTask={props.addTask} addObservation={props.addObservation} seed={diagnoseSeed} />
+            ) : null}
           </>
         ) : null}
 
@@ -842,7 +845,26 @@ export function PropertyView(props: PropertyViewProps) {
             <span>Add a note here</span>
             <textarea className="input beta-textarea" placeholder="What did you notice?" value={noteDraft} onChange={(event) => setNoteDraft(event.target.value)} />
           </label>
-          <button className="folio-button" type="submit" disabled={busy}>Save note</button>
+          <div className="beta-note-actions">
+            <button className="folio-button" type="submit" disabled={busy}>Save note</button>
+            {focus === "plant" && activePlant ? (
+              <button
+                className="folio-button"
+                type="button"
+                disabled={busy || !noteDraft.trim()}
+                onClick={() => {
+                  const text = noteDraft.trim();
+                  if (!text) return;
+                  void props.addObservation(text).then(() => {
+                    setNoteDraft("");
+                    setDiagnoseSeed((prev) => ({ text, nonce: prev.nonce + 1 }));
+                  });
+                }}
+              >
+                Save &amp; interpret →
+              </button>
+            ) : null}
+          </div>
         </form>
       </div>
     );

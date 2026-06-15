@@ -7232,3 +7232,24 @@ button.beta-breadcrumb__crumb:hover {
     animation: none;
   }
 }
+
+.beta-diagnose__save {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--line);
+}
+
+.beta-diagnose__save-hint {
+  font-size: 0.74rem;
+  color: var(--clay);
+}
+
+.beta-note-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}

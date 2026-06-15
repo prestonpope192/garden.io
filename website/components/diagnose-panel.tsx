@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SpecimenLabel } from "@/components/journal-primitives";
 import { getTodayISO } from "@/lib/garden-app-helpers";
 
@@ -25,7 +25,19 @@ type Diagnosis = { summary: string; causes: Cause[]; actions: string[]; follow_u
 type DiagnosePanelProps = {
   context: DiagnoseContext;
   addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
+  addObservation: (note: string) => Promise<void>;
+  // When `nonce` increments, seed the symptoms with `text` and run a diagnosis.
+  // Used by "Interpret this" on a just-logged note.
+  seed?: { text: string; nonce: number };
 };
+
+function diagnosisToNote(diagnosis: Diagnosis): string {
+  const top = diagnosis.causes[0];
+  const lines = [`Diagnosis — ${diagnosis.summary}`];
+  if (top) lines.push(`Likely: ${top.cause} (${top.confidence} confidence).`);
+  if (diagnosis.actions.length) lines.push(`Next: ${diagnosis.actions.slice(0, 2).join("; ")}.`);
+  return lines.join("\n");
+}
 
 const MAX_IMAGE_DIM = 1024;
 
@@ -68,7 +80,7 @@ async function compressImage(file: File): Promise<string> {
   }
 }
 
-export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
+export function DiagnosePanel({ context, addTask, addObservation, seed }: DiagnosePanelProps) {
   const [symptoms, setSymptoms] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -76,6 +88,8 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
   const [error, setError] = useState("");
   const [result, setResult] = useState<Diagnosis | null>(null);
   const [added, setAdded] = useState<Set<number>>(new Set());
+  const [saved, setSaved] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
   function onFile(next: File | null) {
     setPreview((url) => {
@@ -85,18 +99,20 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
     setFile(next);
   }
 
-  async function run() {
-    if (!symptoms.trim() && !file) return;
+  async function run(symptomsOverride?: string) {
+    const text = (symptomsOverride ?? symptoms).trim();
+    if (!text && !file) return;
     setLoading(true);
     setError("");
     setResult(null);
     setAdded(new Set());
+    setSaved(false);
     try {
       const imageDataUrl = file ? await compressImage(file) : null;
       const response = await fetch("/api/diagnose", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ context, symptoms, imageDataUrl })
+        body: JSON.stringify({ context, symptoms: text, imageDataUrl })
       });
       const data = await response.json();
       if (!response.ok || !data.ok) {
@@ -111,13 +127,28 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
     }
   }
 
+  // "Interpret this" on a just-logged note: seed symptoms and run automatically.
+  useEffect(() => {
+    if (!seed || seed.nonce === 0 || !seed.text.trim()) return;
+    setSymptoms(seed.text);
+    rootRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    void run(seed.text);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed?.nonce]);
+
   async function addAction(action: string, index: number) {
     await addTask({ title: action, dueOn: getTodayISO(), notes: `Suggested by the diagnosis assistant for ${context.name}.` });
     setAdded((prev) => new Set(prev).add(index));
   }
 
+  async function saveToRecord() {
+    if (!result) return;
+    await addObservation(diagnosisToNote(result));
+    setSaved(true);
+  }
+
   return (
-    <div className="beta-diagnose">
+    <div className="beta-diagnose" ref={rootRef}>
       <SpecimenLabel tone="olive">Ask the gardener</SpecimenLabel>
       <p className="beta-drawer__muted">
         Describe what you&rsquo;re seeing on {context.name} (a photo helps). The assistant reads this plant&rsquo;s record — stage, bed, season — to suggest likely causes and next steps.
@@ -136,7 +167,7 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
         <input className="input" type="file" accept="image/*" onChange={(event) => onFile(event.target.files?.[0] ?? null)} />
       </label>
       {preview ? <img className="beta-diagnose__preview" src={preview} alt="Selected photo preview" /> : null}
-      <button className="button" type="button" onClick={run} disabled={loading || (!symptoms.trim() && !file)}>
+      <button className="button" type="button" onClick={() => run()} disabled={loading || (!symptoms.trim() && !file)}>
         {loading ? "Thinking…" : "Diagnose"}
       </button>
       {error ? <p className="beta-diagnose__error">{error}</p> : null}
@@ -178,6 +209,12 @@ export function DiagnosePanel({ context, addTask }: DiagnosePanelProps) {
           {result.follow_up ? (
             <p className="beta-diagnose__followup"><span>Follow up:</span> {result.follow_up}</p>
           ) : null}
+          <div className="beta-diagnose__save">
+            <button className="folio-button" type="button" onClick={saveToRecord} disabled={saved}>
+              {saved ? "Saved to record ✓" : "Save to this plant’s record"}
+            </button>
+            <span className="beta-diagnose__save-hint">Keeps this reading in the plant’s Care Timeline.</span>
+          </div>
           <p className="beta-diagnose__disclaimer">A second opinion from an attentive gardener — trust your own eyes too.</p>
         </div>
       ) : null}
