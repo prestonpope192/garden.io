@@ -145,6 +145,7 @@ export type GardenObservation = {
   bed_id: string | null;
   plant_instance_id: string | null;
   note: string;
+  image_path: string | null;
   observed_at: string;
   created_at: string;
   updated_at: string;

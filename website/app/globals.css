@@ -6926,3 +6926,133 @@ button.beta-breadcrumb__crumb:hover {
 .beta-bed--placed.is-arranging .beta-zone__resize {
   pointer-events: auto;
 }
+
+/* ==== Quick-log capture (Phase 3A) ==== */
+
+.beta-quicklog-fab {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, rgba(222, 229, 216, 0.96), rgba(240, 238, 226, 0.98));
+  color: var(--olive);
+  font-family: var(--font-label), serif;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-paper);
+  cursor: pointer;
+}
+
+.beta-quicklog-fab__mark {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.beta-quicklog {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: rgba(43, 43, 43, 0.18);
+}
+
+.beta-quicklog__panel {
+  width: min(420px, 100%);
+  display: grid;
+  gap: 0.75rem;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-paper);
+  max-height: calc(100vh - 4rem);
+  overflow: auto;
+}
+
+.beta-quicklog__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.beta-quicklog__close {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.beta-quicklog__preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.beta-quicklog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.2rem;
+}
+
+/* ==== Care timeline (Phase 3A) ==== */
+
+.beta-timeline {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.beta-timeline__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted var(--line);
+}
+
+.beta-timeline__date {
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+.beta-timeline__body {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.beta-timeline__text {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.beta-timeline__tag {
+  font-family: var(--font-label), serif;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--clay);
+  margin-right: 0.3rem;
+}
+
+.beta-timeline__photo {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}

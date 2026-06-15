@@ -56,6 +56,7 @@ export type PropertyViewProps = {
   deleteZone: (id: string) => Promise<void>;
   persistZoneLayout: (id: string, layout: { layout_x: number; layout_y: number; layout_w: number; layout_h: number }) => Promise<void>;
   persistBedLayout: (id: string, layout: { layout_x: number; layout_y: number; layout_w: number; layout_h: number }) => Promise<void>;
+  mediaUrls: Record<string, string>;
   createBed: (input: BedInput) => Promise<void>;
   updateBed: (id: string, patch: Partial<Pick<GardenBed, "name" | "sun" | "water" | "soil" | "notes">>) => Promise<void>;
   deleteBed: (id: string) => Promise<void>;
@@ -575,12 +576,23 @@ export function PropertyView(props: PropertyViewProps) {
             ? activeBed?.notes
             : activePlant?.notes;
 
-    const scopedNotes = props.observations.filter((observation) => {
-      if (focus === "property") return !observation.zone_id && !observation.bed_id && !observation.plant_instance_id;
-      if (focus === "zone") return observation.zone_id === activeZone?.id && !observation.bed_id && !observation.plant_instance_id;
-      if (focus === "bed") return observation.bed_id === activeBed?.id && !observation.plant_instance_id;
-      return observation.plant_instance_id === activePlant?.id;
-    });
+    const scopeMatch = (zoneId: string | null, bedId: string | null, plantId: string | null) => {
+      if (focus === "property") return true;
+      if (focus === "zone") return zoneId === activeZone?.id;
+      if (focus === "bed") return bedId === activeBed?.id;
+      return plantId === activePlant?.id;
+    };
+    type TimelineEntry = { id: string; kind: "note" | "task"; date: string; title: string; note?: string; imagePath?: string | null; status?: string };
+    const timeline: TimelineEntry[] = [
+      ...props.observations
+        .filter((o) => scopeMatch(o.zone_id, o.bed_id, o.plant_instance_id))
+        .map((o) => ({ id: o.id, kind: "note" as const, date: (o.observed_at || o.created_at || "").slice(0, 10), title: "", note: o.note, imagePath: o.image_path })),
+      ...props.tasks
+        .filter((t) => scopeMatch(t.zone_id, t.bed_id, t.plant_instance_id))
+        .map((t) => ({ id: t.id, kind: "task" as const, date: (t.completed_at || t.due_on || t.created_at || "").slice(0, 10), title: t.title, status: t.status }))
+    ]
+      .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
+      .slice(0, 12);
 
     return (
       <div className="beta-drawer__section">
@@ -599,15 +611,29 @@ export function PropertyView(props: PropertyViewProps) {
           </MarginNote>
         ) : null}
 
-        {scopedNotes.length > 0 ? (
-          <div className="beta-note-feed">
-            <SpecimenLabel>Observations</SpecimenLabel>
-            {scopedNotes.slice(0, 6).map((observation) => (
-              <div className="beta-note-feed__item" key={observation.id}>
-                <p>{observation.note}</p>
-                <button className="beta-link-button" type="button" onClick={() => props.deleteObservation(observation.id)} disabled={busy}>
-                  Remove
-                </button>
+        {timeline.length > 0 ? (
+          <div className="beta-timeline">
+            <SpecimenLabel>Care timeline</SpecimenLabel>
+            {timeline.map((entry) => (
+              <div className={`beta-timeline__item beta-timeline__item--${entry.kind}`} key={`${entry.kind}-${entry.id}`}>
+                <span className="beta-timeline__date">{entry.date || "—"}</span>
+                <div className="beta-timeline__body">
+                  {entry.kind === "task" ? (
+                    <p className="beta-timeline__text">
+                      <span className="beta-timeline__tag">{entry.status === "done" ? "✓ done" : "task"}</span> {entry.title}
+                    </p>
+                  ) : (
+                    <>
+                      <p className="beta-timeline__text">{entry.note}</p>
+                      {entry.imagePath && props.mediaUrls[entry.imagePath] ? (
+                        <img className="beta-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.note || "Garden photo"} />
+                      ) : null}
+                      <button className="beta-link-button" type="button" onClick={() => props.deleteObservation(entry.id)} disabled={busy}>
+                        Remove
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             ))}
           </div>

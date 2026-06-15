@@ -27,6 +27,7 @@ import { CatalogueView } from "@/components/views/catalogue-view";
 import { PlantsView } from "@/components/views/plants-view";
 import { PropertyView } from "@/components/views/property-view";
 import { getCatalogPlantName } from "@/components/views/shared";
+import { QuickLog } from "@/components/quick-log";
 
 type PrivateBetaView = "property" | "calendar" | "plants" | "catalogue";
 
@@ -94,6 +95,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
   const [selectedPlantId, setSelectedPlantId] = useState<string>("");
   const [status, setStatus] = useState<"loading" | "ready" | "saving" | "error">("loading");
   const [notice, setNotice] = useState("");
+  const [mediaUrls, setMediaUrls] = useState<Record<string, string>>({});
 
   const getPlantProfileBySlug = async (slug: string) => {
     const existingProfile = snapshot.plantProfiles.find((profile) => profile.slug === slug);
@@ -185,6 +187,8 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
     const plantProfiles = plantProfilesResult.data;
     const profilesById = new Map(plantProfiles.map((profile) => [profile.plant_profile_id, profile]));
 
+    const observations = (observationsResult.data ?? []) as GardenObservation[];
+
     setSnapshot({
       plantProfiles,
       properties: (propertiesResult.data ?? []) as GardenProperty[],
@@ -194,7 +198,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
         ...plant,
         plant_profile: profilesById.get(plant.plant_profile_id) ?? null
       })),
-      observations: (observationsResult.data ?? []) as GardenObservation[],
+      observations: observations,
       tasks: (tasksResult.data ?? []) as GardenTask[],
       wishlist: ((wishlistResult.data ?? []) as Omit<GardenWishlistItem, "plant_profile">[]).map((item) => ({
         ...item,
@@ -202,6 +206,21 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       }))
     });
     setStatus("ready");
+
+    // Resolve signed URLs for observation photos (private bucket).
+    const paths = observations.map((observation) => observation.image_path).filter((path): path is string => Boolean(path));
+    if (paths.length > 0) {
+      const { data: signed } = await supabase.storage.from("garden-media").createSignedUrls(paths, 3600);
+      if (signed) {
+        const map: Record<string, string> = {};
+        for (const entry of signed) {
+          if (entry.path && entry.signedUrl) map[entry.path] = entry.signedUrl;
+        }
+        setMediaUrls(map);
+      }
+    } else {
+      setMediaUrls({});
+    }
   };
 
   useEffect(() => {
@@ -453,6 +472,41 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       const { error } = await supabase.from("garden_observations").delete().eq("id", id);
       if (error) throw error;
     }, "Note removed.");
+
+  // Quick-log: one capture for a note + optional photo against any scope.
+  const quickLog = async (input: {
+    note: string;
+    file: File | null;
+    zoneId: string | null;
+    bedId: string | null;
+    plantInstanceId: string | null;
+  }) => {
+    if (!activeProperty) {
+      setNotice("Create a garden first, then you can log notes.");
+      return;
+    }
+    await runMutation(async () => {
+      let imagePath: string | null = null;
+      if (input.file) {
+        const ext = (input.file.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";
+        const path = `${session.user.id}/${crypto.randomUUID()}.${ext}`;
+        const { error: uploadError } = await supabase.storage
+          .from("garden-media")
+          .upload(path, input.file, { cacheControl: "3600", upsert: false });
+        if (uploadError) throw uploadError;
+        imagePath = path;
+      }
+      const { error } = await supabase.from("garden_observations").insert({
+        property_id: activeProperty.id,
+        zone_id: input.zoneId,
+        bed_id: input.bedId,
+        plant_instance_id: input.plantInstanceId,
+        note: input.note.trim() || (imagePath ? "Photo" : ""),
+        image_path: imagePath
+      });
+      if (error) throw error;
+    }, "Logged to your garden journal.");
+  };
 
   const addTask = (input: { title: string; dueOn: string; notes: string }) =>
     runMutation(async () => {
@@ -768,6 +822,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               plants={propertyPlants}
               plantProfiles={snapshot.plantProfiles}
               observations={propertyObservations}
+              mediaUrls={mediaUrls}
               tasks={propertyTasks}
               selectedZoneId={selectedZoneId}
               selectedBedId={selectedBedId}
@@ -839,6 +894,17 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
           ) : null}
         </section>
       </section>
+
+      <QuickLog
+        zones={propertyZones}
+        beds={propertyBeds}
+        plants={propertyPlants}
+        activeZoneId={selectedZoneId}
+        activeBedId={selectedBedId}
+        activePlantId={selectedPlantId}
+        busy={status === "saving"}
+        onLog={quickLog}
+      />
     </main>
   );
 }
