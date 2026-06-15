@@ -77,7 +77,7 @@ type DrawerMode = "info" | "tasks" | "ideas" | "actions";
 type ZoneBox = { x: number; y: number; w: number; h: number };
 type DragState = { id: string; kind: "zone" | "bed"; mode: "move" | "resize"; startX: number; startY: number; orig: ZoneBox; box?: ZoneBox; moved: boolean };
 const DEFAULT_ZONE_W = 0.46;
-const DEFAULT_ZONE_H = 0.3;
+const DEFAULT_ZONE_H = 0.42;
 const clampTo = (value: number, max: number) => Math.max(0, Math.min(value, max));
 
 const EMPTY_PROPERTY: PropertyInput = { name: "", label: "Garden", region: "", growingZone: "", season: "" };
@@ -195,7 +195,7 @@ export function PropertyView(props: PropertyViewProps) {
     }
     const col = index % 2;
     const row = Math.floor(index / 2);
-    return { x: 0.03 + col * 0.5, y: 0.03 + row * 0.34, w: DEFAULT_ZONE_W, h: DEFAULT_ZONE_H };
+    return { x: 0.03 + col * 0.5, y: 0.03 + row * 0.46, w: DEFAULT_ZONE_W, h: DEFAULT_ZONE_H };
   };
 
   const bedBox = (bed: GardenBed, index: number): ZoneBox => {
