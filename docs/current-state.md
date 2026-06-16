@@ -55,6 +55,21 @@ Evidence:
 - [`website/app/app/my-plants/page.tsx`](../website/app/app/my-plants/page.tsx)
 - [`website/app/app/plant-catalogue/page.tsx`](../website/app/app/plant-catalogue/page.tsx)
 
+### AI assistance and the personal learning loop (Phase 3)
+
+- Frictionless capture + visible memory: quick-log notes/photos and a per-context Care timeline (Phase 3A).
+- AI observation & diagnosis assistant over OpenAI vision, grounded in plant context, with results persistable as observations (Phase 3B). Route: `/api/diagnose`.
+- Per-plant **planting timeline** (Phase 3C Slice 1): a past → today → upcoming arc built by a pure, tested `buildPlantTimeline()` — planting milestone, observations/diagnoses, completed tasks, a "today + lifecycle stage" divider, open tasks, projected harvest, and suggested next actions (one-tap to commit). Shown both in the property detail drawer and a Timeline tab in My Plants.
+- Per-planting **outcome capture** (Phase 3C Slice 2): record harvest quantity/quality and a success/partial/failure result; outcomes show on the timeline as harvest milestones. Backed by `garden_plant_outcomes` (migration `43`).
+- **History-cited recommendations** (Phase 3C Slice 3): a per-(bed × plant) and per-plant performance memory feeds the suggestion engine, so recommendations cite the grower's real track record ("your X averaged 4.5/5 over 2 harvests — keep doing what works"; or a caution for weak history).
+
+Evidence:
+- [`website/lib/garden-timeline.ts`](../website/lib/garden-timeline.ts), [`website/components/plant-timeline.tsx`](../website/components/plant-timeline.tsx)
+- [`website/lib/garden-performance.ts`](../website/lib/garden-performance.ts), [`website/lib/garden-suggestions.ts`](../website/lib/garden-suggestions.ts)
+- [`website/app/api/diagnose/route.ts`](../website/app/api/diagnose/route.ts)
+- [`supabase/sql/43-private-beta-plant-outcomes.sql`](../supabase/sql/43-private-beta-plant-outcomes.sql)
+- Tests: [`website/tests/garden-timeline.test.ts`](../website/tests/garden-timeline.test.ts), [`website/tests/garden-performance.test.ts`](../website/tests/garden-performance.test.ts), [`website/tests/garden-suggestions-history.test.ts`](../website/tests/garden-suggestions-history.test.ts)
+
 ### Supabase schema and import tooling
 
 - Waitlist SQL exists for the public signup workflow.

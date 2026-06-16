@@ -102,6 +102,7 @@ Two separate client factories:
 - `garden_properties` → `garden_zones` → `garden_beds` → `garden_plant_instances` (the Property → Zone → Bed → Plant hierarchy)
 - `garden_observations` — free-text notes scoped to any level of the hierarchy
 - `garden_tasks` — manual tasks with `open`/`done` status
+- `garden_plant_outcomes` — recorded harvest qty/quality + success/partial/failure per planting (Phase 3C; powers the planting timeline and history-cited suggestions)
 - `garden_wishlist` — per-user saved plant profiles
 - Normalized plant catalog: `plant_taxa` → `plant_cultivars` → `plant_profiles` (the canonical shape); a legacy `garden_catalog_plants` table exists from the MVP schema
 
