@@ -162,4 +162,35 @@ describe("history-cited suggestions", () => {
     expect(opp?.title).toContain("Cosmos");
     expect(opp?.title).toContain("Bed A");
   });
+
+  it("warns about a crop that has done poorly in a bed", () => {
+    const bed: GardenBed = {
+      id: "bedA",
+      property_id: "prop-1",
+      zone_id: "zone-1",
+      name: "Bed A",
+      sun: null,
+      water: null,
+      soil: null,
+      notes: null,
+      sort_order: 0,
+      created_at: "2026-01-01T00:00:00Z",
+      updated_at: "2026-01-01T00:00:00Z",
+    };
+    const plant = makePlant({ id: "cur", bed_id: "bedA", plant_profile_id: "cosmos" });
+    const out = generateSuggestions({
+      ...baseInput,
+      focus: "bed",
+      bed,
+      beds: [bed],
+      plants: [plant],
+      outcomes: [
+        makeOutcome({ id: "a", plant_instance_id: "cur", quality_rating: 2, result: "failure" }),
+        makeOutcome({ id: "b", plant_instance_id: "cur", quality_rating: 2, result: "partial" }),
+      ],
+    });
+    const warn = out.find((s) => s.id === "bed:bedA:history-loss-cosmos");
+    expect(warn).toBeDefined();
+    expect(warn?.type).toBe("warning");
+  });
 });

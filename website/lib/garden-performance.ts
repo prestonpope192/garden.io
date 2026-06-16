@@ -14,6 +14,8 @@ import type {
 export type PerformanceStat = {
   /** Number of outcome entries that fed this stat. */
   count: number;
+  /** How many entries actually recorded a quality_rating (the avg's denominator). */
+  qualityCount: number;
   /** Mean quality_rating over entries that recorded one; null if none did. */
   avgQuality: number | null;
   successCount: number;
@@ -61,8 +63,11 @@ function aggregate(outcomes: GardenPlantOutcome[]): PerformanceStat {
     else if (o.result === "partial") partialCount += 1;
     else if (o.result === "failure") failureCount += 1;
 
+    // Track the most recent entry's result. Update on a strictly newer date, or
+    // on a same-date tie only to FILL an as-yet-unknown result — never let a
+    // same-date null-result entry clobber a real verdict.
     const d = entryDate(o);
-    if (d && (lastDate === null || d >= lastDate)) {
+    if (d && (lastDate === null || d > lastDate || (d === lastDate && lastResult === null))) {
       lastDate = d;
       lastResult = o.result;
     }
@@ -70,6 +75,7 @@ function aggregate(outcomes: GardenPlantOutcome[]): PerformanceStat {
 
   return {
     count: outcomes.length,
+    qualityCount: qualityN,
     avgQuality: qualityN > 0 ? qualitySum / qualityN : null,
     successCount,
     partialCount,
@@ -114,7 +120,8 @@ export function buildPerformanceMemory(
 export function describePerformance(stat: PerformanceStat): string {
   const parts: string[] = [];
   if (stat.avgQuality !== null) {
-    parts.push(`averaged ${stat.avgQuality.toFixed(1)}/5 over ${stat.count} recorded ${stat.count === 1 ? "harvest" : "harvests"}`);
+    const n = stat.qualityCount;
+    parts.push(`averaged ${stat.avgQuality.toFixed(1)}/5 over ${n} recorded ${n === 1 ? "harvest" : "harvests"}`);
   } else {
     parts.push(`${stat.count} recorded ${stat.count === 1 ? "outcome" : "outcomes"}`);
   }

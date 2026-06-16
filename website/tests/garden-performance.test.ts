@@ -89,29 +89,46 @@ describe("buildPerformanceMemory", () => {
     expect(stat?.lastResult).toBe("failure");
     expect(stat?.lastDate).toBe("2026-07-01");
   });
+
+  it("does not let a same-date null-result entry clobber a real verdict", () => {
+    const plants = [makePlant({ id: "p1", plant_profile_id: "pea" })];
+    const mem = buildPerformanceMemory(plants, [
+      makeOutcome({ id: "real", plant_instance_id: "p1", harvested_on: "2026-07-01", result: "success" }),
+      makeOutcome({ id: "blank", plant_instance_id: "p1", harvested_on: "2026-07-01", result: null }),
+    ]);
+    expect(mem.byProfile.get("pea")?.lastResult).toBe("success");
+  });
 });
 
 describe("classifyPerformance", () => {
-  const base = { count: 1, avgQuality: null, successCount: 0, partialCount: 0, failureCount: 0, totalHarvest: null, lastResult: null, lastDate: null };
+  const base = { count: 1, qualityCount: 0, avgQuality: null, successCount: 0, partialCount: 0, failureCount: 0, totalHarvest: null, lastResult: null, lastDate: null };
   it("marks high quality / more wins as strong", () => {
-    expect(classifyPerformance({ ...base, avgQuality: 4.5 })).toBe("strong");
+    expect(classifyPerformance({ ...base, qualityCount: 1, avgQuality: 4.5 })).toBe("strong");
     expect(classifyPerformance({ ...base, count: 3, successCount: 3 })).toBe("strong");
   });
+  it("treats exactly 4.0/5 as strong (boundary)", () => {
+    expect(classifyPerformance({ ...base, qualityCount: 1, avgQuality: 4 })).toBe("strong");
+  });
   it("marks low quality / more losses as weak", () => {
-    expect(classifyPerformance({ ...base, avgQuality: 2 })).toBe("weak");
+    expect(classifyPerformance({ ...base, qualityCount: 1, avgQuality: 2 })).toBe("weak");
     expect(classifyPerformance({ ...base, count: 2, failureCount: 2 })).toBe("weak");
   });
   it("is mixed when there is no history or no clear signal", () => {
     expect(classifyPerformance({ ...base, count: 0 })).toBe("mixed");
-    expect(classifyPerformance({ ...base, avgQuality: 3.2 })).toBe("mixed");
+    expect(classifyPerformance({ ...base, qualityCount: 1, avgQuality: 3.2 })).toBe("mixed");
   });
 });
 
 describe("describePerformance", () => {
   it("renders a readable one-liner with verdict counts", () => {
-    const s = describePerformance({ count: 3, avgQuality: 4.333, successCount: 2, partialCount: 1, failureCount: 0, totalHarvest: 9, lastResult: "success", lastDate: "2026-06-01" });
+    const s = describePerformance({ count: 3, qualityCount: 3, avgQuality: 4.333, successCount: 2, partialCount: 1, failureCount: 0, totalHarvest: 9, lastResult: "success", lastDate: "2026-06-01" });
     expect(s).toContain("averaged 4.3/5 over 3 recorded harvests");
     expect(s).toContain("2 success");
     expect(s).toContain("1 partial");
+  });
+  it("uses the rated-entry count (not total) as the average denominator", () => {
+    // 3 entries, only 2 rated → "over 2 recorded harvests", not 3
+    const s = describePerformance({ count: 3, qualityCount: 2, avgQuality: 4.5, successCount: 3, partialCount: 0, failureCount: 0, totalHarvest: null, lastResult: "success", lastDate: "2026-06-01" });
+    expect(s).toContain("averaged 4.5/5 over 2 recorded harvests");
   });
 });
