@@ -11,12 +11,15 @@ import {
 } from "@/lib/garden-app-helpers";
 import type {
   GardenBed,
+  GardenObservation,
   GardenPlantInstance,
   GardenTask,
   GardenWishlistItem,
   GardenZone,
 } from "@/lib/garden-app-types";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
+import { generateSuggestions, deriveSeason } from "@/lib/garden-suggestions";
+import { PlantTimeline } from "@/components/plant-timeline";
 import {
   getCatalogPlantName,
   formatQuantity,
@@ -41,13 +44,16 @@ export type PlantsViewProps = {
     plant: GardenPlantInstance,
     note: string
   ) => Promise<void>;
+  observations: GardenObservation[];
+  mediaUrls: Record<string, string>;
+  addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
 };
 
 // ─── Local types ───────────────────────────────────────────────────────────────
 
 type StatusTab = "growing" | "archived" | "wishlist";
 type GridView = "grid" | "list";
-type DrawerTab = "info" | "filters" | "actions";
+type DrawerTab = "info" | "timeline" | "filters" | "actions";
 
 // ─── Date helpers ──────────────────────────────────────────────────────────────
 
@@ -1221,6 +1227,9 @@ export function PlantsView({
   addPlantToBed,
   removeWishlist,
   logPlantObservation,
+  observations,
+  mediaUrls,
+  addTask,
 }: PlantsViewProps) {
   const router = useRouter();
   const today = getTodayISO();
@@ -1699,7 +1708,7 @@ export function PlantsView({
         </div>
 
         <div className="beta-drawer__tabs" role="tablist">
-          {(["info", "filters", "actions"] as DrawerTab[]).map((tab) => (
+          {(["info", "timeline", "filters", "actions"] as DrawerTab[]).map((tab) => (
             <button
               key={tab}
               role="tab"
@@ -1708,7 +1717,13 @@ export function PlantsView({
               className={`beta-drawer__tab${drawerTab === tab ? " is-active" : ""}`}
               onClick={() => setDrawerTab(tab)}
             >
-              {tab === "info" ? "Info" : tab === "filters" ? "Filters" : "Actions"}
+              {tab === "info"
+                ? "Info"
+                : tab === "timeline"
+                ? "Timeline"
+                : tab === "filters"
+                ? "Filters"
+                : "Actions"}
               {tab === "filters" && hasFilters ? (
                 <span className="beta-plants2-filter-dot" aria-label="Filters active" />
               ) : null}
@@ -1728,6 +1743,43 @@ export function PlantsView({
               beds={beds}
               zones={zones}
             />
+          )}
+          {drawerTab === "timeline" && (
+            <div className="beta-drawer__section">
+              {selectedPlant ? (
+                <PlantTimeline
+                  plant={selectedPlant}
+                  observations={observations}
+                  tasks={tasks}
+                  suggestions={generateSuggestions({
+                    focus: "plant",
+                    property: null,
+                    zone: null,
+                    bed: null,
+                    plant: selectedPlant,
+                    zones,
+                    beds,
+                    plants,
+                    season: deriveSeason(new Date().getMonth()),
+                    existingTaskTitles: tasks
+                      .filter(
+                        (t) =>
+                          t.status === "open" &&
+                          t.plant_instance_id === selectedPlant.id
+                      )
+                      .map((t) => t.title),
+                  })}
+                  mediaUrls={mediaUrls}
+                  today={today}
+                  addTask={addTask}
+                  busy={busy}
+                />
+              ) : (
+                <p className="beta-drawer__muted">
+                  Select a plant to see its timeline.
+                </p>
+              )}
+            </div>
           )}
           {drawerTab === "filters" && (
             <DrawerFilters

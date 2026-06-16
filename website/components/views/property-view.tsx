@@ -6,6 +6,7 @@ import { getTodayISO, sortByCreatedAt } from "@/lib/garden-app-helpers";
 import { generateSuggestions, deriveSeason, dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import { DiagnosePanel } from "@/components/diagnose-panel";
+import { PlantTimeline } from "@/components/plant-timeline";
 import type {
   GardenBed,
   GardenObservation,
@@ -596,6 +597,24 @@ export function PropertyView(props: PropertyViewProps) {
       .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
       .slice(0, 12);
 
+    const plantTimelineSuggestions =
+      focus === "plant" && activePlant
+        ? generateSuggestions({
+            focus: "plant",
+            property: activeProperty,
+            zone: activeZone,
+            bed: activeBed,
+            plant: activePlant,
+            zones: props.zones,
+            beds: props.beds,
+            plants: props.plants,
+            season: deriveSeason(new Date().getMonth()),
+            existingTaskTitles: props.tasks
+              .filter((t) => t.status === "open" && t.plant_instance_id === activePlant.id)
+              .map((t) => t.title),
+          })
+        : [];
+
     return (
       <div className="beta-drawer__section">
         <dl className="beta-detail-list">
@@ -613,7 +632,18 @@ export function PropertyView(props: PropertyViewProps) {
           </MarginNote>
         ) : null}
 
-        {timeline.length > 0 ? (
+        {focus === "plant" && activePlant ? (
+          <PlantTimeline
+            plant={activePlant}
+            observations={props.observations}
+            tasks={props.tasks}
+            suggestions={plantTimelineSuggestions}
+            mediaUrls={props.mediaUrls}
+            today={getTodayISO()}
+            addTask={props.addTask}
+            busy={busy}
+          />
+        ) : timeline.length > 0 ? (
           <div className="beta-timeline">
             <SpecimenLabel>Care timeline</SpecimenLabel>
             {timeline.map((entry) => (

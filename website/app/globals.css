@@ -7057,6 +7057,82 @@ button.beta-breadcrumb__crumb:hover {
   border: 1px solid var(--line);
 }
 
+/* Phase 3C — past → today → upcoming arc */
+.beta-timeline__detail {
+  color: var(--ink-muted);
+}
+
+.beta-timeline__item--milestone .beta-timeline__text {
+  font-weight: 600;
+}
+
+.beta-timeline__item.is-projected {
+  opacity: 0.92;
+}
+
+.beta-timeline__item.is-projected .beta-timeline__date {
+  font-style: italic;
+}
+
+.beta-timeline__badge {
+  font-family: var(--font-label), serif;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: var(--radius-sm, 4px);
+}
+
+.beta-timeline__badge--overdue {
+  color: #fff;
+  background: var(--clay);
+}
+
+.beta-timeline__tag--suggestion {
+  color: var(--olive, var(--clay));
+}
+
+.beta-timeline__divider {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
+  padding-top: 0.35rem;
+  border-top: 2px solid var(--clay);
+}
+
+.beta-timeline__now {
+  font-family: var(--font-label), serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clay);
+}
+
+.beta-timeline__stage {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.beta-timeline__suggestion {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.beta-timeline__why {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.beta-timeline__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.1rem;
+}
+
 /* Diagnosis assistant (Phase 3B) */
 .beta-diagnose {
   display: grid;

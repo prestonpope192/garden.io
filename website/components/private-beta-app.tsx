@@ -508,14 +508,26 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
     }, "Logged to your garden journal.");
   };
 
-  const addTask = (input: { title: string; dueOn: string; notes: string }) =>
+  const addTask = (input: {
+    title: string;
+    dueOn: string;
+    notes: string;
+    propertyId?: string;
+    zoneId?: string | null;
+    bedId?: string | null;
+    plantInstanceId?: string | null;
+  }) =>
     runMutation(async () => {
-      if (!activeProperty) throw new Error("No property selected.");
+      // Callers that know their scope (e.g. the per-plant timeline) pass it
+      // explicitly; otherwise fall back to the app-level active context.
+      const propertyId = input.propertyId ?? activeProperty?.id;
+      if (!propertyId) throw new Error("No property selected.");
       const { error } = await supabase.from("garden_tasks").insert({
-        property_id: activeProperty.id,
-        zone_id: activeZone?.id ?? null,
-        bed_id: activeBed?.id ?? null,
-        plant_instance_id: activePlant?.id ?? null,
+        property_id: propertyId,
+        zone_id: input.zoneId !== undefined ? input.zoneId : activeZone?.id ?? null,
+        bed_id: input.bedId !== undefined ? input.bedId : activeBed?.id ?? null,
+        plant_instance_id:
+          input.plantInstanceId !== undefined ? input.plantInstanceId : activePlant?.id ?? null,
         title: input.title.trim(),
         due_on: input.dueOn || null,
         notes: input.notes.trim() || null
@@ -881,6 +893,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               addPlantToBed={addPlantToBed}
               removeWishlist={removeWishlist}
               logPlantObservation={logPlantObservation}
+              observations={propertyObservations}
+              mediaUrls={mediaUrls}
+              addTask={addTask}
             />
           ) : null}
 
