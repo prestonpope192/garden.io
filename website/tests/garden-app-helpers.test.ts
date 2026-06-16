@@ -10,6 +10,7 @@ const baseSnapshot: GardenSnapshot = {
   plants: [],
   observations: [],
   tasks: [],
+  outcomes: [],
   wishlist: []
 };
 

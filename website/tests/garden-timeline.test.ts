@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { buildPlantTimeline } from "@/lib/garden-timeline";
+import { buildPlantTimeline, summarizeOutcome } from "@/lib/garden-timeline";
 import type {
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenPlantProfile,
   GardenTask,
 } from "@/lib/garden-app-types";
@@ -115,6 +116,23 @@ function makeSuggestion(
   };
 }
 
+function makeOutcome(overrides: Partial<GardenPlantOutcome> = {}): GardenPlantOutcome {
+  return {
+    id: "outcome-1",
+    property_id: "prop-1",
+    plant_instance_id: "plant-1",
+    result: "success",
+    harvest_quantity: 3.5,
+    harvest_unit: "kg",
+    quality_rating: 4,
+    harvested_on: "2026-06-05",
+    notes: null,
+    created_at: "2026-06-05T00:00:00Z",
+    updated_at: "2026-06-05T00:00:00Z",
+    ...overrides,
+  };
+}
+
 describe("buildPlantTimeline", () => {
   it("buckets by nature: happened → past, to-do → upcoming", () => {
     const plant = makePlant();
@@ -125,6 +143,7 @@ describe("buildPlantTimeline", () => {
         makeTask({ id: "open-1", title: "Water deeply", status: "open", due_on: "2026-06-20" }),
       ],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
 
@@ -149,6 +168,7 @@ describe("buildPlantTimeline", () => {
         makeTask({ id: "soon", title: "Feed", status: "open", due_on: "2026-06-18" }),
       ],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
 
@@ -168,6 +188,7 @@ describe("buildPlantTimeline", () => {
       observations: [],
       tasks: [],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
 
@@ -187,6 +208,7 @@ describe("buildPlantTimeline", () => {
         makeSuggestion({ id: "dup", taskTitle: "Prune suckers and check for hornworms" }),
         makeSuggestion({ id: "fresh", title: "Net against birds", taskTitle: "Net against birds", dueInDays: 7 }),
       ],
+      outcomes: [],
       today: TODAY,
     });
 
@@ -207,6 +229,7 @@ describe("buildPlantTimeline", () => {
         makeTask({ id: "future", title: "Water", status: "open", due_on: "2026-06-30" }),
       ],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
 
@@ -223,6 +246,7 @@ describe("buildPlantTimeline", () => {
       observations: [],
       tasks: [],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
     // 45 days of 60 elapsed → ~0.75 → "Flowering"
@@ -235,6 +259,7 @@ describe("buildPlantTimeline", () => {
       observations: [makeObservation({ id: "other", plant_instance_id: "plant-2" })],
       tasks: [makeTask({ id: "other-task", plant_instance_id: "plant-2", status: "open" })],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
     expect(tl.past.map((i) => i.id)).not.toContain("note:other");
@@ -251,6 +276,7 @@ describe("buildPlantTimeline", () => {
         makeSuggestion({ id: "overlap", taskTitle: "Prune suckers and check for hornworms" }),
         makeSuggestion({ id: "distinct", title: "Feed with compost", taskTitle: "Feed with compost", dueInDays: 5 }),
       ],
+      outcomes: [],
       today: TODAY,
     });
     const ids = tl.upcoming.map((i) => i.id);
@@ -264,6 +290,7 @@ describe("buildPlantTimeline", () => {
       observations: [makeObservation()],
       tasks: [makeTask({ status: "open", due_on: "2026-06-20" })],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
     expect(tl.past.map((i) => i.id)).not.toContain("planted:plant-1"); // no planting milestone
@@ -278,10 +305,41 @@ describe("buildPlantTimeline", () => {
       observations: [],
       tasks: [],
       suggestions: [],
+      outcomes: [],
       today: TODAY,
     });
     expect(tl.past.map((i) => i.id)).toContain("planted:plant-1"); // planting still anchors the arc
     expect(tl.upcoming.map((i) => i.id)).not.toContain("harvest:plant-1");
     expect(tl.currentStage).toBeNull();
+  });
+
+  it("folds recorded outcomes into the past as harvest milestones", () => {
+    const plant = makePlant({ plant_profile: makeProfile({ days_to_maturity_min: null }) });
+    const tl = buildPlantTimeline(plant, {
+      observations: [],
+      tasks: [],
+      suggestions: [],
+      outcomes: [makeOutcome({ id: "o1", plant_instance_id: "plant-1", harvested_on: "2026-06-05" })],
+      today: TODAY,
+    });
+    const item = tl.past.find((i) => i.id === "outcome:o1");
+    expect(item).toBeDefined();
+    expect(item?.kind).toBe("milestone");
+    expect(item?.date).toBe("2026-06-05");
+    expect(item?.detail).toContain("3.5 kg");
+    expect(item?.detail).toContain("quality 4/5");
+    expect(item?.detail).toContain("success");
+    // outcomes from other plants are excluded
+    expect(tl.past.map((i) => i.id)).not.toContain("outcome:other");
+  });
+
+  it("summarizeOutcome renders a compact one-liner and tolerates sparse data", () => {
+    expect(summarizeOutcome(makeOutcome())).toBe("3.5 kg · quality 4/5 · success");
+    expect(
+      summarizeOutcome(makeOutcome({ harvest_quantity: null, quality_rating: null, result: "failure" }))
+    ).toBe("failure");
+    expect(
+      summarizeOutcome(makeOutcome({ harvest_quantity: 6, harvest_unit: null, quality_rating: null, result: null }))
+    ).toBe("6");
   });
 });

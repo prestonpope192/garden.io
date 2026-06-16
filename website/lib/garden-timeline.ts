@@ -1,6 +1,7 @@
 import type {
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenTask,
   GardenTaskStatus,
 } from "@/lib/garden-app-types";
@@ -57,10 +58,22 @@ export type PlantTimeline = {
 export type BuildPlantTimelineInput = {
   observations: GardenObservation[];
   tasks: GardenTask[];
+  outcomes: GardenPlantOutcome[];
   suggestions: GardenSuggestion[];
   /** Today as YYYY-MM-DD (caller supplies for determinism). */
   today: string;
 };
+
+/** One-line summary of a recorded outcome: "3.5 kg · quality 4/5 · success". */
+export function summarizeOutcome(o: GardenPlantOutcome): string {
+  const parts: string[] = [];
+  if (o.harvest_quantity !== null && o.harvest_quantity !== undefined) {
+    parts.push(`${o.harvest_quantity}${o.harvest_unit ? ` ${o.harvest_unit}` : ""}`);
+  }
+  if (o.quality_rating) parts.push(`quality ${o.quality_rating}/5`);
+  if (o.result) parts.push(o.result);
+  return parts.join(" · ");
+}
 
 // ── Date helpers (local-midnight, string-safe) ──────────────────────────────
 
@@ -125,6 +138,19 @@ export function buildPlantTimeline(
       title: "",
       detail: o.note,
       imagePath: o.image_path,
+    });
+  }
+
+  // 2b. Recorded outcomes (harvests / final verdicts) — things that happened.
+  for (const o of input.outcomes) {
+    if (o.plant_instance_id !== plant.id) continue;
+    const summary = summarizeOutcome(o);
+    past.push({
+      id: `outcome:${o.id}`,
+      kind: "milestone",
+      date: (o.harvested_on || o.created_at || "").slice(0, 10),
+      title: o.harvest_quantity !== null && o.harvest_quantity !== undefined ? "Harvested" : "Outcome",
+      detail: [summary, o.notes ?? ""].filter(Boolean).join(" — ") || undefined,
     });
   }
 

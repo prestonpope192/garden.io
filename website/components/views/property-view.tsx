@@ -6,11 +6,12 @@ import { getTodayISO, sortByCreatedAt } from "@/lib/garden-app-helpers";
 import { generateSuggestions, deriveSeason, dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import { DiagnosePanel } from "@/components/diagnose-panel";
-import { PlantTimeline } from "@/components/plant-timeline";
+import { PlantTimeline, type AddPlantOutcomeInput } from "@/components/plant-timeline";
 import type {
   GardenBed,
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenPlantProfile,
   GardenProperty,
   GardenTask,
@@ -42,6 +43,7 @@ export type PropertyViewProps = {
   plantProfiles: GardenPlantProfile[];
   observations: GardenObservation[];
   tasks: GardenTask[];
+  outcomes: GardenPlantOutcome[];
   selectedZoneId: string;
   selectedBedId: string;
   selectedPlantId: string;
@@ -71,6 +73,8 @@ export type PropertyViewProps = {
   addTask: (input: TaskInput) => Promise<void>;
   updateTaskStatus: (task: GardenTask) => Promise<void>;
   deleteTask: (id: string) => Promise<void>;
+  addPlantOutcome: (plant: GardenPlantInstance, input: AddPlantOutcomeInput) => Promise<void>;
+  deletePlantOutcome: (id: string) => Promise<void>;
 };
 
 type FocusLevel = "property" | "zone" | "bed" | "plant";
@@ -637,10 +641,13 @@ export function PropertyView(props: PropertyViewProps) {
             plant={activePlant}
             observations={props.observations}
             tasks={props.tasks}
+            outcomes={props.outcomes}
             suggestions={plantTimelineSuggestions}
             mediaUrls={props.mediaUrls}
             today={getTodayISO()}
             addTask={props.addTask}
+            addPlantOutcome={props.addPlantOutcome}
+            deletePlantOutcome={props.deletePlantOutcome}
             busy={busy}
           />
         ) : timeline.length > 0 ? (

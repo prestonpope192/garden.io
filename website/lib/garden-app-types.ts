@@ -168,6 +168,22 @@ export type GardenTask = {
   updated_at: string;
 };
 
+export type GardenPlantOutcomeResult = "success" | "partial" | "failure";
+
+export type GardenPlantOutcome = {
+  id: string;
+  property_id: string;
+  plant_instance_id: string;
+  result: GardenPlantOutcomeResult | null;
+  harvest_quantity: number | null;
+  harvest_unit: string | null;
+  quality_rating: number | null;
+  harvested_on: string | null;
+  notes: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
 export type GardenWishlistItem = {
   id: string;
   owner_user_id: string;
@@ -186,5 +202,6 @@ export type GardenSnapshot = {
   plants: GardenPlantInstance[];
   observations: GardenObservation[];
   tasks: GardenTask[];
+  outcomes: GardenPlantOutcome[];
   wishlist: GardenWishlistItem[];
 };

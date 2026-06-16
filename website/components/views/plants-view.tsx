@@ -13,13 +13,14 @@ import type {
   GardenBed,
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenTask,
   GardenWishlistItem,
   GardenZone,
 } from "@/lib/garden-app-types";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import { generateSuggestions, deriveSeason } from "@/lib/garden-suggestions";
-import { PlantTimeline } from "@/components/plant-timeline";
+import { PlantTimeline, type AddPlantOutcomeInput } from "@/components/plant-timeline";
 import {
   getCatalogPlantName,
   formatQuantity,
@@ -45,8 +46,11 @@ export type PlantsViewProps = {
     note: string
   ) => Promise<void>;
   observations: GardenObservation[];
+  outcomes: GardenPlantOutcome[];
   mediaUrls: Record<string, string>;
   addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
+  addPlantOutcome: (plant: GardenPlantInstance, input: AddPlantOutcomeInput) => Promise<void>;
+  deletePlantOutcome: (id: string) => Promise<void>;
 };
 
 // ─── Local types ───────────────────────────────────────────────────────────────
@@ -1228,8 +1232,11 @@ export function PlantsView({
   removeWishlist,
   logPlantObservation,
   observations,
+  outcomes,
   mediaUrls,
   addTask,
+  addPlantOutcome,
+  deletePlantOutcome,
 }: PlantsViewProps) {
   const router = useRouter();
   const today = getTodayISO();
@@ -1751,6 +1758,7 @@ export function PlantsView({
                   plant={selectedPlant}
                   observations={observations}
                   tasks={tasks}
+                  outcomes={outcomes}
                   suggestions={generateSuggestions({
                     focus: "plant",
                     property: null,
@@ -1772,6 +1780,8 @@ export function PlantsView({
                   mediaUrls={mediaUrls}
                   today={today}
                   addTask={addTask}
+                  addPlantOutcome={addPlantOutcome}
+                  deletePlantOutcome={deletePlantOutcome}
                   busy={busy}
                 />
               ) : (

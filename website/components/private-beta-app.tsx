@@ -13,6 +13,7 @@ import type {
   GardenBed,
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenPlantProfile,
   GardenPlantStatus,
   GardenProperty,
@@ -43,6 +44,7 @@ const emptySnapshot: GardenSnapshot = {
   plants: [],
   observations: [],
   tasks: [],
+  outcomes: [],
   wishlist: []
 };
 
@@ -125,6 +127,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
   const propertyObservations = activeProperty
     ? snapshot.observations.filter((observation) => observation.property_id === activeProperty.id)
     : [];
+  const propertyOutcomes = activeProperty
+    ? snapshot.outcomes.filter((outcome) => outcome.property_id === activeProperty.id)
+    : [];
 
   // Focus is derived from selection: plant > bed > zone > property. These are
   // strict (no fallback to the first child) so the view can rest at any level.
@@ -144,6 +149,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       plantsResult,
       observationsResult,
       tasksResult,
+      outcomesResult,
       wishlistResult
     ] = await Promise.all([
       supabase.from("garden_properties").select("*").order("created_at", { ascending: true }),
@@ -159,6 +165,10 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       supabase.from("garden_observations").select("*").order("observed_at", { ascending: false }),
       supabase.from("garden_tasks").select("*").order("due_on", { ascending: true, nullsFirst: false }),
       supabase
+        .from("garden_plant_outcomes")
+        .select("*")
+        .order("harvested_on", { ascending: false, nullsFirst: false }),
+      supabase
         .from("garden_wishlist")
         .select("*")
         .order("created_at", { ascending: true })
@@ -172,6 +182,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       plantsResult.error ??
       observationsResult.error ??
       tasksResult.error ??
+      outcomesResult.error ??
       wishlistResult.error;
 
     if (firstError) {
@@ -200,6 +211,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       })),
       observations: observations,
       tasks: (tasksResult.data ?? []) as GardenTask[],
+      outcomes: (outcomesResult.data ?? []) as GardenPlantOutcome[],
       wishlist: ((wishlistResult.data ?? []) as Omit<GardenWishlistItem, "plant_profile">[]).map((item) => ({
         ...item,
         plant_profile: profilesById.get(item.plant_profile_id) ?? null
@@ -562,6 +574,37 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       if (error) throw error;
     }, "Task removed.");
 
+  const addPlantOutcome = (
+    plant: GardenPlantInstance,
+    input: {
+      result: GardenPlantOutcome["result"];
+      harvestQuantity: number | null;
+      harvestUnit: string | null;
+      qualityRating: number | null;
+      harvestedOn: string | null;
+      notes: string;
+    }
+  ) =>
+    runMutation(async () => {
+      const { error } = await supabase.from("garden_plant_outcomes").insert({
+        property_id: plant.property_id,
+        plant_instance_id: plant.id,
+        result: input.result,
+        harvest_quantity: input.harvestQuantity,
+        harvest_unit: input.harvestUnit?.trim() || null,
+        quality_rating: input.qualityRating,
+        harvested_on: input.harvestedOn || null,
+        notes: input.notes.trim() || null
+      });
+      if (error) throw error;
+    }, "Outcome recorded.");
+
+  const deletePlantOutcome = (id: string) =>
+    runMutation(async () => {
+      const { error } = await supabase.from("garden_plant_outcomes").delete().eq("id", id);
+      if (error) throw error;
+    }, "Outcome removed.");
+
   const saveWishlist = (slug: string) =>
     runMutation(async () => {
       const plantProfile = await getPlantProfileBySlug(slug);
@@ -836,6 +879,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               observations={propertyObservations}
               mediaUrls={mediaUrls}
               tasks={propertyTasks}
+              outcomes={propertyOutcomes}
               selectedZoneId={selectedZoneId}
               selectedBedId={selectedBedId}
               selectedPlantId={selectedPlantId}
@@ -864,6 +908,8 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               addTask={addTask}
               updateTaskStatus={updateTaskStatus}
               deleteTask={deleteTask}
+              addPlantOutcome={addPlantOutcome}
+              deletePlantOutcome={deletePlantOutcome}
             />
           ) : null}
 
@@ -894,8 +940,11 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
               removeWishlist={removeWishlist}
               logPlantObservation={logPlantObservation}
               observations={propertyObservations}
+              outcomes={propertyOutcomes}
               mediaUrls={mediaUrls}
               addTask={addTask}
+              addPlantOutcome={addPlantOutcome}
+              deletePlantOutcome={deletePlantOutcome}
             />
           ) : null}
 
