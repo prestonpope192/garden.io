@@ -1,9 +1,15 @@
 import type {
   GardenBed,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenProperty,
   GardenZone
 } from "@/lib/garden-app-types";
+import {
+  buildPerformanceMemory,
+  classifyPerformance,
+  describePerformance
+} from "@/lib/garden-performance";
 
 // Heuristic suggestion engine (specs 05/06). No LLM / weather — this turns the
 // grower's real plants + beds + season into context-scoped, actionable guidance
@@ -79,6 +85,7 @@ type EngineInput = {
   plants: GardenPlantInstance[];
   season: SuggestionSeason;
   existingTaskTitles: string[]; // normalised (lowercased, trimmed) open task titles
+  outcomes?: GardenPlantOutcome[]; // recorded harvests/results — powers history-cited recs
 };
 
 const PRIORITY: Record<SuggestionType, number> = { warning: 0, opportunity: 1, suggestion: 2, insight: 3 };
@@ -87,6 +94,7 @@ const CONFIDENCE_RANK: Record<SuggestionConfidence, number> = { high: 0, medium:
 export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
   const { focus, season } = input;
   const growing = input.plants.filter((p) => p.status === "growing");
+  const memory = buildPerformanceMemory(input.plants, input.outcomes ?? []);
   const raw: GardenSuggestion[] = [];
   const push = (s: GardenSuggestion) => raw.push(s);
 
@@ -95,6 +103,17 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const t = plantText(plant);
     const name = plantName(plant);
     const key = (k: string) => `plant:${plant.id}:${k}`;
+    // History-cited: this plant's profile track record across the property.
+    const profileStat = memory.byProfile.get(plant.plant_profile_id);
+    if (profileStat && profileStat.count > 0) {
+      const verdict = classifyPerformance(profileStat);
+      const desc = describePerformance(profileStat);
+      if (verdict === "strong") {
+        push({ id: key("history-strong"), type: "insight", title: `${name} has a strong track record for you`, rationale: `From your records, ${name} has ${desc}. Keep doing what works — same spot, same timing.`, confidence: "high", taskTitle: `Note: ${name} has a strong track record`, windowLabel: "from your history", dueInDays: 30 });
+      } else if (verdict === "weak") {
+        push({ id: key("history-weak"), type: "warning", title: `${name} has underperformed for you before`, rationale: `Your records show ${name} ${desc}. Scout early and consider changing spot, timing, or variety.`, confidence: "medium", taskTitle: `Scout ${name} early — past plantings underperformed`, windowLabel: "this week", dueInDays: 5 });
+      }
+    }
     // Data-driven harvest timing (curated phenology): supersedes type heuristics.
     const ph = plant.plant_profile;
     if (ph?.days_to_maturity_min && ph.maturity_basis !== "perennial" && plant.planted_on) {
@@ -138,6 +157,24 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const bedPlants = growing.filter((p) => p.bed_id === bed.id);
     const texts = bedPlants.map(plantText);
     const key = (k: string) => `bed:${bed.id}:${k}`;
+    // History-cited: per-crop performance recorded in THIS bed (cap 2).
+    let bedHistoryCount = 0;
+    for (const [bkey, stat] of memory.byBedProfile) {
+      if (bedHistoryCount >= 2) break;
+      if (!bkey.startsWith(`${bed.id}::`) || stat.count === 0) continue;
+      const profileId = bkey.slice(bed.id.length + 2);
+      const cropName =
+        input.plants.find((p) => p.plant_profile_id === profileId)?.plant_profile?.display_name ?? "This crop";
+      const verdict = classifyPerformance(stat);
+      const desc = describePerformance(stat);
+      if (verdict === "strong") {
+        push({ id: key(`history-win-${profileId}`), type: "opportunity", title: `${cropName} does well in ${bed.name}`, rationale: `${cropName} has ${desc} in ${bed.name}. A reliable pairing — lean into it.`, confidence: "high", taskTitle: `Keep growing ${cropName} in ${bed.name}`, windowLabel: "from your history", dueInDays: 21 });
+        bedHistoryCount++;
+      } else if (verdict === "weak") {
+        push({ id: key(`history-loss-${profileId}`), type: "warning", title: `${cropName} has underperformed in ${bed.name}`, rationale: `${cropName} has ${desc} here. Consider rotating it out or changing how it's grown in ${bed.name}.`, confidence: "medium", taskTitle: `Rethink ${cropName} in ${bed.name}`, windowLabel: "next rotation", dueInDays: 30 });
+        bedHistoryCount++;
+      }
+    }
     const hasNightshade = texts.some(isNightshade);
     const hasCompanionHerb = texts.some((t) => isHerb(t) || isPollinatorFlower(t));
     if (hasNightshade && !hasCompanionHerb) {

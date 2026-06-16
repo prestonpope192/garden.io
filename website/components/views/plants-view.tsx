@@ -1776,6 +1776,7 @@ export function PlantsView({
                           t.plant_instance_id === selectedPlant.id
                       )
                       .map((t) => t.title),
+                    outcomes,
                   })}
                   mediaUrls={mediaUrls}
                   today={today}

@@ -616,6 +616,7 @@ export function PropertyView(props: PropertyViewProps) {
             existingTaskTitles: props.tasks
               .filter((t) => t.status === "open" && t.plant_instance_id === activePlant.id)
               .map((t) => t.title),
+            outcomes: props.outcomes,
           })
         : [];
 
@@ -920,7 +921,8 @@ export function PropertyView(props: PropertyViewProps) {
       beds: props.beds,
       plants: props.plants,
       season,
-      existingTaskTitles
+      existingTaskTitles,
+      outcomes: props.outcomes
     }).filter((idea) => !dismissedIdeas.has(idea.id));
 
     const acceptIdea = (idea: GardenSuggestion) => {
