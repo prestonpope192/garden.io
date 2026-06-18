@@ -34,6 +34,7 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
         ph.planting_window_label,
         ph.harvest_window_label,
         ph.perennial_first_harvest_label,
+        cpf.frost_tender,
         coalesce(
           (
             select jsonb_agg(
@@ -54,6 +55,7 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
       from catalog.plant_profile_catalogue_view v
       left join catalog.plant_cultivars c on c.id = v.plant_cultivar_id
       left join catalog.plant_phenology_profiles ph on ph.plant_profile_id = v.plant_profile_id
+      left join catalog.plant_climate_profiles cpf on cpf.plant_profile_id = v.plant_profile_id
       where ($1::text is null or v.slug = $1)
       order by v.display_name asc
     `,

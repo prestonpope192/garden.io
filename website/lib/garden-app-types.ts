@@ -7,6 +7,9 @@ export type GardenProperty = {
   growing_zone: string | null;
   season: string | null;
   notes: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  location_label: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -109,6 +112,7 @@ export type GardenPlantProfile = {
   harvest_window_label?: string | null;
   perennial_first_harvest_label?: string | null;
   water_need_level: string | null;
+  frost_tender?: boolean | null;
   propagation_methods: Record<string, GardenPlantRequirementValue>[];
   drainage_requirement: string | null;
   fertility_need?: string | null;

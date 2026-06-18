@@ -5,6 +5,7 @@ import { InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primit
 import { getTodayISO, sortByCreatedAt } from "@/lib/garden-app-helpers";
 import { generateSuggestions, deriveSeason, dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
+import { buildFrostAlert, type ForecastDay } from "@/lib/garden-frost";
 import { DiagnosePanel } from "@/components/diagnose-panel";
 import { PlantTimeline, type AddPlantOutcomeInput } from "@/components/plant-timeline";
 import type {
@@ -53,7 +54,7 @@ export type PropertyViewProps = {
   isSaving: boolean;
   isLoading: boolean;
   createProperty: (input: PropertyInput) => Promise<void>;
-  updateProperty: (id: string, patch: Partial<Pick<GardenProperty, "name" | "label" | "region" | "growing_zone" | "season" | "notes">>) => Promise<void>;
+  updateProperty: (id: string, patch: Partial<Pick<GardenProperty, "name" | "label" | "region" | "growing_zone" | "season" | "notes" | "latitude" | "longitude" | "location_label">>) => Promise<void>;
   deleteProperty: (id: string) => Promise<void>;
   createZone: (input: ZoneInput) => Promise<void>;
   updateZone: (id: string, patch: Partial<Pick<GardenZone, "name" | "purpose" | "light" | "water" | "notes">>) => Promise<void>;
@@ -154,6 +155,67 @@ export function PropertyView(props: PropertyViewProps) {
   const [diagnoseSeed, setDiagnoseSeed] = useState<{ text: string; nonce: number }>({ text: "", nonce: 0 });
   const [taskDraft, setTaskDraft] = useState<TaskInput>({ title: "", dueOn: getTodayISO(), notes: "" });
   const [editDraft, setEditDraft] = useState<Record<string, string>>({});
+
+  // WeatherIQ: forecast-driven frost alert + one-time location geocoding.
+  const [frostAlert, setFrostAlert] = useState<GardenSuggestion | null>(null);
+  const [geoMatches, setGeoMatches] = useState<
+    { label: string; latitude: number; longitude: number }[]
+  >([]);
+  const [geoBusy, setGeoBusy] = useState(false);
+
+  const lat = activeProperty?.latitude ?? null;
+  const lon = activeProperty?.longitude ?? null;
+  useEffect(() => {
+    if (lat == null || lon == null) {
+      setFrostAlert(null);
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      try {
+        const res = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
+        const data = (await res.json()) as { ok?: boolean; days?: ForecastDay[] };
+        if (cancelled || !data.ok || !data.days) return;
+        setFrostAlert(
+          buildFrostAlert({ days: data.days, growingPlants: props.plants, today: getTodayISO() })
+        );
+      } catch {
+        if (!cancelled) setFrostAlert(null);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeProperty?.id, lat, lon, props.plants]);
+
+  const runGeocode = async () => {
+    const q = (editDraft.location_query ?? "").trim();
+    if (q.length < 2) return;
+    setGeoBusy(true);
+    try {
+      const res = await fetch(`/api/weather?geocode=${encodeURIComponent(q)}`);
+      const data = (await res.json()) as {
+        ok?: boolean;
+        matches?: { label: string; latitude: number; longitude: number }[];
+      };
+      setGeoMatches(data.ok ? data.matches ?? [] : []);
+    } catch {
+      setGeoMatches([]);
+    } finally {
+      setGeoBusy(false);
+    }
+  };
+
+  const pickLocation = (match: { label: string; latitude: number; longitude: number }) => {
+    setEditDraft((d) => ({
+      ...d,
+      location_label: match.label,
+      latitude: String(match.latitude),
+      longitude: String(match.longitude),
+    }));
+    setGeoMatches([]);
+  };
 
   // Reset transient drawer state whenever the focused node changes.
   useEffect(() => {
@@ -395,8 +457,13 @@ export function PropertyView(props: PropertyViewProps) {
         region: activeProperty.region ?? "",
         growing_zone: activeProperty.growing_zone ?? "",
         season: activeProperty.season ?? "",
-        notes: activeProperty.notes ?? ""
+        notes: activeProperty.notes ?? "",
+        location_label: activeProperty.location_label ?? "",
+        latitude: activeProperty.latitude != null ? String(activeProperty.latitude) : "",
+        longitude: activeProperty.longitude != null ? String(activeProperty.longitude) : "",
+        location_query: ""
       });
+      setGeoMatches([]);
     } else if (focus === "zone" && activeZone) {
       setEditDraft({
         name: activeZone.name,
@@ -431,7 +498,10 @@ export function PropertyView(props: PropertyViewProps) {
         region: editDraft.region?.trim() || null,
         growing_zone: editDraft.growing_zone?.trim() || null,
         season: editDraft.season?.trim() || null,
-        notes: editDraft.notes?.trim() || null
+        notes: editDraft.notes?.trim() || null,
+        latitude: editDraft.latitude ? Number(editDraft.latitude) : null,
+        longitude: editDraft.longitude ? Number(editDraft.longitude) : null,
+        location_label: editDraft.location_label?.trim() || null
       }).then(() => setIsEditing(false));
     } else if (focus === "zone" && activeZone) {
       void props.updateZone(activeZone.id, {
@@ -500,6 +570,34 @@ export function PropertyView(props: PropertyViewProps) {
                 <FieldText label="Region" value={editDraft.region ?? ""} onChange={(value) => setEditDraft({ ...editDraft, region: value })} />
                 <FieldText label="Growing zone" value={editDraft.growing_zone ?? ""} onChange={(value) => setEditDraft({ ...editDraft, growing_zone: value })} />
                 <FieldText label="Season" value={editDraft.season ?? ""} onChange={(value) => setEditDraft({ ...editDraft, season: value })} />
+                <div className="beta-field beta-geo" style={{ gridColumn: "1 / -1" }}>
+                  <span>Location (for frost alerts)</span>
+                  <div className="beta-geo__row">
+                    <input
+                      className="input"
+                      placeholder="Town or ZIP"
+                      value={editDraft.location_query ?? ""}
+                      onChange={(event) => setEditDraft({ ...editDraft, location_query: event.target.value })}
+                    />
+                    <button type="button" className="folio-button" onClick={() => void runGeocode()} disabled={geoBusy}>
+                      {geoBusy ? "Finding…" : "Find"}
+                    </button>
+                  </div>
+                  {geoMatches.length > 0 ? (
+                    <ul className="beta-geo__matches">
+                      {geoMatches.map((match) => (
+                        <li key={`${match.latitude},${match.longitude}`}>
+                          <button type="button" className="beta-link-button" onClick={() => pickLocation(match)}>
+                            {match.label}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {editDraft.location_label ? (
+                    <p className="beta-drawer__muted">📍 {editDraft.location_label}</p>
+                  ) : null}
+                </div>
               </>
             ) : null}
             {focus === "zone" ? (
@@ -931,7 +1029,11 @@ export function PropertyView(props: PropertyViewProps) {
     };
     const dismissIdea = (id: string) => setDismissedIdeas((prev) => new Set(prev).add(id));
 
-    if (ideas.length === 0) {
+    // WeatherIQ: a live frost alert (if any) leads the list as a high-priority warning.
+    const withFrost =
+      frostAlert && !dismissedIdeas.has(frostAlert.id) ? [frostAlert, ...ideas] : ideas;
+
+    if (withFrost.length === 0) {
       return (
         <div className="beta-drawer__section">
           <p className="beta-drawer__muted">No new ideas right now — this {focus} looks well-tended. Check back as the season turns.</p>
@@ -941,7 +1043,7 @@ export function PropertyView(props: PropertyViewProps) {
 
     return (
       <div className="beta-drawer__section beta-ideas">
-        {ideas.map((idea) => (
+        {withFrost.map((idea) => (
           <article className={`beta-idea beta-idea--${idea.type}`} key={idea.id}>
             <div className="beta-idea__head">
               <span className="beta-idea__type">{idea.type}</span>

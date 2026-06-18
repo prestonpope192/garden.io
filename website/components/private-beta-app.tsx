@@ -294,7 +294,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: PrivateBe
       setSelectedPropertyId(data.id);
     }, "Garden created.");
 
-  const updateProperty = (id: string, patch: Partial<Pick<GardenProperty, "name" | "label" | "region" | "growing_zone" | "season" | "notes">>) =>
+  const updateProperty = (id: string, patch: Partial<Pick<GardenProperty, "name" | "label" | "region" | "growing_zone" | "season" | "notes" | "latitude" | "longitude" | "location_label">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_properties").update(patch).eq("id", id);
       if (error) throw error;

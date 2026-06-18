@@ -7133,6 +7133,30 @@ button.beta-breadcrumb__crumb:hover {
   margin-top: 0.1rem;
 }
 
+/* WeatherIQ — property location picker */
+.beta-geo__row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.beta-geo__row .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.beta-geo__matches {
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.beta-geo__matches li {
+  font-size: 0.85rem;
+}
+
 /* Diagnosis assistant (Phase 3B) */
 .beta-diagnose {
   display: grid;

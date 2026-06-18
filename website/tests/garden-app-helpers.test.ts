@@ -28,6 +28,9 @@ describe("garden app helpers", () => {
           growing_zone: null,
           season: null,
           notes: null,
+          latitude: null,
+          longitude: null,
+          location_label: null,
           created_at: "2026-01-01T00:00:00Z",
           updated_at: "2026-01-01T00:00:00Z"
         }
