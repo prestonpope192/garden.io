@@ -35,6 +35,7 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
         ph.harvest_window_label,
         ph.perennial_first_harvest_label,
         cpf.frost_tender,
+        imgattr.attribution_text as image_attribution,
         coalesce(
           (
             select jsonb_agg(
@@ -56,6 +57,13 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
       left join catalog.plant_cultivars c on c.id = v.plant_cultivar_id
       left join catalog.plant_phenology_profiles ph on ph.plant_profile_id = v.plant_profile_id
       left join catalog.plant_climate_profiles cpf on cpf.plant_profile_id = v.plant_profile_id
+      left join lateral (
+        select attribution_text
+        from catalog.plant_images
+        where plant_profile_id = v.plant_profile_id and is_public = true
+        order by is_primary desc, created_at
+        limit 1
+      ) imgattr on true
       where ($1::text is null or v.slug = $1)
       order by v.display_name asc
     `,

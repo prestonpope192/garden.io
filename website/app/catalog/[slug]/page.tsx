@@ -155,7 +155,12 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
             subtitle={`${plant.botanical_name_full} · ${plant.family_name ?? "Plant profile"}`}
             title={plant.display_name}
             illustration={
-              <Image alt={plant.display_name} className="specimen-art" height={420} priority src={getProfileIllustration(plant)} width={340} />
+              <>
+                <Image alt={plant.display_name} className="specimen-art" height={420} priority src={getProfileIllustration(plant)} width={340} />
+                {plant.image_attribution ? (
+                  <p className="specimen-art__credit">Illustration · {plant.image_attribution}</p>
+                ) : null}
+              </>
             }
           >
             <dl className="detail-list">

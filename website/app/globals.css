@@ -7157,6 +7157,16 @@ button.beta-breadcrumb__crumb:hover {
   font-size: 0.85rem;
 }
 
+/* Catalogue image credit (public-domain art attribution) */
+.specimen-art__credit {
+  margin: 0.35rem 0 0;
+  font-size: 0.62rem;
+  line-height: 1.3;
+  color: var(--ink-muted);
+  text-align: center;
+  font-style: italic;
+}
+
 /* Diagnosis assistant (Phase 3B) */
 .beta-diagnose {
   display: grid;

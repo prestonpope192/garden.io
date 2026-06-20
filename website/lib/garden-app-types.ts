@@ -120,6 +120,7 @@ export type GardenPlantProfile = {
   preferred_soil_texture_codes: string[];
   soil_texture_summary: string | null;
   primary_image_url: string | null;
+  image_attribution?: string | null;
   ratings: Record<string, GardenPlantRequirementValue>;
   cultivar_name?: string | null;
   market_name?: string | null;
