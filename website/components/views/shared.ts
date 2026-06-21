@@ -45,7 +45,7 @@ export function getRating(profile: GardenPlantProfile, dimensionCode: string) {
 }
 
 export function getProfileIllustration(profile: GardenPlantProfile) {
-  if (profile.primary_image_url?.startsWith("/")) return profile.primary_image_url;
+  if (profile.primary_image_url) return profile.primary_image_url;
   if (profile.plant_type_code === "herb") return "/art/specimen-calendar-bloom.svg";
   if (profile.plant_type_code === "fruit" || profile.primary_use_cases?.toLowerCase().includes("fruit")) return "/art/specimen-tomato.svg";
   return "/art/specimen-herbarium-sheet.svg";
