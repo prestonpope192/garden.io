@@ -13,7 +13,7 @@ Run under the Pillow venv:
 """
 from __future__ import annotations
 
-import argparse, html, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
+import argparse, concurrent.futures, html, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
@@ -22,9 +22,9 @@ ROOT = Path(__file__).resolve().parents[1]
 API = "https://commons.wikimedia.org/w/api.php"
 UA = "garden-io-catalog/1.0 (botanical catalogue; preston@splinteredglass.solutions)"
 PD = {"public domain", "cc0", "cc-zero", "pd"}
-ILLUS = ["köhler","kohler","sturm","curtis","illustration","plate","icones","thomé","thome",
+ILLUS = ["köhler","kohler","sturm","curtis","illustration","icones","thomé","thome",
          "lindman","medizinal","engraving","drawing","deutschlands","botanical magazine",
-         "lithograph","watercolor","woodcut","blanco","redouté","redoute","hortus","botanik"]
+         "lithograph","woodcut","blanco","redouté","redoute","naturalis biodiversity"]
 PHOTO = ["dsc","img_","photo","garten","jardin","park "]
 YEAR = re.compile(r"\b(19[89][0-9]|20[0-2][0-9])\b")
 TAG = re.compile(r"<[^>]+>")
@@ -89,20 +89,20 @@ def candidates(genus, species, want=6):
     cands.sort(key=lambda x:x["score"], reverse=True)
     return cands[:want]
 
-def fetch_img(url, tries=4):
+def fetch_img(url, tries=3):
     for i in range(tries):
         try:
             req=urllib.request.Request(url, headers={"User-Agent":UA, "Referer":"https://commons.wikimedia.org/"})
             return Image.open(BytesIO(urllib.request.urlopen(req,timeout=50).read())).convert("RGB")
         except Exception:
-            time.sleep(0.7*(i+1))
+            time.sleep(0.5*(i+1))
     return None
 
 def montage(slug, cands, outdir):
     thumbs=[]
     for c in cands:
         thumbs.append(fetch_img(c["thumb"]))
-        time.sleep(0.25)
+        time.sleep(0.3)
     cell=300; cols=3; rows=(len(cands)+cols-1)//cols or 1
     sheet=Image.new("RGB",(cols*cell, rows*cell),(238,238,234)); d=ImageDraw.Draw(sheet)
     f=ImageFont.truetype(FONT,40)
@@ -118,21 +118,29 @@ def montage(slug, cands, outdir):
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--slugs"); ap.add_argument("--limit",type=int,default=40); ap.add_argument("--offset",type=int,default=0)
-    ap.add_argument("--out",type=Path,default=Path("/tmp/imgverify")); ap.add_argument("--want",type=int,default=6)
+    ap.add_argument("--out",type=Path,default=Path("/tmp/imgverify")); ap.add_argument("--want",type=int,default=5)
+    ap.add_argument("--workers",type=int,default=8)
     a=ap.parse_args(); load_env()
     db=os.environ.get("SUPABASE_DB_URL")
     if not db: raise SystemExit("SUPABASE_DB_URL required")
     slugs=[s.strip() for s in a.slugs.split(",")] if a.slugs else None
     plants=plants_from_db(db, slugs, a.limit, a.offset)
     a.out.mkdir(parents=True,exist_ok=True)
-    manifest=[]
-    for p in plants:
+    (a.out/"montage").mkdir(parents=True, exist_ok=True)
+
+    def work(p):
         cands=candidates(p["genus"],p["species"],a.want)
         if not cands:
-            manifest.append(dict(p, candidates=[], montage=None)); print(f"  {p['slug']}: 0 candidates",file=sys.stderr); continue
+            print(f"  {p['slug']}: 0 candidates",file=sys.stderr)
+            return dict(p, candidates=[], montage=None)
         mp=montage(p["slug"],cands,a.out)
-        manifest.append(dict(p, candidates=cands, montage=mp))
         print(f"  {p['slug']}: {len(cands)} candidates",file=sys.stderr)
+        return dict(p, candidates=cands, montage=mp)
+
+    manifest=[]
+    with concurrent.futures.ThreadPoolExecutor(max_workers=a.workers) as pool:
+        for r in pool.map(work, plants):
+            manifest.append(r)
     (a.out/"candidates.json").write_text(json.dumps(manifest,indent=2))
     have=[m for m in manifest if m["candidates"]]
     print(f"\n{len(have)}/{len(plants)} plants have >=1 candidate. Montages in {a.out}/montage/",file=sys.stderr)
