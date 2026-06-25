@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run public-catalogue-content.test.ts catalogue-format.test.ts homepage-content.test.ts
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  3 passed (3)
+      Tests  27 passed (27)
+   Start at  07:05:00
+   Duration  252ms (transform 190ms, setup 0ms, import 332ms, tests 68ms, environment 0ms)
+

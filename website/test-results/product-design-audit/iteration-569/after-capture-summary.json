@@ -1,0 +1,95 @@
+[
+  {
+    "name": "after-property",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/after-property.png",
+    "check": {
+      "h1": "My Garden",
+      "keyText": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "Garden map",
+        "My Garden",
+        "Places, beds, and plants in one view.",
+        "Your garden",
+        "Backyard Garden",
+        "Central Texas · Growing zone 8b · Summer",
+        "Kitchen Garden2 beds",
+        "Herbs and daily cooking plants · Morning sun",
+        "Herb Bed2",
+        "Bouquet Dill ·4",
+        "Borage ·2"
+      ],
+      "overflowX": false,
+      "smallTargets": [],
+      "url": "http://127.0.0.1:3021/tour/property"
+    }
+  },
+  {
+    "name": "after-plants",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/after-plants.png",
+    "check": {
+      "h1": "Plant Journal",
+      "keyText": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "Your plants",
+        "Plant Journal",
+        "Open a plant to see notes and care.",
+        "Kitchen Garden · Container Row",
+        "1 plant · 8 weeks, 2 days in ground",
+        "Kitchen Garden · Herb Bed",
+        "4 plants · 3 weeks in ground",
+        "Pollinator Edge · Bloom Border",
+        "6 plants · 4 weeks, 5 days in ground",
+        "Kitchen Garden · Herb Bed",
+        "2 plants · 3 weeks in ground"
+      ],
+      "overflowX": false,
+      "smallTargets": [],
+      "url": "http://127.0.0.1:3021/tour/plants"
+    }
+  },
+  {
+    "name": "after-auth",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/after-auth.png",
+    "check": {
+      "h1": "Your garden, smarter.",
+      "keyText": [
+        "Start your garden",
+        "Your garden, smarter.",
+        "Track changes, ask what they mean, and keep useful answers with the right plant.",
+        "Choose where it grows so every note has the right place to land.",
+        "Enter your email. We'll send a link to start your garden.",
+        "Email address",
+        "Email me a start link",
+        "Tour a garden journal",
+        "Choose plants"
+      ],
+      "overflowX": false,
+      "smallTargets": [
+        {
+          "cls": "",
+          "h": 21,
+          "tag": "LABEL",
+          "text": "Email address",
+          "w": 441
+        }
+      ],
+      "url": "http://127.0.0.1:3021/app/my-property"
+    }
+  }
+]

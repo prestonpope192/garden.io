@@ -1,5 +1,5 @@
-import { PrivateBetaApp } from "@/components/private-beta-app";
+import { GardenApp } from "@/components/garden-app";
 
 export default function MyPlantsPage() {
-  return <PrivateBetaApp view="plants" />;
+  return <GardenApp view="plants" />;
 }

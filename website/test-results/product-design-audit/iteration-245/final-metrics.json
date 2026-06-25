@@ -1,0 +1,40 @@
+[
+  {
+    "collapsed": {
+      "step": "01-ask-answer-mobile-final-collapsed",
+      "saveTargetText": "Save withWhole gardenChange",
+      "pickerVisible": false,
+      "optionTextVisibleBeforeChange": false,
+      "saveSectionText": "Save to memoryKeep the answer with the right place so future questions have context.Save withWhole gardenChangeAsk follow-upSave note",
+      "rawTerms": [],
+      "visibleOverflow": []
+    },
+    "expanded": {
+      "step": "01-ask-answer-mobile-final-expanded",
+      "pickerVisible": true,
+      "pickerLabel": "Choose where this belongs",
+      "optionCount": 10,
+      "optionTextVisibleAfterChange": true,
+      "expandedButtonText": "Done"
+    }
+  },
+  {
+    "collapsed": {
+      "step": "02-ask-answer-desktop-final-collapsed",
+      "saveTargetText": "Save withWhole gardenChange",
+      "pickerVisible": false,
+      "optionTextVisibleBeforeChange": false,
+      "saveSectionText": "Save to memoryKeep the answer with the right place so future questions have context.Save withWhole gardenChangeAsk follow-upSave note",
+      "rawTerms": [],
+      "visibleOverflow": []
+    },
+    "expanded": {
+      "step": "02-ask-answer-desktop-final-expanded",
+      "pickerVisible": true,
+      "pickerLabel": "Choose where this belongs",
+      "optionCount": 10,
+      "optionTextVisibleAfterChange": true,
+      "expandedButtonText": "Done"
+    }
+  }
+]

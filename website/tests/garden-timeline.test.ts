@@ -313,7 +313,7 @@ describe("buildPlantTimeline", () => {
     expect(tl.currentStage).toBeNull();
   });
 
-  it("folds recorded outcomes into the past as harvest milestones", () => {
+  it("folds noted results into the past as harvest milestones", () => {
     const plant = makePlant({ plant_profile: makeProfile({ days_to_maturity_min: null }) });
     const tl = buildPlantTimeline(plant, {
       observations: [],
@@ -328,16 +328,19 @@ describe("buildPlantTimeline", () => {
     expect(item?.date).toBe("2026-06-05");
     expect(item?.detail).toContain("3.5 kg");
     expect(item?.detail).toContain("quality 4/5");
-    expect(item?.detail).toContain("success");
+    expect(item?.detail).toContain("grew well");
     // outcomes from other plants are excluded
     expect(tl.past.map((i) => i.id)).not.toContain("outcome:other");
   });
 
   it("summarizeOutcome renders a compact one-liner and tolerates sparse data", () => {
-    expect(summarizeOutcome(makeOutcome())).toBe("3.5 kg · quality 4/5 · success");
+    expect(summarizeOutcome(makeOutcome())).toBe("3.5 kg · quality 4/5 · grew well");
     expect(
       summarizeOutcome(makeOutcome({ harvest_quantity: null, quality_rating: null, result: "failure" }))
-    ).toBe("failure");
+    ).toBe("didn't work");
+    expect(
+      summarizeOutcome(makeOutcome({ harvest_quantity: null, quality_rating: null, result: "partial" }))
+    ).toBe("struggled");
     expect(
       summarizeOutcome(makeOutcome({ harvest_quantity: 6, harvest_unit: null, quality_rating: null, result: null }))
     ).toBe("6");

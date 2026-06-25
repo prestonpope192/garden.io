@@ -68,32 +68,36 @@ def main():
     if not (db and supa and key and api): raise SystemExit("need SUPABASE_DB_URL, NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY")
 
     plants=gaps(db, a.limit, a.offset)
-    print(f"Generating {len(plants)} images ({a.quality}, {a.model})…", file=sys.stderr)
-    rows=[]
+    print(f"Generating {len(plants)} images ({a.quality}, {a.model})…", file=sys.stderr, flush=True)
+
+    def flush(rows):
+        if not rows: return 0
+        stmts=["begin;"]; slugs="','".join(esc(s) for s,_ in rows)
+        for slug,url in rows:
+            stmts.append(
+              "insert into catalog.plant_images (plant_profile_id,image_url,attribution_text,license,mime_type,is_primary,is_public) "
+              f"select p.id,'{esc(url)}','AI-generated botanical illustration · Garden.io','AI-generated','image/jpeg',true,true "
+              f"from catalog.plant_profiles p where p.slug='{esc(slug)}' and p.deleted_at is null "
+              f"and not exists (select 1 from catalog.plant_images i where i.plant_profile_id=p.id and i.image_url='{esc(url)}');")
+        stmts.append(f"update catalog.plant_images set is_primary=false where image_url like '%.svg' "
+                     f"and plant_profile_id in (select id from catalog.plant_profiles where slug in ('{slugs}'));")
+        stmts.append("commit;")
+        subprocess.run(["psql",db,"-v","ON_ERROR_STOP=1","-c","\n".join(stmts)],capture_output=True,text=True)
+        return len(rows)
+
+    rows=[]; total=0
     for i,p in enumerate(plants,1):
         try:
             data=gen(api, a.model, a.quality, p["name"], p["botanical"])
             url=upload(supa, key, f"{p['slug']}.jpg", data)
         except Exception as e:
             detail=e.read().decode()[:160] if hasattr(e,"read") else str(e)
-            print(f"  [{i}/{len(plants)}] {p['slug']}: FAIL {detail}", file=sys.stderr); continue
+            print(f"  [{i}/{len(plants)}] {p['slug']}: FAIL {detail}", file=sys.stderr, flush=True); continue
         rows.append((p["slug"], url))
-        if i % 20 == 0: print(f"  {i}/{len(plants)}…", file=sys.stderr)
-
-    if not rows: print("nothing generated", file=sys.stderr); return
-    stmts=["begin;"]
-    slugs="','".join(esc(r[0]) for r in rows)
-    for slug,url in rows:
-        stmts.append(
-          "insert into catalog.plant_images (plant_profile_id,image_url,attribution_text,license,mime_type,is_primary,is_public) "
-          f"select p.id,'{esc(url)}','AI-generated botanical illustration · Garden.io','AI-generated','image/jpeg',true,true "
-          f"from catalog.plant_profiles p where p.slug='{esc(slug)}' and p.deleted_at is null "
-          f"and not exists (select 1 from catalog.plant_images i where i.plant_profile_id=p.id and i.image_url='{esc(url)}');")
-    stmts.append(f"update catalog.plant_images set is_primary=false where image_url like '%.svg' "
-                 f"and plant_profile_id in (select id from catalog.plant_profiles where slug in ('{slugs}'));")
-    stmts.append("commit;")
-    r=subprocess.run(["psql",db,"-v","ON_ERROR_STOP=1","-c","\n".join(stmts)],capture_output=True,text=True)
-    print(r.stderr[-300:], file=sys.stderr)
-    print(f"generated + stored {len(rows)} images", file=sys.stderr)
+        if len(rows) >= 20:
+            total += flush(rows); rows=[]
+            print(f"  {total}/{len(plants)} stored…", file=sys.stderr, flush=True)
+    total += flush(rows)
+    print(f"generated + stored {total} images", file=sys.stderr, flush=True)
 
 if __name__=="__main__": main()

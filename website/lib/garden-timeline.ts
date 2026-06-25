@@ -11,8 +11,6 @@ import {
   type LifecycleStage,
 } from "@/lib/garden-phenology";
 
-// Phase 3C · Slice 1 — The Planting Timeline.
-//
 // Pure derivation: turns a single planting's real history + projected future
 // into one legible past → today → upcoming arc. No LLM, no network, no schema
 // change — it folds together data that already exists (planting date,
@@ -64,14 +62,21 @@ export type BuildPlantTimelineInput = {
   today: string;
 };
 
-/** One-line summary of a recorded outcome: "3.5 kg · quality 4/5 · success". */
+function formatOutcomeResult(result: GardenPlantOutcome["result"]): string {
+  if (result === "success") return "grew well";
+  if (result === "partial") return "struggled";
+  if (result === "failure") return "didn't work";
+  return "";
+}
+
+/** One-line summary of a saved result: "3.5 kg · quality 4/5 · grew well". */
 export function summarizeOutcome(o: GardenPlantOutcome): string {
   const parts: string[] = [];
   if (o.harvest_quantity !== null && o.harvest_quantity !== undefined) {
     parts.push(`${o.harvest_quantity}${o.harvest_unit ? ` ${o.harvest_unit}` : ""}`);
   }
   if (o.quality_rating) parts.push(`quality ${o.quality_rating}/5`);
-  if (o.result) parts.push(o.result);
+  if (o.result) parts.push(formatOutcomeResult(o.result));
   return parts.join(" · ");
 }
 
@@ -141,7 +146,7 @@ export function buildPlantTimeline(
     });
   }
 
-  // 2b. Recorded outcomes (harvests / final verdicts) — things that happened.
+  // 2b. Saved results (harvests / final verdicts) — things that happened.
   for (const o of input.outcomes) {
     if (o.plant_instance_id !== plant.id) continue;
     const summary = summarizeOutcome(o);
@@ -149,7 +154,7 @@ export function buildPlantTimeline(
       id: `outcome:${o.id}`,
       kind: "milestone",
       date: (o.harvested_on || o.created_at || "").slice(0, 10),
-      title: o.harvest_quantity !== null && o.harvest_quantity !== undefined ? "Harvested" : "Outcome",
+      title: o.harvest_quantity !== null && o.harvest_quantity !== undefined ? "Harvested" : "What happened",
       detail: [summary, o.notes ?? ""].filter(Boolean).join(" — ") || undefined,
     });
   }
@@ -218,7 +223,7 @@ export function buildPlantTimeline(
     });
   }
 
-  // 5. Suggested next actions (the forward plan). Drop any that already overlap
+  // 5. Suggested care ideas (the forward plan). Drop any that already overlap
   //    a real task on this plant so committed work never double-shows.
   const taskTitles = plantTasks.map((t) => t.title);
   for (const s of input.suggestions) {

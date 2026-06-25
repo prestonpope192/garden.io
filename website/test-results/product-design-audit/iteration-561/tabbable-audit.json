@@ -1,0 +1,1178 @@
+[
+  {
+    "name": "homepage",
+    "url": "http://127.0.0.1:3021/",
+    "tabbables": [
+      {
+        "box": {
+          "h": 31,
+          "w": 88,
+          "x": 10,
+          "y": 17
+        },
+        "className": "brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 87,
+          "x": 278,
+          "y": 20
+        },
+        "className": "",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Choose plants",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 42,
+          "w": 327,
+          "x": 24,
+          "y": 228
+        },
+        "className": "folio-link",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 132,
+          "x": 24,
+          "y": 278
+        },
+        "className": "folio-link folio-link--secondary",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 366,
+          "w": 359,
+          "x": 8,
+          "y": 1478
+        },
+        "className": "home-plant-card",
+        "effectivelyHidden": false,
+        "inFirstViewport": false,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "AppleFirst bloom and fruit setKeep bloom dates, pruning notes, fruit set, and harvests together.",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 366,
+          "w": 359,
+          "x": 8,
+          "y": 1860
+        },
+        "className": "home-plant-card",
+        "effectivelyHidden": false,
+        "inFirstViewport": false,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "BorageBees in the borageNote blooms, reseeding, companion planting, and pollinator visits.",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 366,
+          "w": 359,
+          "x": 8,
+          "y": 2242
+        },
+        "className": "home-plant-card",
+        "effectivelyHidden": false,
+        "inFirstViewport": false,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Bouquet DillSown, cut, gone to seedKeep sowing dates, cut stems, flowers, seed heads, and next plant",
+        "type": null,
+        "visible": true
+      }
+    ],
+    "hiddenTabbables": [],
+    "smallTargets": []
+  },
+  {
+    "name": "ask",
+    "url": "http://127.0.0.1:3021/sample-garden/ask",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 263,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 279,
+          "y": 7
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 160,
+          "w": 363,
+          "x": 14,
+          "y": 276
+        },
+        "className": "",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "textarea",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 1,
+          "w": 1,
+          "x": 118,
+          "y": 475
+        },
+        "className": "",
+        "effectivelyHidden": true,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "input",
+        "text": "",
+        "type": "file",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 48,
+          "w": 363,
+          "x": 14,
+          "y": 548
+        },
+        "className": "",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Leaves are yellowing",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 48,
+          "w": 363,
+          "x": 14,
+          "y": 604
+        },
+        "className": "",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Heavy rain last night",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 177,
+          "x": 14,
+          "y": 668
+        },
+        "className": "garden-ai-shortcut",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "My Garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 177,
+          "x": 199,
+          "y": 668
+        },
+        "className": "garden-ai-shortcut",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Weekly care",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 363,
+          "x": 14,
+          "y": 716
+        },
+        "className": "garden-ai-shortcut",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Choose plants",
+        "type": null,
+        "visible": true
+      }
+    ],
+    "hiddenTabbables": [
+      {
+        "box": {
+          "h": 1,
+          "w": 1,
+          "x": 118,
+          "y": 475
+        },
+        "className": "",
+        "effectivelyHidden": true,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "input",
+        "text": "",
+        "type": "file",
+        "visible": false
+      }
+    ],
+    "smallTargets": []
+  },
+  {
+    "name": "property",
+    "url": "http://127.0.0.1:3021/sample-garden/property",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 248,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 264,
+          "y": 7
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 21,
+          "w": 298,
+          "x": 38,
+          "y": 366
+        },
+        "className": "garden-zone__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 439
+        },
+        "className": "garden-bed__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Herb Bed2",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 94,
+          "x": 51,
+          "y": 472
+        },
+        "className": "garden-chip ",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Bouquet Dill ·4",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 64,
+          "x": 150,
+          "y": 472
+        },
+        "className": "garden-chip ",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Borage ·2",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 529
+        },
+        "className": "garden-bed__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Container Row1",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 73,
+          "x": 51,
+          "y": 562
+        },
+        "className": "garden-chip ",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Bell Pepper",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 21,
+          "w": 298,
+          "x": 38,
+          "y": 646
+        },
+        "className": "garden-zone__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 720
+        },
+        "className": "garden-bed__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Bloom Border1",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 64,
+          "x": 51,
+          "y": 753
+        },
+        "className": "garden-chip ",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Borage ·6",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 46,
+          "w": 172,
+          "x": 35,
+          "y": 1037
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": false,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "View Bell Pepper notes",
+        "type": "button",
+        "visible": true
+      }
+    ],
+    "hiddenTabbables": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "smallTargets": [
+      {
+        "box": {
+          "h": 21,
+          "w": 298,
+          "x": 38,
+          "y": 366
+        },
+        "className": "garden-zone__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 21,
+          "w": 298,
+          "x": 38,
+          "y": 646
+        },
+        "className": "garden-zone__head",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": true
+      }
+    ]
+  },
+  {
+    "name": "plants",
+    "url": "http://127.0.0.1:3021/sample-garden/plants",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 248,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 264,
+          "y": 7
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 27,
+          "w": 272,
+          "x": 65,
+          "y": 477
+        },
+        "className": "garden-plants-search",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "input",
+        "text": "Search plants by name, bed, or place",
+        "type": "search",
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "hiddenTabbables": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-plants2-card__select-btn",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "smallTargets": []
+  },
+  {
+    "name": "calendar",
+    "url": "http://127.0.0.1:3021/sample-garden/calendar",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 263,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 279,
+          "y": 7
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "hiddenTabbables": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "smallTargets": []
+  },
+  {
+    "name": "catalogue",
+    "url": "http://127.0.0.1:3021/sample-garden/catalogue",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 248,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 264,
+          "y": 7
+        },
+        "className": "folio-button",
+        "effectivelyHidden": false,
+        "inFirstViewport": true,
+        "minTargetOk": true,
+        "tabIndex": 0,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "hiddenTabbables": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "effectivelyHidden": true,
+        "inFirstViewport": false,
+        "minTargetOk": false,
+        "tabIndex": 0,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false
+      }
+    ],
+    "smallTargets": []
+  }
+]

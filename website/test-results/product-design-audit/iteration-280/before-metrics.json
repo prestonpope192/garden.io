@@ -1,0 +1,610 @@
+[
+  {
+    "step": 1,
+    "name": "home",
+    "file": "01-mobile-home.png",
+    "route": "/",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 3113,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "Your garden, smarter.",
+      "Small notes make better answers.",
+      "Each plant keeps its own story.",
+      "Start with the garden you already have."
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 17,
+        "tag": "a"
+      },
+      {
+        "text": "Find plants",
+        "top": 20,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 0,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 256,
+        "tag": "a"
+      },
+      {
+        "text": "See a sample garden",
+        "top": 305,
+        "tag": "a"
+      },
+      {
+        "text": "AppleBloom and harvest notesRemember bloom timing, fruit set, pests, pruning, and the first harvest.",
+        "top": 1531,
+        "tag": "a"
+      },
+      {
+        "text": "Bay leafContainer and pruning notesKeep watering, pruning, pot size, and winter care in one useful record.",
+        "top": 1913,
+        "tag": "a"
+      },
+      {
+        "text": "Bell PepperContainer and harvest notesTrack watering, blossom set, heat stress, and first harvests together.",
+        "top": 2295,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 2855,
+        "tag": "a"
+      },
+      {
+        "text": "See a sample garden",
+        "top": 2912,
+        "tag": "a"
+      }
+    ],
+    "interactiveCount": 10,
+    "firstText": "Garden.io Find plants Your garden, smarter. Keep simple notes and photos with the plants and beds they belong to. When you ask for help, the answer starts with your garden. Start your garden See a sample garden APPLE Blooming after a late frost Next step: note bloom timing now, then compare it before pruning. HOW IT HELPS Small notes make better answers. Every photo, harvest, and observation gives the next answer better context. Map your garden Add the beds and plants you care about so notes have a real place to land. Save quick notes Capture blooms, harvests, pests, watering, weather, and photos while they are fresh. Ask what to do next Get a clear step based on the plant's history, place, season, and photos. YOUR PLANTS Each plant keeps its own story. Photos, notes, harvests, and next steps all stay with the right plant. APPLE Bloom and harvest notes Remember bloom timing, fruit set, pests, pruning, and the first harvest. BAY LEAF Container and pruning notes Keep watering, pruning, pot size, and winter care in one useful record. BELL PEPPER Container and harvest notes Track watering, blossom set, heat stress, and first harvests together. Start with the garden you already have. Ad",
+    "cards": [
+      {
+        "cls": "cover-sheet home-hero",
+        "top": 63,
+        "bottom": 660,
+        "height": 598
+      },
+      {
+        "cls": "home-section home-loop",
+        "top": 684,
+        "bottom": 1255,
+        "height": 571
+      },
+      {
+        "cls": "home-promise",
+        "top": 904,
+        "bottom": 1010,
+        "height": 107
+      },
+      {
+        "cls": "home-promise",
+        "top": 1026,
+        "bottom": 1133,
+        "height": 107
+      },
+      {
+        "cls": "home-promise",
+        "top": 1149,
+        "bottom": 1255,
+        "height": 107
+      },
+      {
+        "cls": "home-section home-plants",
+        "top": 1303,
+        "bottom": 2661,
+        "height": 1358
+      },
+      {
+        "cls": "home-plant-card",
+        "top": 1531,
+        "bottom": 1897,
+        "height": 366
+      },
+      {
+        "cls": "home-plant-card",
+        "top": 1913,
+        "bottom": 2279,
+        "height": 366
+      },
+      {
+        "cls": "home-plant-card",
+        "top": 2295,
+        "bottom": 2661,
+        "height": 366
+      },
+      {
+        "cls": "home-section home-start-cta",
+        "top": 2709,
+        "bottom": 2981,
+        "height": 271
+      }
+    ]
+  },
+  {
+    "step": 2,
+    "name": "ask",
+    "file": "02-mobile-ask.png",
+    "route": "/sample-garden/ask",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 881,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "Your garden, smarter"
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 12,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 7,
+        "tag": "a"
+      },
+      {
+        "text": "What are you seeing?",
+        "top": 208,
+        "tag": "textarea"
+      },
+      {
+        "text": "Get next step",
+        "top": 380,
+        "tag": "button"
+      },
+      {
+        "text": "Why are my tomato leaves yellowing?",
+        "top": 479,
+        "tag": "button"
+      },
+      {
+        "text": "What should I do after heavy rain?",
+        "top": 536,
+        "tag": "button"
+      },
+      {
+        "text": "Open garden mapPlants, beds, and notes by place.",
+        "top": 602,
+        "tag": "a"
+      },
+      {
+        "text": "See this weekWatering, harvests, and checks for the week.",
+        "top": 673,
+        "tag": "a"
+      },
+      {
+        "text": "Find plantsChoose what fits the beds you have.",
+        "top": 745,
+        "tag": "a"
+      }
+    ],
+    "interactiveCount": 10,
+    "firstText": "Garden.io Start your garden Your garden, smarter YOUR GARDEN, SMARTER 2 areas, 3 beds, 4 growing plants Describe what you see. Get one clear next step for the plant, bed, and season. Ask about your garden Add photo Get next step Save the answer so your garden remembers what happened. Why are my tomato leaves yellowing? What should I do after heavy rain? Open garden map Plants, beds, and notes by place. See this week Watering, harvests, and checks for the week. Find plants Choose what fits the beds you have.",
+    "cards": [
+      {
+        "cls": "garden-ai-home",
+        "top": 56,
+        "bottom": 881,
+        "height": 825
+      }
+    ]
+  },
+  {
+    "step": 3,
+    "name": "property",
+    "file": "03-mobile-property.png",
+    "route": "/sample-garden/property",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 1166,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "My Garden",
+      "Backyard Garden"
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 12,
+        "tag": "a"
+      },
+      {
+        "text": "Ask",
+        "top": 47,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 7,
+        "tag": "a"
+      },
+      {
+        "text": "Kitchen Garden2 beds",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Pollinator Edge1 bed",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Kitchen Garden2 beds",
+        "top": 345,
+        "tag": "button"
+      },
+      {
+        "text": "Herb Bed2",
+        "top": 418,
+        "tag": "button"
+      },
+      {
+        "text": "Cilantro ·4",
+        "top": 451,
+        "tag": "button"
+      },
+      {
+        "text": "Calendula ·2",
+        "top": 451,
+        "tag": "button"
+      },
+      {
+        "text": "Container Row1",
+        "top": 508,
+        "tag": "button"
+      },
+      {
+        "text": "Bell Pepper",
+        "top": 541,
+        "tag": "button"
+      },
+      {
+        "text": "Pollinator Edge1 bed",
+        "top": 626,
+        "tag": "button"
+      },
+      {
+        "text": "Bloom Border1",
+        "top": 699,
+        "tag": "button"
+      },
+      {
+        "text": "Calendula ·6",
+        "top": 732,
+        "tag": "button"
+      },
+      {
+        "text": "Open plant record",
+        "top": 1016,
+        "tag": "button"
+      }
+    ],
+    "interactiveCount": 15,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN My Garden See each area, bed, plant, and note by place. SUMMER GARDEN LAYOUT Backyard Garden Home garden · Central Texas · Growing zone 8b · Summer Kitchen Garden 2 BEDS Herbs and daily cooking plants · Morning sun Herb Bed 2 Cilantro ·4 Calendula ·2 Container Row 1 Bell Pepper Pollinator Edge 1 BED Flowers, perennial color, and beneficial insects · Full sun Bloom Border 1 Calendula ·6 FIRST PLACE TO CHECK Bell Pepper Water deeply before the hot afternoon · Jun 23 Container Row · Kitchen Garden 2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history. Open plant record",
+    "cards": [
+      {
+        "cls": "garden-app-layout",
+        "top": 90,
+        "bottom": 1166,
+        "height": 1076
+      },
+      {
+        "cls": "garden-app-main",
+        "top": 100,
+        "bottom": 1090,
+        "height": 990
+      },
+      {
+        "cls": "garden-plot",
+        "top": 222,
+        "bottom": 784,
+        "height": 562
+      },
+      {
+        "cls": "garden-zone ",
+        "top": 328,
+        "bottom": 593,
+        "height": 265
+      },
+      {
+        "cls": "garden-zone ",
+        "top": 609,
+        "bottom": 784,
+        "height": 175
+      }
+    ]
+  },
+  {
+    "step": 4,
+    "name": "calendar",
+    "file": "04-mobile-calendar.png",
+    "route": "/sample-garden/calendar",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 844,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "This Week",
+      "June 22–28, 2026"
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 12,
+        "tag": "a"
+      },
+      {
+        "text": "Ask",
+        "top": 47,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 7,
+        "tag": "a"
+      },
+      {
+        "text": "Kitchen Garden2 beds",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Pollinator Edge1 bed",
+        "top": 0,
+        "tag": "button"
+      }
+    ],
+    "interactiveCount": 5,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN This Week Start with this week's care. Let the rest wait. SUMMER June 22–28, 2026 CARE THIS WEEK 4 things to do FIRST TODAY Water deeply before the hot afternoon Bell Pepper in Container Row, Kitchen Garden WATER Jun 23 COMING UP 3 later this week Harvest cilantro before afternoon heat Cilantro in Herb Bed, Kitchen Garden Note bloom duration Calendula in Bloom Border, Pollinator Edge Check the herb bed after afternoon heat Calendula in Herb Bed, Kitchen Garden",
+    "cards": [
+      {
+        "cls": "garden-app-layout",
+        "top": 90,
+        "bottom": 824,
+        "height": 734
+      },
+      {
+        "cls": "garden-app-main",
+        "top": 100,
+        "bottom": 748,
+        "height": 648
+      },
+      {
+        "cls": "garden-cal2-attention",
+        "top": 257,
+        "bottom": 734,
+        "height": 477
+      },
+      {
+        "cls": "garden-cal2-card garden-cal2-card--featured",
+        "top": 359,
+        "bottom": 478,
+        "height": 119
+      },
+      {
+        "cls": "garden-cal2-card garden-cal2-card--compact",
+        "top": 534,
+        "bottom": 591,
+        "height": 57
+      },
+      {
+        "cls": "garden-cal2-card garden-cal2-card--compact",
+        "top": 600,
+        "bottom": 656,
+        "height": 57
+      },
+      {
+        "cls": "garden-cal2-card garden-cal2-card--compact",
+        "top": 665,
+        "bottom": 722,
+        "height": 57
+      }
+    ]
+  },
+  {
+    "step": 5,
+    "name": "plants",
+    "file": "05-mobile-plants.png",
+    "route": "/sample-garden/plants",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 1242,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "My Plants"
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 12,
+        "tag": "a"
+      },
+      {
+        "text": "Ask",
+        "top": 47,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 7,
+        "tag": "a"
+      },
+      {
+        "text": "Kitchen Garden2 beds",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Pollinator Edge1 bed",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Search by name, bed, or area…",
+        "top": 461,
+        "tag": "input"
+      },
+      {
+        "text": "Select Bell Pepper",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Select Cilantro",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Select Calendula",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Select Calendula",
+        "top": 0,
+        "tag": "button"
+      }
+    ],
+    "interactiveCount": 10,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN My Plants Start with the next plant to check, then open any plant record. SUMMER Bell Pepper Vegetable · Annual Kitchen Garden · Container Row 1 plant · 8 weeks, 2 days in ground Next step: Water deeply before the hot afternoon Cilantro Herb · Annual Kitchen Garden · Herb Bed 4 plants · 3 weeks in ground Next step: Harvest cilantro before afternoon heat Calendula Flower · Annual Pollinator Edge · Bloom Border 6 plants · 4 weeks, 5 days in ground Next step: Note bloom duration Calendula Flower · Annual Kitchen Garden · Herb Bed 2 plants · 3 weeks in ground Next step: Check the herb bed after afternoon heat PLANT RECORDS 4 growing plants across 3 beds. The first record is the next plant to check. Open any plant for notes, photos, and history. 4 plants have care this week.",
+    "cards": [
+      {
+        "cls": "garden-app-layout",
+        "top": 90,
+        "bottom": 1242,
+        "height": 1152
+      },
+      {
+        "cls": "garden-app-main",
+        "top": 100,
+        "bottom": 1166,
+        "height": 1066
+      },
+      {
+        "cls": "garden-plants-card garden-plants2-card",
+        "top": 516,
+        "bottom": 668,
+        "height": 152
+      },
+      {
+        "cls": "garden-plants-card garden-plants2-card",
+        "top": 684,
+        "bottom": 837,
+        "height": 152
+      },
+      {
+        "cls": "garden-plants-card garden-plants2-card",
+        "top": 853,
+        "bottom": 984,
+        "height": 131
+      },
+      {
+        "cls": "garden-plants-card garden-plants2-card",
+        "top": 1000,
+        "bottom": 1152,
+        "height": 152
+      },
+      {
+        "cls": "garden-drawer__section garden-plants2-empty-guide",
+        "top": 256,
+        "bottom": 412,
+        "height": 156
+      }
+    ]
+  },
+  {
+    "step": 6,
+    "name": "catalogue",
+    "file": "06-mobile-catalogue.png",
+    "route": "/sample-garden/catalogue",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "docHeight": 1731,
+    "hasHorizontalOverflow": false,
+    "headings": [
+      "Find Plants",
+      "Bell Pepper",
+      "Calendula",
+      "Cilantro"
+    ],
+    "controls": [
+      {
+        "text": "Garden.io",
+        "top": 12,
+        "tag": "a"
+      },
+      {
+        "text": "Ask",
+        "top": 47,
+        "tag": "a"
+      },
+      {
+        "text": "Start your garden",
+        "top": 7,
+        "tag": "a"
+      },
+      {
+        "text": "Kitchen Garden2 beds",
+        "top": 0,
+        "tag": "button"
+      },
+      {
+        "text": "Pollinator Edge1 bed",
+        "top": 0,
+        "tag": "button"
+      }
+    ],
+    "interactiveCount": 5,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN Find Plants Choose plants that fit your beds. SUMMER 3 PLANTS ANNUAL Bell Pepper Vegetable FITS Warm containers or bed edges where watering and heat notes are easy to track. LIGHT Full Sun WATER High REMEMBER Save watering, support, harvest, and pest notes. ANNUAL Calendula Flower FITS Edges near vegetables where pollinators and companion flowers help. LIGHT Full Sun WATER Moderate REMEMBER Save bloom timing, pollinator visits, and deadheading notes. ANNUAL Cilantro Herb FITS Cool morning-sun herb beds where harvest notes help avoid bolting. LIGHT Full Sun To Partial Shade WATER Moderate REMEMBER Save harvest timing, heat stress, and flavor notes.",
+    "cards": [
+      {
+        "cls": "garden-app-layout",
+        "top": 90,
+        "bottom": 1731,
+        "height": 1641
+      },
+      {
+        "cls": "garden-app-main",
+        "top": 100,
+        "bottom": 1655,
+        "height": 1555
+      },
+      {
+        "cls": "garden-catalogue-card",
+        "top": 266,
+        "bottom": 708,
+        "height": 442
+      },
+      {
+        "cls": "garden-catalogue-card",
+        "top": 724,
+        "bottom": 1183,
+        "height": 459
+      },
+      {
+        "cls": "garden-catalogue-card",
+        "top": 1199,
+        "bottom": 1642,
+        "height": 442
+      }
+    ]
+  }
+]

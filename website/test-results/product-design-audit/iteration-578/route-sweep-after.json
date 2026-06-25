@@ -1,0 +1,204 @@
+[
+  {
+    "route": "tour-ask-after",
+    "disabledSubmit": [
+      "Add a note first"
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "nav": [
+      {
+        "height": 40,
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "screenshot": "tour-ask-after.png"
+  },
+  {
+    "route": "tour-property-after",
+    "disabledSubmit": [],
+    "forbidden": [],
+    "headings": [
+      "My Garden",
+      "Backyard Garden"
+    ],
+    "nav": [
+      {
+        "height": 40,
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/property",
+    "screenshot": "tour-property-after.png"
+  },
+  {
+    "route": "tour-calendar-after",
+    "disabledSubmit": [],
+    "forbidden": [],
+    "headings": [
+      "Weekly care",
+      "June 22–28, 2026"
+    ],
+    "nav": [
+      {
+        "height": 40,
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "screenshot": "tour-calendar-after.png"
+  },
+  {
+    "route": "tour-plants-after",
+    "disabledSubmit": [],
+    "forbidden": [],
+    "headings": [
+      "Plant Journal"
+    ],
+    "nav": [
+      {
+        "height": 40,
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "screenshot": "tour-plants-after.png"
+  },
+  {
+    "route": "tour-catalogue-after",
+    "disabledSubmit": [],
+    "forbidden": [],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "nav": [
+      {
+        "height": 40,
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "screenshot": "tour-catalogue-after.png"
+  }
+]

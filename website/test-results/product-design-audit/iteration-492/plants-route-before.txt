@@ -1,0 +1,6 @@
+FOUND: Open one plant to see what happened and what helped.
+MISSING: Choose one plant to see what happened and what helped.
+FOUND: Open a plant
+MISSING: Choose a plant
+FOUND: Open any plant when you want its notes.
+MISSING: Choose any plant when you want its notes.

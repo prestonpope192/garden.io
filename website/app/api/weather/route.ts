@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-// WeatherIQ data source: Open-Meteo (free, no API key, CORS-friendly).
+// Weather data source: Open-Meteo (free, no API key, CORS-friendly).
 // Two modes on one route:
 //   ?geocode=<place|zip>  -> candidate locations to set on a property (once).
 //   ?lat=&lon=            -> daily minimum-temperature forecast for frost alerts.

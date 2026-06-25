@@ -10,10 +10,14 @@ const MAX_SYMPTOMS_LEN = 2000;
 const MAX_IMAGE_DATA_URL_LEN = 7_000_000; // ~5 MB image encoded as base64
 const ALLOWED_IMAGE_MIME = /^data:image\/(jpeg|jpg|png|webp|gif);base64,/i;
 const OPENAI_TIMEOUT_MS = 45_000;
+const DIAGNOSIS_UNAVAILABLE_MESSAGE =
+  "We can't look at your garden right now. You can still keep a note and try again later.";
+const DIAGNOSIS_BUSY_MESSAGE = "A lot of garden help is queued right now. Please try again in a moment.";
+const DIAGNOSIS_RETRY_MESSAGE = "We couldn't finish looking at your garden. Please try again.";
 
-// Observation & diagnosis assistant (Phase 3B). The OpenAI key stays server-side.
-// The client assembles the plant's personal context (real record data) and posts
-// it here; we ask a vision model for grounded, honest, actionable guidance.
+// Garden care-help endpoint. The OpenAI key stays server-side.
+// The client assembles the garden or plant context (real record data) and posts
+// it here; we use a vision model for grounded, honest, actionable care guidance.
 
 type DiagnoseContext = {
   name: string;
@@ -54,15 +58,15 @@ const DIAGNOSIS_SCHEMA = {
         required: ["cause", "confidence", "detail"]
       }
     },
-    actions: { type: "array", items: { type: "string" }, description: "Concrete next actions, most useful first." },
-    follow_up: { type: "string", description: "A short inspection/check to confirm, or empty string." }
+    actions: { type: "array", items: { type: "string" }, description: "Concrete care steps, most useful first." },
+    follow_up: { type: "string", description: "A short thing to watch for or confirm, or empty string." }
   },
   required: ["summary", "causes", "actions", "follow_up"]
 };
 
 const SYSTEM_PROMPT = [
-  "You are an experienced, calm gardener advising a grower about THEIR specific plant.",
-  "Ground every answer in the plant context provided — species, stage, bed conditions, season, zone, recent notes.",
+  "You are an experienced, calm gardener advising a grower about THEIR specific garden or plant.",
+  "Ground every answer in the context provided — plants, stage, bed conditions, season, zone, recent notes.",
   "Be concrete and actionable. Prefer organic / regenerative practices.",
   "Be honest about uncertainty: when unsure, say so plainly, lower the confidence, and recommend an inspection step instead of guessing.",
   "Never be alarmist. Keep it brief and practical."
@@ -75,7 +79,7 @@ function buildContextText(ctx: DiagnoseContext): string {
     ctx.soil ? `soil ${ctx.soil}` : null
   ].filter(Boolean).join(", ");
   return [
-    `Plant: ${ctx.name}${ctx.botanical ? ` (${ctx.botanical})` : ""}`,
+    `Context: ${ctx.name}${ctx.botanical ? ` (${ctx.botanical})` : ""}`,
     ctx.type ? `Type: ${ctx.type}` : null,
     ctx.stage ? `Stage: ${ctx.stage}` : null,
     ctx.location ? `Location: ${ctx.location}` : null,
@@ -90,16 +94,16 @@ function buildContextText(ctx: DiagnoseContext): string {
 export async function POST(request: NextRequest) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    return NextResponse.json({ ok: false, message: "The AI assistant is not configured." }, { status: 503 });
+    return NextResponse.json({ ok: false, message: DIAGNOSIS_UNAVAILABLE_MESSAGE }, { status: 503 });
   }
 
-  // Auth gate: only signed-in beta users may spend AI budget.
+  // Auth gate: only signed-in users may spend diagnosis budget.
   const { configured, user } = await getRequestUser(request);
   if (!configured) {
-    return NextResponse.json({ ok: false, message: "The AI assistant is not configured." }, { status: 503 });
+    return NextResponse.json({ ok: false, message: DIAGNOSIS_UNAVAILABLE_MESSAGE }, { status: 503 });
   }
   if (!user) {
-    return NextResponse.json({ ok: false, message: "Please sign in to use the assistant." }, { status: 401 });
+    return NextResponse.json({ ok: false, message: "Please sign in to ask about your garden." }, { status: 401 });
   }
 
   // Per-user rate limit.
@@ -112,11 +116,11 @@ export async function POST(request: NextRequest) {
   try {
     body = (await request.json()) as DiagnoseBody;
   } catch {
-    return NextResponse.json({ ok: false, message: "Invalid request." }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Add what changed or a photo, then try again." }, { status: 400 });
   }
 
   if (!body?.context?.name || (!body.symptoms?.trim() && !body.imageDataUrl)) {
-    return NextResponse.json({ ok: false, message: "Add a description or a photo to diagnose." }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Add what you are seeing or a photo to ask about your garden." }, { status: 400 });
   }
 
   // Input caps.
@@ -136,7 +140,7 @@ export async function POST(request: NextRequest) {
       text:
         `${buildContextText(body.context)}\n\n` +
         `What I'm seeing: ${symptoms || "(see the attached photo)"}\n\n` +
-        "Give likely causes with confidence and a short why-for-this-plant, concrete next actions, and one follow-up check."
+        "Give likely causes with confidence, a short why-for-this-context, concrete care steps, and one thing to watch or confirm."
     }
   ];
   if (body.imageDataUrl) {
@@ -169,7 +173,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     const aborted = error instanceof Error && error.name === "AbortError";
     return NextResponse.json(
-      { ok: false, message: aborted ? "The assistant took too long to respond. Please try again." : "Could not reach the AI service." },
+      { ok: false, message: aborted ? "Looking at this plant is taking too long. Please try again." : DIAGNOSIS_UNAVAILABLE_MESSAGE },
       { status: aborted ? 504 : 502 }
     );
   } finally {
@@ -179,9 +183,9 @@ export async function POST(request: NextRequest) {
   if (!openaiResponse.ok) {
     // Pass rate limiting / overload through as a friendly retryable message.
     if (openaiResponse.status === 429 || openaiResponse.status === 503) {
-      return NextResponse.json({ ok: false, message: "The assistant is busy right now. Please try again in a moment." }, { status: 503 });
+      return NextResponse.json({ ok: false, message: DIAGNOSIS_BUSY_MESSAGE }, { status: 503 });
     }
-    return NextResponse.json({ ok: false, message: "The AI request failed. Please try again." }, { status: 502 });
+    return NextResponse.json({ ok: false, message: DIAGNOSIS_RETRY_MESSAGE }, { status: 502 });
   }
 
   const payload = (await openaiResponse.json()) as {
@@ -189,13 +193,13 @@ export async function POST(request: NextRequest) {
   };
   const content = payload.choices?.[0]?.message?.content;
   if (!content) {
-    return NextResponse.json({ ok: false, message: "The AI returned no result." }, { status: 502 });
+    return NextResponse.json({ ok: false, message: DIAGNOSIS_RETRY_MESSAGE }, { status: 502 });
   }
 
   try {
     const diagnosis = JSON.parse(content);
     return NextResponse.json({ ok: true, diagnosis });
   } catch {
-    return NextResponse.json({ ok: false, message: "Could not parse the AI result." }, { status: 502 });
+    return NextResponse.json({ ok: false, message: DIAGNOSIS_RETRY_MESSAGE }, { status: 502 });
   }
 }

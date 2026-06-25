@@ -1,8 +1,8 @@
 import type { GardenPlantInstance } from "@/lib/garden-app-types";
 import type { GardenSuggestion } from "@/lib/garden-suggestions";
 
-// WeatherIQ Slice 1 — frost protection. Pure logic: given a daily-low forecast
-// and the grower's growing plants, decide whether to raise a frost alert and
+// Frost protection. Pure logic: given a daily-low forecast and the grower's
+// growing plants, decide whether to raise a frost alert and
 // which tender plants to name. No network here — the forecast is fetched
 // upstream (Open-Meteo via /api/weather) and passed in.
 

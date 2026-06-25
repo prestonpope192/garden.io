@@ -1,0 +1,314 @@
+[
+  {
+    "name": "01-auth-entry",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/01-auth-entry.png",
+    "check": {
+      "h1": "Your garden, smarter.",
+      "overflowX": false,
+      "smallTargets": [
+        {
+          "cls": "",
+          "h": 21,
+          "tag": "LABEL",
+          "text": "Email address",
+          "w": 441
+        },
+        {
+          "cls": "garden-auth__secondary",
+          "h": 25,
+          "tag": "A",
+          "text": "Tour a garden journal",
+          "w": 144
+        },
+        {
+          "cls": "garden-auth__secondary",
+          "h": 25,
+          "tag": "A",
+          "text": "Choose plants",
+          "w": 93
+        }
+      ],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/app/my-property",
+      "visibleLabels": [
+        "Start your garden",
+        "Your garden, smarter.",
+        "Track changes, ask what they mean, and keep useful answers with the right plant.",
+        "Choose where it grows so every note has the right place to land.",
+        "Enter your email. We'll send a link to start your garden.",
+        "Email address",
+        "Email me a start link",
+        "Tour a garden journal",
+        "Choose plants"
+      ]
+    }
+  },
+  {
+    "name": "02-sample-today",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/02-sample-today.png",
+    "check": {
+      "h1": "Your garden, smarter.",
+      "overflowX": false,
+      "smallTargets": [
+        {
+          "cls": "sr-only",
+          "h": 1,
+          "tag": "LABEL",
+          "text": "What changed in your garden?",
+          "w": 1
+        },
+        {
+          "cls": "",
+          "h": 1,
+          "tag": "INPUT",
+          "text": "Add a photo",
+          "w": 1
+        }
+      ],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/tour/ask",
+      "visibleLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Today",
+        "Your garden, smarter.",
+        "Add a note or photo. Keep what helps for later.",
+        "What changed in your garden?",
+        "Add a photo",
+        "See what helps",
+        "A little context makes the answer more useful.",
+        "Leaves are yellowing",
+        "Heavy rain last night",
+        "My Garden",
+        "Weekly care",
+        "Choose plants"
+      ]
+    }
+  },
+  {
+    "name": "03-sample-property",
+    "url": "http://127.0.0.1:3021/tour/property",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/03-sample-property.png",
+    "check": {
+      "h1": "My Garden",
+      "overflowX": false,
+      "smallTargets": [
+        {
+          "cls": "garden-zone__head",
+          "h": 28,
+          "tag": "BUTTON",
+          "text": "Kitchen Garden2 beds",
+          "w": 307
+        },
+        {
+          "cls": "garden-bed__head",
+          "h": 25,
+          "tag": "BUTTON",
+          "text": "Herb Bed2",
+          "w": 283
+        },
+        {
+          "cls": "garden-chip ",
+          "h": 24,
+          "tag": "BUTTON",
+          "text": "Bouquet Dill ·4",
+          "w": 94
+        },
+        {
+          "cls": "garden-chip ",
+          "h": 24,
+          "tag": "BUTTON",
+          "text": "Borage ·2",
+          "w": 64
+        },
+        {
+          "cls": "garden-bed__head",
+          "h": 25,
+          "tag": "BUTTON",
+          "text": "Container Row1",
+          "w": 283
+        },
+        {
+          "cls": "garden-chip ",
+          "h": 24,
+          "tag": "BUTTON",
+          "text": "Bell Pepper",
+          "w": 73
+        },
+        {
+          "cls": "garden-zone__head",
+          "h": 28,
+          "tag": "BUTTON",
+          "text": "Pollinator Edge1 bed",
+          "w": 307
+        },
+        {
+          "cls": "garden-bed__head",
+          "h": 25,
+          "tag": "BUTTON",
+          "text": "Bloom Border1",
+          "w": 283
+        },
+        {
+          "cls": "garden-chip ",
+          "h": 24,
+          "tag": "BUTTON",
+          "text": "Borage ·6",
+          "w": 64
+        }
+      ],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/tour/property",
+      "visibleLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "Where things growMy GardenSee what grows where, and what happened there.Summer",
+        "Where things grow",
+        "My Garden",
+        "See what grows where, and what happened there.",
+        "Where things grow",
+        "Backyard Garden",
+        "Central Texas · Growing zone 8b · Summer",
+        "Kitchen Garden2 beds",
+        "Herbs and daily cooking plants · Morning sun",
+        "Herb Bed2",
+        "Bouquet Dill ·4",
+        "Borage ·2",
+        "Container Row1",
+        "Bell Pepper",
+        "Pollinator Edge1 bed",
+        "Flowers, perennial color, and beneficial insects · Full sun",
+        "Bloom Border1",
+        "Borage ·6",
+        "This week",
+        "Bell PepperWater deeply before the hot afternoon · Jun 24Container Row · Kitchen Garden",
+        "4 plants in 3 beds. Start with Bell Pepper. Read its notes before you act."
+      ]
+    }
+  },
+  {
+    "name": "04-sample-calendar",
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/04-sample-calendar.png",
+    "check": {
+      "h1": "Weekly care",
+      "overflowX": false,
+      "smallTargets": [],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/tour/calendar",
+      "visibleLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "This weekWeekly careStart with what needs care. Let the rest wait.Summer",
+        "This week",
+        "Weekly care",
+        "Start with what needs care. Let the rest wait.",
+        "June 22–28, 2026",
+        "First up",
+        "Today",
+        "Focus on the bell pepper container and newly planted herbs.",
+        "Later this week"
+      ]
+    }
+  },
+  {
+    "name": "05-sample-plants",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/05-sample-plants.png",
+    "check": {
+      "h1": "Plant Journal",
+      "overflowX": false,
+      "smallTargets": [
+        {
+          "cls": "garden-plants-search",
+          "h": 27,
+          "tag": "INPUT",
+          "text": "Search plants by name, bed, or place",
+          "w": 646
+        }
+      ],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/tour/plants",
+      "visibleLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "Your plantsPlant JournalChoose one plant to see what happened and what helped.Summer",
+        "Your plants",
+        "Plant Journal",
+        "Choose one plant to see what happened and what helped.",
+        "Kitchen Garden · Container Row",
+        "1 plant · 8 weeks, 2 days in ground",
+        "Kitchen Garden · Herb Bed",
+        "4 plants · 3 weeks in ground",
+        "Pollinator Edge · Bloom Border",
+        "6 plants · 4 weeks, 5 days in ground",
+        "Kitchen Garden · Herb Bed",
+        "2 plants · 3 weeks in ground",
+        "Choose a plant",
+        "4 plants in 3 beds. Start with Bell Pepper. Choose any plant when you want its notes.",
+        "4 plants need care this week."
+      ]
+    }
+  },
+  {
+    "name": "06-sample-catalogue",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-569/06-sample-catalogue.png",
+    "check": {
+      "h1": "Field Guide",
+      "overflowX": false,
+      "smallTargets": [],
+      "title": "Garden.io | Your Garden, Smarter",
+      "url": "http://127.0.0.1:3021/tour/catalogue",
+      "visibleLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Field Guide",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Pollinator Edge1 bed",
+        "For your bedsField GuideChoose plants for the beds you have.Summer",
+        "For your beds",
+        "Field Guide",
+        "Choose plants for the beds you have.",
+        "Annual",
+        "Bell Pepper",
+        "Annual",
+        "Borage",
+        "Annual",
+        "Bouquet Dill"
+      ]
+    }
+  }
+]

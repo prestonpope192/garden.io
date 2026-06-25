@@ -1,0 +1,21 @@
+{
+  "title": "Garden.io | Your Garden, Smarter",
+  "h1": "Your garden, smarter.",
+  "lead": "Save what you planted, where it is, and what you notice. When something looks off, your notes and photos help point to the next step.",
+  "topVisibleText": "Garden.io\nFind plants\nYour garden, smarter.\n\nSave what you planted, where it is, and what you notice. When something looks off, your notes and photos help point to the next step.\n\nStart your garden\nSee a sample garden\nAPPLE\nBlooming after a late frost\n\nNext step: note bloom timing now, then compare it before pruning.\n\nHOW IT HELPS\nSmall notes make better answers.\n\nEvery photo, harvest, and observation gives the next answer better context.\n\nMap your garden\n\nPut each bed and plant in its place so ",
+  "innerWidth": 390,
+  "scrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "h1Rect": {
+    "left": 24,
+    "right": 280,
+    "width": 256,
+    "height": 77
+  },
+  "leadRect": {
+    "left": 24,
+    "right": 366,
+    "width": 342,
+    "height": 65
+  }
+}

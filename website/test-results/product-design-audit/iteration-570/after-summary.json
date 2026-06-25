@@ -1,0 +1,280 @@
+[
+  {
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "name": "after-calendar",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Weekly care",
+        "June 22–28, 2026"
+      ],
+      "smallControls": [],
+      "overflow": 0,
+      "textSnip": "Garden.io\nToday\nMy Garden\nWeekly care\nPlant Journal\nChoose plants\nStart your garden\nTHIS WEEK\nWeekly care\n\nStart with what needs care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nFIRST UP\n3 things need care this week\nTODAY\nWater deeply before the hot afternoon\nBell Pepper in Container Row, Kitchen Garden\nWATER\n\nFocus on the bell pepper container and newly planted herbs.\n\nJun 24\nLATER THIS WEEK\nHarvest dill before afternoon heat\nBouquet Dill in Herb Bed, Kitchen Garden\nNote bloom duration\nBorage in Bloom Border, Pollinator Edge",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 0,
+        "svg": 0,
+        "plantArt": 0,
+        "loaded": 0,
+        "examples": []
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "name": "after-tour-catalogue",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Choose plants",
+        "Bell Pepper",
+        "Borage",
+        "Bouquet Dill"
+      ],
+      "smallControls": [],
+      "overflow": 0,
+      "textSnip": "Garden.io\nToday\nMy Garden\nWeekly care\nPlant Journal\nChoose plants\nStart your garden\nFOR YOUR BEDS\nChoose plants\n\nChoose plants for the beds you have.\n\nSUMMER\n3 PLANTS TO CHOOSE FROM\nANNUAL\nBell Pepper\nVegetable\nBEST SPOT\nWarm containers or bed edges where watering and heat stress are easy to notice.\nSUN\nFull Sun\nWATER\nHigh\nGOOD TO REMEMBER\nWatering, support, harvest, and pests.\nANNUAL\nBorage\nFlower\nBEST SPOT\nSunny bed edges where pollinator visits and reseeding are easy to watch.\nSUN\nFull Sun\nWATER\nModerate\nGOOD TO REMEMBER\nBloom timing, pollinator visits, and deadheading.\nANNUAL\nBouquet Dill\nHerb\nBEST SPOT\nA sunny herb bed where repeat sowings and harvest timing stay visible.\nSUN\nFull Sun\nWATER\nModerate\nGOOD TO REMEMBER\nHarvest timing, heat stress, and flavor.",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 3,
+        "svg": 0,
+        "plantArt": 3,
+        "loaded": 3,
+        "examples": [
+          {
+            "alt": "Bell Pepper",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 317
+          },
+          {
+            "alt": "Borage",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 410
+          },
+          {
+            "alt": "Bouquet Dill",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 431
+          }
+        ]
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "name": "after-tour-plants",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Plant Journal"
+      ],
+      "smallControls": [],
+      "overflow": 0,
+      "textSnip": "Garden.io\nToday\nMy Garden\nWeekly care\nPlant Journal\nChoose plants\nStart your garden\nYOUR PLANTS\nPlant Journal\n\nOpen a plant to see notes and care.\n\nSUMMER\nBell Pepper\nVegetable · Annual\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nThis week: Water deeply before the hot afternoon\nBouquet Dill\nHerb · Annual\n\nKitchen Garden · Herb Bed\n\n4 plants · 3 weeks in ground\n\nThis week: Harvest dill before afternoon heat\nBorage\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nThis week: Note bloom duration\nBorage\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nThis week: Check the herb bed after afternoon heat\nPLANT NOTES\nCHOOSE A PLANT\n\nStart with Bell Pepper. Open any plant when you need its notes.\n\n4 plants need care this week.",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 4,
+        "svg": 0,
+        "plantArt": 4,
+        "loaded": 4,
+        "examples": [
+          {
+            "alt": "Bell Pepper",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=96&q=75",
+            "complete": true,
+            "w": 96,
+            "h": 119
+          },
+          {
+            "alt": "Bouquet Dill",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=96&q=75",
+            "complete": true,
+            "w": 96,
+            "h": 161
+          },
+          {
+            "alt": "Borage",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=96&q=75",
+            "complete": true,
+            "w": 96,
+            "h": 154
+          },
+          {
+            "alt": "Borage",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=96&q=75",
+            "complete": true,
+            "w": 96,
+            "h": 154
+          }
+        ]
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:3021/sample-garden/ask",
+    "name": "after-ask",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Your garden, smarter."
+      ],
+      "smallControls": [
+        {
+          "tag": "INPUT",
+          "text": "Add a photo",
+          "w": 1,
+          "h": 1,
+          "cls": ""
+        }
+      ],
+      "overflow": 0,
+      "textSnip": "Garden.io\nToday\nMy Garden\nWeekly care\nPlant Journal\nChoose plants\nStart your garden\nTODAY\n4 plants in 3 beds\nYour garden, smarter.\n\nAdd a note or photo. Keep what helps for later.\n\nWhat changed in your garden?\nAdd a photo\nSee what helps\n\nA little context makes the answer more useful.\n\nLeaves are yellowing\nHeavy rain last night\nMy Garden\nWeekly care\nChoose plants",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 0,
+        "svg": 0,
+        "plantArt": 0,
+        "loaded": 0,
+        "examples": []
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:3021/catalog",
+    "name": "after-public-catalogue",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Choose a plant for the spot you have.",
+        "Apple",
+        "988 plants",
+        "Calendula",
+        "Cilantro",
+        "Cucumber",
+        "Abelia",
+        "Acerola",
+        "Ackee"
+      ],
+      "smallControls": [],
+      "overflow": 0,
+      "textSnip": "Garden.io\nHome\nChoose plants\nStart your garden\nPLANT NOTES\nCHOOSE PLANTS\nChoose a plant for the spot you have.\n\nCheck sun, water, soil, and room before you plant.\n\nSearch plants\n\nAll plant kinds\n\nBrowse by kind\n988\nplants to choose from\nMatch the spot\nsun, water, and room\nGood to remember\nwhat changed and what helped\n\nImage credit · Franz Eugen Köhler, Köhler's Medizinal-Pflanzen · Public domain · Wikimedia Commons\n\nPLANT NOTE\nApple\n\nMalus domestica\n\nDeciduous fruit tree producing sweet to tart pomes, widely grown for fresh eating and cooking.\n\nSun\nFull Sun\nWater\nMedium\nSoil\nCheck drainage and soil before planting.\nType\nPerennial · Tree\nView plant\nPLANTS TO CHOOSE FROM\n988 plants\nFLOWER\nCalendula\n\nCalendula officinalis\n\nView plant\n\nAn easy seasonal flower for edges, pollinator support, and steady cut-and-come-again blooms.\n\nSun\nFull Sun To Light Shade.\nWater\nLow\nANNUAL · HERB\nCilantro\n\nCoriandrum sativum\n\nView plant\n\nCilantro (Coriandrum sativum) is an aromatic annual herb cultivated for its pungent leaves and seeds.\n\nSun\nFull Sun\nWater\nMedium\nHeight\n12-24 in\nANNUAL · VINE\nCucumber\n\nCucumis sativus\n\nView plant\n\nCucumber is a fast-growing annual vine cultivated for its crisp, edible fruits commonly used fresh or pickled.\n\nSun\nFull Sun\nWater\nHigh\nHeight\n12-72 in\nPERENNIAL · SHRUB\nAbelia\n\nAbelia x grandiflora\n\nView plant\n\nDeciduous to semi-evergreen shrub with glossy foliage and fragrant pink to white tubular flowers from late spring to fall.\n\nSun\nFull Sun\nWater\nMedium\nHeight\n36-72 in\nPERENNIAL · SHRUB\nAcerola\n\nMalpighia emarginata\n\nView plant\n\nAcerola is a fast-growing tropic",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 7,
+        "svg": 0,
+        "plantArt": 7,
+        "loaded": 7,
+        "examples": [
+          {
+            "alt": "Apple plant.",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=384&q=75",
+            "complete": true,
+            "w": 384,
+            "h": 482
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 362
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 322
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 256
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fabelia.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 256
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Facerola.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 256
+          },
+          {
+            "alt": "",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fackee.jpg&w=256&q=75",
+            "complete": true,
+            "w": 256,
+            "h": 256
+          }
+        ]
+      }
+    }
+  },
+  {
+    "url": "http://127.0.0.1:3021/",
+    "name": "after-home",
+    "data": {
+      "title": "Garden.io | Your Garden, Smarter",
+      "headings": [
+        "Your garden, smarter.",
+        "A garden notebook that can answer back.",
+        "Each plant keeps its own story."
+      ],
+      "smallControls": [],
+      "overflow": 0,
+      "textSnip": "Garden.io\nChoose plants\nYour garden, smarter.\n\nTrack changes. Ask what they mean. Keep answers with each plant.\n\nStart your garden\nTour a garden journal\n\nStart with one plant today. Add more only when the garden gives you a reason.\n\nAPPLE\nFirst bloom\n\nApr. 12. Compare fruit set and harvest later.\n\nSIMPLE HABIT\nA garden notebook that can answer back.\n\nAdd what you notice now. Use it when you water, prune, replant, or ask for help.\n\nRemember the details\n\nBloom dates, pests, weather, and harvests stay with the plant.\n\nAsk with the full story\n\nA note or photo can include the plant, place, season, and past notes.\n\nKeep what helps\n\nUseful answers can become weekly care or stay in the plant journal.\n\nYOUR PLANTS\nEach plant keeps its own story.\n\nThe image is the cover. The useful part is the growing history you keep with it.\n\nAPPLE\nBloom, prune, harvest\n\nCompare this year's bloom and harvest before next year's pruning.\n\nBORAGE\nPollinators and reseeding\n\nRemember where it bloomed, self-seeded, and brought bees.\n\nBOUQUET DILL\nCuttings and seed heads\n\nKnow when to sow again, cut stems, and let seed form.\n\nGarden.io\n\nA living notebook for your garden",
+      "hasFieldGuide": false,
+      "imageSummary": {
+        "count": 4,
+        "svg": 0,
+        "plantArt": 4,
+        "loaded": 4,
+        "examples": [
+          {
+            "alt": "Apple journal-style plant image.",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=1080&q=75",
+            "complete": true,
+            "w": 465,
+            "h": 584
+          },
+          {
+            "alt": "Apple journal-style plant image.",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=750&q=75",
+            "complete": true,
+            "w": 465,
+            "h": 584
+          },
+          {
+            "alt": "Borage journal-style plant image.",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=750&q=75",
+            "complete": true,
+            "w": 750,
+            "h": 1200
+          },
+          {
+            "alt": "Bouquet Dill journal-style plant image.",
+            "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=750&q=75",
+            "complete": true,
+            "w": 750,
+            "h": 1265
+          }
+        ]
+      }
+    }
+  }
+]

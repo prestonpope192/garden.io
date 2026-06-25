@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useMemo, FormEvent } from "react";
+import { useEffect, useState, useMemo, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { SpecimenLabel, InkStamp } from "@/components/journal-primitives";
 import {
+  formatGardenDate,
   getBedName,
   getZoneName,
   getTodayISO,
@@ -18,13 +19,14 @@ import type {
   GardenWishlistItem,
   GardenZone,
 } from "@/lib/garden-app-types";
+import { getJournalStylePlantImageUrl } from "@/lib/plant-images";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import { generateSuggestions, deriveSeason } from "@/lib/garden-suggestions";
 import { PlantTimeline, type AddPlantOutcomeInput } from "@/components/plant-timeline";
 import {
   getCatalogPlantName,
   formatQuantity,
-  getProfileIllustration,
+  formatPlantTypeLabel,
 } from "./shared";
 
 // ─── Props contract ────────────────────────────────────────────────────────────
@@ -51,6 +53,7 @@ export type PlantsViewProps = {
   addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
   addPlantOutcome: (plant: GardenPlantInstance, input: AddPlantOutcomeInput) => Promise<void>;
   deletePlantOutcome: (id: string) => Promise<void>;
+  isReadOnly?: boolean;
 };
 
 // ─── Local types ───────────────────────────────────────────────────────────────
@@ -58,6 +61,13 @@ export type PlantsViewProps = {
 type StatusTab = "growing" | "archived" | "wishlist";
 type GridView = "grid" | "list";
 type DrawerTab = "info" | "timeline" | "filters" | "actions";
+type PlantsDrawerVisibleTab = Exclude<DrawerTab, "filters">;
+
+export const PLANTS_DRAWER_TAB_LABELS: Record<PlantsDrawerVisibleTab, string> = {
+  info: "Details",
+  timeline: "History",
+  actions: "Update",
+};
 
 // ─── Date helpers ──────────────────────────────────────────────────────────────
 
@@ -76,14 +86,14 @@ function daysBetween(a: string, b: string): number {
 /** Format a planted date relative to today */
 function formatDaysInGround(plantedOn: string, today: string): string {
   const days = daysBetween(plantedOn, today);
-  if (days < 0) return `planted ${Math.abs(days)} day${Math.abs(days) === 1 ? "" : "s"} from now`;
+  if (days < 0) return `plants in ${Math.abs(days)} day${Math.abs(days) === 1 ? "" : "s"}`;
   if (days === 0) return "planted today";
   if (days === 1) return "1 day in ground";
   if (days < 7) return `${days} days in ground`;
   const weeks = Math.floor(days / 7);
   const rem = days % 7;
   if (rem === 0) return `${weeks} week${weeks === 1 ? "" : "s"} in ground`;
-  return `${weeks}w ${rem}d in ground`;
+  return `${weeks} week${weeks === 1 ? "" : "s"}, ${rem} day${rem === 1 ? "" : "s"} in ground`;
 }
 
 /** Classify urgency of a task relative to today */
@@ -107,13 +117,39 @@ function getSoonestTask(
   return open[0] ?? null;
 }
 
-/** Categorise lifecycle_type into Annual / Perennial / Other */
+function comparePlantsByNextCare(
+  a: GardenPlantInstance,
+  b: GardenPlantInstance,
+  tasks: GardenTask[]
+) {
+  const aTask = getSoonestTask(a.id, tasks);
+  const bTask = getSoonestTask(b.id, tasks);
+  const aDue = aTask?.due_on ?? "9999-12-31";
+  const bDue = bTask?.due_on ?? "9999-12-31";
+  const dueCompare = aDue.localeCompare(bDue);
+  if (dueCompare !== 0) return dueCompare;
+  return getCatalogPlantName(a).localeCompare(getCatalogPlantName(b));
+}
+
+function formatPlantCount(quantity: number) {
+  return `${formatQuantity(quantity)} ${Number(quantity) === 1 ? "plant" : "plants"}`;
+}
+
+/** Categorise lifecycle_type into Annual / Perennial / mixed or unknown */
 function categoriseLifecycle(lc: string | undefined): "annual" | "perennial" | "other" {
   if (!lc) return "other";
   const lower = lc.toLowerCase();
   if (lower.includes("peren")) return "perennial";
   if (lower.includes("ann")) return "annual";
   return "other";
+}
+
+function getPlantScanLabel(plant: GardenPlantInstance | GardenWishlistItem) {
+  const profile = plant.plant_profile;
+  const type = profile?.plant_type_code ? formatPlantTypeLabel(profile.plant_type_code) : null;
+  const lifecycle = categoriseLifecycle(profile?.lifecycle_type);
+  const lifecycleLabel = lifecycle === "annual" ? "Annual" : lifecycle === "perennial" ? "Perennial" : null;
+  return [type, lifecycleLabel].filter(Boolean).join(" · ");
 }
 
 // ─── Thumbnail ─────────────────────────────────────────────────────────────────
@@ -123,8 +159,7 @@ function getThumbSrc(
 ): string | null {
   const profile = plant.plant_profile;
   if (!profile) return null;
-  if (profile.primary_image_url) return profile.primary_image_url;
-  return getProfileIllustration(profile);
+  return getJournalStylePlantImageUrl(profile.primary_image_url);
 }
 
 function PlantThumbnail({
@@ -139,7 +174,7 @@ function PlantThumbnail({
   if (src) {
     return (
       <div
-        className="beta-plants-thumb"
+        className="garden-plants-thumb"
         style={{ width: size, height: size, flexShrink: 0 }}
       >
         <Image
@@ -147,7 +182,7 @@ function PlantThumbnail({
           alt={alt}
           width={size}
           height={size}
-          className="beta-plants-thumb__img"
+          className="garden-plants-thumb__img"
           unoptimized={src.startsWith("/")}
         />
       </div>
@@ -155,18 +190,10 @@ function PlantThumbnail({
   }
   return (
     <div
-      className="beta-plants-thumb beta-plants-thumb--fallback"
+      aria-hidden="true"
+      className="garden-plants-thumb garden-plants-thumb--fallback"
       style={{ width: size, height: size, flexShrink: 0 }}
-    >
-      <img
-        src="/art/specimen-herbarium-sheet.svg"
-        alt=""
-        aria-hidden="true"
-        className="beta-plants-thumb__img"
-        width={size}
-        height={size}
-      />
-    </div>
+    />
   );
 }
 
@@ -175,14 +202,14 @@ function PlantThumbnail({
 function UrgencyMarker({ urgency }: { urgency: Urgency }) {
   if (urgency === "overdue")
     return (
-      <span className="beta-plants2-urgency beta-plants2-urgency--overdue" aria-label="Overdue">
-        Overdue
+      <span className="garden-plants2-urgency garden-plants2-urgency--overdue" aria-label="Care overdue">
+        Care overdue
       </span>
     );
   if (urgency === "soon")
     return (
-      <span className="beta-plants2-urgency beta-plants2-urgency--soon" aria-label="Due soon">
-        Due soon
+      <span className="garden-plants2-urgency garden-plants2-urgency--soon" aria-label="Care this week">
+        Care this week
       </span>
     );
   return null;
@@ -199,7 +226,7 @@ function FieldText(props: {
   type?: string;
 }) {
   return (
-    <label className="beta-field">
+    <label className="garden-field">
       <span>{props.label}</span>
       <input
         className="input"
@@ -220,7 +247,7 @@ function FieldSelect(props: {
   children: React.ReactNode;
 }) {
   return (
-    <label className="beta-field">
+    <label className="garden-field">
       <span>{props.label}</span>
       <select
         className="input"
@@ -244,6 +271,7 @@ function GrowingCardGrid({
   isSelected,
   onSelect,
   onDeepLink,
+  isReadOnly = false,
 }: {
   plant: GardenPlantInstance;
   beds: GardenBed[];
@@ -253,78 +281,81 @@ function GrowingCardGrid({
   isSelected: boolean;
   onSelect: () => void;
   onDeepLink: () => void;
+  isReadOnly?: boolean;
 }) {
   const nextTask = getSoonestTask(plant.id, tasks);
   const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
   const name = getCatalogPlantName(plant);
   const stage = deriveLifecycleStage(plant);
   const harvest = harvestReadiness(plant);
+  const scanLabel = getPlantScanLabel(plant);
 
   return (
     <article
-      className={`beta-plants-card beta-plants2-card${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants-card garden-plants2-card${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
       <button
         type="button"
-        className="beta-plants2-card__select-btn"
+        className="garden-plants2-card__select-btn"
         aria-label={`Select ${name}`}
         onClick={onSelect}
       >
         <PlantThumbnail src={getThumbSrc(plant)} alt={name} />
       </button>
-      <div className="beta-plants-card__body">
-        <div className="beta-plants-card__head">
-          <strong className="beta-plants-card__name">{name}</strong>
-          <SpecimenLabel tone="olive">Growing</SpecimenLabel>
+      <div className="garden-plants-card__body">
+        <div className="garden-plants-card__head">
+          <strong className="garden-plants-card__name">{name}</strong>
         </div>
-        {plant.plant_profile?.botanical_name_full && (
-          <em className="beta-plants-card__botanical">
-            {plant.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <em className="garden-plants-card__botanical">
+            {scanLabel}
           </em>
-        )}
-        <p className="beta-plants-card__context">
+        ) : null}
+        <p className="garden-plants-card__context">
           {getZoneName(zones, plant.zone_id)} &middot;{" "}
           {getBedName(beds, plant.bed_id)}
         </p>
-        <p className="beta-plants-card__meta">
-          {formatQuantity(plant.quantity)} growing
+        <p className="garden-plants-card__meta">
+          {formatPlantCount(plant.quantity)}
           {plant.planted_on
             ? ` · ${formatDaysInGround(plant.planted_on, today)}`
             : ""}
         </p>
         {(stage || harvest) && (
-          <p className="beta-plants-stage-row">
-            {stage && <span className="beta-plants-stage-chip">{stage.label}</span>}
+          <p className="garden-plants-stage-row">
+            {stage && <span className="garden-plants-stage-chip">{stage.label}</span>}
             {harvest && (
-              <span className={`beta-plants-harvest${harvest.ready ? " is-ready" : ""}`}>
+              <span className={`garden-plants-harvest${harvest.ready ? " is-ready" : ""}`}>
                 {harvest.label}
               </span>
             )}
           </p>
         )}
         {nextTask && (
-          <div className="beta-plants2-card__task-row">
-            <UrgencyMarker urgency={urgency} />
-            <span className="beta-plants2-card__task-title">
-              Next:{" "}
-              <span className="beta-plants2-card__task-name">
+          <div className="garden-plants2-card__task-row">
+            {isReadOnly ? null : <UrgencyMarker urgency={urgency} />}
+            <span className="garden-plants2-card__task-title">
+              {urgency === "overdue" ? "Overdue:" : "This week:"}{" "}
+              <span className="garden-plants2-card__task-name">
                 {nextTask.title}
               </span>
-              {nextTask.due_on ? ` (due ${nextTask.due_on})` : ""}
+              {!isReadOnly && nextTask.due_on ? ` (due ${formatGardenDate(nextTask.due_on)})` : ""}
             </span>
           </div>
         )}
-        <div className="beta-plants-card__actions">
-          <button
-            className="folio-button"
-            type="button"
-            onClick={onDeepLink}
-            aria-label={`Open ${name} in My Property`}
-          >
-            Open ›
-          </button>
-        </div>
+        {isReadOnly ? null : (
+          <div className="garden-plants-card__actions">
+            <button
+              className="folio-button"
+              type="button"
+              onClick={onDeepLink}
+              aria-label={`Show where ${name} is planted in My Garden`}
+            >
+              Show in My Garden
+            </button>
+          </div>
+        )}
       </div>
     </article>
   );
@@ -339,6 +370,7 @@ function ArchivedCardGrid({
   isSelected,
   onSelect,
   onDeepLink,
+  isReadOnly = false,
 }: {
   plant: GardenPlantInstance;
   beds: GardenBed[];
@@ -346,50 +378,53 @@ function ArchivedCardGrid({
   isSelected: boolean;
   onSelect: () => void;
   onDeepLink: () => void;
+  isReadOnly?: boolean;
 }) {
   const name = getCatalogPlantName(plant);
+  const scanLabel = getPlantScanLabel(plant);
   return (
     <article
-      className={`beta-plants-card beta-plants-card--archived beta-plants2-card${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants-card garden-plants-card--archived garden-plants2-card${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
       <button
         type="button"
-        className="beta-plants2-card__select-btn"
+        className="garden-plants2-card__select-btn"
         aria-label={`Select ${name}`}
         onClick={onSelect}
       >
         <PlantThumbnail src={getThumbSrc(plant)} alt={name} />
       </button>
-      <div className="beta-plants-card__body">
-        <div className="beta-plants-card__head">
-          <strong className="beta-plants-card__name">{name}</strong>
-          <SpecimenLabel>Archived</SpecimenLabel>
+      <div className="garden-plants-card__body">
+        <div className="garden-plants-card__head">
+          <strong className="garden-plants-card__name">{name}</strong>
+          <SpecimenLabel>Past</SpecimenLabel>
         </div>
-        {plant.plant_profile?.botanical_name_full && (
-          <em className="beta-plants-card__botanical">
-            {plant.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <em className="garden-plants-card__botanical">
+            {scanLabel}
           </em>
-        )}
-        <p className="beta-plants-card__context">
+        ) : null}
+        <p className="garden-plants-card__context">
           {getZoneName(zones, plant.zone_id)} &middot;{" "}
           {getBedName(beds, plant.bed_id)}
         </p>
-        <p className="beta-plants-card__meta">
-          {formatQuantity(plant.quantity)} specimen
-          {Number(plant.quantity) !== 1 ? "s" : ""}
-          {plant.planted_on ? ` · planted ${plant.planted_on}` : ""}
+        <p className="garden-plants-card__meta">
+          {formatPlantCount(plant.quantity)}
+          {plant.planted_on ? ` · planted ${formatGardenDate(plant.planted_on)}` : ""}
         </p>
-        <div className="beta-plants-card__actions">
-          <button
-            className="folio-button"
-            type="button"
-            onClick={onDeepLink}
-            aria-label={`Open ${name} in My Property`}
-          >
-            Open ›
-          </button>
-        </div>
+        {isReadOnly ? null : (
+          <div className="garden-plants-card__actions">
+            <button
+              className="folio-button"
+              type="button"
+              onClick={onDeepLink}
+              aria-label={`Show where ${name} is planted in My Garden`}
+            >
+              Show in My Garden
+            </button>
+          </div>
+        )}
       </div>
     </article>
   );
@@ -407,37 +442,38 @@ function WishlistCardGrid({
   onSelect: () => void;
 }) {
   const name = getCatalogPlantName(item);
+  const scanLabel = getPlantScanLabel(item);
   return (
     <article
-      className={`beta-plants-card beta-plants-card--wishlist beta-plants2-card${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants-card garden-plants-card--wishlist garden-plants2-card${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
       <button
         type="button"
-        className="beta-plants2-card__select-btn"
+        className="garden-plants2-card__select-btn"
         aria-label={`Select ${name}`}
         onClick={onSelect}
       >
         <PlantThumbnail src={getThumbSrc(item)} alt={name} />
       </button>
-      <div className="beta-plants-card__body">
-        <div className="beta-plants-card__head">
-          <strong className="beta-plants-card__name">{name}</strong>
-          <SpecimenLabel tone="clay">Saved</SpecimenLabel>
+      <div className="garden-plants-card__body">
+        <div className="garden-plants-card__head">
+          <strong className="garden-plants-card__name">{name}</strong>
+          <SpecimenLabel tone="clay">To try</SpecimenLabel>
         </div>
-        {item.plant_profile?.botanical_name_full && (
-          <em className="beta-plants-card__botanical">
-            {item.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <em className="garden-plants-card__botanical">
+            {scanLabel}
           </em>
-        )}
+        ) : null}
         {item.plant_profile?.plant_type_code && (
-          <p className="beta-plants-card__context">
-            {item.plant_profile.plant_type_code}
+          <p className="garden-plants-card__context">
+            {formatPlantTypeLabel(item.plant_profile.plant_type_code)}
           </p>
         )}
-        <p className="beta-plants-card__meta">
-          {item.notes ?? "Saved from catalogue"}
-        </p>
+        {item.notes ? (
+          <p className="garden-plants-card__meta">{item.notes}</p>
+        ) : null}
       </div>
     </article>
   );
@@ -454,6 +490,7 @@ function GrowingListRow({
   isSelected,
   onSelect,
   onDeepLink,
+  isReadOnly = false,
 }: {
   plant: GardenPlantInstance;
   beds: GardenBed[];
@@ -463,64 +500,68 @@ function GrowingListRow({
   isSelected: boolean;
   onSelect: () => void;
   onDeepLink: () => void;
+  isReadOnly?: boolean;
 }) {
   const nextTask = getSoonestTask(plant.id, tasks);
   const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
   const name = getCatalogPlantName(plant);
+  const scanLabel = getPlantScanLabel(plant);
   return (
     <tr
-      className={`beta-plants2-list-row${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants2-list-row${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
-      <td className="beta-plants2-list-col beta-plants2-list-col--name">
+      <td className="garden-plants2-list-col garden-plants2-list-col--name">
         <button
           type="button"
-          className="beta-plants2-list-select-btn"
+          className="garden-plants2-list-select-btn"
           onClick={onSelect}
           aria-label={`Select ${name}`}
         >
           {name}
         </button>
-        {plant.plant_profile?.botanical_name_full && (
-          <span className="beta-plants2-list-botanical">
-            {plant.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <span className="garden-plants2-list-botanical">
+            {scanLabel}
           </span>
-        )}
+        ) : null}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--location">
+      <td className="garden-plants2-list-col garden-plants2-list-col--location">
         {getZoneName(zones, plant.zone_id)} &middot;{" "}
         {getBedName(beds, plant.bed_id)}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--planted">
+      <td className="garden-plants2-list-col garden-plants2-list-col--planted">
         {plant.planted_on
           ? formatDaysInGround(plant.planted_on, today)
-          : "Date TBD"}
+          : "No date set"}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--task">
+      <td className="garden-plants2-list-col garden-plants2-list-col--task">
         {nextTask ? (
-          <span className="beta-plants2-list-task">
+          <span className="garden-plants2-list-task">
             <UrgencyMarker urgency={urgency} />
             {nextTask.title}
             {nextTask.due_on ? (
-              <span className="beta-plants2-list-task__due">
-                {nextTask.due_on}
+              <span className="garden-plants2-list-task__due">
+                {formatGardenDate(nextTask.due_on)}
               </span>
             ) : null}
           </span>
         ) : (
-          <span className="beta-plants2-list-empty">—</span>
+          <span className="garden-plants2-list-empty">—</span>
         )}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--actions">
-        <button
-          type="button"
-          className="folio-button"
-          onClick={onDeepLink}
-          aria-label={`Open ${name} in My Property`}
-        >
-          Open ›
-        </button>
-      </td>
+      {isReadOnly ? null : (
+        <td className="garden-plants2-list-col garden-plants2-list-col--actions">
+          <button
+            type="button"
+            className="folio-button"
+            onClick={onDeepLink}
+            aria-label={`Show where ${name} is planted in My Garden`}
+          >
+            Show
+          </button>
+        </td>
+      )}
     </tr>
   );
 }
@@ -533,6 +574,7 @@ function ArchivedListRow({
   isSelected,
   onSelect,
   onDeepLink,
+  isReadOnly = false,
 }: {
   plant: GardenPlantInstance;
   beds: GardenBed[];
@@ -541,50 +583,54 @@ function ArchivedListRow({
   isSelected: boolean;
   onSelect: () => void;
   onDeepLink: () => void;
+  isReadOnly?: boolean;
 }) {
   const name = getCatalogPlantName(plant);
+  const scanLabel = getPlantScanLabel(plant);
   return (
     <tr
-      className={`beta-plants2-list-row beta-plants2-list-row--archived${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants2-list-row garden-plants2-list-row--archived${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
-      <td className="beta-plants2-list-col beta-plants2-list-col--name">
+      <td className="garden-plants2-list-col garden-plants2-list-col--name">
         <button
           type="button"
-          className="beta-plants2-list-select-btn"
+          className="garden-plants2-list-select-btn"
           onClick={onSelect}
           aria-label={`Select ${name}`}
         >
           {name}
         </button>
-        {plant.plant_profile?.botanical_name_full && (
-          <span className="beta-plants2-list-botanical">
-            {plant.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <span className="garden-plants2-list-botanical">
+            {scanLabel}
           </span>
-        )}
+        ) : null}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--location">
+      <td className="garden-plants2-list-col garden-plants2-list-col--location">
         {getZoneName(zones, plant.zone_id)} &middot;{" "}
         {getBedName(beds, plant.bed_id)}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--planted">
+      <td className="garden-plants2-list-col garden-plants2-list-col--planted">
         {plant.planted_on
-          ? formatDaysInGround(plant.planted_on, today)
+          ? `Planted ${formatGardenDate(plant.planted_on)}`
           : "—"}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--task">
-        <span className="beta-plants2-list-empty">Archived</span>
+      <td className="garden-plants2-list-col garden-plants2-list-col--task">
+        <span className="garden-plants2-list-empty">Past</span>
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--actions">
-        <button
-          type="button"
-          className="folio-button"
-          onClick={onDeepLink}
-          aria-label={`Open ${name} in My Property`}
-        >
-          Open ›
-        </button>
-      </td>
+      {isReadOnly ? null : (
+        <td className="garden-plants2-list-col garden-plants2-list-col--actions">
+          <button
+            type="button"
+            className="folio-button"
+            onClick={onDeepLink}
+            aria-label={`Show where ${name} is planted in My Garden`}
+          >
+            Show
+          </button>
+        </td>
+      )}
     </tr>
   );
 }
@@ -593,42 +639,45 @@ function WishlistListRow({
   item,
   isSelected,
   onSelect,
+  isReadOnly = false,
 }: {
   item: GardenWishlistItem;
   isSelected: boolean;
   onSelect: () => void;
+  isReadOnly?: boolean;
 }) {
   const name = getCatalogPlantName(item);
+  const scanLabel = getPlantScanLabel(item);
   return (
     <tr
-      className={`beta-plants2-list-row${isSelected ? " is-selected" : ""}`}
+      className={`garden-plants2-list-row${isSelected ? " is-selected" : ""}`}
       aria-selected={isSelected}
     >
-      <td className="beta-plants2-list-col beta-plants2-list-col--name">
+      <td className="garden-plants2-list-col garden-plants2-list-col--name">
         <button
           type="button"
-          className="beta-plants2-list-select-btn"
+          className="garden-plants2-list-select-btn"
           onClick={onSelect}
           aria-label={`Select ${name}`}
         >
           {name}
         </button>
-        {item.plant_profile?.botanical_name_full && (
-          <span className="beta-plants2-list-botanical">
-            {item.plant_profile.botanical_name_full}
+        {scanLabel ? (
+          <span className="garden-plants2-list-botanical">
+            {scanLabel}
           </span>
-        )}
+        ) : null}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--location">
-        {item.plant_profile?.plant_type_code ?? "—"}
+      <td className="garden-plants2-list-col garden-plants2-list-col--location">
+        {item.plant_profile?.plant_type_code ? formatPlantTypeLabel(item.plant_profile.plant_type_code) : "—"}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--planted">
+      <td className="garden-plants2-list-col garden-plants2-list-col--planted">
         {item.notes ?? "—"}
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--task">
-        <span className="beta-plants2-list-empty">Wishlist</span>
+      <td className="garden-plants2-list-col garden-plants2-list-col--task">
+        <span className="garden-plants2-list-empty">To try</span>
       </td>
-      <td className="beta-plants2-list-col beta-plants2-list-col--actions">—</td>
+      {isReadOnly ? null : <td className="garden-plants2-list-col garden-plants2-list-col--actions">—</td>}
     </tr>
   );
 }
@@ -643,12 +692,12 @@ function ViewToggle({
   onChange: (v: GridView) => void;
 }) {
   return (
-    <div className="beta-plants2-view-toggle" role="group" aria-label="Card view">
+    <div className="garden-plants2-view-toggle" role="group" aria-label="View style">
       {(["grid", "list"] as GridView[]).map((v) => (
         <button
           key={v}
           type="button"
-          className={`beta-plants2-view-toggle__btn${active === v ? " is-active" : ""}`}
+          className={`garden-plants2-view-toggle__btn${active === v ? " is-active" : ""}`}
           aria-pressed={active === v}
           onClick={() => onChange(v)}
         >
@@ -670,6 +719,7 @@ function DrawerInfo({
   activeTab,
   beds,
   zones,
+  isReadOnly = false,
 }: {
   plants: GardenPlantInstance[];
   tasks: GardenTask[];
@@ -679,6 +729,7 @@ function DrawerInfo({
   activeTab: StatusTab;
   beds: GardenBed[];
   zones: GardenZone[];
+  isReadOnly?: boolean;
 }) {
   const growing = plants.filter((p) => p.status === "growing");
   const distinctSpecies = new Set(growing.map((p) => p.plant_profile_id)).size;
@@ -698,34 +749,34 @@ function DrawerInfo({
   }).length;
 
   return (
-    <div className="beta-drawer__section">
-      <SpecimenLabel tone="olive">Garden summary</SpecimenLabel>
-      <dl className="beta-detail-list" style={{ marginTop: "var(--space-2)" }}>
-        <div className="beta-detail-list__row">
-          <dt>Active plants</dt>
+    <div className="garden-drawer__section">
+      <SpecimenLabel tone="olive">Plants you're growing</SpecimenLabel>
+      <dl className="garden-detail-list" style={{ marginTop: "var(--space-2)" }}>
+        <div className="garden-detail-list__row">
+          <dt>Growing now</dt>
           <dd>{growing.length}</dd>
         </div>
-        <div className="beta-detail-list__row">
-          <dt>Distinct species</dt>
+        <div className="garden-detail-list__row">
+          <dt>Kinds of plants</dt>
           <dd>{distinctSpecies}</dd>
         </div>
-        <div className="beta-detail-list__row">
+        <div className="garden-detail-list__row">
           <dt>Perennials</dt>
           <dd>{perennialCount}</dd>
         </div>
-        <div className="beta-detail-list__row">
+        <div className="garden-detail-list__row">
           <dt>Annuals</dt>
           <dd>{annualCount}</dd>
         </div>
-        <div className="beta-detail-list__row">
-          <dt>Beds in use</dt>
+        <div className="garden-detail-list__row">
+          <dt>Beds planted</dt>
           <dd>{bedsWithGrowing}</dd>
         </div>
         {needsAttentionCount > 0 && (
-          <div className="beta-detail-list__row">
-            <dt>Needs attention</dt>
+          <div className="garden-detail-list__row">
+            <dt>Care this week</dt>
             <dd>
-              <span className="beta-plants2-urgency beta-plants2-urgency--soon">
+              <span className="garden-plants2-urgency garden-plants2-urgency--soon">
                 {needsAttentionCount}
               </span>
             </dd>
@@ -734,49 +785,55 @@ function DrawerInfo({
       </dl>
 
       {(selectedPlant || selectedWishlist) && (
-        <div className="beta-plants2-drawer-preview">
+        <div className="garden-plants2-drawer-preview">
           <SpecimenLabel>Selected</SpecimenLabel>
           {selectedPlant && (
-            <div className="beta-plants2-drawer-preview__body">
+            <div className="garden-plants2-drawer-preview__body">
               <strong>{getCatalogPlantName(selectedPlant)}</strong>
-              {selectedPlant.plant_profile?.botanical_name_full && (
-                <em className="beta-plants2-drawer-preview__botanical">
-                  {selectedPlant.plant_profile.botanical_name_full}
+              {getPlantScanLabel(selectedPlant) ? (
+                <em className="garden-plants2-drawer-preview__botanical">
+                  {getPlantScanLabel(selectedPlant)}
                 </em>
-              )}
+              ) : null}
               <p>
                 {getZoneName(zones, selectedPlant.zone_id)} &middot;{" "}
                 {getBedName(beds, selectedPlant.bed_id)}
               </p>
               <p>
-                {formatQuantity(selectedPlant.quantity)} growing
+                {formatPlantCount(selectedPlant.quantity)}
                 {selectedPlant.planted_on
-                  ? ` · planted ${selectedPlant.planted_on}`
+                  ? ` · planted ${formatGardenDate(selectedPlant.planted_on)}`
                   : ""}
               </p>
             </div>
           )}
           {selectedWishlist && !selectedPlant && (
-            <div className="beta-plants2-drawer-preview__body">
+            <div className="garden-plants2-drawer-preview__body">
               <strong>{getCatalogPlantName(selectedWishlist)}</strong>
-              {selectedWishlist.plant_profile?.botanical_name_full && (
-                <em className="beta-plants2-drawer-preview__botanical">
-                  {selectedWishlist.plant_profile.botanical_name_full}
+              {getPlantScanLabel(selectedWishlist) ? (
+                <em className="garden-plants2-drawer-preview__botanical">
+                  {getPlantScanLabel(selectedWishlist)}
                 </em>
-              )}
-              <p>{selectedWishlist.notes ?? "Saved from catalogue"}</p>
+              ) : null}
+              {selectedWishlist.notes ? <p>{selectedWishlist.notes}</p> : null}
             </div>
           )}
         </div>
       )}
 
       {!selectedPlant && !selectedWishlist && (
-        <p className="beta-drawer__muted" style={{ marginTop: "var(--space-2)" }}>
-          {activeTab === "growing"
-            ? "Select a plant card to see details and take action."
-            : activeTab === "archived"
-            ? "Select an archived plant to restore or open it."
-            : "Select a wishlist plant to move it to a bed or remove it."}
+        <p className="garden-drawer__muted" style={{ marginTop: "var(--space-2)" }}>
+          {isReadOnly
+            ? activeTab === "growing"
+              ? "Open a plant to see notes and care."
+              : activeTab === "archived"
+                ? "Choose a past plant to see what the last season taught you."
+                : "Choose a plant to try and see where it might fit."
+            : activeTab === "growing"
+              ? "Choose a plant to keep a note or see what needs care."
+              : activeTab === "archived"
+                ? "Choose a past plant to review it or mark it growing again."
+                : "Choose a plant to try and place it in a bed."}
         </p>
       )}
     </div>
@@ -855,13 +912,13 @@ function DrawerFilters({
   }
 
   return (
-    <div className="beta-drawer__section">
+    <div className="garden-drawer__section">
       <FieldSelect
-        label="Zone"
+        label="Place"
         value={filters.zoneId}
         onChange={setZone}
       >
-        <option value="">All zones</option>
+        <option value="">All places</option>
         {usedZoneIds.map((z) => (
           <option key={z.id} value={z.id}>
             {z.name}
@@ -891,7 +948,7 @@ function DrawerFilters({
           <option value="">All types</option>
           {plantTypeCodes.map((code) => (
             <option key={code} value={code}>
-              {code}
+              {formatPlantTypeLabel(code)}
             </option>
           ))}
         </FieldSelect>
@@ -910,11 +967,11 @@ function DrawerFilters({
         <option value="">All</option>
         <option value="annual">Annual</option>
         <option value="perennial">Perennial</option>
-        <option value="other">Other</option>
+        <option value="other">Mixed or unknown</option>
       </FieldSelect>
 
-      <label className="beta-plants2-toggle-row beta-field">
-        <span>Needs attention only</span>
+      <label className="garden-plants2-toggle-row garden-field">
+        <span>Care this week only</span>
         <input
           type="checkbox"
           checked={filters.needsAttention}
@@ -931,14 +988,14 @@ function DrawerFilters({
           style={{ marginTop: "var(--space-2)" }}
           onClick={onClear}
         >
-          Clear filters
+          Show all plants
         </button>
       )}
     </div>
   );
 }
 
-// ─── Drawer: Actions tab ──────────────────────────────────────────────────────
+// ─── Drawer: Update tab ───────────────────────────────────────────────────────
 
 function DrawerActions({
   activeTab,
@@ -992,7 +1049,7 @@ function DrawerActions({
     }
   }
 
-  async function handleLogNote(e: FormEvent) {
+  async function handleSaveUpdate(e: FormEvent) {
     e.preventDefault();
     if (!selectedPlant || !noteDraft.trim()) return;
     setBusy(true);
@@ -1034,15 +1091,16 @@ function DrawerActions({
   // Growing selected
   if (activeTab === "growing" && selectedPlant) {
     return (
-      <div className="beta-drawer__section">
-        <form className="beta-form" onSubmit={handleLogNote}>
-          <label className="beta-field">
-            <span>Log a note</span>
+      <div className="garden-drawer__section">
+        <form className="garden-form" onSubmit={handleSaveUpdate}>
+          <SpecimenLabel tone="olive">Keep a garden note</SpecimenLabel>
+          <label className="garden-field">
+            <span>Note</span>
             <textarea
-              className="input beta-textarea"
+              className="input garden-textarea"
               value={noteDraft}
               onChange={(e) => setNoteDraft(e.target.value)}
-              placeholder="What did you observe?"
+              placeholder="First tomato, aphids on kale, rain soaked the beds..."
               rows={3}
             />
           </label>
@@ -1051,30 +1109,36 @@ function DrawerActions({
             type="submit"
             disabled={busy || !noteDraft.trim()}
           >
-            Save note
+            Keep in garden
           </button>
         </form>
 
-        <div className="beta-drawer__actions-row" style={{ marginTop: "var(--space-2)" }}>
-          {onDeepLink && (
+        {onDeepLink ? (
+          <div className="garden-drawer__actions-row" style={{ marginTop: "var(--space-2)" }}>
             <button
               type="button"
               className="folio-button"
               onClick={onDeepLink}
               disabled={busy}
             >
-              Open in My Property
+              Show in My Garden
             </button>
-          )}
-          <button
-            type="button"
-            className="folio-button"
-            onClick={handleArchive}
-            disabled={busy}
-          >
-            Archive
-          </button>
-        </div>
+          </div>
+        ) : null}
+
+        <details className="garden-drawer__manage">
+          <summary>Move this plant</summary>
+          <div className="garden-drawer__manage-body">
+            <button
+              type="button"
+              className="folio-button"
+              onClick={handleArchive}
+              disabled={busy}
+            >
+              Move to past plants
+            </button>
+          </div>
+        </details>
       </div>
     );
   }
@@ -1082,37 +1146,43 @@ function DrawerActions({
   // Archived selected
   if (activeTab === "archived" && selectedPlant) {
     return (
-      <div className="beta-drawer__section">
-        <div className="beta-drawer__actions-row">
-          <button
-            type="button"
-            className="folio-button"
-            onClick={handleRestore}
-            disabled={busy}
-          >
-            Restore to growing
-          </button>
-          {onDeepLink && (
+      <div className="garden-drawer__section">
+        {onDeepLink ? (
+          <div className="garden-drawer__actions-row">
             <button
               type="button"
               className="folio-button"
               onClick={onDeepLink}
               disabled={busy}
             >
-              Open in My Property
+              Show in My Garden
             </button>
-          )}
-        </div>
+          </div>
+        ) : null}
+
+        <details className="garden-drawer__manage">
+          <summary>Move this plant</summary>
+          <div className="garden-drawer__manage-body">
+            <button
+              type="button"
+              className="folio-button"
+              onClick={handleRestore}
+              disabled={busy}
+            >
+              Mark as growing again
+            </button>
+          </div>
+        </details>
       </div>
     );
   }
 
-  // Wishlist selected
+  // Plant-to-try selected
   if (activeTab === "wishlist" && selectedWishlist) {
     return (
-      <div className="beta-drawer__section">
-        <form className="beta-form" onSubmit={handleMoveToProperty}>
-          <SpecimenLabel tone="clay">Move to property</SpecimenLabel>
+      <div className="garden-drawer__section">
+        <form className="garden-form" onSubmit={handleMoveToProperty}>
+          <SpecimenLabel tone="clay">Plant it in a bed</SpecimenLabel>
           <FieldSelect
             label="Choose a bed"
             value={selectedBedId}
@@ -1130,40 +1200,42 @@ function DrawerActions({
             type="submit"
             disabled={busy || !selectedBedId}
           >
-            {busy ? "Moving…" : "Move to bed"}
+            {busy ? "Planting…" : "Plant in this bed"}
           </button>
         </form>
 
-        <div className="beta-drawer__actions-row" style={{ marginTop: "var(--space-2)" }}>
-          <button
-            type="button"
-            className="beta-drawer__danger"
-            onClick={handleRemoveWishlist}
-            disabled={busy}
-          >
-            Remove from wishlist
-          </button>
-        </div>
+        <details className="garden-drawer__manage">
+          <summary>Change plant to try</summary>
+          <div className="garden-drawer__manage-body">
+            <button
+              type="button"
+              className="garden-drawer__danger"
+              onClick={handleRemoveWishlist}
+              disabled={busy}
+            >
+              Remove from plants to try
+            </button>
+          </div>
+        </details>
       </div>
     );
   }
 
   // Nothing selected
   return (
-    <div className="beta-drawer__section">
-      <p className="beta-drawer__muted">
+    <div className="garden-drawer__section">
+      <p className="garden-drawer__muted">
         {activeTab === "growing" ? (
           <>
-            Select a growing plant to log a note, archive it, or open it in
-            context.{" "}
-            <a className="beta-link-button" href="/app/my-property">
+            Choose a plant to keep a note or see where it grows.{" "}
+            <a className="garden-link-button" href="/app/my-property">
               Add a plant ›
             </a>
           </>
         ) : activeTab === "archived" ? (
-          "Select an archived plant to restore or open it."
+          "Choose a past plant to review it or mark it growing again."
         ) : (
-          "Select a wishlist plant to move it to a bed or remove it."
+          "Choose a plant to try and place it in a bed."
         )}
       </p>
     </div>
@@ -1172,48 +1244,58 @@ function DrawerActions({
 
 // ─── Empty states ─────────────────────────────────────────────────────────────
 
-function EmptyGrowing() {
+function EmptyGrowing({ isReadOnly = false }: { isReadOnly?: boolean }) {
   return (
-    <div className="beta-plants-empty">
+    <div className="garden-plants-empty">
       <SpecimenLabel tone="olive">No plants yet</SpecimenLabel>
       <p>
-        No plants growing yet. Add your first plant to a bed to start tracking.
+        {isReadOnly
+          ? "No plants are growing here yet."
+          : "Give one plant a home so notes stay where they belong."}
       </p>
-      <a className="folio-button" href="/app/my-property">
-        Add a plant to a bed
-      </a>
+      {isReadOnly ? null : (
+        <a className="folio-button" href="/app/my-property">
+          Add one plant
+        </a>
+      )}
     </div>
   );
 }
 
-function EmptyWishlist() {
+function EmptyWishlist({ isReadOnly = false }: { isReadOnly?: boolean }) {
   return (
-    <div className="beta-plants-empty">
-      <SpecimenLabel tone="clay">Empty wishlist</SpecimenLabel>
-      <p>No wishlist plants yet. Save plants you want to try next.</p>
-      <a className="folio-button" href="/app/plant-catalogue">
-        Browse the plant catalogue
-      </a>
+    <div className="garden-plants-empty">
+      <SpecimenLabel tone="clay">No plants to try yet</SpecimenLabel>
+      <p>
+        {isReadOnly
+          ? "Plants to try would appear here before they move into a bed."
+          : "Choose plants you might grow later. Plant one when you have a spot for it."}
+      </p>
+      {isReadOnly ? null : (
+        <a className="folio-button" href="/app/plant-catalogue">
+          Choose plants
+        </a>
+      )}
     </div>
   );
 }
 
 function EmptyArchived() {
   return (
-    <div className="beta-plants-empty">
-      <SpecimenLabel>No archived plants</SpecimenLabel>
-      <p>No archived plants yet. Completed seasons will appear here.</p>
+    <div className="garden-plants-empty">
+      <SpecimenLabel>No past plants yet</SpecimenLabel>
+      <p>Past plants will show what grew, what struggled, and what to remember next time.</p>
     </div>
   );
 }
 
 function EmptyFiltered({ onClear }: { onClear: () => void }) {
   return (
-    <div className="beta-plants-empty">
+    <div className="garden-plants-empty">
       <SpecimenLabel>No matches</SpecimenLabel>
-      <p>No plants match these filters.</p>
+      <p>No plants match that yet.</p>
       <button type="button" className="folio-button" onClick={onClear}>
-        Clear filters
+        Show all plants
       </button>
     </div>
   );
@@ -1237,6 +1319,7 @@ export function PlantsView({
   addTask,
   addPlantOutcome,
   deletePlantOutcome,
+  isReadOnly = false,
 }: PlantsViewProps) {
   const router = useRouter();
   const today = getTodayISO();
@@ -1245,6 +1328,12 @@ export function PlantsView({
   const [activeTab, setActiveTab] = useState<StatusTab>("growing");
   const [gridView, setGridView] = useState<GridView>("grid");
   const [drawerTab, setDrawerTab] = useState<DrawerTab>("info");
+  const [showPlantFilters, setShowPlantFilters] = useState(false);
+  useEffect(() => {
+    if (isReadOnly && drawerTab === "actions") {
+      setDrawerTab("info");
+    }
+  }, [drawerTab, isReadOnly]);
 
   // ── Search ────────────────────────────────────────────────────────────────
   const [searchQuery, setSearchQuery] = useState("");
@@ -1264,6 +1353,12 @@ export function PlantsView({
   const growingCount = plants.filter((p) => p.status === "growing").length;
   const archivedCount = plants.filter((p) => p.status === "archived").length;
   const wishlistCount = wishlist.length;
+  const statusTabs = [
+    { id: "growing", label: "Growing", count: growingCount },
+    { id: "archived", label: "Past", count: archivedCount },
+    { id: "wishlist", label: "To try", count: wishlistCount },
+  ] as const;
+  const visibleStatusTabs = statusTabs.filter((tab) => tab.count > 0 || tab.id === activeTab);
 
   // ── Search helpers ────────────────────────────────────────────────────────
   function matchesSearch(plant: GardenPlantInstance): boolean {
@@ -1307,10 +1402,12 @@ export function PlantsView({
   // ── Filtered lists ────────────────────────────────────────────────────────
   const filteredGrowing = useMemo(
     () =>
-      plants.filter(
-        (p) =>
-          p.status === "growing" && matchesSearch(p) && matchesFilters(p)
-      ),
+      plants
+        .filter(
+          (p) =>
+            p.status === "growing" && matchesSearch(p) && matchesFilters(p)
+        )
+        .sort((a, b) => comparePlantsByNextCare(a, b, tasks)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [plants, q, filters, beds, zones, tasks]
   );
@@ -1340,11 +1437,13 @@ export function PlantsView({
   function selectPlant(id: string) {
     setSelectedPlantId((prev) => (prev === id ? null : id));
     setSelectedWishlistId(null);
+    setDrawerTab("info");
   }
 
   function selectWishlist(id: string) {
     setSelectedWishlistId((prev) => (prev === id ? null : id));
     setSelectedPlantId(null);
+    setDrawerTab("info");
   }
 
   function clearSelected() {
@@ -1356,6 +1455,7 @@ export function PlantsView({
   function changeTab(tab: StatusTab) {
     setActiveTab(tab);
     clearSelected();
+    setShowPlantFilters(false);
   }
 
   // ── Deep link ─────────────────────────────────────────────────────────────
@@ -1379,6 +1479,7 @@ export function PlantsView({
     filters.plantTypeCode !== "" ||
     filters.lifecycle !== "" ||
     filters.needsAttention;
+  const showFilterControls = !isReadOnly;
 
   function clearAll() {
     setSearchQuery("");
@@ -1402,13 +1503,36 @@ export function PlantsView({
       : activeTab === "archived"
       ? unfilteredArchivedCount
       : wishlistCount;
+  const showStatusTabs = statusTabs.some((t) => t.count > 0 && t.id !== "growing") || visibleStatusTabs.length > 1;
+  const showViewToggle = totalCount > 6 || gridView === "list";
+  const growingPlants = plants.filter((p) => p.status === "growing");
+  const bedsWithGrowingCount = new Set(growingPlants.map((p) => p.bed_id)).size;
+  const needsAttentionCount = growingPlants.filter((p) => {
+    const task = getSoonestTask(p.id, tasks);
+    if (!task) return false;
+    const urgency = getUrgency(task.due_on, today);
+    return urgency === "overdue" || urgency === "soon";
+  }).length;
+  const careThisWeekSummary =
+    needsAttentionCount === 1
+      ? "1 plant needs care this week."
+      : `${needsAttentionCount} plants need care this week.`;
+  const savedPlantsSummary = `${growingCount} ${growingCount === 1 ? "plant" : "plants"} in ${bedsWithGrowingCount} ${bedsWithGrowingCount === 1 ? "bed" : "beds"}`;
+  const firstCareEntry = filteredGrowing
+    .map((plant) => ({ plant, task: getSoonestTask(plant.id, tasks) }))
+    .find(({ task }) => {
+      if (!task) return false;
+      const urgency = getUrgency(task.due_on, today);
+      return urgency === "overdue" || urgency === "soon";
+    }) ?? null;
+  const hasSelection = Boolean(selectedPlant || selectedWishlist);
 
   // ── Render helpers ────────────────────────────────────────────────────────
   function renderGrowingGrid() {
-    if (unfilteredGrowingCount === 0) return <EmptyGrowing />;
+    if (unfilteredGrowingCount === 0) return <EmptyGrowing isReadOnly={isReadOnly} />;
     if (filteredGrowing.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants-card-grid beta-plants2-card-grid">
+      <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredGrowing.map((plant) => (
           <GrowingCardGrid
             key={plant.id}
@@ -1420,6 +1544,7 @@ export function PlantsView({
             isSelected={selectedPlantId === plant.id}
             onSelect={() => selectPlant(plant.id)}
             onDeepLink={() => deepLinkFor(plant)}
+            isReadOnly={isReadOnly}
           />
         ))}
       </div>
@@ -1427,20 +1552,22 @@ export function PlantsView({
   }
 
   function renderGrowingList() {
-    if (unfilteredGrowingCount === 0) return <EmptyGrowing />;
+    if (unfilteredGrowingCount === 0) return <EmptyGrowing isReadOnly={isReadOnly} />;
     if (filteredGrowing.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants2-list-wrap">
-        <table className="beta-plants2-list-table" aria-label="Growing plants">
+      <div className="garden-plants2-list-wrap">
+        <table className="garden-plants2-list-table" aria-label="Growing plants">
           <thead>
             <tr>
-              <th className="beta-plants2-list-th">Plant</th>
-              <th className="beta-plants2-list-th">Location</th>
-              <th className="beta-plants2-list-th">Time in ground</th>
-              <th className="beta-plants2-list-th">Next task</th>
-              <th className="beta-plants2-list-th">
-                <span className="sr-only">Actions</span>
-              </th>
+              <th className="garden-plants2-list-th">Plant</th>
+              <th className="garden-plants2-list-th">Location</th>
+              <th className="garden-plants2-list-th">Time in ground</th>
+              <th className="garden-plants2-list-th">Next up</th>
+              {isReadOnly ? null : (
+                <th className="garden-plants2-list-th">
+                  <span className="sr-only">Show in My Garden</span>
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -1455,6 +1582,7 @@ export function PlantsView({
                 isSelected={selectedPlantId === plant.id}
                 onSelect={() => selectPlant(plant.id)}
                 onDeepLink={() => deepLinkFor(plant)}
+                isReadOnly={isReadOnly}
               />
             ))}
           </tbody>
@@ -1467,7 +1595,7 @@ export function PlantsView({
     if (unfilteredArchivedCount === 0) return <EmptyArchived />;
     if (filteredArchived.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants-card-grid beta-plants2-card-grid">
+      <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredArchived.map((plant) => (
           <ArchivedCardGrid
             key={plant.id}
@@ -1477,6 +1605,7 @@ export function PlantsView({
             isSelected={selectedPlantId === plant.id}
             onSelect={() => selectPlant(plant.id)}
             onDeepLink={() => deepLinkFor(plant)}
+            isReadOnly={isReadOnly}
           />
         ))}
       </div>
@@ -1487,17 +1616,19 @@ export function PlantsView({
     if (unfilteredArchivedCount === 0) return <EmptyArchived />;
     if (filteredArchived.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants2-list-wrap">
-        <table className="beta-plants2-list-table" aria-label="Archived plants">
+      <div className="garden-plants2-list-wrap">
+        <table className="garden-plants2-list-table" aria-label="Past plants">
           <thead>
             <tr>
-              <th className="beta-plants2-list-th">Plant</th>
-              <th className="beta-plants2-list-th">Location</th>
-              <th className="beta-plants2-list-th">Time in ground</th>
-              <th className="beta-plants2-list-th">Status</th>
-              <th className="beta-plants2-list-th">
-                <span className="sr-only">Actions</span>
-              </th>
+              <th className="garden-plants2-list-th">Plant</th>
+              <th className="garden-plants2-list-th">Location</th>
+              <th className="garden-plants2-list-th">Time in ground</th>
+              <th className="garden-plants2-list-th">Status</th>
+              {isReadOnly ? null : (
+                <th className="garden-plants2-list-th">
+                  <span className="sr-only">Show in My Garden</span>
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -1511,6 +1642,7 @@ export function PlantsView({
                 isSelected={selectedPlantId === plant.id}
                 onSelect={() => selectPlant(plant.id)}
                 onDeepLink={() => deepLinkFor(plant)}
+                isReadOnly={isReadOnly}
               />
             ))}
           </tbody>
@@ -1520,10 +1652,10 @@ export function PlantsView({
   }
 
   function renderWishlistGrid() {
-    if (wishlistCount === 0) return <EmptyWishlist />;
+    if (wishlistCount === 0) return <EmptyWishlist isReadOnly={isReadOnly} />;
     if (filteredWishlist.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants-card-grid beta-plants2-card-grid">
+      <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredWishlist.map((item) => (
           <WishlistCardGrid
             key={item.id}
@@ -1537,20 +1669,22 @@ export function PlantsView({
   }
 
   function renderWishlistList() {
-    if (wishlistCount === 0) return <EmptyWishlist />;
+    if (wishlistCount === 0) return <EmptyWishlist isReadOnly={isReadOnly} />;
     if (filteredWishlist.length === 0) return <EmptyFiltered onClear={clearAll} />;
     return (
-      <div className="beta-plants2-list-wrap">
-        <table className="beta-plants2-list-table" aria-label="Wishlist">
+      <div className="garden-plants2-list-wrap">
+        <table className="garden-plants2-list-table" aria-label="Plants to try">
           <thead>
             <tr>
-              <th className="beta-plants2-list-th">Plant</th>
-              <th className="beta-plants2-list-th">Type</th>
-              <th className="beta-plants2-list-th">Notes</th>
-              <th className="beta-plants2-list-th">Status</th>
-              <th className="beta-plants2-list-th">
-                <span className="sr-only">Actions</span>
-              </th>
+              <th className="garden-plants2-list-th">Plant</th>
+              <th className="garden-plants2-list-th">Type</th>
+              <th className="garden-plants2-list-th">Notes</th>
+              <th className="garden-plants2-list-th">Status</th>
+              {isReadOnly ? null : (
+                <th className="garden-plants2-list-th">
+                  <span className="sr-only">Plant to try</span>
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -1560,6 +1694,7 @@ export function PlantsView({
                 item={item}
                 isSelected={selectedWishlistId === item.id}
                 onSelect={() => selectWishlist(item.id)}
+                isReadOnly={isReadOnly}
               />
             ))}
           </tbody>
@@ -1574,15 +1709,15 @@ export function PlantsView({
 
   // ── Render ────────────────────────────────────────────────────────────────
   return (
-    <div className="beta-plants2-layout">
+    <div className="garden-plants2-layout">
       {/* ── Canvas ────────────────────────────────────────────────────────── */}
-      <div className="beta-plants2-canvas">
+      <div className="garden-plants2-canvas">
         {/* Toolbar */}
-        <div className="beta-plants-toolbar beta-plants2-toolbar">
-          <div className="beta-plants2-toolbar-top">
-            <div className="beta-plants-search-wrap">
+        <div className="garden-plants-toolbar garden-plants2-toolbar">
+          <div className="garden-plants2-toolbar-top">
+            <div className="garden-plants-search-wrap">
               <svg
-                className="beta-plants-search-icon"
+                className="garden-plants-search-icon"
                 aria-hidden="true"
                 width="16"
                 height="16"
@@ -1607,58 +1742,51 @@ export function PlantsView({
                 />
               </svg>
               <input
-                className="beta-plants-search"
+                className="garden-plants-search"
                 type="search"
-                aria-label="Search plants by name, bed, or zone"
-                placeholder="Search by name, bed, or zone…"
+                aria-label="Search plants by name, bed, or place"
+                placeholder="Search by name, bed, or place…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <ViewToggle active={gridView} onChange={setGridView} />
+            {showViewToggle ? <ViewToggle active={gridView} onChange={setGridView} /> : null}
           </div>
         </div>
 
         {/* Status tabs */}
-        <div className="beta-plants-tabs" role="tablist" aria-label="Plant status">
-          {(
-            [
-              { id: "growing", label: "Growing", count: growingCount },
-              { id: "archived", label: "Archived", count: archivedCount },
-              { id: "wishlist", label: "Wishlist", count: wishlistCount },
-            ] as const
-          ).map(({ id, label, count }) => (
-            <button
-              key={id}
-              role="tab"
-              type="button"
-              className={`beta-plants-tab${activeTab === id ? " is-active" : ""}`}
-              aria-selected={activeTab === id}
-              onClick={() => changeTab(id)}
-            >
-              {label}
-              <span className="beta-plants-tab__count">{count}</span>
-            </button>
-          ))}
-        </div>
+        {showStatusTabs ? (
+          <div className="garden-plants-tabs" role="tablist" aria-label="Plant status">
+            {visibleStatusTabs.map(({ id, label, count }) => (
+              <button
+                key={id}
+                role="tab"
+                type="button"
+                className={`garden-plants-tab${activeTab === id ? " is-active" : ""}`}
+                aria-selected={activeTab === id}
+                onClick={() => changeTab(id)}
+              >
+                {label}
+                <span className="garden-plants-tab__count">{count}</span>
+              </button>
+            ))}
+          </div>
+        ) : null}
 
         {/* Results header */}
         {hasFilters && (
-          <div className="beta-plants-results-header">
-            <p className="beta-plants-results-count">
-              {filteredCount}{" "}
-              {activeTab === "wishlist" ? "saved" : "specimen"}
-              {filteredCount !== 1 ? "s" : ""}
-              {filteredCount !== totalCount && (
-                <> &middot; filtered from {totalCount}</>
-              )}
+          <div className="garden-plants-results-header">
+            <p className="garden-plants-results-count">
+              Showing {filteredCount} of {totalCount}{" "}
+              {activeTab === "wishlist" ? "plant to try" : "plant"}
+              {totalCount !== 1 ? "s" : ""}
             </p>
             <button
               type="button"
-              className="beta-plants-clear"
+              className="garden-plants-clear"
               onClick={clearAll}
             >
-              Clear all
+              {activeTab === "wishlist" ? "Show all plants to try" : "Show all plants"}
             </button>
           </div>
         )}
@@ -1668,7 +1796,7 @@ export function PlantsView({
           <div
             role="tabpanel"
             aria-label="Growing plants"
-            className="beta-plants-panel"
+            className="garden-plants-panel"
           >
             {gridView === "grid"
               ? renderGrowingGrid()
@@ -1679,8 +1807,8 @@ export function PlantsView({
         {activeTab === "archived" && (
           <div
             role="tabpanel"
-            aria-label="Archived plants"
-            className="beta-plants-panel"
+            aria-label="Past plants"
+            className="garden-plants-panel"
           >
             {gridView === "grid"
               ? renderArchivedGrid()
@@ -1691,8 +1819,8 @@ export function PlantsView({
         {activeTab === "wishlist" && (
           <div
             role="tabpanel"
-            aria-label="Wishlist"
-            className="beta-plants-panel"
+            aria-label="Plants to try"
+            className="garden-plants-panel"
           >
             {gridView === "grid"
               ? renderWishlistGrid()
@@ -1702,124 +1830,165 @@ export function PlantsView({
       </div>
 
       {/* ── Right drawer ──────────────────────────────────────────────────── */}
-      <aside className="beta-drawer beta-plants2-drawer" aria-label="Plants utility">
-        <div className="beta-drawer__scope">
-          <InkStamp tone="olive">Plants</InkStamp>
-          <span>
-            {selectedPlant
-              ? getCatalogPlantName(selectedPlant)
-              : selectedWishlist
-              ? getCatalogPlantName(selectedWishlist)
-              : "My plants"}
-          </span>
+      <aside className="garden-drawer garden-plants2-drawer" aria-label="Plant journal">
+        <div className="garden-drawer__scope">
+          <InkStamp tone="olive">Plant notes</InkStamp>
+          {hasSelection ? (
+            <span>
+              {selectedPlant
+                ? getCatalogPlantName(selectedPlant)
+                : selectedWishlist
+                  ? getCatalogPlantName(selectedWishlist)
+                  : ""}
+            </span>
+          ) : null}
         </div>
 
-        <div className="beta-drawer__tabs" role="tablist">
-          {(["info", "timeline", "filters", "actions"] as DrawerTab[]).map((tab) => (
-            <button
-              key={tab}
-              role="tab"
-              type="button"
-              aria-selected={drawerTab === tab}
-              className={`beta-drawer__tab${drawerTab === tab ? " is-active" : ""}`}
-              onClick={() => setDrawerTab(tab)}
-            >
-              {tab === "info"
-                ? "Info"
-                : tab === "timeline"
-                ? "Timeline"
-                : tab === "filters"
-                ? "Filters"
-                : "Actions"}
-              {tab === "filters" && hasFilters ? (
-                <span className="beta-plants2-filter-dot" aria-label="Filters active" />
-              ) : null}
-            </button>
-          ))}
-        </div>
-
-        <div className="beta-drawer__body">
-          {drawerTab === "info" && (
-            <DrawerInfo
-              plants={plants}
-              tasks={tasks}
-              today={today}
-              selectedPlant={selectedPlant}
-              selectedWishlist={selectedWishlist}
-              activeTab={activeTab}
-              beds={beds}
-              zones={zones}
-            />
-          )}
-          {drawerTab === "timeline" && (
-            <div className="beta-drawer__section">
-              {selectedPlant ? (
-                <PlantTimeline
-                  plant={selectedPlant}
-                  observations={observations}
-                  tasks={tasks}
-                  outcomes={outcomes}
-                  suggestions={generateSuggestions({
-                    focus: "plant",
-                    property: null,
-                    zone: null,
-                    bed: null,
-                    plant: selectedPlant,
-                    zones,
-                    beds,
-                    plants,
-                    season: deriveSeason(new Date().getMonth()),
-                    existingTaskTitles: tasks
-                      .filter(
-                        (t) =>
-                          t.status === "open" &&
-                          t.plant_instance_id === selectedPlant.id
-                      )
-                      .map((t) => t.title),
-                    outcomes,
-                  })}
-                  mediaUrls={mediaUrls}
-                  today={today}
-                  addTask={addTask}
-                  addPlantOutcome={addPlantOutcome}
-                  deletePlantOutcome={deletePlantOutcome}
-                  busy={busy}
-                />
+        {!hasSelection ? (
+          <div className="garden-drawer__body">
+            <section className="garden-drawer__section garden-plants2-empty-guide">
+              <SpecimenLabel tone="olive">
+                Choose a plant
+              </SpecimenLabel>
+              {activeTab === "growing" && firstCareEntry ? (
+                <>
+                  <p>
+                    {`Start with ${getCatalogPlantName(firstCareEntry.plant)}. Open any plant when you need its notes.`}
+                  </p>
+                  {needsAttentionCount > 0 ? (
+                    <p className="garden-plants2-empty-guide__attention">
+                      {careThisWeekSummary}
+                    </p>
+                  ) : null}
+                </>
               ) : (
-                <p className="beta-drawer__muted">
-                  Select a plant to see its timeline.
+                <p>
+                  {activeTab === "growing"
+                    ? "Open any plant to see notes and care."
+                    : activeTab === "archived"
+                      ? "Choose a past plant to see what earlier seasons taught you."
+                      : "Choose a plant to try and see why it might fit your garden."}
                 </p>
               )}
+              {showFilterControls ? (
+                <div className="garden-plants2-empty-guide__actions">
+                  {hasFilters ? (
+                    <button type="button" className="folio-button" onClick={clearAll}>
+                      Show all plants
+                    </button>
+                  ) : null}
+                  <button
+                    type="button"
+                    className="folio-button"
+                    aria-expanded={showPlantFilters}
+                    onClick={() => setShowPlantFilters((value) => !value)}
+                  >
+                    {showPlantFilters ? "Hide filters" : "Filter plants"}
+                  </button>
+                </div>
+              ) : null}
+              {showFilterControls && showPlantFilters ? (
+                <DrawerFilters
+                  plants={plants}
+                  wishlist={wishlist}
+                  zones={zones}
+                  beds={beds}
+                  filters={filters}
+                  onChange={setFilters}
+                  onClear={() => setFilters(EMPTY_FILTERS)}
+                />
+              ) : null}
+            </section>
+          </div>
+        ) : (
+          <>
+            <div className="garden-drawer__tabs" role="tablist">
+              {(isReadOnly
+                ? (["info", "timeline"] as PlantsDrawerVisibleTab[])
+                : (["info", "timeline", "actions"] as PlantsDrawerVisibleTab[])
+              ).map((tab) => (
+                <button
+                  key={tab}
+                  role="tab"
+                  type="button"
+                  aria-selected={drawerTab === tab}
+                  className={`garden-drawer__tab${drawerTab === tab ? " is-active" : ""}`}
+                  onClick={() => setDrawerTab(tab)}
+                >
+                  {PLANTS_DRAWER_TAB_LABELS[tab]}
+                </button>
+              ))}
             </div>
-          )}
-          {drawerTab === "filters" && (
-            <DrawerFilters
-              plants={plants}
-              wishlist={wishlist}
-              zones={zones}
-              beds={beds}
-              filters={filters}
-              onChange={setFilters}
-              onClear={() => setFilters(EMPTY_FILTERS)}
-            />
-          )}
-          {drawerTab === "actions" && (
-            <DrawerActions
-              activeTab={activeTab}
-              selectedPlant={selectedPlant}
-              selectedWishlist={selectedWishlist}
-              beds={beds}
-              busy={busy}
-              setBusy={setBusy}
-              updatePlantStatus={updatePlantStatus}
-              addPlantToBed={addPlantToBed}
-              removeWishlist={removeWishlist}
-              logPlantObservation={logPlantObservation}
-              onDeepLink={selectedPlantDeepLink}
-              clearSelected={clearSelected}
-            />
-          )}
-        </div>
+
+            <div className="garden-drawer__body">
+              {drawerTab === "info" && (
+                <DrawerInfo
+                  plants={plants}
+                  tasks={tasks}
+                  today={today}
+                  selectedPlant={selectedPlant}
+                  selectedWishlist={selectedWishlist}
+                  activeTab={activeTab}
+                  beds={beds}
+                  zones={zones}
+                  isReadOnly={isReadOnly}
+                />
+              )}
+              {drawerTab === "timeline" && selectedPlant ? (
+                <div className="garden-drawer__section">
+                  <PlantTimeline
+                    plant={selectedPlant}
+                    observations={observations}
+                    tasks={tasks}
+                    outcomes={outcomes}
+                    suggestions={generateSuggestions({
+                      focus: "plant",
+                      property: null,
+                      zone: null,
+                      bed: null,
+                      plant: selectedPlant,
+                      zones,
+                      beds,
+                      plants,
+                      season: deriveSeason(new Date().getMonth()),
+                      existingTaskTitles: tasks
+                        .filter(
+                          (t) =>
+                            t.status === "open" &&
+                            t.plant_instance_id === selectedPlant.id
+                        )
+                        .map((t) => t.title),
+                      outcomes,
+                    })}
+                    mediaUrls={mediaUrls}
+                    today={today}
+                    addTask={addTask}
+                    addPlantOutcome={addPlantOutcome}
+                    deletePlantOutcome={deletePlantOutcome}
+                    busy={busy}
+                    isReadOnly={isReadOnly}
+                  />
+                </div>
+              ) : null}
+              {!isReadOnly && drawerTab === "actions" && (
+                <DrawerActions
+                  activeTab={activeTab}
+                  selectedPlant={selectedPlant}
+                  selectedWishlist={selectedWishlist}
+                  beds={beds}
+                  busy={busy}
+                  setBusy={setBusy}
+                  updatePlantStatus={updatePlantStatus}
+                  addPlantToBed={addPlantToBed}
+                  removeWishlist={removeWishlist}
+                  logPlantObservation={logPlantObservation}
+                  onDeepLink={selectedPlantDeepLink}
+                  clearSelected={clearSelected}
+                />
+              )}
+            </div>
+          </>
+        )}
       </aside>
     </div>
   );

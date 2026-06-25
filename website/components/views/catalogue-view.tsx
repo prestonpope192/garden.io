@@ -7,12 +7,15 @@ import type {
   GardenBed,
   GardenPlantProfile
 } from "@/lib/garden-app-types";
+import { getJournalStylePlantImageUrl } from "@/lib/plant-images";
 import {
   formatCatalogueValue,
-  formatInchesRange,
+  formatPlantTypeLabel,
   getCultivarLabel,
-  getProfileIllustration,
-  getRating
+  getRating,
+  hasRatingContent,
+  hasKnownCatalogueValue,
+  getUseLabels
 } from "./shared";
 
 export type CatalogueViewProps = {
@@ -20,13 +23,64 @@ export type CatalogueViewProps = {
   plantProfiles: GardenPlantProfile[];
   addCatalogPlantToBed: (slug: string) => Promise<void>;
   saveWishlist: (slug: string) => Promise<void>;
+  isReadOnly?: boolean;
 };
 
-type SortKey = "name" | "type";
+const CARE_SUMMARY_FALLBACK = "Start with light, water, and room before choosing a spot.";
 
-// Derive a human-readable label from plant_type_code
+function ratingWord(n: number): string {
+  if (n >= 4) return "High";
+  if (n >= 3) return "Good";
+  if (n >= 2) return "Moderate";
+  return "Low";
+}
+const FIT_SUMMARY_FALLBACK = "Look for the right light, water, and room.";
+
+function firstPlainSentence(value: string | null | undefined, maxLength = 96) {
+  const cleaned = value
+    ?.replace(/\([^)]*\)/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!cleaned) return "";
+
+  const firstSegment = cleaned.split(/[.;]/)[0]?.trim() || cleaned;
+  if (firstSegment.length <= maxLength) return firstSegment.replace(/[.!?]?$/, ".");
+  return `${firstSegment.slice(0, maxLength).trim().replace(/[,\s]+$/, "")}...`;
+}
+
+function getFitNote(plant: GardenPlantProfile, useLabels: string[]) {
+  const source = plant.notes_for_small_garden ?? (useLabels.length ? useLabels.join(", ") : FIT_SUMMARY_FALLBACK);
+  const lower = source.toLowerCase();
+
+  if (lower.includes("compact size") || lower.includes("small spaces")) {
+    return "Small beds, edges, and containers.";
+  }
+
+  return firstPlainSentence(source) || FIT_SUMMARY_FALLBACK;
+}
+
+function getWatchNote(plant: GardenPlantProfile) {
+  const plantType = plant.plant_type_code.toLowerCase();
+
+  if (plantType === "herb") {
+    return "Harvest timing, heat stress, and flavor.";
+  }
+
+  if (plantType === "vine" || plantType === "vegetable" || plantType === "fruit") {
+    return "Watering, support, harvest, and pests.";
+  }
+
+  if (plantType === "forb" || plantType === "flower") {
+    return "Bloom timing, pollinator visits, and deadheading.";
+  }
+
+  return firstPlainSentence(plant.short_description ?? plant.why_plant_it) || CARE_SUMMARY_FALLBACK;
+}
+
 function typeLabel(code: string): string {
   const map: Record<string, string> = {
+    forb: "Flowers",
     herb: "Herbs",
     fruit: "Fruit",
     vegetable: "Vegetables",
@@ -39,10 +93,9 @@ function typeLabel(code: string): string {
     fern: "Ferns",
     grass: "Grasses",
   };
-  return map[code] ?? code.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+  return map[code] ?? formatPlantTypeLabel(code);
 }
 
-// Build sorted, deduped list of type chips
 function buildTypeChips(profiles: GardenPlantProfile[]): Array<{ code: string; label: string; count: number }> {
   const counts: Record<string, number> = {};
   for (const p of profiles) {
@@ -53,32 +106,32 @@ function buildTypeChips(profiles: GardenPlantProfile[]): Array<{ code: string; l
     .map(([code, count]) => ({ code, label: typeLabel(code), count }));
 }
 
-// ExpandableFieldNotes — per-card expanded section
 function FieldNotes({ plant }: { plant: GardenPlantProfile }) {
   const overrides = plant.cultivar_overrides ?? [];
   const hasSoil = plant.drainage_requirement || plant.soil_texture_summary;
   const hasSmallGarden = Boolean(plant.notes_for_small_garden);
   const hasHomestead = Boolean(plant.notes_for_homestead);
+  const useLabels = getUseLabels(plant);
 
   return (
-    <div className="beta-cat-field-notes">
+    <div className="garden-cat-field-notes">
       {plant.why_plant_it ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Why grow it</span>
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Why grow it</span>
           <p>{plant.why_plant_it}</p>
         </div>
       ) : null}
 
       {plant.primary_use_cases ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Primary uses</span>
-          <p>{plant.primary_use_cases}</p>
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Best for</span>
+          <p>{useLabels.join(", ")}</p>
         </div>
       ) : null}
 
       {hasSoil ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Soil &amp; drainage</span>
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Soil &amp; drainage</span>
           {plant.drainage_requirement ? (
             <p>
               <strong>Drainage:</strong> {formatCatalogueValue(plant.drainage_requirement)}
@@ -89,23 +142,23 @@ function FieldNotes({ plant }: { plant: GardenPlantProfile }) {
       ) : null}
 
       {hasSmallGarden ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Small garden notes</span>
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Small garden notes</span>
           <p>{plant.notes_for_small_garden}</p>
         </div>
       ) : null}
 
       {hasHomestead ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Homestead notes</span>
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Homestead notes</span>
           <p>{plant.notes_for_homestead}</p>
         </div>
       ) : null}
 
       {overrides.length > 0 ? (
-        <div className="beta-cat-field-notes__section">
-          <span className="beta-cat-field-notes__label">Cultivar differences</span>
-          <ul className="beta-cat-overrides-list">
+        <div className="garden-cat-field-notes__section">
+          <span className="garden-cat-field-notes__label">Variety notes</span>
+          <ul className="garden-cat-overrides-list">
             {overrides.map((o) => (
               <li key={`${plant.slug}-${o.field_key}`}>
                 <strong>{o.field_key.replaceAll("_", " ")}</strong>
@@ -119,23 +172,42 @@ function FieldNotes({ plant }: { plant: GardenPlantProfile }) {
   );
 }
 
-// Individual catalogue card
 function CatalogCard({
   plant,
   activeBed,
   addCatalogPlantToBed,
   saveWishlist,
+  isReadOnly = false,
 }: {
   plant: GardenPlantProfile;
   activeBed: GardenBed | null;
   addCatalogPlantToBed: (slug: string) => Promise<void>;
   saveWishlist: (slug: string) => Promise<void>;
+  isReadOnly?: boolean;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const photoUrl = getJournalStylePlantImageUrl(plant.primary_image_url);
 
   const containerRating = getRating(plant, "container_suitability");
   const pollinatorRating = getRating(plant, "pollinator_value");
   const maintenanceRating = getRating(plant, "maintenance_need");
+  const useLabels = getUseLabels(plant);
+  const fitNote = getFitNote(plant, useLabels);
+  const watchNote = getWatchNote(plant);
+  const careRatings = [
+    {
+      label: "Containers",
+      rating: containerRating
+    },
+    {
+      label: "Pollinators",
+      rating: pollinatorRating
+    },
+    {
+      label: "Care needs",
+      rating: maintenanceRating
+    }
+  ].filter((item) => hasRatingContent(item.rating));
 
   const hasFieldNotes =
     Boolean(plant.why_plant_it) ||
@@ -147,26 +219,34 @@ function CatalogCard({
     (plant.cultivar_overrides?.length ?? 0) > 0;
 
   return (
-    <article className="beta-catalogue-card" key={plant.slug}>
-      <div className="beta-cat-card__image-col">
-        <Image
-          alt={plant.display_name}
-          className="specimen-art specimen-art--small"
-          height={220}
-          src={getProfileIllustration(plant)}
-          width={180}
-        />
-      </div>
-      <div className="beta-cat-card__body">
-        <SpecimenLabel tone="clay">{plant.family_name ?? plant.plant_type_code}</SpecimenLabel>
-        <div className="beta-catalogue-card__heading">
+    <article className={`garden-catalogue-card${photoUrl ? "" : " garden-catalogue-card--text-only"}`} key={plant.slug}>
+      {photoUrl ? (
+        <div className="garden-cat-card__image-col">
+          <Image
+            alt={plant.display_name}
+            className="catalogue-photo catalogue-photo--small"
+            height={220}
+            src={photoUrl}
+            width={180}
+          />
+        </div>
+      ) : null}
+      <div className="garden-cat-card__body">
+        <SpecimenLabel tone="clay">
+          {hasKnownCatalogueValue(plant.lifecycle_type)
+            ? formatCatalogueValue(plant.lifecycle_type)
+            : formatPlantTypeLabel(plant.plant_type_code)}
+        </SpecimenLabel>
+        <div className="garden-catalogue-card__heading">
           <h2>{plant.display_name}</h2>
           <span>{getCultivarLabel(plant)}</span>
         </div>
-        <p><em>{plant.botanical_name_full}</em></p>
-        <p className="beta-cat-card__desc">{plant.short_description ?? "No summary yet."}</p>
 
-        <dl className="detail-list">
+        <dl aria-label={`${plant.display_name} planting notes`} className="detail-list garden-cat-fit-list">
+          <div className="detail-list__row garden-cat-fit-list__spot">
+            <dt>Best spot</dt>
+            <dd>{fitNote}</dd>
+          </div>
           <div className="detail-list__row">
             <dt>Sun</dt>
             <dd>{formatCatalogueValue(plant.preferred_light)}</dd>
@@ -175,65 +255,66 @@ function CatalogCard({
             <dt>Water</dt>
             <dd>{formatCatalogueValue(plant.water_need_level)}</dd>
           </div>
-          <div className="detail-list__row">
-            <dt>Height</dt>
-            <dd>{formatInchesRange(plant.mature_height_min_in, plant.mature_height_max_in)}</dd>
-          </div>
-          <div className="detail-list__row">
-            <dt>Fit</dt>
-            <dd>{plant.notes_for_small_garden ?? plant.primary_use_cases ?? "TBD"}</dd>
+          <div className="detail-list__row garden-cat-fit-list__memory">
+            <dt>Good to remember</dt>
+            <dd>{watchNote}</dd>
           </div>
         </dl>
 
-        <div className="beta-catalogue-metrics" aria-label={`${plant.display_name} ratings`}>
-          {containerRating ? <span>Container {containerRating.rating}/5</span> : null}
-          {pollinatorRating ? <span>Pollinator {pollinatorRating.rating}/5</span> : null}
-          {maintenanceRating ? <span>Care {maintenanceRating.rating}/5</span> : null}
-        </div>
+        {careRatings.length ? (
+          <div className="garden-catalogue-metrics" aria-label={`${plant.display_name} planting basics`}>
+            {careRatings.map((item) => (
+              <span key={item.label}>
+                {item.label}{" "}
+                {item.rating?.rating
+                  ? `${ratingWord(Number(item.rating.rating))} (${item.rating.rating}/5)`
+                  : item.rating?.description}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
-        {hasFieldNotes ? (
-          <div className="beta-cat-expand">
+        {hasFieldNotes && !isReadOnly ? (
+          <div className="garden-cat-expand">
             <button
               aria-expanded={expanded}
-              className="beta-cat-expand__toggle"
+              className="garden-cat-expand__toggle"
               type="button"
               onClick={() => setExpanded((v) => !v)}
             >
-              <span className="beta-cat-expand__icon" aria-hidden="true">
+              <span className="garden-cat-expand__icon" aria-hidden="true">
                 {expanded ? "−" : "+"}
               </span>
               Field notes
             </button>
-            <div
-              className="beta-cat-expand__panel"
-              data-open={expanded ? "true" : "false"}
-              hidden={!expanded}
-            >
-              <FieldNotes plant={plant} />
-            </div>
+            {expanded ? (
+              <div className="garden-cat-expand__panel">
+                <FieldNotes plant={plant} />
+              </div>
+            ) : null}
           </div>
         ) : null}
 
-        <p className="beta-catalogue-card__status">
-          {formatCatalogueValue(plant.review_status)} · {plant.source_count ?? 0} sources
-        </p>
-
-        <div className="beta-card-actions">
-          <button
-            className="button"
-            type="button"
-            onClick={() => addCatalogPlantToBed(plant.slug)}
-          >
-            Add to {activeBed?.name ?? "bed"}
-          </button>
-          <button
-            className="folio-button"
-            type="button"
-            onClick={() => saveWishlist(plant.slug)}
-          >
-            Save wishlist
-          </button>
-        </div>
+        {isReadOnly ? null : (
+          <div className="garden-card-actions">
+            <button
+              className="button"
+              type="button"
+              disabled={!activeBed}
+              title={!activeBed ? "Select a bed in My Garden first" : undefined}
+              onClick={() => addCatalogPlantToBed(plant.slug)}
+            >
+              Plant in {activeBed?.name ?? "a bed"}
+            </button>
+            <button
+              className="folio-button"
+              type="button"
+              onClick={() => saveWishlist(plant.slug)}
+            >
+              Add to plants to try
+            </button>
+          </div>
+        )}
       </div>
     </article>
   );
@@ -244,10 +325,11 @@ export function CatalogueView({
   plantProfiles,
   addCatalogPlantToBed,
   saveWishlist,
+  isReadOnly = false,
 }: CatalogueViewProps) {
   const [query, setQuery] = useState("");
   const [activeType, setActiveType] = useState<string | null>(null);
-  const [sort, setSort] = useState<SortKey>("name");
+  const [showFilters, setShowFilters] = useState(false);
 
   const typeChips = useMemo(() => buildTypeChips(plantProfiles), [plantProfiles]);
 
@@ -268,131 +350,131 @@ export function CatalogueView({
       result = result.filter((p) => p.plant_type_code === activeType);
     }
 
-    return [...result].sort((a, b) => {
-      if (sort === "type") {
-        const typeCmp = a.plant_type_code.localeCompare(b.plant_type_code);
-        if (typeCmp !== 0) return typeCmp;
-      }
-      return a.display_name.localeCompare(b.display_name);
-    });
-  }, [plantProfiles, query, activeType, sort]);
+    return [...result].sort((a, b) => a.display_name.localeCompare(b.display_name));
+  }, [plantProfiles, query, activeType]);
 
   const hasFilters = Boolean(query.trim()) || activeType !== null;
+  const activeTypeLabel = activeType
+    ? typeChips.find((chip) => chip.code === activeType)?.label ?? "Selected kind"
+    : "Every kind";
+  const clearFilters = () => {
+    setQuery("");
+    setActiveType(null);
+  };
 
   if (plantProfiles.length === 0) {
     return (
-      <section className="beta-panel">
-        <SpecimenLabel tone="clay">Live catalogue</SpecimenLabel>
-        <p className="beta-cat-empty__note">No catalogue profiles loaded yet.</p>
+      <section className="garden-panel">
+        <SpecimenLabel tone="clay">Choose plants</SpecimenLabel>
+        <p className="garden-cat-empty__note">No plants to choose from yet.</p>
       </section>
     );
   }
 
   return (
-    <div className="beta-cat-root">
-      {/* Toolbar */}
-      <div className="beta-cat-toolbar">
-        <div className="beta-cat-search">
-          <label className="beta-cat-search__label" htmlFor="cat-search">
-            <svg aria-hidden="true" className="beta-cat-search__icon" fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+    <div className="garden-cat-root">
+      <div className="garden-cat-toolbar">
+        <div className="garden-cat-search">
+          <label className="garden-cat-search__label" htmlFor="cat-search">
+            <svg aria-hidden="true" className="garden-cat-search__icon" fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
               <circle cx="6.5" cy="6.5" r="5" stroke="currentColor" strokeWidth="1.4" />
               <line stroke="currentColor" strokeLinecap="round" strokeWidth="1.4" x1="10.5" x2="14.5" y1="10.5" y2="14.5" />
             </svg>
           </label>
           <input
-            className="beta-cat-search__input"
+            className="garden-cat-search__input"
             id="cat-search"
-            placeholder="Search by name, botanical name, or family…"
+            placeholder="Search plants…"
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
 
-        <div className="beta-cat-toolbar__row">
-          <div className="beta-cat-type-chips" role="group" aria-label="Filter by type">
-            <button
-              aria-pressed={activeType === null}
-              className={`beta-cat-chip${activeType === null ? " is-active" : ""}`}
-              type="button"
-              onClick={() => setActiveType(null)}
-            >
-              All <small>{plantProfiles.length}</small>
-            </button>
-            {typeChips.map(({ code, label, count }) => (
+        <div className="garden-cat-toolbar__row">
+          <p className="garden-cat-filter-summary">
+            <span>Showing</span>
+            {activeTypeLabel}
+          </p>
+          {isReadOnly ? null : (
+            <div className="garden-cat-toolbar__actions">
+              {hasFilters ? (
+                <button className="garden-cat-clear" type="button" onClick={clearFilters}>
+                  Show every kind
+                </button>
+              ) : null}
               <button
-                aria-pressed={activeType === code}
-                className={`beta-cat-chip${activeType === code ? " is-active" : ""}`}
-                key={code}
+                aria-expanded={showFilters}
+                className="folio-button"
                 type="button"
-                onClick={() => setActiveType(activeType === code ? null : code)}
+                onClick={() => setShowFilters((value) => !value)}
               >
-                {label} <small>{count}</small>
+                {showFilters ? "Hide plant kinds" : "Browse by kind"}
               </button>
-            ))}
-          </div>
-
-          <div className="beta-cat-sort">
-            <label className="beta-cat-sort__label" htmlFor="cat-sort">Sort</label>
-            <select
-              className="beta-cat-sort__select"
-              id="cat-sort"
-              value={sort}
-              onChange={(e) => setSort(e.target.value as SortKey)}
-            >
-              <option value="name">Name A–Z</option>
-              <option value="type">Type</option>
-            </select>
-          </div>
+            </div>
+          )}
         </div>
-      </div>
 
-      {/* Results meta row */}
-      <div className="beta-cat-results-meta">
-        <span>
-          {filtered.length === plantProfiles.length
-            ? `${filtered.length} profiles in catalogue`
-            : `${filtered.length} of ${plantProfiles.length} profiles`}
-        </span>
-        {hasFilters ? (
-          <button
-            className="beta-cat-clear"
-            type="button"
-            onClick={() => {
-              setQuery("");
-              setActiveType(null);
-            }}
-          >
-            Clear filters
-          </button>
+        {showFilters && !isReadOnly ? (
+          <div className="garden-cat-toolbar__controls">
+            <div className="garden-cat-type-chips" role="group" aria-label="Plant kinds">
+              <button
+                aria-pressed={activeType === null}
+                className={`garden-cat-chip${activeType === null ? " is-active" : ""}`}
+                type="button"
+                onClick={() => setActiveType(null)}
+              >
+                All <small>{plantProfiles.length}</small>
+              </button>
+              {typeChips.map(({ code, label, count }) => (
+                <button
+                  aria-pressed={activeType === code}
+                  className={`garden-cat-chip${activeType === code ? " is-active" : ""}`}
+                  key={code}
+                  type="button"
+                  onClick={() => setActiveType(activeType === code ? null : code)}
+                >
+                  {label} <small>{count}</small>
+                </button>
+              ))}
+            </div>
+          </div>
         ) : null}
       </div>
 
-      {/* Card grid or empty state */}
+      <div className="garden-cat-results-meta">
+        <span>
+          {filtered.length === plantProfiles.length
+            ? `${filtered.length} plant${filtered.length === 1 ? "" : "s"} to choose from`
+            : `${filtered.length} of ${plantProfiles.length} plants to choose from`}
+        </span>
+      </div>
+
       {filtered.length === 0 ? (
-        <div className="beta-cat-empty">
-          <p className="beta-cat-empty__heading">No specimens match your search</p>
-          <p className="beta-cat-empty__note">
+        <div className="garden-cat-empty">
+          <p className="garden-cat-empty__heading">No plants match that search</p>
+          <p className="garden-cat-empty__note">
             Try broadening your query, or{" "}
             <button
-              className="beta-cat-clear beta-cat-clear--inline"
+              className="garden-cat-clear garden-cat-clear--inline"
               type="button"
               onClick={() => {
                 setQuery("");
                 setActiveType(null);
               }}
             >
-              clear all filters
+              show every kind
             </button>{" "}
-            to browse the full field guide.
+            to start over.
           </p>
         </div>
       ) : (
-        <div className="beta-catalogue-grid">
+        <div className="garden-catalogue-grid">
           {filtered.map((plant) => (
             <CatalogCard
               activeBed={activeBed}
               addCatalogPlantToBed={addCatalogPlantToBed}
+              isReadOnly={isReadOnly}
               key={plant.slug}
               plant={plant}
               saveWishlist={saveWishlist}

@@ -4,8 +4,6 @@ import type {
   GardenPlantOutcomeResult,
 } from "@/lib/garden-app-types";
 
-// Phase 3C · Slice 3 — personal performance memory.
-//
 // Aggregates recorded outcomes into per-(bed × plant) and per-plant track
 // records, so the suggestion engine can cite real history ("your tomatoes here
 // rated 4/5 last time") instead of only generic heuristics. Pure + derived —
@@ -116,19 +114,19 @@ export function buildPerformanceMemory(
   return { byBedProfile, byProfile };
 }
 
-/** A one-line, human summary of a track record, e.g. "averaged 4.3/5 over 3 harvests". */
+/** A one-line, human summary of a plant's observed history, e.g. "averaged 4.3/5 across 3 harvest notes". */
 export function describePerformance(stat: PerformanceStat): string {
   const parts: string[] = [];
   if (stat.avgQuality !== null) {
     const n = stat.qualityCount;
-    parts.push(`averaged ${stat.avgQuality.toFixed(1)}/5 over ${n} recorded ${n === 1 ? "harvest" : "harvests"}`);
+    parts.push(`averaged ${stat.avgQuality.toFixed(1)}/5 across ${n} harvest ${n === 1 ? "note" : "notes"}`);
   } else {
-    parts.push(`${stat.count} recorded ${stat.count === 1 ? "outcome" : "outcomes"}`);
+    parts.push(`${stat.count} noted ${stat.count === 1 ? "result" : "results"}`);
   }
   const verdicts: string[] = [];
-  if (stat.successCount) verdicts.push(`${stat.successCount} success`);
-  if (stat.partialCount) verdicts.push(`${stat.partialCount} partial`);
-  if (stat.failureCount) verdicts.push(`${stat.failureCount} failure`);
+  if (stat.successCount) verdicts.push(`${stat.successCount} grew well`);
+  if (stat.partialCount) verdicts.push(`${stat.partialCount} mixed`);
+  if (stat.failureCount) verdicts.push(`${stat.failureCount} didn't work`);
   if (verdicts.length) parts.push(`(${verdicts.join(", ")})`);
   return parts.join(" ");
 }

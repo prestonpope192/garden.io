@@ -1,0 +1,364 @@
+=== / ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Choose plants
+Your garden, smarter.
+Save what changed. Keep what helped. See what works.
+Start your garden
+See a sample garden
+Start with one plant. Add notes as the season unfolds.
+Apple
+First bloom
+Apr. 12. Compare fruit set and harvest later.
+Simple garden habit
+Notice the change before you act.
+Add a note or photo. Keep what helped with the right plant.
+Place each plant
+Give every plant a bed once. Notes stay where they belong.
+Notice what changed
+Add what changed while it is fresh, with the right plant or bed.
+Keep what helped
+Keep the helpful note with the right plant or bed.
+Your plants
+See each plant's season in one place.
+Save bloom dates, pests, harvests, and what helped as the season changes.
+Apple
+First bloom and fruit set
+Save bloom dates, pruning notes, fruit set, and harvests together.
+Borage
+Bees in the borage
+Note blooms, reseeding, companion planting, and pollinator visits.
+Bouquet Dill
+Sown, cut, gone to seed
+Save sowing dates, cut stems, flowers, seed heads, and next plantings.
+Garden.io
+A living notebook for your garden
+=== /sample-garden ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Start your garden
+Today
+4 plants in 3 beds
+Your garden, smarter.
+Add a note or photo. Keep what helped with the right plant.
+What changed in your garden?
+Add a photo
+See what helps
+Save it so you remember what helped.
+Leaves are yellowing
+Heavy rain last night
+My Garden
+Weekly care
+Choose plants
+=== /sample-garden/ask ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Start your garden
+Today
+4 plants in 3 beds
+Your garden, smarter.
+Add a note or photo. Keep what helped with the right plant.
+What changed in your garden?
+Add a photo
+See what helps
+Save it so you remember what helped.
+Leaves are yellowing
+Heavy rain last night
+My Garden
+Weekly care
+Choose plants
+=== /sample-garden/calendar ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Today
+Start your garden
+Kitchen Garden
+2 beds
+Pollinator Edge
+1 bed
+Weekly care
+This Week
+Start with what needs care. Let the rest wait.
+Summer
+June 22–28, 2026
+First up
+3 garden jobs this week
+Today
+Water deeply before the hot afternoon
+Bell Pepper in Container Row, Kitchen Garden
+Water
+Focus on the bell pepper container and newly planted herbs.
+Jun 24
+Later this week
+Harvest dill before afternoon heat
+Bouquet Dill in Herb Bed, Kitchen Garden
+Harvest
+Jun 26
+Note bloom duration
+Borage in Bloom Border, Pollinator Edge
+Note
+Jun 28
+=== /sample-garden/plants ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Today
+Start your garden
+Kitchen Garden
+2 beds
+Pollinator Edge
+1 bed
+Your plants
+Plant Journal
+Choose one plant to see what happened and what helped.
+Summer
+Bell Pepper
+Vegetable · Annual
+Kitchen Garden
+·
+Container Row
+1 plant
+· 8 weeks, 2 days in ground
+This week:
+Water deeply before the hot afternoon
+Bouquet Dill
+Herb · Annual
+Kitchen Garden
+·
+Herb Bed
+4 plants
+· 3 weeks in ground
+This week:
+Harvest dill before afternoon heat
+Borage
+Flower · Annual
+Pollinator Edge
+·
+Bloom Border
+6 plants
+· 4 weeks, 5 days in ground
+This week:
+Note bloom duration
+Borage
+Flower · Annual
+Kitchen Garden
+·
+Herb Bed
+2 plants
+· 3 weeks in ground
+This week:
+Check the herb bed after afternoon heat
+Plant notes
+Choose a plant
+4 plants in 3 beds. Start with Bell Pepper. Choose any plant when you want its notes.
+4 plants need care this week.
+=== /sample-garden/property ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Today
+Start your garden
+Kitchen Garden
+2 beds
+Pollinator Edge
+1 bed
+Where things grow
+My Garden
+See what grows where, and what happened there.
+Summer
+Where things grow
+Backyard Garden
+Central Texas · Growing zone 8b · Summer
+Kitchen Garden
+2
+beds
+Herbs and daily cooking plants · Morning sun
+Herb Bed
+2
+Bouquet Dill
+·4
+Borage
+·2
+Container Row
+1
+Bell Pepper
+Pollinator Edge
+1
+bed
+Flowers, perennial color, and beneficial insects · Full sun
+Bloom Border
+1
+Borage
+·6
+Garden
+Backyard Garden
+This week
+Bell Pepper
+Water deeply before the hot afternoon
+· Jun 24
+Container Row · Kitchen Garden
+4 plants in 3 beds. Start with Bell Pepper. View its notes when you need context.
+View
+Bell Pepper
+notes
+=== /catalog ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Home
+Choose plants
+Start your garden
+Plant notes
+Field guide
+Choose the right plant for the right spot.
+Check sun, water, soil, and room before you plant.
+Search plants
+All plants
+Plant type
+988
+plants in the guide
+Match the spot
+sun, water, and room
+Good to remember
+what changed and what helped
+Image credit ·
+Franz Eugen Köhler, Köhler's Medizinal-Pflanzen · Public domain · Wikimedia Commons
+Plant note
+Apple
+Malus domestica
+Deciduous fruit tree producing sweet to tart pomes, widely grown for fresh eating and cooking.
+Sun
+Full Sun
+Water
+Medium
+Soil
+Check drainage and soil before planting.
+Type
+Perennial · Tree
+View plant
+Plants to consider
+988 plants
+Flower
+Calendula
+Calendula officinalis
+View plant
+An easy seasonal flower for edges, pollinator support, and steady cut-and-come-again blooms.
+Sun
+Full Sun To Light Shade.
+Water
+Low
+Annual · Herb
+Cilantro
+Coriandrum sativum
+View plant
+Cilantro (Coriandrum sativum) is an aromatic annual herb cultivated for its pungent leaves and seeds.
+Sun
+Full Sun
+Water
+Medium
+Height
+12-24 in
+Annual · Vine
+Cucumber
+Cucumis sativus
+View plant
+Cucumber is a fast-growing annual vine cultivated for its crisp, edible fruits commonly used fresh or pickled.
+Sun
+Full Sun
+Water
+High
+Height
+12-72 in
+Perennial · Shrub
+Abelia
+Abelia x grandiflora
+View plant
+Deciduous to semi-evergreen shrub with glossy foliage and fragrant pink to white tubular flowers from late spring to fall.
+Sun
+Full Sun
+Water
+Medium
+Height
+36-72 in
+Perennial · Shrub
+Acerola
+Malpighia emarginata
+View plant
+Acerola is a fast-growing tropical shrub known for its bright red, cherry-like fruits rich in vitamin C.
+Sun
+Full Sun
+Water
+Medium
+Height
+72-144 in
+Perennial · Tree
+Ackee
+Blighia sapida
+View plant
+Tropical evergreen tree producing distinctive edible fruits used in cooking, notably in Jamaican cuisine.
+Sun
+Full Sun
+Water
+Medium
+Height
+600-900 in
+6
+of
+988
+plants shown.
+Show more plants
+=== /catalog/apple ===
+Garden.io | Your Garden, Smarter
+Garden.io
+Field guide
+Start your garden
+Plant note
+Field guide
+Apple
+Malus domestica
+Deciduous fruit tree producing sweet to tart pomes, widely grown for fresh eating and cooking.
+Perennial
+Tree
+Sun
+Full Sun
+Water
+Medium
+Height
+120-240 in
+Image credit ·
+Franz Eugen Köhler, Köhler's Medizinal-Pflanzen · Public domain · Wikimedia Commons
+At a glance
+Apple
+Malus domestica
+Sun
+Full Sun
+Water
+Medium
+Soil
+Check drainage and soil before planting.
+Type
+Perennial · Tree
+Before you plant
+Match it to the garden you have.
+Check sun, water, soil, and room before you plant.
+Sun
+Full Sun
+Water
+Medium
+Soil
+Check drainage and soil before planting.
+Height
+120-240 in
+Where it belongs
+Choose dwarf or semi-dwarf rootstocks to fit smaller spaces; ensure full sun exposure.
+Edible Fruit
+Shade
+Privacy screen
+Watch this season
+Bloom timing, weather shifts, pests, and what helped.
+Grows as
+Perennial
+Use it for
+Edible Fruit, Shade, Privacy screen
+Add it to your garden
+Give it a place to grow.
+Then remember what happened and what helped.
+Start your garden
+Back to field guide

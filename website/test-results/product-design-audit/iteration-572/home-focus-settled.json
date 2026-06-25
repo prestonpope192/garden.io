@@ -1,0 +1,119 @@
+[
+  {
+    "step": 1,
+    "tag": "A",
+    "text": "Garden.io",
+    "cls": "brand",
+    "rect": {
+      "x": 10,
+      "y": 17,
+      "w": 88,
+      "h": 40
+    },
+    "inViewport": true,
+    "scrollY": 0,
+    "outline": "auto 1px",
+    "shadow": "none"
+  },
+  {
+    "step": 2,
+    "tag": "A",
+    "text": "Choose plants",
+    "cls": "",
+    "rect": {
+      "x": 286,
+      "y": 17,
+      "w": 93,
+      "h": 40
+    },
+    "inViewport": true,
+    "scrollY": 0,
+    "outline": "auto 1px",
+    "shadow": "none"
+  },
+  {
+    "step": 3,
+    "tag": "A",
+    "text": "Start your garden",
+    "cls": "folio-link",
+    "rect": {
+      "x": 23,
+      "y": 236,
+      "w": 344,
+      "h": 42
+    },
+    "inViewport": true,
+    "scrollY": 0,
+    "outline": "auto 1px",
+    "shadow": "none"
+  },
+  {
+    "step": 4,
+    "tag": "A",
+    "text": "Tour a garden journal",
+    "cls": "folio-link folio-link--secondary",
+    "rect": {
+      "x": 23,
+      "y": 286,
+      "w": 139,
+      "h": 40
+    },
+    "inViewport": true,
+    "scrollY": 0,
+    "outline": "auto 1px",
+    "shadow": "none"
+  },
+  {
+    "step": 5,
+    "tag": "A",
+    "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning.",
+    "cls": "home-plant-card",
+    "rect": {
+      "x": 8,
+      "y": 267,
+      "w": 374,
+      "h": 366
+    },
+    "inViewport": true,
+    "scrollY": 1193,
+    "outline": "solid 2px",
+    "shadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px"
+  },
+  {
+    "step": 6,
+    "tag": "A",
+    "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+    "cls": "home-plant-card",
+    "rect": {
+      "x": 8,
+      "y": 518,
+      "w": 374,
+      "h": 366
+    },
+    "inViewport": true,
+    "scrollY": 1321,
+    "outline": "solid 2px",
+    "shadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px"
+  },
+  {
+    "step": 7,
+    "tag": "A",
+    "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+    "cls": "home-plant-card",
+    "rect": {
+      "x": 8,
+      "y": 543,
+      "w": 374,
+      "h": 341
+    },
+    "inViewport": true,
+    "scrollY": 1674,
+    "outline": "solid 2px",
+    "shadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px"
+  },
+  {
+    "step": 8,
+    "tag": "BODY",
+    "scrollY": 1674
+  }
+]

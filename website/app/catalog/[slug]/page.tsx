@@ -2,52 +2,71 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FieldIcon } from "@/components/field-icons";
-import { MarginNote, PlateCard, SpecimenLabel } from "@/components/journal-primitives";
+import { SpecimenLabel } from "@/components/journal-primitives";
 import {
   formatCatalogueValue,
   formatInchesRange,
+  formatPlantSummaryLine,
   getPropagationLabels,
-  getProfileIllustration,
   getProfileTags,
   getRating,
-  getUseLabels
+  hasRatingContent,
+  hasKnownCatalogueValue,
+  getUseLabels,
+  getUseSummary
 } from "@/lib/catalogue-format";
+import { buildDemoGardenSnapshot } from "@/lib/demo-garden-snapshot";
 import type { GardenPlantProfile } from "@/lib/garden-app-types";
+import { getRealPlantPhotoUrl } from "@/lib/plant-images";
 import { getPlantProfiles } from "@/lib/plant-profile-service";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-function formatConfidenceScore(score: GardenPlantProfile["confidence_score"]) {
-  if (score === null || score === undefined || score === "") return "Not scored";
+const CARE_SUMMARY_FALLBACK = "Check light, water, and room before choosing a spot.";
+const SOIL_SUMMARY_FALLBACK = "Check drainage and soil before planting.";
+const FIT_SUMMARY_FALLBACK = "Start with a spot that matches its light, water, and room needs.";
 
-  const numericScore = Number(score);
-  if (Number.isFinite(numericScore)) {
-    if (numericScore >= 0 && numericScore <= 1) return `${Math.round(numericScore * 100)}%`;
-    return `${Math.round(numericScore)}%`;
+async function getPublicPlantProfile(slug: string): Promise<GardenPlantProfile | null> {
+  try {
+    const [plant] = await getPlantProfiles(slug);
+    return plant ?? null;
+  } catch {
+    return buildDemoGardenSnapshot([]).plantProfiles.find((plant) => plant.slug === slug) ?? null;
+  }
+}
+
+function PlantPhoto({ plant }: { plant: GardenPlantProfile }) {
+  const photoUrl = getRealPlantPhotoUrl(plant.primary_image_url);
+
+  if (!photoUrl) {
+    return null;
   }
 
-  return String(score);
+  return (
+    <Image
+      alt={`${plant.display_name} plant image`}
+      className="plant-profile-photo-card__image"
+      height={420}
+      priority
+      src={photoUrl}
+      width={340}
+    />
+  );
 }
 
-function getRecordStatus(plant: GardenPlantProfile) {
-  if (plant.human_verified) return "Human verified";
-  if (plant.review_status) return formatCatalogueValue(plant.review_status);
-  if (plant.generation_status) return formatCatalogueValue(plant.generation_status);
-  return "Public profile";
-}
-
-function getSourceSummary(plant: GardenPlantProfile) {
-  const sourceCount = typeof plant.source_count === "number" ? `${plant.source_count} source${plant.source_count === 1 ? "" : "s"}` : null;
-  const evidenceCount =
-    typeof plant.evidence_count === "number" ? `${plant.evidence_count} evidence point${plant.evidence_count === 1 ? "" : "s"}` : null;
-
-  return [sourceCount, evidenceCount].filter(Boolean).join(" · ") || "Source detail pending";
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const plant = await getPublicPlantProfile((await params).slug);
+  if (!plant || !plant.is_published) return {};
+  return {
+    title: `${plant.display_name} | Garden.io`,
+    description: plant.short_description ?? undefined,
+  };
 }
 
 export default async function PublicPlantDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [plant] = await getPlantProfiles(slug);
+  const plant = await getPublicPlantProfile(slug);
 
   if (!plant || !plant.is_published) {
     notFound();
@@ -56,13 +75,53 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
   const containerRating = getRating(plant, "container_suitability");
   const pollinatorRating = getRating(plant, "pollinator_value");
   const maintenanceRating = getRating(plant, "maintenance_need");
+  const careRatings = [
+    {
+      label: "Container fit",
+      rating: containerRating
+    },
+    {
+      label: "Pollinator value",
+      rating: pollinatorRating
+    },
+    {
+      label: "Care load",
+      rating: maintenanceRating
+    }
+  ].filter((item) => hasRatingContent(item.rating));
   const propagationLabels = getPropagationLabels(plant);
   const useLabels = getUseLabels(plant);
+  const useSummary = getUseSummary(plant);
   const profileTags = getProfileTags(plant);
-  const cultivarOverrides = plant.cultivar_overrides ?? [];
-  const recordStatus = getRecordStatus(plant);
-  const confidenceScore = formatConfidenceScore(plant.confidence_score);
-  const sourceSummary = getSourceSummary(plant);
+  const photoUrl = getRealPlantPhotoUrl(plant.primary_image_url);
+  const fitSummary =
+    plant.notes_for_small_garden ??
+    plant.notes_for_homestead ??
+    plant.why_plant_it ??
+    plant.short_description ??
+    FIT_SUMMARY_FALLBACK;
+  const plantDetails = [
+    ...(hasKnownCatalogueValue(plant.lifecycle_type)
+      ? [
+          {
+            label: "Grows as",
+            value: formatCatalogueValue(plant.lifecycle_type)
+          }
+        ]
+      : []),
+    {
+      label: "Use it for",
+      value: useSummary
+    },
+    ...(propagationLabels.length
+      ? [
+          {
+            label: "Start from",
+            value: propagationLabels.join(", ")
+          }
+        ]
+      : [])
+  ];
 
   return (
     <main className="site site--marketing">
@@ -74,16 +133,12 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
         </div>
 
         <nav aria-label="Primary" className="topnav">
-          <Link href="/catalog">Plant Catalogue</Link>
-          <Link href="/app/my-property">App</Link>
+          <Link href="/catalog">Choose plants</Link>
         </nav>
 
         <div className="topbar__actions">
-          <Link className="topbar-secondary" href="/catalog">
-            Back to Catalog
-          </Link>
-          <Link className="topbar-cta" href="/#join">
-            Join Waitlist
+          <Link className="topbar-cta" href="/app/my-property">
+            Start your garden
           </Link>
         </div>
       </header>
@@ -91,24 +146,15 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
       <section className="cover-sheet plant-profile-hero">
         <div className="cover-sheet__copy">
           <div className="public-catalogue-hero__folio">
-            <SpecimenLabel tone="olive">Public plant profile</SpecimenLabel>
-            <span>Specimen sheet · {recordStatus}</span>
+            <SpecimenLabel tone="olive">Plant note</SpecimenLabel>
+            <span>Choose plants</span>
           </div>
           <h1>{plant.display_name}</h1>
           <p className="lead">
-            <em>{plant.botanical_name_full}</em> · {plant.family_name ?? plant.plant_type_code}
+            <em>{plant.botanical_name_full}</em>
             {plant.cultivar_name ? ` · ${plant.cultivar_name} cultivar` : ""}
           </p>
-          <p>{plant.short_description ?? plant.why_plant_it ?? "No summary yet."}</p>
-
-          <div className="cover-sheet__actions">
-            <Link className="folio-link" href="/catalog">
-              Browse catalogue
-            </Link>
-            <Link className="folio-link folio-link--secondary" href="/#join">
-              Get launch access
-            </Link>
-          </div>
+          <p>{plant.short_description ?? plant.why_plant_it ?? CARE_SUMMARY_FALLBACK}</p>
 
           <div className="catalog-tags">
             {profileTags.map((tag) => (
@@ -116,21 +162,6 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
                 {tag}
               </span>
             ))}
-          </div>
-
-          <div className="plant-profile-record-strip" aria-label="Profile record status">
-            <div>
-              <span>Record</span>
-              <strong>{recordStatus}</strong>
-            </div>
-            <div>
-              <span>Confidence</span>
-              <strong>{confidenceScore}</strong>
-            </div>
-            <div>
-              <span>Evidence</span>
-              <strong>{sourceSummary}</strong>
-            </div>
           </div>
 
           <div className="plant-profile-hero__facts" aria-label="Plant quick facts">
@@ -150,66 +181,62 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
         </div>
 
         <div className="cover-sheet__aside">
-          <PlateCard
-            plateNumber="41"
-            subtitle={`${plant.botanical_name_full} · ${plant.family_name ?? "Plant profile"}`}
-            title={plant.display_name}
-            illustration={
-              <>
-                <Image alt={plant.display_name} className="specimen-art" height={420} priority src={getProfileIllustration(plant)} width={340} />
+          <article className="plant-profile-photo-card">
+            {photoUrl ? (
+              <div className="plant-profile-photo-card__media">
+                <PlantPhoto plant={plant} />
                 {plant.image_attribution ? (
-                  <p className="specimen-art__credit">Illustration · {plant.image_attribution}</p>
+                  <p className="plant-profile-photo-card__credit">Image credit · {plant.image_attribution}</p>
                 ) : null}
-              </>
-            }
-          >
-            <dl className="detail-list">
-              <div className="detail-list__row">
-                <dt>
-                  <FieldIcon className="field-icon" name="sun" />
-                  Sun
-                </dt>
-                <dd>{formatCatalogueValue(plant.preferred_light)}</dd>
               </div>
-              <div className="detail-list__row">
-                <dt>
-                  <FieldIcon className="field-icon" name="water" />
-                  Water
-                </dt>
-                <dd>{formatCatalogueValue(plant.water_need_level)}</dd>
+            ) : null}
+            <div className="plant-profile-photo-card__body">
+              <SpecimenLabel tone="clay">At a glance</SpecimenLabel>
+              <p>{plant.display_name}</p>
+              <p className="plant-profile-photo-card__subtitle">
+                {plant.botanical_name_full}
+              </p>
+              <dl className="detail-list">
+                <div className="detail-list__row">
+                  <dt>
+                    <FieldIcon className="field-icon" name="sun" />
+                    Sun
+                  </dt>
+                  <dd>{formatCatalogueValue(plant.preferred_light)}</dd>
+                </div>
+                <div className="detail-list__row">
+                  <dt>
+                    <FieldIcon className="field-icon" name="water" />
+                    Water
+                  </dt>
+                  <dd>{formatCatalogueValue(plant.water_need_level)}</dd>
+                </div>
+                <div className="detail-list__row">
+                  <dt>
+                    <FieldIcon className="field-icon" name="soil" />
+                    Soil
+                  </dt>
+                  <dd>{plant.soil_texture_summary ?? plant.drainage_requirement ?? SOIL_SUMMARY_FALLBACK}</dd>
+                </div>
+              </dl>
+              <div className="plant-profile-good-to-know">
+                <span>Type</span>
+                <strong>{formatPlantSummaryLine(plant)}</strong>
               </div>
-              <div className="detail-list__row">
-                <dt>
-                  <FieldIcon className="field-icon" name="soil" />
-                  Soil
-                </dt>
-                <dd>{plant.soil_texture_summary ?? plant.drainage_requirement ?? "Soil TBD"}</dd>
-              </div>
-            </dl>
-            <div className="catalogue-plate-note">
-              <span>Profile origin</span>
-              <strong>{recordStatus}</strong>
             </div>
-          </PlateCard>
+          </article>
         </div>
       </section>
 
-      <section className="section-card plant-profile-guide">
-        <aside className="plant-profile-nav" aria-label="Plant profile sections">
-          <SpecimenLabel tone="clay">Field guide</SpecimenLabel>
-          <a href="#quick-facts">Quick facts</a>
-          <a href="#requirements">Growing requirements</a>
-          <a href="#lifecycle">Lifecycle sheet</a>
-          <a href="#fit">Where it fits</a>
-          <a href="#community">Community notes</a>
-        </aside>
-
+      <section className="section-card plant-profile-simple-guide">
         <div className="plant-profile-main">
-          <section className="plant-profile-section" id="quick-facts">
+          <section className="plant-profile-section" id="fit">
             <div className="plant-profile-section__header">
-              <SpecimenLabel tone="olive">Quick facts</SpecimenLabel>
-              <h2>Scan the plant before you commit bed space.</h2>
+              <SpecimenLabel tone="olive">Before you plant</SpecimenLabel>
+              <h2>Match it to the garden you have.</h2>
+              <p>Check sun, water, soil, and room before you plant.</p>
             </div>
+
             <div className="plant-detail-facts">
               <article className="plant-detail-fact">
                 <FieldIcon className="field-icon" name="sun" />
@@ -224,108 +251,19 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
               <article className="plant-detail-fact">
                 <FieldIcon className="field-icon" name="soil" />
                 <span>Soil</span>
-                <strong>{plant.soil_texture_summary ?? plant.drainage_requirement ?? "TBD"}</strong>
+                <strong>{plant.soil_texture_summary ?? plant.drainage_requirement ?? SOIL_SUMMARY_FALLBACK}</strong>
               </article>
               <article className="plant-detail-fact">
                 <FieldIcon className="field-icon" name="leaf" />
-                <span>Mature height</span>
+                <span>Height</span>
                 <strong>{formatInchesRange(plant.mature_height_min_in, plant.mature_height_max_in)}</strong>
               </article>
             </div>
-          </section>
 
-          <section className="plant-profile-section" id="requirements">
-            <div className="plant-profile-section__header">
-              <SpecimenLabel tone="olive">Growing requirements</SpecimenLabel>
-              <h2>Practical conditions and planting methods.</h2>
-            </div>
-            <div className="plant-requirements-grid">
-              <dl className="detail-list plant-requirements-list">
-                <div className="detail-list__row">
-                  <dt>Lifecycle</dt>
-                  <dd>{formatCatalogueValue(plant.lifecycle_type)}</dd>
-                </div>
-                <div className="detail-list__row">
-                  <dt>Growth habit</dt>
-                  <dd>{formatCatalogueValue(plant.growth_habit)}</dd>
-                </div>
-                <div className="detail-list__row">
-                  <dt>Growth rate</dt>
-                  <dd>{formatCatalogueValue(plant.growth_rate_code)}</dd>
-                </div>
-                <div className="detail-list__row">
-                  <dt>Drainage</dt>
-                  <dd>{plant.drainage_requirement ?? "TBD"}</dd>
-                </div>
-                <div className="detail-list__row">
-                  <dt>Fertility</dt>
-                  <dd>{formatCatalogueValue(plant.fertility_need)}</dd>
-                </div>
-                <div className="detail-list__row">
-                  <dt>Spread</dt>
-                  <dd>{formatInchesRange(plant.mature_width_min_in, plant.mature_width_max_in)}</dd>
-                </div>
-              </dl>
-
-              <article className="paper-panel paper-panel--muted">
-                <SpecimenLabel tone="clay">Planting methods</SpecimenLabel>
-                {propagationLabels.length ? (
-                  <div className="catalog-tags">
-                    {propagationLabels.map((label) => (
-                      <span className="catalog-tag" key={label}>
-                        {label}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p>Planting method guidance is pending for this entry.</p>
-                )}
-              </article>
-            </div>
-          </section>
-
-          <section className="plant-profile-section plant-profile-section--sheet" id="lifecycle">
-            <div className="plant-profile-section__header">
-              <SpecimenLabel tone="olive">Lifecycle sheet</SpecimenLabel>
-              <h2>How this plant behaves through the garden record.</h2>
-            </div>
-            <div className="plant-lifecycle-sheet">
-              <article>
-                <span>01</span>
-                <strong>Lifecycle</strong>
-                <p>{formatCatalogueValue(plant.lifecycle_type)}</p>
-              </article>
-              <article>
-                <span>02</span>
-                <strong>Habit</strong>
-                <p>{formatCatalogueValue(plant.growth_habit)}</p>
-              </article>
-              <article>
-                <span>03</span>
-                <strong>Propagation</strong>
-                <p>{propagationLabels.length ? propagationLabels.join(", ") : "Method guidance pending"}</p>
-              </article>
-              <article>
-                <span>04</span>
-                <strong>Garden role</strong>
-                <p>{useLabels.length ? useLabels.join(", ") : plant.primary_use_cases ?? "Use case pending"}</p>
-              </article>
-            </div>
-          </section>
-
-          <section className="plant-profile-section" id="fit">
-            <div className="plant-profile-section__header">
-              <SpecimenLabel tone="olive">Where it fits</SpecimenLabel>
-              <h2>{plant.primary_use_cases ?? "Fit notes pending"}</h2>
-            </div>
-            <div className="section-card__split section-card__split--tight">
+            <div className="section-card__split section-card__split--tight plant-profile-fit-grid">
               <article className="paper-panel">
-                <h3>Garden fit</h3>
-                <p>
-                  {plant.notes_for_small_garden ??
-                    plant.notes_for_homestead ??
-                    "This public profile helps growers evaluate plant fit before organizing a property, zone, or bed."}
-                </p>
+                <h3>Where it belongs</h3>
+                <p>{fitSummary}</p>
                 {useLabels.length ? (
                   <div className="catalog-tags">
                     {useLabels.map((label) => (
@@ -338,60 +276,43 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
               </article>
 
               <article className="paper-panel paper-panel--muted">
-                <h3>Cultivar notes</h3>
-                <p>{plant.cultivar_description ?? plant.why_plant_it ?? plant.short_description ?? "No cultivar notes yet."}</p>
-                {cultivarOverrides.length ? (
-                  <p className="plant-profile-fineprint">{cultivarOverrides.length} cultivar-specific overrides are attached to this profile.</p>
-                ) : null}
+                <h3>Plant details</h3>
+                <p>Bloom timing, weather shifts, pests, and what helped.</p>
+                <dl className="plant-profile-aside-list">
+                  {plantDetails.map((item) => (
+                    <div key={item.label}>
+                      <dt>{item.label}</dt>
+                      <dd>{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </article>
             </div>
-          </section>
 
-          <section className="plant-profile-section" id="community">
-            <div className="plant-profile-section__header">
-              <SpecimenLabel tone="olive">Community notes</SpecimenLabel>
-              <h2>Public reading stays broad; participation happens in-app.</h2>
-            </div>
-            <div className="feature-grid">
-              <article className="feature-card">
-                <strong>Container fit</strong>
-                <p>{containerRating ? `${containerRating.rating ?? "TBD"}/5 · ${containerRating.description ?? "No note yet."}` : "Not rated yet."}</p>
-              </article>
-              <article className="feature-card">
-                <strong>Pollinator value</strong>
-                <p>{pollinatorRating ? `${pollinatorRating.rating ?? "TBD"}/5 · ${pollinatorRating.description ?? "No note yet."}` : "Not rated yet."}</p>
-              </article>
-              <article className="feature-card">
-                <strong>Care load</strong>
-                <p>{maintenanceRating ? `${maintenanceRating.rating ?? "TBD"}/5 · ${maintenanceRating.description ?? "No note yet."}` : "Not rated yet."}</p>
-              </article>
-            </div>
+            {careRatings.length ? (
+              <div className="plant-profile-care-strip" aria-label="Care fit">
+                {careRatings.map((item) => (
+                  <span key={item.label}>
+                    {item.label}: {item.rating?.rating ? `${item.rating.rating}/5` : item.rating?.description}
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </section>
         </div>
 
-        <aside className="plant-profile-aside">
-          <MarginNote icon="journal" title="Record quality">
-            <dl className="plant-profile-aside-list">
-              <div>
-                <dt>Status</dt>
-                <dd>{recordStatus}</dd>
-              </div>
-              <div>
-                <dt>Confidence</dt>
-                <dd>{confidenceScore}</dd>
-              </div>
-              <div>
-                <dt>Sources</dt>
-                <dd>{sourceSummary}</dd>
-              </div>
-            </dl>
-          </MarginNote>
-          <MarginNote icon="sprout" title="Save it in Garden.io">
-            <p>Inside the app, this profile can become a wishlist plant or move into a specific zone and bed.</p>
-            <Link className="folio-link folio-link--small" href="/#join">
-              Join waitlist
+        <aside className="plant-profile-aside plant-profile-aside--simple">
+          <SpecimenLabel tone="clay">Add it to your garden</SpecimenLabel>
+          <h2>Give it a place to grow.</h2>
+          <p>Then remember what happened and what helped.</p>
+          <div className="cover-sheet__actions">
+            <Link className="folio-link" href="/app/my-property">
+              Start your garden
             </Link>
-          </MarginNote>
+            <Link className="folio-link folio-link--secondary" href="/catalog">
+              Back to plants
+            </Link>
+          </div>
         </aside>
       </section>
     </main>

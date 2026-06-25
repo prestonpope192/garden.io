@@ -1,5 +1,6 @@
 import { Pool } from "pg";
 import type { GardenPlantProfile } from "@/lib/garden-app-types";
+import { getRealPlantPhotoUrl } from "@/lib/plant-images";
 
 let pool: Pool | null = null;
 
@@ -70,5 +71,9 @@ export async function getPlantProfiles(slug?: string): Promise<GardenPlantProfil
     [slug || null]
   );
 
-  return result.rows;
+  return (result.rows as GardenPlantProfile[]).map((profile) => ({
+    ...profile,
+    image_attribution: getRealPlantPhotoUrl(profile.primary_image_url) ? profile.image_attribution : null,
+    primary_image_url: getRealPlantPhotoUrl(profile.primary_image_url)
+  }));
 }

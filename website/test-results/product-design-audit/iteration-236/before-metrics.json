@@ -1,0 +1,140 @@
+[
+  {
+    "file": "01-my-plants-mobile-before.png",
+    "path": "/sample-garden/plants",
+    "metrics": {
+      "h1": "My Plants",
+      "headings": [
+        "My Plants"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nMy Plant \n\nChoo e a plant to  ee it  note , photo , and next  tep .\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant  · 4 week , 5 day  in ground\n\nNext  tep: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plant  · 11 week , 5 day  in ground\n\nNext  tep: Trim  pent  age bloom \nCurry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 week , 2 day  in ground\n\nNext  tep: Water deeply before the hot afternoon\nFrench Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plant  · 3 week  in ground\n\nNext  tep: Check the herb bed after afternoon heat\nCHOOSE A PLANT\n\n4 growing plant  acro  3 bed . Pick one to  ee note , photo , and next  tep .\n\n4 plant  have care thi  week.",
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "cards": [
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant  · 4 week , 5 day  in ground\n\nNext  tep: Note bloom duration",
+          "rect": {
+            "width": 347,
+            "height": 131
+          },
+          "image": {
+            "width": 82,
+            "height": 82,
+            "alt": "French Marigold"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "Autumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plant  · 11 week , 5 day  in ground\n\nNext  tep: Trim  pent  age bloom",
+          "rect": {
+            "width": 347,
+            "height": 131
+          },
+          "image": {
+            "width": 82,
+            "height": 82,
+            "alt": "Autumn Sage"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "Curry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 week , 2 day  in ground\n\nNext  tep: Water deeply before the hot afternoon",
+          "rect": {
+            "width": 347,
+            "height": 152
+          },
+          "image": {
+            "width": 82,
+            "height": 82,
+            "alt": "Curry Leaf"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "French Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plant  · 3 week  in ground\n\nNext  tep: Check the herb bed after afternoon heat",
+          "rect": {
+            "width": 347,
+            "height": 152
+          },
+          "image": {
+            "width": 82,
+            "height": 82,
+            "alt": "French Marigold"
+          }
+        }
+      ],
+      "overflowing": []
+    }
+  },
+  {
+    "file": "02-my-plants-desktop-before.png",
+    "path": "/sample-garden/plants",
+    "metrics": {
+      "h1": "My Plants",
+      "headings": [
+        "My Plants"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nLook around\nStart\nHOME GARDEN\nMy Plant \n\nChoo e a plant to  ee it  note , photo , and next  tep .\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant  · 4 week , 5 day  in ground\n\nNext  tep: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plant  · 11 week , 5 day  in ground\n\nNext  tep: Trim  pent  age bloom \nCurry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 week , 2 day  in ground\n\nNext  tep: Water deeply before the hot afternoon\nFrench Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plant  · 3 week  in ground\n\nNext  tep: Check the herb bed after afternoon heat\nMY PLANTS\nCHOOSE A PLANT\n\n4 growing plant  acro  3 bed . Pick one to  ee note , photo , and next  tep .\n\n4 plant  have care thi  week.",
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "cards": [
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant  · 4 week , 5 day  in ground\n\nNext  tep: Note bloom duration",
+          "rect": {
+            "width": 718,
+            "height": 174
+          },
+          "image": {
+            "width": 94,
+            "height": 94,
+            "alt": "French Marigold"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "Autumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plant  · 11 week , 5 day  in ground\n\nNext  tep: Trim  pent  age bloom",
+          "rect": {
+            "width": 718,
+            "height": 174
+          },
+          "image": {
+            "width": 94,
+            "height": 94,
+            "alt": "Autumn Sage"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "Curry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 week , 2 day  in ground\n\nNext  tep: Water deeply before the hot afternoon",
+          "rect": {
+            "width": 718,
+            "height": 174
+          },
+          "image": {
+            "width": 94,
+            "height": 94,
+            "alt": "Curry Leaf"
+          }
+        },
+        {
+          "className": "garden-plants-card garden-plants2-card",
+          "text": "French Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plant  · 3 week  in ground\n\nNext  tep: Check the herb bed after afternoon heat",
+          "rect": {
+            "width": 718,
+            "height": 174
+          },
+          "image": {
+            "width": 94,
+            "height": 94,
+            "alt": "French Marigold"
+          }
+        }
+      ],
+      "overflowing": []
+    }
+  }
+]

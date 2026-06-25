@@ -1,0 +1,117 @@
+[
+  {
+    "step": "01-ask-empty-mobile-current",
+    "h1": "Ask your garden",
+    "answerH1": null,
+    "textStart": "Garden.io Start Ask your garden Memory Care Guide ASK YOUR GARDEN 2 areas, 3 beds, 4 growing plants Ask with a note or photo. Keep the useful answer with the right plant, bed, or season. Ask about your garden Add photo Get next step Answers can be saved with a plant, bed, or the whole garden. Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today?",
+    "visibleTextLength": 415,
+    "hasAnswer": false,
+    "answerSections": [],
+    "actionButtons": [],
+    "rawTerms": [],
+    "visibleOverflow": [],
+    "viewportHeight": 844,
+    "answerTop": null,
+    "answerHeight": null
+  },
+  {
+    "step": "02-ask-answer-mobile-current",
+    "h1": "Ask your garden",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "textStart": "Garden.io Start Ask your garden Memory Care Guide ASK YOUR GARDEN 2 areas, 3 beds, 4 growing plants Ask with a note or photo. Keep the useful answer with the right plant, bed, or season. Ask about your garden Add photo Get next step Answers can be saved with a plant, bed, or the whole garden. \"Leaves are yellowing on my tomato.\" start with one close check, then save the next care step with the right plant or bed. NEXT STEP Check soil moisture before changing the watering rhythm. Add to care list Inspect the most affected leaves for pests or spotting. Add to care list Save one note with the plant or bed so the next answer has context. Add to care list WHY THIS ANSWER Heat and watering are the first things to rule out Possible The sample garden is in summer and has containers, herbs, and bloom borders with different water needs. Plant-specific context matters Possible French Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place. Look for: Look for whether the issue is on old leaves, new growth, or the whole plant. SAVE TO MEMORY Keep the answer with the right place so future questions have context. Attach to Whole garden Kitchen Garden area Pollinator Edge area Herb Bed in Kitchen Garden Container Row in Kitchen Garden Bloom Border in Po",
+    "visibleTextLength": 1432,
+    "hasAnswer": true,
+    "answerSections": [
+      "Next stepCheck soil moisture before changing the watering rhythm.Add to care listInspect the most affected leaves for pests or spotting.Add to care listSave one note with the plant or bed so the next answer has context.Add to care list",
+      "Why this answerHeat and watering are the first things to rule outPossibleThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.Plant-specific context mattersPossibleFrench Marigold, Foxglove, and Curry Leaf are ",
+      "Save to memoryKeep the answer with the right place so future questions have context.Attach toWhole gardenKitchen Garden areaPollinator Edge areaHerb Bed in Kitchen GardenContainer Row in Kitchen GardenBloom Border in Pollinator EdgeCalendula in Bloom BorderCil"
+    ],
+    "actionButtons": [
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "SELECT",
+        "text": "Whole gardenKitchen Garden areaPollinator Edge areaHerb Bed in Kitchen GardenContainer Row in Kitchen GardenBloom Border in Pollinator EdgeCalendula in Bloom BorderCilantro in Herb BedCucumber in Container RowCalendula in Herb Bed",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Ask follow-up",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Save note",
+        "disabled": false
+      }
+    ],
+    "rawTerms": [],
+    "visibleOverflow": [],
+    "viewportHeight": 844,
+    "answerTop": 579.3125,
+    "answerHeight": 1456.703125
+  },
+  {
+    "step": "03-ask-answer-desktop-current",
+    "h1": "Ask your garden",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "textStart": "Garden.io Look around Start Ask your garden Memory Care Guide ASK YOUR GARDEN 2 areas, 3 beds, 4 growing plants Ask with a note or photo. Keep the useful answer with the right plant, bed, or season. Ask about your garden Add photo Get next step Answers can be saved with a plant, bed, or the whole garden. \"Leaves are yellowing on my tomato.\" start with one close check, then save the next care step with the right plant or bed. NEXT STEP Check soil moisture before changing the watering rhythm. Add to care list Inspect the most affected leaves for pests or spotting. Add to care list Save one note with the plant or bed so the next answer has context. Add to care list WHY THIS ANSWER Heat and watering are the first things to rule out Possible The sample garden is in summer and has containers, herbs, and bloom borders with different water needs. Plant-specific context matters Possible French Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place. Look for: Look for whether the issue is on old leaves, new growth, or the whole plant. SAVE TO MEMORY Keep the answer with the right place so future questions have context. Attach to Whole garden Kitchen Garden area Pollinator Edge area Herb Bed in Kitchen Garden Container Row in Kitchen Garden Bloom ",
+    "visibleTextLength": 1444,
+    "hasAnswer": true,
+    "answerSections": [
+      "Next stepCheck soil moisture before changing the watering rhythm.Add to care listInspect the most affected leaves for pests or spotting.Add to care listSave one note with the plant or bed so the next answer has context.Add to care list",
+      "Why this answerHeat and watering are the first things to rule outPossibleThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.Plant-specific context mattersPossibleFrench Marigold, Foxglove, and Curry Leaf are ",
+      "Save to memoryKeep the answer with the right place so future questions have context.Attach toWhole gardenKitchen Garden areaPollinator Edge areaHerb Bed in Kitchen GardenContainer Row in Kitchen GardenBloom Border in Pollinator EdgeCalendula in Bloom BorderCil"
+    ],
+    "actionButtons": [
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Add to care list",
+        "disabled": false
+      },
+      {
+        "tag": "SELECT",
+        "text": "Whole gardenKitchen Garden areaPollinator Edge areaHerb Bed in Kitchen GardenContainer Row in Kitchen GardenBloom Border in Pollinator EdgeCalendula in Bloom BorderCilantro in Herb BedCucumber in Container RowCalendula in Herb Bed",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Ask follow-up",
+        "disabled": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Save note",
+        "disabled": false
+      }
+    ],
+    "rawTerms": [],
+    "visibleOverflow": [],
+    "viewportHeight": 1000,
+    "answerTop": 629.078125,
+    "answerHeight": 1251.578125
+  }
+]

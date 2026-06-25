@@ -26,20 +26,33 @@ type DiagnosePanelProps = {
   context: DiagnoseContext;
   addTask: (input: { title: string; dueOn: string; notes: string }) => Promise<void>;
   addObservation: (note: string) => Promise<void>;
-  // When `nonce` increments, seed the symptoms with `text` and run a diagnosis.
-  // Used by "Interpret this" on a just-logged note.
+  // When `nonce` increments, seed the symptoms with `text` and ask for care help.
+  // Used by "Save and get care help" on a just-logged note.
   seed?: { text: string; nonce: number };
 };
 
 function diagnosisToNote(diagnosis: Diagnosis): string {
   const top = diagnosis.causes[0];
-  const lines = [`Diagnosis — ${diagnosis.summary}`];
-  if (top) lines.push(`Likely: ${top.cause} (${top.confidence} confidence).`);
-  if (diagnosis.actions.length) lines.push(`Next: ${diagnosis.actions.slice(0, 2).join("; ")}.`);
+  const lines = [`Plant note — ${diagnosis.summary}`];
+  if (top) lines.push(`Possible cause: ${top.cause}.`);
+  if (diagnosis.actions.length) lines.push(`Try first: ${diagnosis.actions.slice(0, 2).join("; ")}.`);
   return lines.join("\n");
 }
 
+function formatCauseSignal(confidence: Cause["confidence"]) {
+  if (confidence === "high") return "Most likely";
+  if (confidence === "medium") return "Possible";
+  return "Needs a closer look";
+}
+
 const MAX_IMAGE_DIM = 1024;
+
+export const DIAGNOSE_COPY = {
+  unavailableFallback: "We couldn't look at this plant right now. Try again in a moment.",
+  networkError: "We couldn't look at this plant right now. You can still keep a note and try again.",
+  previewAlt: "Photo you added for this plant",
+  saveHint: "Kept with this plant so you remember what helped."
+};
 
 function fileToDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -60,7 +73,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
 }
 
 // Downscale photos to ~1024px JPEG before upload. Cuts payload size and the
-// vision-model token cost dramatically, with no meaningful loss for diagnosis.
+// vision-model token cost dramatically, with no meaningful loss for plant questions.
 async function compressImage(file: File): Promise<string> {
   if (!file.type.startsWith("image/")) return fileToDataUrl(file);
   try {
@@ -116,18 +129,18 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
       });
       const data = await response.json();
       if (!response.ok || !data.ok) {
-        setError(data.message || "The assistant could not respond. Try again.");
+        setError(data.message || DIAGNOSE_COPY.unavailableFallback);
       } else {
         setResult(data.diagnosis as Diagnosis);
       }
     } catch {
-      setError("Something went wrong reaching the assistant.");
+      setError(DIAGNOSE_COPY.networkError);
     } finally {
       setLoading(false);
     }
   }
 
-  // "Interpret this" on a just-logged note: seed symptoms and run automatically.
+  // "Save and get care help" on a just-logged note: seed symptoms and run automatically.
   useEffect(() => {
     if (!seed || seed.nonce === 0 || !seed.text.trim()) return;
     setSymptoms(seed.text);
@@ -137,7 +150,7 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
   }, [seed?.nonce]);
 
   async function addAction(action: string, index: number) {
-    await addTask({ title: action, dueOn: getTodayISO(), notes: `Suggested by the diagnosis assistant for ${context.name}.` });
+    await addTask({ title: action, dueOn: getTodayISO(), notes: `From this plant note: ${context.name}.` });
     setAdded((prev) => new Set(prev).add(index));
   }
 
@@ -148,74 +161,74 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
   }
 
   return (
-    <div className="beta-diagnose" ref={rootRef}>
-      <SpecimenLabel tone="olive">Ask the gardener</SpecimenLabel>
-      <p className="beta-drawer__muted">
-        Describe what you&rsquo;re seeing on {context.name} (a photo helps). The assistant reads this plant&rsquo;s record — stage, bed, season — to suggest likely causes and next steps.
+    <div className="garden-diagnose" ref={rootRef}>
+      <SpecimenLabel tone="olive">Ask about this plant</SpecimenLabel>
+      <p className="garden-drawer__muted">
+        Add what changed on {context.name}. A little context makes the answer more useful.
       </p>
-      <label className="beta-field">
-        <span>What are you seeing?</span>
+      <label className="garden-field">
+        <span>What changed on this plant?</span>
         <textarea
-          className="input beta-textarea"
+          className="input garden-textarea"
           placeholder="Yellowing lower leaves · spots on the fruit · wilting at midday…"
           value={symptoms}
           onChange={(event) => setSymptoms(event.target.value)}
         />
       </label>
-      <label className="beta-field">
-        <span>Photo (optional)</span>
+      <label className="garden-field">
+        <span>Add a photo (optional)</span>
         <input className="input" type="file" accept="image/*" onChange={(event) => onFile(event.target.files?.[0] ?? null)} />
       </label>
-      {preview ? <img className="beta-diagnose__preview" src={preview} alt="Selected photo preview" /> : null}
+      {preview ? <img className="garden-diagnose__preview" src={preview} alt={DIAGNOSE_COPY.previewAlt} /> : null}
       <button className="button" type="button" onClick={() => run()} disabled={loading || (!symptoms.trim() && !file)}>
-        {loading ? "Thinking…" : "Diagnose"}
+        {loading ? "Looking closely..." : "Get care help"}
       </button>
-      {error ? <p className="beta-diagnose__error">{error}</p> : null}
+      {error ? <p className="garden-diagnose__error">{error}</p> : null}
 
       {loading ? (
-        <div className="beta-diagnose__skeleton" aria-live="polite" aria-label="Reading this plant’s record…">
-          <span className="beta-diagnose__skel-line beta-diagnose__skel-line--wide" />
-          <span className="beta-diagnose__skel-line" />
-          <span className="beta-diagnose__skel-line beta-diagnose__skel-line--short" />
-          <p className="beta-diagnose__skel-note">Reading {context.name}’s record…</p>
+        <div className="garden-diagnose__skeleton" aria-live="polite" aria-label="Looking over this plant...">
+          <span className="garden-diagnose__skel-line garden-diagnose__skel-line--wide" />
+          <span className="garden-diagnose__skel-line" />
+          <span className="garden-diagnose__skel-line garden-diagnose__skel-line--short" />
+          <p className="garden-diagnose__skel-note">Looking over {context.name}...</p>
         </div>
       ) : null}
 
       {result ? (
-        <div className="beta-diagnose__result">
-          <p className="beta-diagnose__summary">{result.summary}</p>
+        <div className="garden-diagnose__result">
+          <p className="garden-diagnose__summary">{result.summary}</p>
           {result.causes.map((cause, index) => (
-            <div className="beta-diagnose__cause" key={index}>
-              <div className="beta-diagnose__cause-head">
+            <div className="garden-diagnose__cause" key={index}>
+              <div className="garden-diagnose__cause-head">
                 <strong>{cause.cause}</strong>
-                <span className={`beta-diagnose__conf beta-diagnose__conf--${cause.confidence}`}>{cause.confidence} confidence</span>
+                <span className={`garden-diagnose__conf garden-diagnose__conf--${cause.confidence}`}>{formatCauseSignal(cause.confidence)}</span>
               </div>
               <p>{cause.detail}</p>
             </div>
           ))}
           {result.actions.length > 0 ? (
-            <div className="beta-diagnose__group">
-              <SpecimenLabel tone="clay">Suggested actions</SpecimenLabel>
+            <div className="garden-diagnose__group">
+              <SpecimenLabel tone="clay">Try first</SpecimenLabel>
               {result.actions.map((action, index) => (
-                <div className="beta-diagnose__action" key={index}>
+                <div className="garden-diagnose__action" key={index}>
                   <span>{action}</span>
                   <button className="folio-button" type="button" disabled={added.has(index)} onClick={() => addAction(action, index)}>
-                    {added.has(index) ? "Added ✓" : "Add as task"}
+                    {added.has(index) ? "Added" : "Add to weekly care"}
                   </button>
                 </div>
               ))}
             </div>
           ) : null}
           {result.follow_up ? (
-            <p className="beta-diagnose__followup"><span>Follow up:</span> {result.follow_up}</p>
+            <p className="garden-diagnose__followup"><span>Watch for:</span> {result.follow_up}</p>
           ) : null}
-          <div className="beta-diagnose__save">
+          <div className="garden-diagnose__save">
             <button className="folio-button" type="button" onClick={saveToRecord} disabled={saved}>
-              {saved ? "Saved to record ✓" : "Save to this plant’s record"}
+              {saved ? "Kept" : "Keep with this plant"}
             </button>
-            <span className="beta-diagnose__save-hint">Keeps this reading in the plant’s Care Timeline.</span>
+            <span className="garden-diagnose__save-hint">{DIAGNOSE_COPY.saveHint}</span>
           </div>
-          <p className="beta-diagnose__disclaimer">A second opinion from an attentive gardener — trust your own eyes too.</p>
+          <p className="garden-diagnose__disclaimer">Use this as a second opinion. Look closely before you act.</p>
         </div>
       ) : null}
     </div>

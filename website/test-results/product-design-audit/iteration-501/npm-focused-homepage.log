@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run homepage-content.test.ts homepage-visual-css.test.ts
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  2 passed (2)
+      Tests  7 passed (7)
+   Start at  07:33:31
+   Duration  259ms (transform 99ms, setup 0ms, import 154ms, tests 17ms, environment 0ms)
+

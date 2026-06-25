@@ -21,20 +21,20 @@ const scriptFont = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Garden.io | The Living Notebook for Growing",
+  title: "Garden.io | Your Garden, Smarter",
   description:
-    "Garden.io is a planning, memory, and intelligence system for growers managing real complexity across beds, zones, and seasons.",
+    "Save what you notice. Get care advice that remembers your plants.",
   openGraph: {
-    title: "Garden.io | The Living Notebook for Growing",
+    title: "Garden.io | Your Garden, Smarter",
     description:
-      "Plan by space and time with calm, context-aware guidance for gardens, farms, and homesteads.",
+      "Save what you notice. Get care advice that remembers your plants.",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Garden.io | The Living Notebook for Growing",
+    title: "Garden.io | Your Garden, Smarter",
     description:
-      "Plan by space and time with calm, context-aware guidance for gardens, farms, and homesteads."
+      "Save what you notice. Get care advice that remembers your plants."
   }
 };
 

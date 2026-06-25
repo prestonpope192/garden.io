@@ -4,6 +4,11 @@ import type {
   GardenPlantRequirementValue,
   GardenWishlistItem
 } from "@/lib/garden-app-types";
+import {
+  formatPlantTypeLabel as formatCataloguePlantTypeLabel,
+  hasKnownCatalogueValue as hasKnownCatalogueValueForProfile,
+  getUseLabels as getCatalogueUseLabels
+} from "@/lib/catalogue-format";
 
 export function getCatalogPlantName(plant: GardenPlantInstance | GardenWishlistItem | null | undefined) {
   return plant?.plant_profile?.display_name ?? "Unknown plant";
@@ -14,10 +19,18 @@ export function formatQuantity(quantity: number) {
 }
 
 export function formatCatalogueValue(value: string | number | null | undefined) {
-  if (value === null || value === undefined || value === "") return "TBD";
+  if (value === null || value === undefined || value === "") return "Not listed";
   return String(value)
     .replaceAll("_", " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export function hasKnownCatalogueValue(value: string | number | null | undefined) {
+  return hasKnownCatalogueValueForProfile(value);
+}
+
+export function formatPlantTypeLabel(value: string | number | null | undefined) {
+  return formatCataloguePlantTypeLabel(value);
 }
 
 export function formatInchesRange(min: string | number | null | undefined, max: string | number | null | undefined) {
@@ -27,7 +40,7 @@ export function formatInchesRange(min: string | number | null | undefined, max: 
   if (minValue && maxValue && minValue !== maxValue) return `${minValue}-${maxValue} in`;
   if (maxValue) return `${maxValue} in`;
   if (minValue) return `${minValue} in`;
-  return "TBD";
+  return "Not listed";
 }
 
 export function isRecord(value: GardenPlantRequirementValue): value is Record<string, GardenPlantRequirementValue> {
@@ -44,15 +57,16 @@ export function getRating(profile: GardenPlantProfile, dimensionCode: string) {
   };
 }
 
-export function getProfileIllustration(profile: GardenPlantProfile) {
-  if (profile.primary_image_url) return profile.primary_image_url;
-  if (profile.plant_type_code === "herb") return "/art/specimen-calendar-bloom.svg";
-  if (profile.plant_type_code === "fruit" || profile.primary_use_cases?.toLowerCase().includes("fruit")) return "/art/specimen-tomato.svg";
-  return "/art/specimen-herbarium-sheet.svg";
+export function hasRatingContent(rating: ReturnType<typeof getRating>) {
+  return Boolean(rating?.rating || rating?.description);
+}
+
+export function getUseLabels(profile: GardenPlantProfile) {
+  return getCatalogueUseLabels(profile);
 }
 
 export function getCultivarLabel(profile: GardenPlantProfile) {
-  return profile.cultivar_name ? `${profile.cultivar_name} cultivar` : "Species profile";
+  return profile.cultivar_name ? `${profile.cultivar_name} variety` : formatPlantTypeLabel(profile.plant_type_code);
 }
 
 /* Structured option sets for zone/bed condition fields. These write to the

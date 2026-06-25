@@ -1,0 +1,4 @@
+FOUND: Borage
+FOUND: Bees in the borage
+FOUND: Note blooms, reseeding, companion planting, and pollinator visits.
+MISSING: Track blooms, reseeding, companion planting, and pollinator visits.

@@ -122,13 +122,21 @@ describe("classifyPerformance", () => {
 describe("describePerformance", () => {
   it("renders a readable one-liner with verdict counts", () => {
     const s = describePerformance({ count: 3, qualityCount: 3, avgQuality: 4.333, successCount: 2, partialCount: 1, failureCount: 0, totalHarvest: 9, lastResult: "success", lastDate: "2026-06-01" });
-    expect(s).toContain("averaged 4.3/5 over 3 recorded harvests");
-    expect(s).toContain("2 success");
-    expect(s).toContain("1 partial");
+    expect(s).toContain("averaged 4.3/5 across 3 harvest notes");
+    expect(s).not.toContain("saved harvests");
+    expect(s).toContain("2 grew well");
+    expect(s).toContain("1 mixed");
   });
   it("uses the rated-entry count (not total) as the average denominator", () => {
-    // 3 entries, only 2 rated → "over 2 recorded harvests", not 3
+    // 3 entries, only 2 rated -> "across 2 harvest notes", not 3
     const s = describePerformance({ count: 3, qualityCount: 2, avgQuality: 4.5, successCount: 3, partialCount: 0, failureCount: 0, totalHarvest: null, lastResult: "success", lastDate: "2026-06-01" });
-    expect(s).toContain("averaged 4.5/5 over 2 recorded harvests");
+    expect(s).toContain("averaged 4.5/5 across 2 harvest notes");
+    expect(s).not.toContain("saved harvests");
+  });
+
+  it("uses conversational wording for plantings that did not work", () => {
+    const s = describePerformance({ count: 2, qualityCount: 0, avgQuality: null, successCount: 0, partialCount: 0, failureCount: 2, totalHarvest: null, lastResult: "failure", lastDate: "2026-06-01" });
+    expect(s).toContain("2 didn't work");
+    expect(s).not.toContain("2 did not work");
   });
 });

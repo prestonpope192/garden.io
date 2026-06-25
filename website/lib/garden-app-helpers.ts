@@ -7,7 +7,31 @@ import type {
 } from "@/lib/garden-app-types";
 
 export function getTodayISO(date = new Date()): string {
-  return date.toISOString().slice(0, 10);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function parseLocalISODate(value: string): Date | null {
+  const iso = value.slice(0, 10);
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!match) return null;
+  const [, year, month, day] = match;
+  return new Date(Number(year), Number(month) - 1, Number(day));
+}
+
+export function formatGardenDate(value: string | null | undefined): string {
+  if (!value) return "No date";
+  const date = parseLocalISODate(value);
+  if (!date) return value;
+  const now = new Date();
+  const includeYear = date.getFullYear() !== now.getFullYear();
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    ...(includeYear ? { year: "numeric" } : {})
+  }).format(date);
 }
 
 export function sortByCreatedAt<T extends { created_at: string }>(items: T[]): T[] {
@@ -46,6 +70,43 @@ export function getSnapshotReadiness(snapshot: GardenSnapshot) {
     hasObservation,
     completeCount: [hasProperty, hasZone, hasBed, hasPlant, hasTask, hasObservation].filter(Boolean).length
   };
+}
+
+export type GardenSetupStepId = "area" | "bed" | "plant" | "complete";
+
+export type GardenSetupProgress = {
+  stepId: GardenSetupStepId;
+  isComplete: boolean;
+  currentStepIndex: number;
+  totalSteps: number;
+  completedStepIds: GardenSetupStepId[];
+};
+
+export function getGardenSetupProgress(input: {
+  zones: GardenZone[];
+  beds: GardenBed[];
+  plants: GardenPlantInstance[];
+}): GardenSetupProgress {
+  const hasArea = input.zones.length > 0;
+  const hasBed = input.beds.length > 0;
+  const hasGrowingPlant = input.plants.some((plant) => plant.status === "growing");
+  const completedStepIds: GardenSetupStepId[] = [];
+
+  if (hasArea) completedStepIds.push("area");
+  if (hasBed) completedStepIds.push("bed");
+  if (hasGrowingPlant) completedStepIds.push("plant");
+
+  if (!hasArea) {
+    return { stepId: "area", isComplete: false, currentStepIndex: 0, totalSteps: 3, completedStepIds };
+  }
+  if (!hasBed) {
+    return { stepId: "bed", isComplete: false, currentStepIndex: 1, totalSteps: 3, completedStepIds };
+  }
+  if (!hasGrowingPlant) {
+    return { stepId: "plant", isComplete: false, currentStepIndex: 2, totalSteps: 3, completedStepIds };
+  }
+
+  return { stepId: "complete", isComplete: true, currentStepIndex: 3, totalSteps: 3, completedStepIds };
 }
 
 export function getOpenTasks(tasks: GardenTask[]): GardenTask[] {

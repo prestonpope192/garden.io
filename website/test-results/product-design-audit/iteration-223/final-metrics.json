@@ -1,0 +1,478 @@
+[
+  {
+    "name": "09-mobile-property-final.png",
+    "href": "http://localhost:3021/sample-garden/property",
+    "titleText": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 97,
+      "height": 97,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "appTitle": {
+      "top": 121,
+      "bottom": 218,
+      "height": 96,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "carePanel": null,
+    "layout": {
+      "top": 97,
+      "bottom": 1164,
+      "height": 1066,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "firstPanel": {
+      "top": 0,
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "width": 0
+    },
+    "headerViewportShare": 0.115,
+    "titleViewportShare": 0.114,
+    "navLinks": [
+      {
+        "text": "My Garden",
+        "top": 54,
+        "bottom": 88,
+        "left": 10,
+        "right": 100,
+        "width": 89,
+        "height": 34,
+        "active": true
+      },
+      {
+        "text": "This Week",
+        "top": 54,
+        "bottom": 88,
+        "left": 104,
+        "right": 193,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "My Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 197,
+        "right": 286,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "Find Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 290,
+        "right": 380,
+        "width": 89,
+        "height": 34,
+        "active": false
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHome garden\nSee each area, bed, plant, and note by place.\nSummer\nGarden layout\nBackyard Garden\nHome garden · Central Texas · Growing zone 8b · Summer\nKitchen Garden\n2\nbeds\nHerbs and daily cooking plants · Morning sun\nHerb Bed\n1\nFrench Marigold\n·2\nContainer Row\nCurry Leaf\nPollinator Edge\nbed\nFlowers, perennial color, and beneficial insects · Full sun\nBloom Border\n·6\nAutumn Sage\nGarden",
+    "overflowOffenders": []
+  },
+  {
+    "name": "10-mobile-calendar-final.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "titleText": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 97,
+      "height": 97,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "appTitle": {
+      "top": 121,
+      "bottom": 218,
+      "height": 96,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "carePanel": {
+      "top": 265,
+      "bottom": 932,
+      "height": 667,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "layout": {
+      "top": 97,
+      "bottom": 1707,
+      "height": 1609,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "firstPanel": {
+      "top": 0,
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "width": 0
+    },
+    "headerViewportShare": 0.115,
+    "titleViewportShare": 0.114,
+    "navLinks": [
+      {
+        "text": "My Garden",
+        "top": 54,
+        "bottom": 88,
+        "left": 10,
+        "right": 100,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "This Week",
+        "top": 54,
+        "bottom": 88,
+        "left": 104,
+        "right": 193,
+        "width": 89,
+        "height": 34,
+        "active": true
+      },
+      {
+        "text": "My Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 197,
+        "right": 286,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "Find Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 290,
+        "right": 380,
+        "width": 89,
+        "height": 34,
+        "active": false
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote\nNotice how long this flush lasts before deadheading.\nJun 26\nCheck the herb bed after afternoon heat\nKitchen Garden · Herb Bed · French Marigold\nCheck",
+    "overflowOffenders": [
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 258,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 269,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 268,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 259,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-upcoming-item__title",
+        "text": "Refresh mulch on exposed soil",
+        "scrollWidth": 171,
+        "clientWidth": 37,
+        "left": 122,
+        "right": 160,
+        "width": 37
+      }
+    ]
+  },
+  {
+    "name": "11-mobile-plants-final.png",
+    "href": "http://localhost:3021/sample-garden/plants",
+    "titleText": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 97,
+      "height": 97,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "appTitle": {
+      "top": 121,
+      "bottom": 238,
+      "height": 117,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "carePanel": null,
+    "layout": {
+      "top": 97,
+      "bottom": 2066,
+      "height": 1968,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "firstPanel": {
+      "top": 0,
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "width": 0
+    },
+    "headerViewportShare": 0.115,
+    "titleViewportShare": 0.139,
+    "navLinks": [
+      {
+        "text": "My Garden",
+        "top": 54,
+        "bottom": 88,
+        "left": 10,
+        "right": 100,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "This Week",
+        "top": 54,
+        "bottom": 88,
+        "left": 104,
+        "right": 193,
+        "width": 89,
+        "height": 34,
+        "active": false
+      },
+      {
+        "text": "My Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 197,
+        "right": 286,
+        "width": 89,
+        "height": 34,
+        "active": true
+      },
+      {
+        "text": "Find Plants",
+        "top": 54,
+        "bottom": 88,
+        "left": 290,
+        "right": 380,
+        "width": 89,
+        "height": 34,
+        "active": false
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHome garden\nChoose a plant to see its notes, photos, and next steps.\nSummer\nFrench Marigold\nFlower · Annual\nPollinator Edge\n·\nBloom Border\n6 plants\n· 4 weeks, 5 days in ground\nNext step:\nNote bloom duration",
+    "overflowOffenders": []
+  },
+  {
+    "name": "12-desktop-calendar-final.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "titleText": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1425,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 73,
+      "height": 73,
+      "left": 0,
+      "right": 1425,
+      "width": 1425
+    },
+    "appTitle": {
+      "top": 122,
+      "bottom": 238,
+      "height": 117,
+      "left": 171,
+      "right": 1254,
+      "width": 1082
+    },
+    "carePanel": {
+      "top": 299,
+      "bottom": 685,
+      "height": 386,
+      "left": 171,
+      "right": 1254,
+      "width": 1082
+    },
+    "layout": {
+      "top": 73,
+      "bottom": 1198,
+      "height": 1126,
+      "left": 123,
+      "right": 1303,
+      "width": 1180
+    },
+    "firstPanel": {
+      "top": 0,
+      "bottom": 0,
+      "height": 0,
+      "left": 0,
+      "right": 0,
+      "width": 0
+    },
+    "headerViewportShare": 0.066,
+    "titleViewportShare": 0.106,
+    "navLinks": [
+      {
+        "text": "My Garden",
+        "top": 17,
+        "bottom": 55,
+        "left": 144,
+        "right": 238,
+        "width": 94,
+        "height": 38,
+        "active": false
+      },
+      {
+        "text": "This Week",
+        "top": 17,
+        "bottom": 55,
+        "left": 251,
+        "right": 341,
+        "width": 90,
+        "height": 38,
+        "active": true
+      },
+      {
+        "text": "My Plants",
+        "top": 17,
+        "bottom": 55,
+        "left": 354,
+        "right": 440,
+        "width": 86,
+        "height": 38,
+        "active": false
+      },
+      {
+        "text": "Find Plants",
+        "top": 17,
+        "bottom": 55,
+        "left": 452,
+        "right": 546,
+        "width": 94,
+        "height": 38,
+        "active": false
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote\nNotice how long this flush lasts before deadheading.\nJun 26\nCheck the herb bed after afternoon heat\nKitchen Garden · Herb Bed · French Marigold\nCheck\nAdd a note if lea",
+    "overflowOffenders": [
+      {
+        "tag": "header",
+        "className": "garden-app-title",
+        "text": "Home gardenThis WeekStart with this week's care. Let the rest wait.Summer",
+        "scrollWidth": 1084,
+        "clientWidth": 1082,
+        "left": 171,
+        "right": 1254,
+        "width": 1082
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 201,
+        "left": 235,
+        "right": 437,
+        "width": 201
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 212,
+        "left": 589,
+        "right": 800,
+        "width": 212
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 211,
+        "left": 942,
+        "right": 1153,
+        "width": 211
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 202,
+        "left": 235,
+        "right": 437,
+        "width": 202
+      }
+    ]
+  }
+]

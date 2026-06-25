@@ -1,0 +1,26 @@
+=== /sample-garden/ask ===
+FOUND: Save the note so next time has context.
+Start your garden
+Your garden, smarter.
+Save the note so next time has context.
+=== /sample-garden ===
+FOUND: Save the note so next time has context.
+Start your garden
+Your garden, smarter.
+Save the note so next time has context.
+=== /sample-garden/calendar ===
+Start your garden
+This Week
+=== /sample-garden/plants ===
+Start your garden
+Plant Journal
+=== /sample-garden/catalogue ===
+Start your garden
+=== /app ===
+FOUND: Give one plant a bed so notes stay with the right spot.
+Start your garden
+Your garden, smarter.
+Give one plant a bed so notes stay with the right spot.
+=== / ===
+Your garden, smarter.
+Start your garden

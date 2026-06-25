@@ -1,0 +1,409 @@
+{
+  "mobilePlants": {
+    "path": "/sample-garden/plants",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "scrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "hasHorizontalOverflow": false
+    },
+    "guide": {
+      "top": 248.734375,
+      "right": 353.53125,
+      "bottom": 407,
+      "left": 21.46875,
+      "width": 332.0625,
+      "height": 158.265625
+    },
+    "toolbar": {
+      "top": 431,
+      "right": 353.53125,
+      "bottom": 481,
+      "left": 21.46875,
+      "width": 332.0625,
+      "height": 50
+    },
+    "cards": [
+      {
+        "top": 497,
+        "right": 353.53125,
+        "bottom": 628.140625,
+        "left": 21.46875,
+        "width": 332.0625,
+        "height": 131.140625
+      },
+      {
+        "top": 644.140625,
+        "right": 353.53125,
+        "bottom": 775.28125,
+        "left": 21.46875,
+        "width": 332.0625,
+        "height": 131.140625
+      },
+      {
+        "top": 791.28125,
+        "right": 353.53125,
+        "bottom": 943.640625,
+        "left": 21.46875,
+        "width": 332.0625,
+        "height": 152.359375
+      },
+      {
+        "top": 959.640625,
+        "right": 353.53125,
+        "bottom": 1112,
+        "left": 21.46875,
+        "width": 332.0625,
+        "height": 152.359375
+      }
+    ],
+    "thumbs": [
+      {
+        "top": 510,
+        "right": 118.46875,
+        "bottom": 594,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 657.140625,
+        "right": 118.46875,
+        "bottom": 741.140625,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 804.28125,
+        "right": 118.46875,
+        "bottom": 888.28125,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 972.640625,
+        "right": 118.46875,
+        "bottom": 1056.640625,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      }
+    ],
+    "carePanel": null,
+    "propertyHeader": null,
+    "propertyNextPanel": {
+      "top": 248.734375,
+      "right": 353.53125,
+      "bottom": 407,
+      "left": 21.46875,
+      "width": 332.0625,
+      "height": 158.265625
+    },
+    "imageStates": [
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 128,
+        "naturalHeight": 85
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fautumn-sage.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 128,
+        "naturalHeight": 120
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 128,
+        "naturalHeight": 144
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 128,
+        "naturalHeight": 85
+      }
+    ]
+  },
+  "desktopPlants": {
+    "path": "/sample-garden/plants",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "bodyScrollWidth": 1440,
+      "hasHorizontalOverflow": false
+    },
+    "guide": {
+      "top": 254.171875,
+      "right": 1261.015625,
+      "bottom": 484.109375,
+      "left": 921.015625,
+      "width": 340,
+      "height": 229.9375
+    },
+    "toolbar": {
+      "top": 254.171875,
+      "right": 897.015625,
+      "bottom": 304.171875,
+      "left": 178.984375,
+      "width": 718.03125,
+      "height": 50
+    },
+    "cards": [
+      {
+        "top": 320.171875,
+        "right": 897.015625,
+        "bottom": 493.6875,
+        "left": 178.984375,
+        "width": 718.03125,
+        "height": 173.515625
+      },
+      {
+        "top": 509.6875,
+        "right": 897.015625,
+        "bottom": 683.203125,
+        "left": 178.984375,
+        "width": 718.03125,
+        "height": 173.515625
+      },
+      {
+        "top": 699.203125,
+        "right": 897.015625,
+        "bottom": 872.71875,
+        "left": 178.984375,
+        "width": 718.03125,
+        "height": 173.515625
+      },
+      {
+        "top": 888.71875,
+        "right": 897.015625,
+        "bottom": 1062.234375,
+        "left": 178.984375,
+        "width": 718.03125,
+        "height": 173.515625
+      }
+    ],
+    "thumbs": [
+      {
+        "top": 337.171875,
+        "right": 291.984375,
+        "bottom": 433.171875,
+        "left": 195.984375,
+        "width": 96,
+        "height": 96
+      },
+      {
+        "top": 526.6875,
+        "right": 291.984375,
+        "bottom": 622.6875,
+        "left": 195.984375,
+        "width": 96,
+        "height": 96
+      },
+      {
+        "top": 716.203125,
+        "right": 291.984375,
+        "bottom": 812.203125,
+        "left": 195.984375,
+        "width": 96,
+        "height": 96
+      },
+      {
+        "top": 905.71875,
+        "right": 291.984375,
+        "bottom": 1001.71875,
+        "left": 195.984375,
+        "width": 96,
+        "height": 96
+      }
+    ],
+    "carePanel": null,
+    "propertyHeader": null,
+    "propertyNextPanel": {
+      "top": 254.171875,
+      "right": 1261.015625,
+      "bottom": 484.109375,
+      "left": 921.015625,
+      "width": 340,
+      "height": 229.9375
+    },
+    "imageStates": [
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 64
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fautumn-sage.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 90
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 108
+      },
+      {
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 64
+      }
+    ]
+  },
+  "mobileCalendar": {
+    "path": "/sample-garden/calendar",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "scrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "hasHorizontalOverflow": false
+    },
+    "guide": null,
+    "toolbar": null,
+    "cards": [],
+    "thumbs": [],
+    "carePanel": {
+      "top": 283.921875,
+      "right": 353.53125,
+      "bottom": 950.625,
+      "left": 21.46875,
+      "width": 332.0625,
+      "height": 666.703125
+    },
+    "propertyHeader": null,
+    "propertyNextPanel": null,
+    "imageStates": []
+  },
+  "mobileProperty": {
+    "path": "/sample-garden/property",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "scrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "hasHorizontalOverflow": false
+    },
+    "guide": null,
+    "toolbar": null,
+    "cards": [],
+    "thumbs": [],
+    "carePanel": null,
+    "propertyHeader": null,
+    "propertyNextPanel": {
+      "top": 858.671875,
+      "right": 353.53125,
+      "bottom": 1149.90625,
+      "left": 21.46875,
+      "width": 332.0625,
+      "height": 291.234375
+    },
+    "imageStates": []
+  },
+  "mobilePlants390": {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "hasHorizontalOverflow": false
+    },
+    "guide": {
+      "top": 250.328125,
+      "right": 368.53125,
+      "bottom": 408.59375,
+      "left": 21.46875,
+      "width": 347.0625,
+      "height": 158.265625
+    },
+    "toolbar": {
+      "top": 432.59375,
+      "right": 368.53125,
+      "bottom": 482.59375,
+      "left": 21.46875,
+      "width": 347.0625,
+      "height": 50
+    },
+    "cards": [
+      {
+        "top": 498.59375,
+        "right": 368.53125,
+        "bottom": 629.734375,
+        "left": 21.46875,
+        "width": 347.0625,
+        "height": 131.140625
+      },
+      {
+        "top": 645.734375,
+        "right": 368.53125,
+        "bottom": 776.875,
+        "left": 21.46875,
+        "width": 347.0625,
+        "height": 131.140625
+      },
+      {
+        "top": 792.875,
+        "right": 368.53125,
+        "bottom": 945.234375,
+        "left": 21.46875,
+        "width": 347.0625,
+        "height": 152.359375
+      },
+      {
+        "top": 961.234375,
+        "right": 368.53125,
+        "bottom": 1113.59375,
+        "left": 21.46875,
+        "width": 347.0625,
+        "height": 152.359375
+      }
+    ],
+    "thumbs": [
+      {
+        "top": 511.59375,
+        "right": 118.46875,
+        "bottom": 595.59375,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 658.734375,
+        "right": 118.46875,
+        "bottom": 742.734375,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 805.875,
+        "right": 118.46875,
+        "bottom": 889.875,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      },
+      {
+        "top": 974.234375,
+        "right": 118.46875,
+        "bottom": 1058.234375,
+        "left": 34.46875,
+        "width": 84,
+        "height": 84
+      }
+    ],
+    "imagesComplete": true
+  }
+}

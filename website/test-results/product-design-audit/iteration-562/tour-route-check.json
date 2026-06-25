@@ -1,0 +1,27 @@
+{
+  "ctaLinks": [
+    {
+      "href": "/tour/ask",
+      "text": "Garden.io"
+    },
+    {
+      "href": "/app/my-property",
+      "text": "Start your garden"
+    },
+    {
+      "href": "/tour/property",
+      "text": "My Garden"
+    },
+    {
+      "href": "/tour/calendar",
+      "text": "Weekly care"
+    },
+    {
+      "href": "/tour/catalogue",
+      "text": "Choose plants"
+    }
+  ],
+  "h1": "Your garden, smarter.",
+  "hasSampleVisibleCopy": false,
+  "pathname": "/tour/ask"
+}

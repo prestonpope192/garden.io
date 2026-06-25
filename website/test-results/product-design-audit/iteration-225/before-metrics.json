@@ -1,0 +1,1408 @@
+[
+  {
+    "name": "desktop-home-before.png",
+    "href": "http://127.0.0.1:3021/",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": {
+        "top": 108,
+        "bottom": 680,
+        "left": 100,
+        "right": 1340,
+        "width": 1240,
+        "height": 571,
+        "text": "Know what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plants that fit\n\nBuilt for busy gardeners who need a quick answer, not another spreadsheet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNe"
+      },
+      "heroTitle": {
+        "top": 154,
+        "bottom": 421,
+        "left": 135,
+        "right": 733,
+        "width": 598,
+        "height": 267,
+        "text": "Know what to do next in your garden."
+      },
+      "heroActions": null,
+      "heroMedia": {
+        "top": 143,
+        "bottom": 645,
+        "left": 847,
+        "right": 1305,
+        "width": 459,
+        "height": 502,
+        "text": "FRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext step: keep watering steady this week and note how long the bloom lasts."
+      },
+      "homeLoop": {
+        "top": 704,
+        "bottom": 1076,
+        "left": 100,
+        "right": 1340,
+        "width": 1240,
+        "height": 372,
+        "text": "HOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plants once so every note has a place.\n\nSave quick notes\n\nCapture photos, blooms, harvests, pests, weather, and care while they are fresh.\n\nAsk w"
+      },
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": null,
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 16,
+        "bottom": 92,
+        "left": 100,
+        "right": 1340,
+        "width": 1240,
+        "height": 76,
+        "text": "Garden.io\nFind plants\nStart your garden"
+      },
+      {
+        "top": 42,
+        "bottom": 67,
+        "left": 231,
+        "right": 1168,
+        "width": 937,
+        "height": 25,
+        "text": "Find plants"
+      },
+      {
+        "top": 108,
+        "bottom": 680,
+        "left": 100,
+        "right": 1340,
+        "width": 1240,
+        "height": 571,
+        "text": "Know what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plan"
+      },
+      {
+        "top": 154,
+        "bottom": 421,
+        "left": 135,
+        "right": 733,
+        "width": 598,
+        "height": 267,
+        "text": "Know what to do next in your garden."
+      },
+      {
+        "top": 704,
+        "bottom": 1076,
+        "left": 100,
+        "right": 1340,
+        "width": 1240,
+        "height": 372,
+        "text": "HOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plant"
+      },
+      {
+        "top": 775,
+        "bottom": 931,
+        "left": 100,
+        "right": 739,
+        "width": 639,
+        "height": 155,
+        "text": "Keep beds, plants, notes, photos, and next steps in one place."
+      },
+      {
+        "top": 994,
+        "bottom": 1076,
+        "left": 100,
+        "right": 503,
+        "width": 403,
+        "height": 82,
+        "text": "Map what you have\n\nAdd beds and plants once so every note has a place."
+      },
+      {
+        "top": 994,
+        "bottom": 1076,
+        "left": 519,
+        "right": 921,
+        "width": 403,
+        "height": 82,
+        "text": "Save quick notes\n\nCapture photos, blooms, harvests, pests, weather, and care while they are fresh."
+      }
+    ],
+    "visibleTextStart": "Garden.io\nFind plants\nStart your garden\nKnow what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plants that fit\n\nBuilt for busy gardeners who need a quick answer, not another spreadsheet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext step: keep watering steady this week and note how long the bloom lasts.\n\nHOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plants once so every note has a place.\n\nSave quick notes\n\nCapture photos, blooms, harvests, pests, weather, and care while they are fresh.\n\nAsk what to do next\n\nWhen a plant looks off, get a next step based on its notes, bed, photo, and season.\n\nYOUR PLANTS\nEach plant keeps its own story.\n\nPhotos, notes, harvests, and next steps all stay with the right plant.\n\nFRENCH MARIGOLD\nBloom and companion notes\n\nRemember when it bloomed and what nearby plants it helped.\n\nAUTUMN SAGE\nPruning and heat notes\n\nKeep pruning, blooms, and weather stress tied to this plant.\n\nCURRY LEAF\nContainer watering notes\n\nSee container moves, watering changes, and what helped it grow.\n\nStart with one bed and one plant.\n\nAdd what you already have. Small updates become a useful memory of the season.\n\nStart your garden\nLook around\n\nGarden.io\n\nA living memory for your garden",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": -1,
+      "startGarden": 22,
+      "myGarden": -1,
+      "thisWeek": -1,
+      "myPlants": -1,
+      "findPlants": -1,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 338,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "mobile-home-before.png",
+    "href": "http://127.0.0.1:3021/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": {
+        "top": 196,
+        "bottom": 1072,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 876,
+        "text": "Know what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plants that fit\n\nBuilt for busy gardeners who need a quick answer, not another spreadsheet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNe"
+      },
+      "heroTitle": {
+        "top": 224,
+        "bottom": 389,
+        "left": 25,
+        "right": 365,
+        "width": 340,
+        "height": 164,
+        "text": "Know what to do next in your garden."
+      },
+      "heroActions": null,
+      "heroMedia": {
+        "top": 723,
+        "bottom": 1055,
+        "left": 25,
+        "right": 365,
+        "width": 340,
+        "height": 332,
+        "text": "FRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext step: keep watering steady this week and note how long the bloom lasts."
+      },
+      "homeLoop": {
+        "top": 1096,
+        "bottom": 1646,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 550,
+        "text": "HOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plants once so every note has a place.\n\nSave quick notes\n\nCapture photos, blooms, harvests, pests, weather, and care while they are fresh.\n\nAsk w"
+      },
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": null,
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 16,
+        "bottom": 180,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 164,
+        "text": "Garden.io\nFind plants\nStart your garden"
+      },
+      {
+        "top": 81,
+        "bottom": 106,
+        "left": 27,
+        "right": 363,
+        "width": 337,
+        "height": 25,
+        "text": "Find plants"
+      },
+      {
+        "top": 196,
+        "bottom": 1072,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 876,
+        "text": "Know what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plan"
+      },
+      {
+        "top": 224,
+        "bottom": 389,
+        "left": 25,
+        "right": 365,
+        "width": 340,
+        "height": 164,
+        "text": "Know what to do next in your garden."
+      },
+      {
+        "top": 1096,
+        "bottom": 1646,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 550,
+        "text": "HOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plant"
+      },
+      {
+        "top": 1168,
+        "bottom": 1256,
+        "left": 8,
+        "right": 370,
+        "width": 362,
+        "height": 88,
+        "text": "Keep beds, plants, notes, photos, and next steps in one place."
+      },
+      {
+        "top": 1320,
+        "bottom": 1401,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 81,
+        "text": "Map what you have\n\nAdd beds and plants once so every note has a place."
+      }
+    ],
+    "visibleTextStart": "Garden.io\nFind plants\nStart your garden\nKnow what to do next in your garden.\n\nKeep plants, photos, notes, and care in one place so every next step has context.\n\nStart your garden\nLook around\nFind plants that fit\n\nBuilt for busy gardeners who need a quick answer, not another spreadsheet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext step: keep watering steady this week and note how long the bloom lasts.\n\nHOW IT HELPS\nKeep beds, plants, notes, photos, and next steps in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd beds and plants once so every note has a place.\n\nSave quick notes\n\nCapture photos, blooms, harvests, pests, weather, and care while they are fresh.\n\nAsk what to do next\n\nWhen a plant looks off, get a next step based on its notes, bed, photo, and season.\n\nYOUR PLANTS\nEach plant keeps its own story.\n\nPhotos, notes, harvests, and next steps all stay with the right plant.\n\nFRENCH MARIGOLD\nBloom and companion notes\n\nRemember when it bloomed and what nearby plants it helped.\n\nAUTUMN SAGE\nPruning and heat notes\n\nKeep pruning, blooms, and weather stress tied to this plant.\n\nCURRY LEAF\nContainer watering notes\n\nSee container moves, watering changes, and what helped it grow.\n\nStart with one bed and one plant.\n\nAdd what you already have. Small updates become a useful memory of the season.\n\nStart your garden\nLook around\n\nGarden.io\n\nA living memory for your garden",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": -1,
+      "startGarden": 22,
+      "myGarden": -1,
+      "thisWeek": -1,
+      "myPlants": -1,
+      "findPlants": -1,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 338,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "desktop-property-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/property",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER"
+      },
+      "propertyMain": {
+        "top": 254,
+        "bottom": 639,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 385,
+        "text": "GARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n1\nFrench Marigold ·2\nContainer Row\n1\nCurry Leaf\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBlo"
+      },
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 73,
+        "left": 0,
+        "right": 1440,
+        "width": 1440,
+        "height": 73,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours"
+      },
+      {
+        "top": 17,
+        "bottom": 55,
+        "left": 144,
+        "right": 546,
+        "width": 402,
+        "height": 38,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 73,
+        "bottom": 688,
+        "left": 130,
+        "right": 1310,
+        "width": 1180,
+        "height": 616,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summ"
+      },
+      {
+        "top": 98,
+        "bottom": 663,
+        "left": 156,
+        "right": 1284,
+        "width": 1129,
+        "height": 564,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summ"
+      },
+      {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER"
+      },
+      {
+        "top": 158,
+        "bottom": 209,
+        "left": 179,
+        "right": 455,
+        "width": 276,
+        "height": 51,
+        "text": "My Garden"
+      },
+      {
+        "top": 254,
+        "bottom": 639,
+        "left": 179,
+        "right": 877,
+        "width": 698,
+        "height": 385,
+        "text": "GARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n1\nFrench Marigold ·2\nContainer Row\n1\nCurry Leaf\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n2\nFrench Marigold ·6\nAutumn Sage ·2\nGARDEN\nHome garden · Backyard Garden\nWHAT NEEDS CARE NEXT\n\n2 areas, 3 beds, 4 growing plants. Pick a place or plant to see its notes and next step.\n\nNext step: Water deeply before the hot afternoon (Jun 22)",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 64,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 648,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "mobile-property-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/property",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER"
+      },
+      "propertyMain": {
+        "top": 230,
+        "bottom": 1074,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 845,
+        "text": "GARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n1\nFrench Marigold ·2\nContainer Row\n1\nCurry Leaf\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBlo"
+      },
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 97,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 97,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours"
+      },
+      {
+        "top": 52,
+        "bottom": 88,
+        "left": 10,
+        "right": 380,
+        "width": 369,
+        "height": 36,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 97,
+        "bottom": 1164,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 1066,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summ"
+      },
+      {
+        "top": 108,
+        "bottom": 1088,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 980,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summ"
+      },
+      {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER"
+      },
+      {
+        "top": 152,
+        "bottom": 193,
+        "left": 21,
+        "right": 281,
+        "width": 259,
+        "height": 41,
+        "text": "My Garden"
+      },
+      {
+        "top": 230,
+        "bottom": 792,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 562,
+        "text": "GARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n1\nFrench Marigold ·2\nContainer Row\n1\nCurry Leaf\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n2\nFrench Marigold ·6\nAutumn Sage ·2\nGARDEN\nHome garden · Backyard Garden\nWHAT NEEDS CARE NEXT\n\n2 areas, 3 beds, 4 growing plants. Pick a place or plant to see its notes and next step.\n\nNext step: Water deeply before the hot afternoon (Jun 22)",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 52,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 636,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "desktop-calendar-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/calendar",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": {
+        "top": 299,
+        "bottom": 685,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 386,
+        "text": "CARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nKITCHEN GARDEN · CONTAINER ROW · CURRY LEAF\nWATER\n\nFocus on containers and newly planted herbs.\n\nJun 22\nTrim spent sage blooms\nPOLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE\nCARE\n\nA light prune should bring the next bloom flush.\n\nJun "
+      },
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 73,
+        "left": 0,
+        "right": 1440,
+        "width": 1440,
+        "height": 73,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours"
+      },
+      {
+        "top": 17,
+        "bottom": 55,
+        "left": 144,
+        "right": 546,
+        "width": 402,
+        "height": 38,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 73,
+        "bottom": 1198,
+        "left": 130,
+        "right": 1310,
+        "width": 1180,
+        "height": 1126,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot aftern"
+      },
+      {
+        "top": 98,
+        "bottom": 1173,
+        "left": 156,
+        "right": 1284,
+        "width": 1129,
+        "height": 1074,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot aftern"
+      },
+      {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER"
+      },
+      {
+        "top": 158,
+        "bottom": 209,
+        "left": 179,
+        "right": 443,
+        "width": 264,
+        "height": 51,
+        "text": "This Week"
+      },
+      {
+        "top": 254,
+        "bottom": 283,
+        "left": 1083,
+        "right": 1261,
+        "width": 178,
+        "height": 29,
+        "text": "June 22–28, 2026"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nKITCHEN GARDEN · CONTAINER ROW · CURRY LEAF\nWATER\n\nFocus on containers and newly planted herbs.\n\nJun 22\nTrim spent sage blooms\nPOLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE\nCARE\n\nA light prune should bring the next bloom flush.\n\nJun 24\nNote bloom duration\nPOLLINATOR EDGE · BLOOM BORDER · FRENCH MARIGOLD\nNOTE\n\nNotice how long this flush lasts before deadheading.\n\nJun 26\nCheck the herb bed after afternoon heat\nKITCHEN GARDEN · HERB BED · FRENCH MARIGOLD\nCHECK\n\nAdd a note if leaves are still wilting by evening.\n\nJun 27\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 29\nRefresh mulch on exposed soil\nKITCHEN GARDEN · HERB BED\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat spell\n\nA steady deep-watering habit prevents stress during summer peaks.\n\nLater\nAdd one more bed when you need room\n\nIf this area starts to feel crowded, one clear bed gives future plants a place to go.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 64,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": -1,
+      "quickFit": -1
+    },
+    "overflowOffenders": [
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "KITCHEN GARDEN · CONTAINER ROW · CURRY LEAF",
+        "scrollWidth": 368,
+        "clientWidth": 201,
+        "left": 243,
+        "right": 444,
+        "width": 201
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "POLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE",
+        "scrollWidth": 379,
+        "clientWidth": 212,
+        "left": 596,
+        "right": 808,
+        "width": 212
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "POLLINATOR EDGE · BLOOM BORDER · FRENCH MARIGOLD",
+        "scrollWidth": 419,
+        "clientWidth": 211,
+        "left": 950,
+        "right": 1161,
+        "width": 211
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "KITCHEN GARDEN · HERB BED · FRENCH MARIGOLD",
+        "scrollWidth": 370,
+        "clientWidth": 202,
+        "left": 243,
+        "right": 445,
+        "width": 202
+      }
+    ]
+  },
+  {
+    "name": "mobile-calendar-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/calendar",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": {
+        "top": 265,
+        "bottom": 932,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 667,
+        "text": "CARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nKITCHEN GARDEN · CONTAINER ROW · CURRY LEAF\nWATER\n\nFocus on containers and newly planted herbs.\n\nJun 22\nTrim spent sage blooms\nPOLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE\nCARE\n\nA light prune should bring the next bloom flush.\n\nJun "
+      },
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 97,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 97,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours"
+      },
+      {
+        "top": 52,
+        "bottom": 88,
+        "left": 10,
+        "right": 380,
+        "width": 369,
+        "height": 36,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 97,
+        "bottom": 1707,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 1609,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot aftern"
+      },
+      {
+        "top": 108,
+        "bottom": 1631,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 1523,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot aftern"
+      },
+      {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER"
+      },
+      {
+        "top": 152,
+        "bottom": 193,
+        "left": 21,
+        "right": 281,
+        "width": 259,
+        "height": 41,
+        "text": "This Week"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nKITCHEN GARDEN · CONTAINER ROW · CURRY LEAF\nWATER\n\nFocus on containers and newly planted herbs.\n\nJun 22\nTrim spent sage blooms\nPOLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE\nCARE\n\nA light prune should bring the next bloom flush.\n\nJun 24\nNote bloom duration\nPOLLINATOR EDGE · BLOOM BORDER · FRENCH MARIGOLD\nNOTE\n\nNotice how long this flush lasts before deadheading.\n\nJun 26\nCheck the herb bed after afternoon heat\nKITCHEN GARDEN · HERB BED · FRENCH MARIGOLD\nCHECK\n\nAdd a note if leaves are still wilting by evening.\n\nJun 27\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 29\nRefresh mulch on exposed soil\nKITCHEN GARDEN · HERB BED\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat spell\n\nA steady deep-watering habit prevents stress during summer peaks.\n\nLater\nAdd one more bed when you need room\n\nIf this area starts to feel crowded, one clear bed gives future plants a place to go.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 52,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": -1,
+      "quickFit": -1
+    },
+    "overflowOffenders": [
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "KITCHEN GARDEN · CONTAINER ROW · CURRY LEAF",
+        "scrollWidth": 368,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 258,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "POLLINATOR EDGE · BLOOM BORDER · AUTUMN SAGE",
+        "scrollWidth": 379,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 269,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "POLLINATOR EDGE · BLOOM BORDER · FRENCH MARIGOLD",
+        "scrollWidth": 419,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 268,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "KITCHEN GARDEN · HERB BED · FRENCH MARIGOLD",
+        "scrollWidth": 370,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 259,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-upcoming-item__title",
+        "text": "Refresh mulch on exposed soil",
+        "scrollWidth": 171,
+        "clientWidth": 37,
+        "left": 122,
+        "right": 160,
+        "width": 37
+      }
+    ]
+  },
+  {
+    "name": "desktop-plants-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/plants",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": {
+        "top": 320,
+        "bottom": 1062,
+        "left": 179,
+        "right": 897,
+        "width": 718,
+        "height": 742,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plants · 11 weeks, 5 days in ground\n\nNext step: Trim spent sage blooms\nCurry Leaf\nShrub · Perennial\n\n"
+      },
+      "firstPlantCard": {
+        "top": 320,
+        "bottom": 494,
+        "left": 179,
+        "right": 897,
+        "width": 718,
+        "height": 174,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration"
+      },
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 73,
+        "left": 0,
+        "right": 1440,
+        "width": 1440,
+        "height": 73,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours"
+      },
+      {
+        "top": 17,
+        "bottom": 55,
+        "left": 144,
+        "right": 546,
+        "width": 402,
+        "height": 38,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 73,
+        "bottom": 1111,
+        "left": 130,
+        "right": 1310,
+        "width": 1180,
+        "height": 1039,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant"
+      },
+      {
+        "top": 98,
+        "bottom": 1086,
+        "left": 156,
+        "right": 1284,
+        "width": 1129,
+        "height": 987,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant"
+      },
+      {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER"
+      },
+      {
+        "top": 158,
+        "bottom": 209,
+        "left": 179,
+        "right": 506,
+        "width": 327,
+        "height": 51,
+        "text": "My Plants"
+      },
+      {
+        "top": 320,
+        "bottom": 494,
+        "left": 179,
+        "right": 897,
+        "width": 718,
+        "height": 174,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plants · 11 weeks, 5 days in ground\n\nNext step: Trim spent sage blooms\nCurry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nFrench Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nNext step: Check the herb bed after afternoon heat\nMY PLANTS\nCHOOSE A PLANT\n\n4 growing plants across 3 beds. Pick one to see notes, photos, and next steps.\n\n4 plants have care this week.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 64,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 267,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "mobile-plants-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/plants",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 121,
+        "bottom": 238,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": {
+        "top": 316,
+        "bottom": 1722,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 1406,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plants · 11 weeks, 5 days in ground\n\nNext step: Trim spent sage blooms\nCurry Leaf\nShrub · Perennial\n\n"
+      },
+      "firstPlantCard": {
+        "top": 316,
+        "bottom": 656,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 340,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration"
+      },
+      "catalogueGrid": null,
+      "firstCatalogueCard": null
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 97,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 97,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours"
+      },
+      {
+        "top": 52,
+        "bottom": 88,
+        "left": 10,
+        "right": 380,
+        "width": 369,
+        "height": 36,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 97,
+        "bottom": 2066,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 1968,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant"
+      },
+      {
+        "top": 108,
+        "bottom": 1990,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 1882,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant"
+      },
+      {
+        "top": 121,
+        "bottom": 238,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 117,
+        "text": "HOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER"
+      },
+      {
+        "top": 152,
+        "bottom": 193,
+        "left": 21,
+        "right": 281,
+        "width": 259,
+        "height": 41,
+        "text": "My Plants"
+      },
+      {
+        "top": 316,
+        "bottom": 656,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 340,
+        "text": "French Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nNext step: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plants · 11 weeks, 5 days in ground\n\nNext step: Trim spent sage blooms\nCurry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nFrench Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nNext step: Check the herb bed after afternoon heat\nMY PLANTS\nCHOOSE A PLANT\n\n4 growing plants across 3 beds. Pick one to see notes, photos, and next steps.\n\n4 plants have care this week.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 52,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": 255,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "desktop-catalogue-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/catalogue",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": {
+        "top": 298,
+        "bottom": 980,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 682,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.\n\nPERENNIAL\nCurry Leaf\nS"
+      },
+      "firstCatalogueCard": {
+        "top": 298,
+        "bottom": 632,
+        "left": 179,
+        "right": 712,
+        "width": 533,
+        "height": 334,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds."
+      }
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 73,
+        "left": 0,
+        "right": 1440,
+        "width": 1440,
+        "height": 73,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours"
+      },
+      {
+        "top": 17,
+        "bottom": 55,
+        "left": 144,
+        "right": 546,
+        "width": 402,
+        "height": 38,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 73,
+        "bottom": 1029,
+        "left": 130,
+        "right": 1310,
+        "width": 1180,
+        "height": 956,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 i"
+      },
+      {
+        "top": 98,
+        "bottom": 1003,
+        "left": 156,
+        "right": 1284,
+        "width": 1129,
+        "height": 905,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 i"
+      },
+      {
+        "top": 122,
+        "bottom": 238,
+        "left": 179,
+        "right": 1261,
+        "width": 1082,
+        "height": 117,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER"
+      },
+      {
+        "top": 158,
+        "bottom": 209,
+        "left": 179,
+        "right": 454,
+        "width": 275,
+        "height": 51,
+        "text": "Find Plants"
+      },
+      {
+        "top": 298,
+        "bottom": 632,
+        "left": 179,
+        "right": 712,
+        "width": 533,
+        "height": 334,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergree"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nLIGHT\nFull Sun\nWATER\nMedium\nHEIGHT\n72-120 in\nBEST SPOT\nSmall size suits patios and kitchen gardens; protect from frost.\n\nA perennial aromatic shrub prized for its flavorful leaves used in Indian and Southeast Asian cuisine.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagetes patula\n\nLIGHT\nFull Sun\nWATER\nMedium\nHEIGHT\n6-12 in\nBEST SPOT\nIdeal for borders and containers due to compact size.\n\nCompact annual flower known for bright orange, yellow, and red blooms with a spicy scent.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 64,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": -1,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  },
+  {
+    "name": "mobile-catalogue-before.png",
+    "href": "http://127.0.0.1:3021/sample-garden/catalogue",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "rects": {
+      "homeNav": null,
+      "hero": null,
+      "heroTitle": null,
+      "heroActions": null,
+      "heroMedia": null,
+      "homeLoop": null,
+      "appHeader": null,
+      "appNav": null,
+      "appTitle": {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER"
+      },
+      "propertyMain": null,
+      "propertyZones": null,
+      "carePanel": null,
+      "plantGrid": null,
+      "firstPlantCard": null,
+      "catalogueGrid": {
+        "top": 274,
+        "bottom": 1773,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 1500,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.\n\nPERENNIAL\nCurry Leaf\nS"
+      },
+      "firstCatalogueCard": {
+        "top": 274,
+        "bottom": 764,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 491,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds."
+      }
+    },
+    "landmarks": [
+      {
+        "top": 0,
+        "bottom": 97,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 97,
+        "text": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours"
+      },
+      {
+        "top": 52,
+        "bottom": 88,
+        "left": 10,
+        "right": 380,
+        "width": 369,
+        "height": 36,
+        "text": "My Garden\nThis Week\nMy Plants\nFind Plants"
+      },
+      {
+        "top": 97,
+        "bottom": 1863,
+        "left": 0,
+        "right": 390,
+        "width": 390,
+        "height": 1765,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 i"
+      },
+      {
+        "top": 108,
+        "bottom": 1787,
+        "left": 8,
+        "right": 382,
+        "width": 374,
+        "height": 1679,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 i"
+      },
+      {
+        "top": 121,
+        "bottom": 218,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 96,
+        "text": "HOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER"
+      },
+      {
+        "top": 152,
+        "bottom": 193,
+        "left": 21,
+        "right": 281,
+        "width": 259,
+        "height": 41,
+        "text": "Find Plants"
+      },
+      {
+        "top": 274,
+        "bottom": 764,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 491,
+        "text": "PERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergree"
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\n24-36 in\nBEST SPOT\nCompact size fits well; prune to keep tidy.\n\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nLIGHT\nFull Sun\nWATER\nMedium\nHEIGHT\n72-120 in\nBEST SPOT\nSmall size suits patios and kitchen gardens; protect from frost.\n\nA perennial aromatic shrub prized for its flavorful leaves used in Indian and Southeast Asian cuisine.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagetes patula\n\nLIGHT\nFull Sun\nWATER\nMedium\nHEIGHT\n6-12 in\nBEST SPOT\nIdeal for borders and containers due to compact size.\n\nCompact annual flower known for bright orange, yellow, and red blooms with a spicy scent.",
+    "indexes": {
+      "openApp": -1,
+      "browsePlants": -1,
+      "startYours": 52,
+      "startGarden": -1,
+      "myGarden": 10,
+      "thisWeek": 20,
+      "myPlants": 30,
+      "findPlants": 40,
+      "careThisWeek": -1,
+      "gardenLayout": -1,
+      "nextStep": -1,
+      "quickFit": -1
+    },
+    "overflowOffenders": []
+  }
+]

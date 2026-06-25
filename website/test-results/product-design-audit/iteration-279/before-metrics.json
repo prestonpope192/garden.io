@@ -1,0 +1,42 @@
+[
+  {
+    "label": "desktop-before",
+    "file": "01-desktop-property-before.png",
+    "viewport": 1280,
+    "clientWidth": 1280,
+    "docScrollWidth": 1280,
+    "hasHorizontalOverflow": false,
+    "hasFirstPlaceLabel": false,
+    "hasOpenPlantRecord": true,
+    "bellPepperMentions": 2,
+    "waterMentions": 1,
+    "guideTop": 329,
+    "guideBottom": 577,
+    "drawerTop": 251,
+    "drawerBottom": 594,
+    "plotTop": 251,
+    "plotBottom": 636,
+    "layoutHeadingTop": 288,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN My Garden See each area, bed, plant, and note by place. SUMMER GARDEN Home garden · Backyard Garden FIRST PLACE TO CHECK Bell Pepper Water deeply before the hot afternoon · Jun 23 Container Row · Kitchen Garden 2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history. Open plant record GARDEN LAYOUT Backyard Garden Home garden · Central Texas · Growing zone 8b · Summer Kitchen Garden 2 BEDS Herbs and daily cooking plants · Morning sun Herb Bed 2 Cilantro ·4 Calendula ·2 Container Row 1 Bell Pepper Pollinator Edge 1 BED Flowers, perennial color, and beneficial insects · Full sun Bloom Border 1 Calendula ·6"
+  },
+  {
+    "label": "mobile-before",
+    "file": "02-mobile-property-before.png",
+    "viewport": 390,
+    "clientWidth": 390,
+    "docScrollWidth": 390,
+    "hasHorizontalOverflow": false,
+    "hasFirstPlaceLabel": false,
+    "hasOpenPlantRecord": true,
+    "bellPepperMentions": 2,
+    "waterMentions": 1,
+    "guideTop": 236,
+    "guideBottom": 477,
+    "drawerTop": 222,
+    "drawerBottom": 491,
+    "plotTop": 515,
+    "plotBottom": 1077,
+    "layoutHeadingTop": 552,
+    "firstText": "Garden.io Ask Start your garden HOME GARDEN My Garden See each area, bed, plant, and note by place. SUMMER FIRST PLACE TO CHECK Bell Pepper Water deeply before the hot afternoon · Jun 23 Container Row · Kitchen Garden 2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history. Open plant record GARDEN LAYOUT Backyard Garden Home garden · Central Texas · Growing zone 8b · Summer Kitchen Garden 2 BEDS Herbs and daily cooking plants · Morning sun Herb Bed 2 Cilantro ·4 Calendula ·2 Container Row 1 Bell Pepper Pollinator Edge 1 BED Flowers, perennial color, and beneficial insects · Full sun Bloom Border 1 Calendula ·6"
+  }
+]

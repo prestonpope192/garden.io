@@ -1,0 +1,231 @@
+{
+  "routes": [
+    {
+      "name": "home-final",
+      "url": "http://127.0.0.1:3021/",
+      "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-573/home-final.png",
+      "title": "Garden.io | Your Garden, Smarter",
+      "h1": "Your garden, smarter.",
+      "forbiddenHits": [],
+      "horizontalOverflow": false,
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "tinyControls": [],
+      "hiddenRailCount": 0,
+      "keyLabels": [
+        "Garden.io",
+        "Choose plants",
+        "Start your garden",
+        "Tour a garden journal",
+        "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year",
+        "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and broug",
+        "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let se"
+      ]
+    },
+    {
+      "name": "tour-ask-final",
+      "url": "http://127.0.0.1:3021/tour/ask",
+      "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-573/tour-ask-final.png",
+      "title": "Garden.io | Your Garden, Smarter",
+      "h1": "Your garden, smarter.",
+      "forbiddenHits": [],
+      "horizontalOverflow": false,
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "tinyControls": [],
+      "hiddenRailCount": 0,
+      "keyLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Choose plants",
+        "Start your garden",
+        "Yellow leaves, new spots, heavy rain...",
+        "Add a photo",
+        "See what helps",
+        "Leaves are yellowing",
+        "Heavy rain last night",
+        "Go to My Garden",
+        "Go to weekly care",
+        "Choose plants"
+      ]
+    },
+    {
+      "name": "tour-plants-final",
+      "url": "http://127.0.0.1:3021/tour/plants",
+      "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-573/tour-plants-final.png",
+      "title": "Garden.io | Your Garden, Smarter",
+      "h1": "Plant Journal",
+      "forbiddenHits": [],
+      "horizontalOverflow": false,
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "tinyControls": [],
+      "hiddenRailCount": 0,
+      "keyLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Choose plants",
+        "Start your garden",
+        "Search plants by name, bed, or place",
+        "Select Bell Pepper",
+        "Select Bouquet Dill",
+        "Select Borage",
+        "Select Borage"
+      ]
+    },
+    {
+      "name": "tour-property-final",
+      "url": "http://127.0.0.1:3021/tour/property",
+      "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-573/tour-property-final.png",
+      "title": "Garden.io | Your Garden, Smarter",
+      "h1": "My Garden",
+      "forbiddenHits": [],
+      "horizontalOverflow": false,
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "tinyControls": [],
+      "hiddenRailCount": 0,
+      "keyLabels": [
+        "Garden.io",
+        "Today",
+        "My Garden",
+        "Weekly care",
+        "Plant Journal",
+        "Choose plants",
+        "Start your garden",
+        "Kitchen Garden2 beds",
+        "Herb Bed2",
+        "Bouquet Dill ·4",
+        "Borage ·2",
+        "Container Row1",
+        "Bell Pepper",
+        "Pollinator Edge1 bed",
+        "Bloom Border1",
+        "Borage ·6"
+      ]
+    },
+    {
+      "name": "app-gate-final",
+      "url": "http://127.0.0.1:3021/app/my-property",
+      "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-573/app-gate-final.png",
+      "title": "Garden.io | Your Garden, Smarter",
+      "h1": "Your garden, smarter.",
+      "forbiddenHits": [],
+      "horizontalOverflow": false,
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "tinyControls": [],
+      "hiddenRailCount": 0,
+      "keyLabels": [
+        "you@example.com",
+        "Email me a start link",
+        "Tour a garden journal",
+        "Choose plants"
+      ]
+    }
+  ],
+  "tourAskTabStops": [
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Garden.io",
+      "className": "journal-shell__brand",
+      "width": 99,
+      "height": 40
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Today",
+      "className": "is-active",
+      "width": 62,
+      "height": 38
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "My Garden",
+      "className": "",
+      "width": 94,
+      "height": 38
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Weekly care",
+      "className": "",
+      "width": 98,
+      "height": 38
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Plant Journal",
+      "className": "",
+      "width": 104,
+      "height": 38
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Choose plants",
+      "className": "",
+      "width": 108,
+      "height": 38
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Start your garden",
+      "className": "folio-button",
+      "width": 127,
+      "height": 46
+    },
+    {
+      "tag": "textarea",
+      "type": null,
+      "label": "Yellow leaves, new spots, heavy rain...",
+      "className": "",
+      "width": 709,
+      "height": 210
+    },
+    {
+      "tag": "button",
+      "type": "button",
+      "label": "Add a photo",
+      "className": "garden-ai-photo-button",
+      "width": 123,
+      "height": 54
+    },
+    {
+      "tag": "button",
+      "type": "button",
+      "label": "Leaves are yellowing",
+      "className": "",
+      "width": 149,
+      "height": 48
+    },
+    {
+      "tag": "button",
+      "type": "button",
+      "label": "Heavy rain last night",
+      "className": "",
+      "width": 153,
+      "height": 48
+    },
+    {
+      "tag": "a",
+      "type": null,
+      "label": "Go to My Garden",
+      "className": "garden-ai-shortcut",
+      "width": 93,
+      "height": 34
+    }
+  ]
+}

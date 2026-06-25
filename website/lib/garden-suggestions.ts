@@ -32,6 +32,41 @@ export type GardenSuggestion = {
   dueInDays: number;
 };
 
+export function formatSuggestionSignal(confidence: SuggestionConfidence) {
+  if (confidence === "high") return "Good moment";
+  if (confidence === "medium") return "Worth a look";
+  return "Optional";
+}
+
+export function formatSuggestionType(type: SuggestionType) {
+  if (type === "warning") return "Check soon";
+  if (type === "opportunity") return "Good moment";
+  if (type === "insight") return "From your garden";
+  return "Care idea";
+}
+
+export function formatSuggestionWindowLabel(label: string) {
+  const trimmed = label.trim();
+  if (!trimmed) return "Soon";
+
+  const knownLabels: Record<string, string> = {
+    later: "Later",
+    now: "Now",
+    "this week": "This week",
+    "this season": "This season",
+    "from your history": "From your history",
+    "next rotation": "Next rotation"
+  };
+
+  const normalized = trimmed.toLowerCase();
+  if (knownLabels[normalized]) return knownLabels[normalized];
+
+  const days = normalized.match(/^~(\d+) days?$/);
+  if (days?.[1]) return `In about ${days[1]} days`;
+
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+}
+
 export function deriveSeason(month: number): SuggestionSeason {
   // month is 0-indexed (0 = January), Northern Hemisphere.
   if (month >= 2 && month <= 4) return "Spring";
@@ -85,7 +120,7 @@ type EngineInput = {
   plants: GardenPlantInstance[];
   season: SuggestionSeason;
   existingTaskTitles: string[]; // normalised (lowercased, trimmed) open task titles
-  outcomes?: GardenPlantOutcome[]; // recorded harvests/results — powers history-cited recs
+  outcomes?: GardenPlantOutcome[]; // harvest notes/results power history-based care ideas
 };
 
 const PRIORITY: Record<SuggestionType, number> = { warning: 0, opportunity: 1, suggestion: 2, insight: 3 };
@@ -103,15 +138,15 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const t = plantText(plant);
     const name = plantName(plant);
     const key = (k: string) => `plant:${plant.id}:${k}`;
-    // History-cited: this plant's profile track record across the property.
+    // History-cited: how this plant has done across the garden.
     const profileStat = memory.byProfile.get(plant.plant_profile_id);
     if (profileStat && profileStat.count > 0) {
       const verdict = classifyPerformance(profileStat);
       const desc = describePerformance(profileStat);
       if (verdict === "strong") {
-        push({ id: key("history-strong"), type: "insight", title: `${name} has a strong track record for you`, rationale: `From your records, ${name} has ${desc}. Keep doing what works — same spot, same timing.`, confidence: "high", taskTitle: `Note: ${name} has a strong track record`, windowLabel: "from your history", dueInDays: 30 });
+        push({ id: key("history-strong"), type: "insight", title: `${name} has done well for you`, rationale: `From your garden notes, ${name} has ${desc}. Keep doing what works: same spot, same timing.`, confidence: "high", taskTitle: `Keep ${name} in the plan`, windowLabel: "from your history", dueInDays: 30 });
       } else if (verdict === "weak") {
-        push({ id: key("history-weak"), type: "warning", title: `${name} has underperformed for you before`, rationale: `Your records show ${name} ${desc}. Scout early and consider changing spot, timing, or variety.`, confidence: "medium", taskTitle: `Scout ${name} early — past plantings underperformed`, windowLabel: "this week", dueInDays: 5 });
+        push({ id: key("history-weak"), type: "warning", title: `${name} has struggled before`, rationale: `From your garden notes, ${name} ${desc}. Check early and consider a different spot, timing, or variety.`, confidence: "medium", taskTitle: `Check ${name} early`, windowLabel: "this week", dueInDays: 5 });
       }
     }
     // Data-driven harvest timing (curated phenology): supersedes type heuristics.
@@ -133,7 +168,7 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
       push({ id: key("plant-clove"), type: "opportunity", title: `Plant ${name} cloves now`, rationale: "Fall-planted alliums root before winter and size up for an early-summer harvest.", confidence: "high", taskTitle: `Plant ${name} cloves`, windowLabel: "this season", dueInDays: 14 });
     }
     if (isBerry(t) && season === "Summer") {
-      push({ id: key("net"), type: "suggestion", title: `Net ${name} as the fruit colours up`, rationale: "Birds find ripening berries fast — netting now protects the harvest.", confidence: "medium", taskTitle: `Net ${name} against birds`, windowLabel: "this week", dueInDays: 5 });
+      push({ id: key("net"), type: "suggestion", title: `Cover ${name} as berries ripen`, rationale: "Birds find ripening berries fast — netting now protects the harvest.", confidence: "medium", taskTitle: `Cover ${name} against birds`, windowLabel: "this week", dueInDays: 5 });
     }
     if (isFruitTree(t) && season === "Winter") {
       push({ id: key("prune"), type: "suggestion", title: `Prune ${name} during dormancy`, rationale: "Bare structure makes shaping cuts clear, and dormant pruning reduces disease spread.", confidence: "high", taskTitle: `Prune ${name} (dormant season)`, windowLabel: "this season", dueInDays: 21 });
@@ -157,7 +192,7 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const bedPlants = growing.filter((p) => p.bed_id === bed.id);
     const texts = bedPlants.map(plantText);
     const key = (k: string) => `bed:${bed.id}:${k}`;
-    // History-cited: per-crop performance recorded in THIS bed (cap 2).
+    // History-cited: how each crop has done in this bed (cap 2).
     let bedHistoryCount = 0;
     for (const [bkey, stat] of memory.byBedProfile) {
       if (bedHistoryCount >= 2) break;
@@ -168,10 +203,10 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
       const verdict = classifyPerformance(stat);
       const desc = describePerformance(stat);
       if (verdict === "strong") {
-        push({ id: key(`history-win-${profileId}`), type: "opportunity", title: `${cropName} does well in ${bed.name}`, rationale: `${cropName} has ${desc} in ${bed.name}. A reliable pairing — lean into it.`, confidence: "high", taskTitle: `Keep growing ${cropName} in ${bed.name}`, windowLabel: "from your history", dueInDays: 21 });
+        push({ id: key(`history-win-${profileId}`), type: "opportunity", title: `${cropName} does well in ${bed.name}`, rationale: `${cropName} has ${desc} in ${bed.name}. This pairing is working.`, confidence: "high", taskTitle: `Keep growing ${cropName} in ${bed.name}`, windowLabel: "from your history", dueInDays: 21 });
         bedHistoryCount++;
       } else if (verdict === "weak") {
-        push({ id: key(`history-loss-${profileId}`), type: "warning", title: `${cropName} has underperformed in ${bed.name}`, rationale: `${cropName} has ${desc} here. Consider rotating it out or changing how it's grown in ${bed.name}.`, confidence: "medium", taskTitle: `Rethink ${cropName} in ${bed.name}`, windowLabel: "next rotation", dueInDays: 30 });
+        push({ id: key(`history-loss-${profileId}`), type: "warning", title: `${cropName} has struggled in ${bed.name}`, rationale: `${cropName} has ${desc} here. Try a different bed or adjust how you grow it in ${bed.name}.`, confidence: "medium", taskTitle: `Try a different plan for ${cropName}`, windowLabel: "next rotation", dueInDays: 30 });
         bedHistoryCount++;
       }
     }
@@ -197,7 +232,7 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const texts = zonePlants.map(plantText);
     const key = (k: string) => `zone:${zone.id}:${k}`;
     if (texts.some(isFruitTree) && !texts.some(isLegume)) {
-      push({ id: key("nfixer"), type: "opportunity", title: `Add a nitrogen-fixer under the trees in ${zone.name}`, rationale: "Clover or beans beneath fruit trees feed the soil and cut the need for fertiliser.", confidence: "medium", taskTitle: `Plant a nitrogen-fixer in ${zone.name}`, windowLabel: "this season", dueInDays: 14 });
+      push({ id: key("nfixer"), type: "opportunity", title: `Plant clover or beans under the trees in ${zone.name}`, rationale: "Clover or beans beneath fruit trees feed the soil and reduce fertilizer needs.", confidence: "medium", taskTitle: `Plant clover or beans in ${zone.name}`, windowLabel: "this season", dueInDays: 14 });
     }
     if (zonePlants.length > 0 && !texts.some(isPollinatorFlower)) {
       push({ id: key("pollinator"), type: "opportunity", title: `Add a pollinator flower to ${zone.name}`, rationale: "A patch of flowers pulls in bees and predatory insects that work the whole zone.", confidence: "medium", taskTitle: `Add a pollinator flower to ${zone.name}`, windowLabel: "this season", dueInDays: 14 });
@@ -208,7 +243,7 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const allTexts = growing.map(plantText);
     const key = (k: string) => `property:${k}`;
     if (growing.length > 0 && !allTexts.some(isPollinatorFlower)) {
-      push({ id: key("pollinator-patch"), type: "opportunity", title: "Start a small pollinator patch", rationale: "Even one bed of flowers lifts pollination and pest control across the whole garden — nothing here is drawing beneficials yet.", confidence: "high", taskTitle: "Plan a pollinator flower bed", windowLabel: "this season", dueInDays: 14 });
+      push({ id: key("pollinator-patch"), type: "opportunity", title: "Start a small pollinator patch", rationale: "Even one bed of flowers lifts pollination and pest control across the whole garden — nothing here is drawing beneficial insects yet.", confidence: "high", taskTitle: "Plan a pollinator flower bed", windowLabel: "this season", dueInDays: 14 });
     }
     const seasonal: Record<SuggestionSeason, { title: string; rationale: string; task: string; days: number }> = {
       Spring: { title: "Prep beds with compost before the soil warms", rationale: "Spring is the window to build fertility before heavy planting.", task: "Top-dress beds with compost", days: 10 },
@@ -219,7 +254,7 @@ export function generateSuggestions(input: EngineInput): GardenSuggestion[] {
     const s = seasonal[season];
     push({ id: key(`seasonal-${season}`), type: "suggestion", title: s.title, rationale: s.rationale, confidence: "high", taskTitle: s.task, windowLabel: "this season", dueInDays: s.days });
     if (input.zones.length > 0 && input.beds.length < input.zones.length * 2) {
-      push({ id: key("more-beds"), type: "insight", title: "Lay out more beds to make the most of your zones", rationale: "There's room to expand — more beds turn your zones into productive space.", confidence: "low", taskTitle: "Plan another bed", windowLabel: "later", dueInDays: 30 });
+      push({ id: key("more-beds"), type: "insight", title: "Add one more bed when you need room", rationale: "If this place starts to feel crowded, one clear bed gives future plants a place to go.", confidence: "low", taskTitle: "Plan one more bed", windowLabel: "later", dueInDays: 30 });
     }
   }
 

@@ -1,0 +1,12 @@
+{
+  "saveTargetText": "Save withCalendulaChange",
+  "pickerVisible": false,
+  "saveButtonText": [
+    "Ask follow-up",
+    "Saved"
+  ],
+  "statusText": "Saved to Calendula.",
+  "savedNoteVisible": true,
+  "rawTerms": [],
+  "visibleOverflow": []
+}

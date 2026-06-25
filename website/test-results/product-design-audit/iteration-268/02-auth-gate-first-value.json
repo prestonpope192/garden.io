@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "firstPanel": "Your first plant makes the garden useful.Once a plant has a place, care, notes, and future answers know where they belong.",
+    "h1": "Your garden, smarter.",
+    "links": [
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      },
+      {
+        "href": "/catalog",
+        "text": "Find plants that fit"
+      }
+    ],
+    "textLength": 438,
+    "textStart": "START YOUR GARDEN Your garden, smarter. Start with one bed or plant. Then save notes and photos as you garden, so every answer has the right context. Your first plant makes the garden useful. Once a plant has a place, care, notes, and future answers know where they belong. Enter your email to start. We'll send a link back to your garden. No password needed. EMAIL ADDRESS Email me my garden link See a sample garden Find plants that fit",
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/app/my-property"
+  }
+}

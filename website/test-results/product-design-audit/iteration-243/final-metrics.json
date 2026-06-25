@@ -1,0 +1,28 @@
+[
+  {
+    "step": "02-ask-answer-mobile-final",
+    "h1": "Ask your garden",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "textStart": "Garden.io Start Ask your garden Memory Care Guide \"Leaves are yellowing on my tomato.\" start with one close check, then save the next care step with the right plant or bed. NEXT STEP Check soil moisture before changing the watering rhythm. Add to care list Inspect the most affected leaves for pests or spotting. Add to care list Save one note with the plant or bed so the next answer has context. Add to care list WHY THIS ANSWER Heat and watering are the first things to rule out Possible The sample garden is in summer and has containers, herbs, and bloom borders with different water needs. Plant-specific context matters Possible French Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place. Look for: Look for whether the issue is on old leaves, new growth, or the whole plant. SAVE TO MEMORY Keep the answer with the right place so future questions have context. Attach to Whole garden Kitchen Garden area Pollinator Edge area Herb Bed in Kitchen Garden Container Row in Kitchen Garden Bloom Border in Pollinator Edge Calendula in Bloom Border Cilantro in Herb Bed Cucumber in Container Row Calendula in Herb Bed Ask follow-up Save note",
+    "hasAnswer": true,
+    "composerStillVisible": false,
+    "promptTextareaVisible": false,
+    "answerTop": 123,
+    "answerHeight": 1457,
+    "rawTerms": [],
+    "visibleOverflow": []
+  },
+  {
+    "step": "03-ask-answer-desktop-final",
+    "h1": "Ask your garden",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "textStart": "Garden.io Look around Start Ask your garden Memory Care Guide \"Leaves are yellowing on my tomato.\" start with one close check, then save the next care step with the right plant or bed. NEXT STEP Check soil moisture before changing the watering rhythm. Add to care list Inspect the most affected leaves for pests or spotting. Add to care list Save one note with the plant or bed so the next answer has context. Add to care list WHY THIS ANSWER Heat and watering are the first things to rule out Possible The sample garden is in summer and has containers, herbs, and bloom borders with different water needs. Plant-specific context matters Possible French Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place. Look for: Look for whether the issue is on old leaves, new growth, or the whole plant. SAVE TO MEMORY Keep the answer with the right place so future questions have context. Attach to Whole garden Kitchen Garden area Pollinator Edge area Herb Bed in Kitchen Garden Container Row in Kitchen Garden Bloom Border in Pollinator Edge Calendula in Bloom Border Cilantro in Herb Bed Cucumber in Container Row Calendula in Herb Bed Ask follow-up Save note",
+    "hasAnswer": true,
+    "composerStillVisible": false,
+    "promptTextareaVisible": false,
+    "answerTop": 166,
+    "answerHeight": 1252,
+    "rawTerms": [],
+    "visibleOverflow": []
+  }
+]

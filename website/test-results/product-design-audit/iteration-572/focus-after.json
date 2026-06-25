@@ -1,0 +1,978 @@
+[
+  {
+    "name": "home",
+    "url": "http://127.0.0.1:3021/",
+    "states": [
+      {
+        "step": 1,
+        "tag": "A",
+        "text": "Garden.io",
+        "cls": "brand",
+        "rect": {
+          "x": 10,
+          "y": 17,
+          "w": 88,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "",
+        "rect": {
+          "x": 286,
+          "y": 17,
+          "w": 93,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "text": "Start your garden",
+        "cls": "folio-link",
+        "rect": {
+          "x": 23,
+          "y": 236,
+          "w": 344,
+          "h": 42
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "text": "Tour a garden journal",
+        "cls": "folio-link folio-link--secondary",
+        "rect": {
+          "x": 23,
+          "y": 286,
+          "w": 139,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 5,
+        "tag": "A",
+        "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning.",
+        "cls": "home-plant-card",
+        "rect": {
+          "x": 8,
+          "y": 1197,
+          "w": 374,
+          "h": 366
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px",
+        "visibleRing": true,
+        "inViewport": false,
+        "scrollY": 263
+      },
+      {
+        "step": 6,
+        "tag": "A",
+        "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+        "cls": "home-plant-card",
+        "rect": {
+          "x": 8,
+          "y": 943,
+          "w": 374,
+          "h": 366
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px",
+        "visibleRing": true,
+        "inViewport": false,
+        "scrollY": 896
+      },
+      {
+        "step": 7,
+        "tag": "A",
+        "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+        "cls": "home-plant-card",
+        "rect": {
+          "x": 8,
+          "y": 761,
+          "w": 374,
+          "h": 341
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "rgba(90, 101, 79, 0.14) 0px 0px 0px 3px",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 1456
+      },
+      {
+        "step": 8,
+        "tag": "BODY",
+        "scrollY": 1746
+      },
+      {
+        "step": 9,
+        "tag": "A",
+        "text": "Garden.io",
+        "cls": "brand",
+        "rect": {
+          "x": 10,
+          "y": -1548,
+          "w": 88,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": false,
+        "scrollY": 1565
+      },
+      {
+        "step": 10,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "",
+        "rect": {
+          "x": 286,
+          "y": -557,
+          "w": 93,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": false,
+        "scrollY": 574
+      }
+    ]
+  },
+  {
+    "name": "tour-ask",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "states": [
+      {
+        "step": 1,
+        "tag": "A",
+        "text": "Garden.io",
+        "cls": "journal-shell__brand",
+        "rect": {
+          "x": 9,
+          "y": 7,
+          "w": 263,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "text": "Today",
+        "cls": "is-active",
+        "rect": {
+          "x": 9,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "text": "My Garden",
+        "cls": "",
+        "rect": {
+          "x": 84,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "text": "Weekly care",
+        "cls": "",
+        "rect": {
+          "x": 159,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 5,
+        "tag": "A",
+        "text": "Plant Journal",
+        "cls": "",
+        "rect": {
+          "x": 234,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 6,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "",
+        "rect": {
+          "x": 309,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 7,
+        "tag": "A",
+        "text": "Start your garden",
+        "cls": "folio-button",
+        "rect": {
+          "x": 279,
+          "y": 7,
+          "w": 102,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 8,
+        "tag": "TEXTAREA",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "cls": "",
+        "rect": {
+          "x": 14,
+          "y": 323,
+          "w": 363,
+          "h": 160
+        },
+        "outlineStyle": "none",
+        "outlineWidth": "3px",
+        "boxShadow": "rgba(167, 133, 69, 0.16) 0px 0px 0px 3px, rgba(75, 57, 33, 0.07) 0px 16px 32px 0px",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 9,
+        "tag": "INPUT",
+        "text": "Add a photo",
+        "cls": "",
+        "rect": {
+          "x": 118,
+          "y": 522,
+          "w": 1,
+          "h": 1
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 10,
+        "tag": "BUTTON",
+        "text": "Leaves are yellowing",
+        "cls": "",
+        "rect": {
+          "x": 14,
+          "y": 595,
+          "w": 363,
+          "h": 48
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 11,
+        "tag": "BUTTON",
+        "text": "Heavy rain last night",
+        "cls": "",
+        "rect": {
+          "x": 14,
+          "y": 651,
+          "w": 363,
+          "h": 48
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 12,
+        "tag": "A",
+        "text": "My Garden",
+        "cls": "garden-ai-shortcut",
+        "rect": {
+          "x": 14,
+          "y": 715,
+          "w": 177,
+          "h": 41
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      }
+    ]
+  },
+  {
+    "name": "tour-property",
+    "url": "http://127.0.0.1:3021/tour/property",
+    "states": [
+      {
+        "step": 1,
+        "tag": "A",
+        "text": "Garden.io",
+        "cls": "journal-shell__brand",
+        "rect": {
+          "x": 9,
+          "y": 7,
+          "w": 263,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "text": "Today",
+        "cls": "",
+        "rect": {
+          "x": 9,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "text": "My Garden",
+        "cls": "is-active",
+        "rect": {
+          "x": 84,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "text": "Weekly care",
+        "cls": "",
+        "rect": {
+          "x": 159,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 5,
+        "tag": "A",
+        "text": "Plant Journal",
+        "cls": "",
+        "rect": {
+          "x": 234,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 6,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "",
+        "rect": {
+          "x": 309,
+          "y": 54,
+          "w": 72,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 7,
+        "tag": "A",
+        "text": "Start your garden",
+        "cls": "folio-button",
+        "rect": {
+          "x": 279,
+          "y": 7,
+          "w": 102,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 8,
+        "tag": "BUTTON",
+        "text": "Kitchen Garden2 beds",
+        "cls": "garden-zone__head",
+        "rect": {
+          "x": 38,
+          "y": 358,
+          "w": 313,
+          "h": 44
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 9,
+        "tag": "BUTTON",
+        "text": "Herb Bed2",
+        "cls": "garden-bed__head",
+        "rect": {
+          "x": 51,
+          "y": 454,
+          "w": 289,
+          "h": 40
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 10,
+        "tag": "BUTTON",
+        "text": "Bouquet Dill ·4",
+        "cls": "garden-chip ",
+        "rect": {
+          "x": 51,
+          "y": 502,
+          "w": 97,
+          "h": 40
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 11,
+        "tag": "BUTTON",
+        "text": "Borage ·2",
+        "cls": "garden-chip ",
+        "rect": {
+          "x": 153,
+          "y": 502,
+          "w": 67,
+          "h": 40
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 12,
+        "tag": "BUTTON",
+        "text": "Container Row1",
+        "cls": "garden-bed__head",
+        "rect": {
+          "x": 51,
+          "y": 576,
+          "w": 289,
+          "h": 40
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      }
+    ]
+  },
+  {
+    "name": "catalog",
+    "url": "http://127.0.0.1:3021/catalog",
+    "states": [
+      {
+        "step": 1,
+        "tag": "A",
+        "text": "Garden.io",
+        "cls": "brand",
+        "rect": {
+          "x": 10,
+          "y": 17,
+          "w": 88,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 2,
+        "tag": "A",
+        "text": "Home",
+        "cls": "",
+        "rect": {
+          "x": 230,
+          "y": 17,
+          "w": 46,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "",
+        "rect": {
+          "x": 286,
+          "y": 17,
+          "w": 93,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 4,
+        "tag": "INPUT",
+        "text": "Search plants, shade, pollinators...",
+        "cls": "",
+        "rect": {
+          "x": 68,
+          "y": 308,
+          "w": 285,
+          "h": 44
+        },
+        "outlineStyle": "none",
+        "outlineWidth": "0px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 5,
+        "tag": "BUTTON",
+        "text": "Browse by kind",
+        "cls": "folio-link folio-link--secondary",
+        "rect": {
+          "x": 247,
+          "y": 362,
+          "w": 118,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 6,
+        "tag": "BUTTON",
+        "text": "See Calendula details",
+        "cls": "public-catalogue-row__preview",
+        "rect": {
+          "x": 36,
+          "y": 538,
+          "w": 90,
+          "h": 109
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 7,
+        "tag": "A",
+        "text": "View plant",
+        "cls": "folio-link folio-link--small",
+        "rect": {
+          "x": 136,
+          "y": 584,
+          "w": 85,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 8,
+        "tag": "BUTTON",
+        "text": "See Cilantro details",
+        "cls": "public-catalogue-row__preview",
+        "rect": {
+          "x": 36,
+          "y": 736,
+          "w": 90,
+          "h": 109
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 9,
+        "tag": "A",
+        "text": "View plant",
+        "cls": "folio-link folio-link--small",
+        "rect": {
+          "x": 136,
+          "y": 782,
+          "w": 85,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 10,
+        "tag": "BUTTON",
+        "text": "See Cucumber details",
+        "cls": "public-catalogue-row__preview",
+        "rect": {
+          "x": 36,
+          "y": 622,
+          "w": 90,
+          "h": 109
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 349
+      },
+      {
+        "step": 11,
+        "tag": "A",
+        "text": "View plant",
+        "cls": "folio-link folio-link--small",
+        "rect": {
+          "x": 136,
+          "y": 475,
+          "w": 85,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 542
+      },
+      {
+        "step": 12,
+        "tag": "BUTTON",
+        "text": "See Abelia details",
+        "cls": "public-catalogue-row__preview",
+        "rect": {
+          "x": 36,
+          "y": 631,
+          "w": 90,
+          "h": 109
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 574
+      }
+    ]
+  },
+  {
+    "name": "auth-gate",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "states": [
+      {
+        "step": 1,
+        "tag": "INPUT",
+        "text": "you@example.com",
+        "cls": "input",
+        "rect": {
+          "x": 31,
+          "y": 459,
+          "w": 327,
+          "h": 53
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 2,
+        "tag": "BUTTON",
+        "text": "Email me a start link",
+        "cls": "button",
+        "rect": {
+          "x": 31,
+          "y": 523,
+          "w": 327,
+          "h": 48
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 3,
+        "tag": "A",
+        "text": "Tour a garden journal",
+        "cls": "garden-auth__secondary",
+        "rect": {
+          "x": 31,
+          "y": 587,
+          "w": 144,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 4,
+        "tag": "A",
+        "text": "Choose plants",
+        "cls": "garden-auth__secondary",
+        "rect": {
+          "x": 31,
+          "y": 639,
+          "w": 93,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 5,
+        "tag": "BODY",
+        "scrollY": 0
+      },
+      {
+        "step": 6,
+        "tag": "INPUT",
+        "text": "you@example.com",
+        "cls": "input",
+        "rect": {
+          "x": 31,
+          "y": 459,
+          "w": 327,
+          "h": 53
+        },
+        "outlineStyle": "solid",
+        "outlineWidth": "2px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 7,
+        "tag": "BUTTON",
+        "text": "Email me a start link",
+        "cls": "button",
+        "rect": {
+          "x": 31,
+          "y": 523,
+          "w": 327,
+          "h": 48
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      },
+      {
+        "step": 8,
+        "tag": "A",
+        "text": "Tour a garden journal",
+        "cls": "garden-auth__secondary",
+        "rect": {
+          "x": 31,
+          "y": 587,
+          "w": 144,
+          "h": 40
+        },
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "boxShadow": "none",
+        "visibleRing": true,
+        "inViewport": true,
+        "scrollY": 0
+      }
+    ]
+  }
+]

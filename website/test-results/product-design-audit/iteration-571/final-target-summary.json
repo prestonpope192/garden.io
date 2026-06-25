@@ -1,0 +1,193 @@
+[
+  {
+    "name": "final-home-mobile",
+    "url": "http://127.0.0.1:3021/",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter.",
+        "A garden notebook that can answer back.",
+        "Each plant keeps its own story."
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 4,
+        "loaded": 4,
+        "svg": 0,
+        "plantArt": 4
+      }
+    }
+  },
+  {
+    "name": "final-tour-ask-mobile",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter."
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "final-tour-property-mobile",
+    "url": "http://127.0.0.1:3021/tour/property",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "My Garden",
+        "Backyard Garden"
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "final-tour-calendar-mobile",
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Weekly care",
+        "June 22–28, 2026"
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "final-tour-plants-mobile",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Plant Journal"
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 4,
+        "loaded": 4,
+        "svg": 0,
+        "plantArt": 4
+      }
+    }
+  },
+  {
+    "name": "final-tour-catalogue-mobile",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Choose plants",
+        "Bell Pepper",
+        "Borage",
+        "Bouquet Dill"
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 3,
+        "loaded": 3,
+        "svg": 0,
+        "plantArt": 3
+      }
+    }
+  },
+  {
+    "name": "final-catalog-mobile",
+    "url": "http://127.0.0.1:3021/catalog",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Choose a plant for the spot you have.",
+        "Apple",
+        "988 plants",
+        "Calendula",
+        "Cilantro",
+        "Cucumber",
+        "Abelia",
+        "Acerola",
+        "Ackee"
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 7,
+        "loaded": 7,
+        "svg": 0,
+        "plantArt": 7
+      }
+    }
+  },
+  {
+    "name": "final-plant-detail-mobile",
+    "url": "http://127.0.0.1:3021/catalog/borage",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Borage",
+        "Borage",
+        "Match it to the garden you have.",
+        "Where it belongs",
+        "Watch this season",
+        "Give it a place to grow."
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 1,
+        "loaded": 1,
+        "svg": 0,
+        "plantArt": 1
+      }
+    }
+  },
+  {
+    "name": "final-auth-gate-mobile",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter."
+      ],
+      "smallControls": [],
+      "belowForty": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  }
+]

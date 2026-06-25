@@ -1,0 +1,6 @@
+FOUND: Field guide
+FOUND: Choose the right plant for the right spot.
+FOUND: View plant
+MISSING: Open plant
+View plant count: 7
+Open plant count: 0

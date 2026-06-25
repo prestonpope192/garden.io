@@ -52,6 +52,7 @@ export function InkStamp({ children, tone = "olive", className }: InkStampProps)
 
 type PlateCardProps = {
   plateNumber: string;
+  label?: string;
   title: string;
   subtitle: string;
   illustration?: ReactNode;
@@ -60,7 +61,7 @@ type PlateCardProps = {
 };
 
 export function PlateCard({
-  plateNumber,
+  label,
   title,
   subtitle,
   illustration,
@@ -70,7 +71,7 @@ export function PlateCard({
   return (
     <article className={cx("plate-card", className)}>
       <div className="plate-card__head">
-        <SpecimenLabel tone="clay">Plate {plateNumber}</SpecimenLabel>
+        <SpecimenLabel tone="clay">{label ?? "Plant photo"}</SpecimenLabel>
         <span className="plate-card__rule" />
       </div>
       {illustration ? <div className="plate-card__illustration">{illustration}</div> : null}
@@ -118,7 +119,7 @@ export function JournalPage({
           {subtitle ? <p className="journal-page__subtitle">{subtitle}</p> : null}
         </div>
         <div className="journal-page__header-side">
-          <div className="journal-page__folio">Folio {folio}</div>
+          <div className="journal-page__folio">Section {folio}</div>
           {headerMeta ? <div className="journal-page__meta">{headerMeta}</div> : null}
         </div>
       </header>
@@ -137,19 +138,21 @@ export function JournalSpread({ children, className, layout = "balanced" }: Jour
   return <section className={cx("journal-spread", `journal-spread--${layout}`, className)}>{children}</section>;
 }
 
-const prototypeNav = [
-  { href: "/app/my-property", label: "My Property" },
-  { href: "/app/calendar", label: "Calendar" },
-  { href: "/app/my-plants", label: "My Plants" },
-  { href: "/app/plant-catalogue", label: "Plant Catalogue" }
+const appNav = [
+  { href: "/app/my-property", label: "My Garden" },
+  { href: "/app/calendar", label: "Weekly care" },
+  { href: "/app/my-plants", label: "Plant Journal" },
+  { href: "/app/plant-catalogue", label: "Choose plants" }
 ];
 
 type JournalShellProps = {
   currentPath: string;
   children: ReactNode;
+  signOut?: () => void;
+  userEmail?: string;
 };
 
-export function JournalShell({ currentPath, children }: JournalShellProps) {
+export function JournalShell({ currentPath, children, signOut, userEmail }: JournalShellProps) {
   return (
     <div className="journal-shell">
       <header className="journal-shell__header">
@@ -158,8 +161,8 @@ export function JournalShell({ currentPath, children }: JournalShellProps) {
             <Link className="journal-shell__brand" href="/">
               Garden.io
             </Link>
-            <nav aria-label="Prototype module navigation" className="journal-shell__nav">
-              {prototypeNav.map((item) => (
+            <nav aria-label="Garden sections" className="journal-shell__nav">
+              {appNav.map((item) => (
                 <Link
                   key={item.href}
                   className={cx("journal-shell__nav-link", currentPath === item.href && "is-active")}
@@ -174,20 +177,21 @@ export function JournalShell({ currentPath, children }: JournalShellProps) {
           <details className="journal-shell__user-menu">
             <summary className="journal-shell__user-toggle">
               <span className="journal-shell__avatar" aria-hidden="true">
-                P
+                {userEmail ? userEmail[0].toUpperCase() : "P"}
               </span>
               <span className="sr-only">Open user menu</span>
             </summary>
             <div className="journal-shell__user-dropdown">
-              <Link href="/app/my-property">Profile</Link>
-              <Link href="/app/my-property">Settings</Link>
-              <Link href="/app/my-property">Account</Link>
-              <button type="button">Log out</button>
+              <Link href="/app/my-property">My Garden</Link>
+              <Link href="/app/my-plants">Plant Journal</Link>
+              <Link href="/app/calendar">Weekly care</Link>
+              <Link href="/app/plant-catalogue">Choose plants</Link>
+              <button type="button" onClick={signOut}>Log out</button>
             </div>
           </details>
         </div>
 
-        <p className="journal-shell__tagline">A living botanical notebook for growers managing real complexity.</p>
+        <p className="journal-shell__tagline">Remember what happened and what helped.</p>
       </header>
 
       <div className="journal-shell__body">{children}</div>

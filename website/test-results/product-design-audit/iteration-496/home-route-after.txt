@@ -1,0 +1,5 @@
+FOUND: See a sample garden
+MISSING: Tour a garden
+FOUND: Start your garden
+FOUND: Your garden, smarter.
+FOUND: Choose plants

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "09-app-my-property-mobile-final.png",
+    "path": "/app/my-property",
+    "metrics": {
+      "h1": "Know what to do next.",
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "firstText": "ASK YOUR GARDEN\nKnow what to do next.\n\nA k with a quick note or photo. Your bed , plant , note , and care  tay together.\n\nFir t, make a place for your garden note .\nName your garden.\nAdd one bed.\nAdd one plant.\n\nThen every photo, note, and care  tep know  where it belong .\n\nEnter your email and we'll  end a link back to thi  page. No pa word needed.\n\nEMAIL ADDRESS\nEmail me the link\nLook around\nFind plant  that fit",
+      "firstStepsBeforeForm": true,
+      "formBeforeLinks": true,
+      "firstStepStyle": {
+        "display": "grid",
+        "gridTemplateColumns": "301.219px",
+        "width": 327,
+        "height": 218
+      },
+      "overflowing": []
+    }
+  },
+  {
+    "file": "10-app-my-property-desktop-final.png",
+    "path": "/app/my-property",
+    "metrics": {
+      "h1": "Know what to do next.",
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "firstText": "ASK YOUR GARDEN\nKnow what to do next.\n\nA k with a quick note or photo. Your bed , plant , note , and care  tay together.\n\nFir t, make a place for your garden note .\nName your garden.\nAdd one bed.\nAdd one plant.\n\nThen every photo, note, and care  tep know  where it belong .\n\nEnter your email and we'll  end a link back to thi  page. No pa word needed.\n\nEMAIL ADDRESS\nEmail me the link\nLook around\nFind plant  that fit",
+      "firstStepsBeforeForm": true,
+      "formBeforeLinks": true,
+      "firstStepStyle": {
+        "display": "grid",
+        "gridTemplateColumns": "131.469px 131.484px 131.484px",
+        "width": 441,
+        "height": 118
+      },
+      "overflowing": []
+    }
+  }
+]

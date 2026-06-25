@@ -1,0 +1,44 @@
+[
+  {
+    "h1": "Your garden, smarter.",
+    "hasCareNotesThisWeek": false,
+    "hasNewHomeLead": true,
+    "hasOldBelongsHint": false,
+    "hasOldHomeLead": false,
+    "hasOldTodayLead": false,
+    "hasSpecificAnswerHint": false,
+    "hasThingsNeedCare": false,
+    "hasTodayLead": false,
+    "horizontalOverflow": 0,
+    "pathname": "/",
+    "text": "Garden.io Choose plants Your garden, smarter. Note what changed. Ask what it means. Remember what worked. Start your garden Tour a garden journal Start with one plant. The journal gets useful as the season unfolds. APPLE First bloom Apr. 12. Compare fruit set and harvest later. SIMPLE GARDEN HABIT A simple habit for fewer garden guesses. Add what you notice now. Use it when you water, prune, replant, or ask for help. Know what is where Give each plant a spot once, then every note has a home. Capture the moment Add the bloom, pest, rain, harvest, or yellow leaf while it is fresh. Ask with context When something looks off, the answer starts with the plant, place, season, and notes already here. YOUR PLANTS A journal for each plant's season. Bloom dates, pests, harvests, and what helped stay with the plant they belong to. APPLE Bloom, prune, harvest Compare this year's bloom and harvest before next year's pruning. BORAGE Pollinators and reseeding Remember where it bloomed, self-seeded, and brought bees. BOUQUET DILL Cuttings and seed heads Know when to sow again, cut stems, and let seed form. Garden.io A living notebook for your garden"
+  },
+  {
+    "h1": "Your garden, smarter.",
+    "hasCareNotesThisWeek": false,
+    "hasNewHomeLead": false,
+    "hasOldBelongsHint": false,
+    "hasOldHomeLead": false,
+    "hasOldTodayLead": false,
+    "hasSpecificAnswerHint": true,
+    "hasThingsNeedCare": false,
+    "hasTodayLead": true,
+    "horizontalOverflow": 0,
+    "pathname": "/tour/ask",
+    "text": "Garden.io Today My Garden Weekly care Plant Journal Field Guide Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add what changed. Ask what it means. What changed in your garden? Add a photo See what helps A note or photo makes the answer more specific. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants"
+  },
+  {
+    "h1": "Weekly care",
+    "hasCareNotesThisWeek": false,
+    "hasNewHomeLead": false,
+    "hasOldBelongsHint": false,
+    "hasOldHomeLead": false,
+    "hasOldTodayLead": false,
+    "hasSpecificAnswerHint": false,
+    "hasThingsNeedCare": true,
+    "hasTodayLead": false,
+    "horizontalOverflow": 0,
+    "pathname": "/tour/calendar",
+    "text": "Garden.io Today My Garden Weekly care Plant Journal Field Guide Start your garden THIS WEEK Weekly care Start with what needs care. Let the rest wait. SUMMER June 22–28, 2026 FIRST UP 3 things need care this week TODAY Water deeply before the hot afternoon Bell Pepper in Container Row, Kitchen Garden WATER Focus on the bell pepper container and newly planted herbs. Jun 24 LATER THIS WEEK Harvest dill before afternoon heat Bouquet Dill in Herb Bed, Kitchen Garden Note bloom duration Borage in Bloom Border, Pollinator Edge"
+  }
+]

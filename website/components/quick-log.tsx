@@ -25,6 +25,22 @@ type QuickLogProps = {
   onLog: (input: QuickLogInput) => Promise<void>;
 };
 
+export const QUICK_LOG_COPY = {
+  fabAria: "Add a garden note or photo",
+  fabLabel: "Add note",
+  dialogLabel: "Keep a garden note",
+  heading: "Keep a garden note",
+  closeAria: "Close this form",
+  noteLabel: "What did you notice?",
+  placeholder: "First tomato, aphids on kale, rain soaked the beds...",
+  photoLabel: "Add a photo (optional)",
+  previewAlt: "Photo you selected",
+  attachLabel: "Keep with",
+  wholeGarden: "Whole garden",
+  saveLabel: "Keep in garden",
+  savingLabel: "Keeping..."
+};
+
 export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activePlantId, busy, onLog }: QuickLogProps) {
   const [open, setOpen] = useState(false);
   const [note, setNote] = useState("");
@@ -93,34 +109,34 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
 
   if (!open) {
     return (
-      <button className="beta-quicklog-fab" type="button" onClick={openPanel} aria-label="Quick log a note or photo">
-        <span aria-hidden="true" className="beta-quicklog-fab__mark">✎</span>
-        <span className="beta-quicklog-fab__label">Log</span>
+      <button className="garden-quicklog-fab" type="button" onClick={openPanel} aria-label={QUICK_LOG_COPY.fabAria}>
+        <span aria-hidden="true" className="garden-quicklog-fab__mark">✎</span>
+        <span className="garden-quicklog-fab__label">{QUICK_LOG_COPY.fabLabel}</span>
       </button>
     );
   }
 
   return (
-    <div className="beta-quicklog">
-      <div className="beta-quicklog__panel" role="dialog" aria-label="Quick log">
-        <div className="beta-quicklog__head">
-          <SpecimenLabel tone="olive">Quick log</SpecimenLabel>
-          <button className="beta-quicklog__close" type="button" onClick={() => setOpen(false)} aria-label="Close quick log">✕</button>
+    <div className="garden-quicklog">
+      <div className="garden-quicklog__panel" role="dialog" aria-label={QUICK_LOG_COPY.dialogLabel}>
+        <div className="garden-quicklog__head">
+          <SpecimenLabel tone="olive">{QUICK_LOG_COPY.heading}</SpecimenLabel>
+          <button className="garden-quicklog__close" type="button" onClick={() => setOpen(false)} aria-label={QUICK_LOG_COPY.closeAria}>✕</button>
         </div>
 
-        <label className="beta-field">
-          <span>What did you notice?</span>
+        <label className="garden-field">
+          <span>{QUICK_LOG_COPY.noteLabel}</span>
           <textarea
-            className="input beta-textarea"
+            className="input garden-textarea"
             autoFocus
-            placeholder="First blossoms · aphids on the kale · soaked after rain…"
+            placeholder={QUICK_LOG_COPY.placeholder}
             value={note}
             onChange={(event) => setNote(event.target.value)}
           />
         </label>
 
-        <label className="beta-field">
-          <span>Photo (optional)</span>
+        <label className="garden-field">
+          <span>{QUICK_LOG_COPY.photoLabel}</span>
           <input
             className="input"
             type="file"
@@ -128,28 +144,28 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
             onChange={(event) => onFile(event.target.files?.[0] ?? null)}
           />
         </label>
-        {preview ? <img className="beta-quicklog__preview" src={preview} alt="Selected photo preview" /> : null}
+        {preview ? <img className="garden-quicklog__preview" src={preview} alt={QUICK_LOG_COPY.previewAlt} /> : null}
 
-        <label className="beta-field">
-          <span>Attach to</span>
+        <label className="garden-field">
+          <span>{QUICK_LOG_COPY.attachLabel}</span>
           <select className="input" value={target} onChange={(event) => setTarget(event.target.value)}>
-            <option value="property">Whole garden</option>
+            <option value="property">{QUICK_LOG_COPY.wholeGarden}</option>
             {zones.map((zone) => (
-              <option key={zone.id} value={`zone:${zone.id}`}>Zone · {zone.name}</option>
+              <option key={zone.id} value={`zone:${zone.id}`}>{zone.name}</option>
             ))}
             {beds.map((bed) => (
-              <option key={bed.id} value={`bed:${bed.id}`}>Bed · {getZoneName(zones, bed.zone_id)} › {bed.name}</option>
+              <option key={bed.id} value={`bed:${bed.id}`}>{bed.name} in {getZoneName(zones, bed.zone_id)}</option>
             ))}
             {growing.map((plant) => (
-              <option key={plant.id} value={`plant:${plant.id}`}>Plant · {getCatalogPlantName(plant)} ({getBedName(beds, plant.bed_id)})</option>
+              <option key={plant.id} value={`plant:${plant.id}`}>{getCatalogPlantName(plant)} in {getBedName(beds, plant.bed_id)}</option>
             ))}
           </select>
         </label>
 
-        <div className="beta-quicklog__actions">
+        <div className="garden-quicklog__actions">
           <button className="folio-button" type="button" onClick={() => setOpen(false)}>Cancel</button>
           <button className="button" type="button" onClick={save} disabled={busy || (!note.trim() && !file)}>
-            {busy ? "Saving…" : "Log it"}
+            {busy ? QUICK_LOG_COPY.savingLabel : QUICK_LOG_COPY.saveLabel}
           </button>
         </div>
       </div>

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "01-my-property-auth-desktop.png",
+    "url": "http://localhost:3020/app/my-property",
+    "status": 200,
+    "hasAskCopy": true,
+    "hasConfigLeak": false,
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "pageErrors": [],
+    "badResponses": []
+  },
+  {
+    "name": "02-my-property-auth-mobile.png",
+    "url": "http://localhost:3020/app/my-property",
+    "status": 200,
+    "hasAskCopy": true,
+    "hasConfigLeak": false,
+    "consoleErrors": [],
+    "pageErrors": [],
+    "badResponses": []
+  },
+  {
+    "name": "03-garden-memory-auth-desktop.png",
+    "url": "http://localhost:3020/app/garden-memory",
+    "status": 200,
+    "hasAskCopy": true,
+    "hasConfigLeak": false,
+    "consoleErrors": [],
+    "pageErrors": [],
+    "badResponses": []
+  },
+  {
+    "name": "04-my-property-deeplink-auth-desktop.png",
+    "url": "http://localhost:3020/app/my-property?zone=demo-zone-kitchen",
+    "status": 200,
+    "hasAskCopy": true,
+    "hasConfigLeak": false,
+    "consoleErrors": [],
+    "pageErrors": [],
+    "badResponses": []
+  }
+]

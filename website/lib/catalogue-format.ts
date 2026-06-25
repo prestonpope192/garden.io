@@ -1,4 +1,5 @@
 import type { GardenPlantProfile, GardenPlantRequirementValue } from "@/lib/garden-app-types";
+import { getJournalStylePlantImageUrl, getRealPlantPhotoUrl } from "@/lib/plant-images";
 
 export type CatalogueRating = {
   rating: string | null;
@@ -6,10 +7,37 @@ export type CatalogueRating = {
 };
 
 export function formatCatalogueValue(value: string | number | null | undefined) {
-  if (value === null || value === undefined || value === "") return "TBD";
+  if (value === null || value === undefined || value === "") return "Not listed";
   return String(value)
     .replaceAll("_", " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
+export function hasKnownCatalogueValue(value: string | number | null | undefined) {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  return Boolean(normalized) && normalized !== "unknown" && normalized !== "not listed" && normalized !== "tbd";
+}
+
+export function formatPlantTypeLabel(value: string | number | null | undefined) {
+  if (value === null || value === undefined || value === "") return "Not listed";
+
+  const normalized = String(value).trim().toLowerCase();
+  const gardenerLabels: Record<string, string> = {
+    forb: "Flower",
+    flower: "Flower",
+    herb: "Herb",
+    fruit: "Fruit",
+    vegetable: "Vegetable",
+    tree: "Tree",
+    shrub: "Shrub",
+    vine: "Vine",
+    groundcover: "Groundcover",
+    bulb: "Bulb",
+    fern: "Fern",
+    grass: "Grass"
+  };
+
+  return gardenerLabels[normalized] ?? formatCatalogueValue(value);
 }
 
 export function isRecord(value: GardenPlantRequirementValue): value is Record<string, GardenPlantRequirementValue> {
@@ -26,19 +54,23 @@ export function getRating(profile: GardenPlantProfile, dimensionCode: string): C
   };
 }
 
-export function getProfileIllustration(profile: GardenPlantProfile) {
-  if (profile.primary_image_url) return profile.primary_image_url;
-  if (profile.plant_type_code === "herb") return "/art/specimen-calendar-bloom.svg";
-  if (profile.plant_type_code === "fruit" || profile.primary_use_cases?.toLowerCase().includes("fruit")) return "/art/specimen-tomato.svg";
-  return "/art/specimen-herbarium-sheet.svg";
+export function hasRatingContent(rating: CatalogueRating | null) {
+  return Boolean(rating?.rating || rating?.description);
 }
 
 export function getProfileTags(profile: GardenPlantProfile) {
   return [
-    profile.cultivar_name ? `${profile.cultivar_name} cultivar` : "Species profile",
-    formatCatalogueValue(profile.lifecycle_type),
-    formatCatalogueValue(profile.plant_type_code)
+    profile.cultivar_name ? `${profile.cultivar_name} cultivar` : null,
+    hasKnownCatalogueValue(profile.lifecycle_type) ? formatCatalogueValue(profile.lifecycle_type) : null,
+    formatPlantTypeLabel(profile.plant_type_code)
   ].filter(Boolean);
+}
+
+export function formatPlantSummaryLine(profile: GardenPlantProfile) {
+  return [
+    hasKnownCatalogueValue(profile.lifecycle_type) ? formatCatalogueValue(profile.lifecycle_type) : null,
+    formatPlantTypeLabel(profile.plant_type_code)
+  ].filter(Boolean).join(" · ");
 }
 
 export function formatInchesRange(min: string | number | null | undefined, max: string | number | null | undefined) {
@@ -48,7 +80,7 @@ export function formatInchesRange(min: string | number | null | undefined, max: 
   if (minValue && maxValue && minValue !== maxValue) return `${minValue}-${maxValue} in`;
   if (maxValue) return `${maxValue} in`;
   if (minValue) return `${minValue} in`;
-  return "TBD";
+  return "Not listed";
 }
 
 export function getPlantSearchText(profile: GardenPlantProfile) {
@@ -84,14 +116,78 @@ export function catalogueCategoryMatches(profile: GardenPlantProfile, category: 
   return plantType.includes(category) || uses.includes(category);
 }
 
+const SHOWCASE_SLUGS = [
+  "calendula",
+  "cilantro",
+  "cucumber",
+  "basil",
+  "tomato",
+  "rosemary",
+  "pepper"
+];
+
+function getShowcaseRank(profile: GardenPlantProfile) {
+  const index = SHOWCASE_SLUGS.indexOf(profile.slug);
+  return index === -1 ? SHOWCASE_SLUGS.length : index;
+}
+
+function getSearchRank(profile: GardenPlantProfile, query: string) {
+  if (!query) return 0;
+
+  const displayName = profile.display_name.toLowerCase();
+  const commonName = (profile.primary_common_name ?? "").toLowerCase();
+  const botanicalName = (profile.botanical_name_full ?? "").toLowerCase();
+
+  if (displayName === query || commonName === query) return 0;
+  if (displayName.startsWith(query) || commonName.startsWith(query)) return 1;
+  if (botanicalName.startsWith(query)) return 2;
+  return 3;
+}
+
+function compareCatalogueProfiles(a: GardenPlantProfile, b: GardenPlantProfile, query: string) {
+  const searchRank = getSearchRank(a, query) - getSearchRank(b, query);
+  if (searchRank !== 0) return searchRank;
+
+  const journalImageRank =
+    Number(!getJournalStylePlantImageUrl(a.primary_image_url)) -
+    Number(!getJournalStylePlantImageUrl(b.primary_image_url));
+  if (journalImageRank !== 0) return journalImageRank;
+
+  const photoRank = Number(!getRealPlantPhotoUrl(a.primary_image_url)) - Number(!getRealPlantPhotoUrl(b.primary_image_url));
+  if (photoRank !== 0) return photoRank;
+
+  const showcaseRank = getShowcaseRank(a) - getShowcaseRank(b);
+  if (showcaseRank !== 0) return showcaseRank;
+
+  return a.display_name.localeCompare(b.display_name);
+}
+
 export function filterCatalogueProfiles(profiles: GardenPlantProfile[], query: string, category: string) {
   const normalizedQuery = query.trim().toLowerCase();
 
-  return profiles.filter((profile) => {
-    const matchesCategory = catalogueCategoryMatches(profile, category);
-    const matchesQuery = !normalizedQuery || getPlantSearchText(profile).includes(normalizedQuery);
-    return matchesCategory && matchesQuery;
-  });
+  return profiles
+    .filter((profile) => {
+      const matchesCategory = catalogueCategoryMatches(profile, category);
+      const matchesQuery = !normalizedQuery || getPlantSearchText(profile).includes(normalizedQuery);
+      return matchesCategory && matchesQuery;
+    })
+    .sort((a, b) => compareCatalogueProfiles(a, b, normalizedQuery));
+}
+
+function formatUseLabel(value: string) {
+  const normalized = value.trim().toLowerCase().replaceAll("_", " ").replace(/\s+/g, " ");
+  const gardenerLabels: Record<string, string> = {
+    "companion plant": "Companion planting",
+    "container growing": "Containers",
+    "fresh herb": "Fresh herbs",
+    ornamental: "Color and flowers",
+    "pest confusion": "Helps deter pests",
+    "pollinator support": "Pollinators",
+    "privacy screen": "Privacy screen",
+    xeriscape: "Dry garden"
+  };
+
+  return gardenerLabels[normalized] ?? formatCatalogueValue(value);
 }
 
 export function getUseLabels(profile: GardenPlantProfile) {
@@ -99,7 +195,13 @@ export function getUseLabels(profile: GardenPlantProfile) {
     .split(/[,;]/)
     .map((use) => use.trim())
     .filter(Boolean)
+    .map(formatUseLabel)
     .slice(0, 4);
+}
+
+export function getUseSummary(profile: GardenPlantProfile, fallback = "Ways this plant can earn its place") {
+  const labels = getUseLabels(profile);
+  return labels.length ? labels.join(", ") : fallback;
 }
 
 export function getPropagationLabels(profile: GardenPlantProfile) {

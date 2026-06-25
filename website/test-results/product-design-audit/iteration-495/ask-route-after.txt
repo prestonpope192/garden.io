@@ -1,0 +1,12 @@
+=== /sample-garden/ask ===
+FOUND: See what helps
+MISSING: Check this change
+FOUND: Your garden, smarter.
+FOUND: What changed in your garden?
+FOUND: Save it so you remember what helped.
+=== /sample-garden ===
+FOUND: See what helps
+MISSING: Check this change
+FOUND: Your garden, smarter.
+FOUND: What changed in your garden?
+FOUND: Save it so you remember what helped.

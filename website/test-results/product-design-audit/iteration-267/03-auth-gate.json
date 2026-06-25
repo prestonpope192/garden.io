@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "h1": "Your garden, smarter.",
+    "h2s": [],
+    "links": [
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      },
+      {
+        "href": "/catalog",
+        "text": "Find plants that fit"
+      }
+    ],
+    "textLength": 447,
+    "textStart": "START YOUR GARDEN Your garden, smarter. Save notes and photos as you garden. When you need help, your plants, beds, and season are already in context. Start with one garden note. Each saved note gives future answers more context, so you do not have to explain the same garden again. Enter your email to start. We'll send a link back to your garden. No password needed. EMAIL ADDRESS Email me my garden link See a sample garden Find plants that fit",
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/app/my-property"
+  }
+}

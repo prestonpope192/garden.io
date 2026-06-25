@@ -1,0 +1,34 @@
+[
+  {
+    "viewport": "desktop",
+    "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-574/desktop-catalog-after.png",
+    "h1": "Choose a plant for the spot you have.",
+    "horizontalOverflow": false,
+    "imageIssues": [],
+    "imageAlts": [
+      "Apple plant.",
+      "Calendula plant image",
+      "Cilantro plant image",
+      "Cucumber plant image",
+      "Abelia plant image",
+      "Acerola plant image",
+      "Ackee plant image"
+    ]
+  },
+  {
+    "viewport": "mobile",
+    "screenshot": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-574/mobile-catalog-after.png",
+    "h1": "Choose a plant for the spot you have.",
+    "horizontalOverflow": false,
+    "imageIssues": [],
+    "imageAlts": [
+      "Apple plant.",
+      "Calendula plant image",
+      "Cilantro plant image",
+      "Cucumber plant image",
+      "Abelia plant image",
+      "Acerola plant image",
+      "Ackee plant image"
+    ]
+  }
+]

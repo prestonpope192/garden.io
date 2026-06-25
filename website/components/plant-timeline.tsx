@@ -2,6 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { SpecimenLabel } from "@/components/journal-primitives";
+import { formatGardenDate } from "@/lib/garden-app-helpers";
 import { buildPlantTimeline, type TimelineItem } from "@/lib/garden-timeline";
 import { dueDateISO, type GardenSuggestion } from "@/lib/garden-suggestions";
 import type {
@@ -12,10 +13,9 @@ import type {
   GardenTask,
 } from "@/lib/garden-app-types";
 
-// Phase 3C · Slices 1+2 — shared render for the per-plant past → today →
-// upcoming arc, plus outcome capture. Presentational + optimistic local state
-// only; it builds the timeline from raw ingredients (so both call sites stay
-// tiny) and delegates the real writes back to the caller's mutations.
+// Shared render for the per-plant past → today → upcoming arc, plus outcome
+// capture. Presentational + optimistic local state only; it builds the timeline
+// from raw ingredients and delegates the real writes back to the caller's mutations.
 
 export type AddPlantOutcomeInput = {
   result: GardenPlantOutcomeResult | null;
@@ -46,6 +46,16 @@ export type PlantTimelineProps = {
   addPlantOutcome: (plant: GardenPlantInstance, input: AddPlantOutcomeInput) => Promise<void> | void;
   deletePlantOutcome?: (id: string) => Promise<void> | void;
   busy?: boolean;
+  isReadOnly?: boolean;
+};
+
+export const PLANT_TIMELINE_COPY = {
+  removeOutcome: "Remove entry",
+  addOutcome: "Add harvest or lesson",
+  outcomeHeading: "How did this planting go?",
+  saveOutcome: "Keep in plant journal",
+  empty: "No plant journal yet. Keep a note, photo, harvest, or lesson so you remember what happened.",
+  nothingPlanned: "No care planned yet."
 };
 
 function TimelineRow({
@@ -55,6 +65,7 @@ function TimelineRow({
   onDismiss,
   onDeleteOutcome,
   busy,
+  isReadOnly,
 }: {
   item: TimelineItem;
   mediaUrls: Record<string, string>;
@@ -62,77 +73,80 @@ function TimelineRow({
   onDismiss: (id: string) => void;
   onDeleteOutcome?: (id: string) => void;
   busy: boolean;
+  isReadOnly: boolean;
 }) {
   const photo = item.imagePath ? mediaUrls[item.imagePath] : undefined;
   const isOutcome = item.id.startsWith("outcome:");
   return (
     <div
-      className={`beta-timeline__item beta-timeline__item--${item.kind}${
+      className={`garden-timeline__item garden-timeline__item--${item.kind}${
         item.projected ? " is-projected" : ""
       }${isOutcome ? " is-outcome" : ""}`}
     >
-      <span className="beta-timeline__date">{item.date || "—"}</span>
-      <div className="beta-timeline__body">
+      <span className="garden-timeline__date">{item.date ? formatGardenDate(item.date) : "—"}</span>
+      <div className="garden-timeline__body">
         {item.kind === "milestone" ? (
           <>
-            <p className="beta-timeline__text">
-              <span className="beta-timeline__tag">
-                {item.projected ? "expected" : isOutcome ? "harvest" : "milestone"}
+            <p className="garden-timeline__text">
+              <span className="garden-timeline__tag">
+                {item.projected ? "expected" : isOutcome ? "harvest" : "planting"}
               </span>
               {item.title}
-              {item.detail ? <span className="beta-timeline__detail"> · {item.detail}</span> : null}
+              {item.detail ? <span className="garden-timeline__detail"> · {item.detail}</span> : null}
             </p>
-            {isOutcome && onDeleteOutcome ? (
+            {!isReadOnly && isOutcome && onDeleteOutcome ? (
               <button
-                className="beta-link-button"
+                className="garden-link-button"
                 type="button"
                 disabled={busy}
                 onClick={() => onDeleteOutcome(item.id.replace(/^outcome:/, ""))}
               >
-                Remove
+                {PLANT_TIMELINE_COPY.removeOutcome}
               </button>
             ) : null}
           </>
         ) : item.kind === "task" ? (
-          <p className="beta-timeline__text">
-            <span className="beta-timeline__tag">
-              {item.status === "done" ? "✓ done" : "task"}
+          <p className="garden-timeline__text">
+            <span className="garden-timeline__tag">
+              {item.status === "done" ? "✓ done" : "care"}
             </span>
             {item.title}
             {item.overdue ? (
-              <span className="beta-timeline__badge beta-timeline__badge--overdue">overdue</span>
+              <span className="garden-timeline__badge garden-timeline__badge--overdue">overdue</span>
             ) : null}
           </p>
         ) : item.kind === "suggestion" && item.suggestion ? (
-          <div className="beta-timeline__suggestion">
-            <p className="beta-timeline__text">
-              <span className="beta-timeline__tag beta-timeline__tag--suggestion">suggested</span>
+          <div className="garden-timeline__suggestion">
+            <p className="garden-timeline__text">
+              <span className="garden-timeline__tag garden-timeline__tag--suggestion">care idea</span>
               {item.title}
             </p>
-            {item.detail ? <p className="beta-timeline__why">{item.detail}</p> : null}
-            <div className="beta-timeline__actions">
-              <button
-                className="button"
-                type="button"
-                disabled={busy}
-                onClick={() => onCommit(item)}
-              >
-                Add as task
-              </button>
-              <button
-                className="folio-button"
-                type="button"
-                onClick={() => onDismiss(item.id)}
-              >
-                Not now
-              </button>
-            </div>
+            {item.detail ? <p className="garden-timeline__why">{item.detail}</p> : null}
+            {isReadOnly ? null : (
+              <div className="garden-timeline__actions">
+                <button
+                  className="button"
+                  type="button"
+                  disabled={busy}
+                  onClick={() => onCommit(item)}
+                >
+                  Add to weekly care
+                </button>
+                <button
+                  className="folio-button"
+                  type="button"
+                  onClick={() => onDismiss(item.id)}
+                >
+                  Skip
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
-            <p className="beta-timeline__text">{item.detail}</p>
+            <p className="garden-timeline__text">{item.detail}</p>
             {photo ? (
-              <img className="beta-timeline__photo" src={photo} alt={item.detail || "Garden photo"} />
+              <img className="garden-timeline__photo" src={photo} alt={item.detail || "Garden photo"} />
             ) : null}
           </>
         )}
@@ -184,6 +198,8 @@ function OutcomeForm({
     ).then(() => {
       reset();
       setOpen(false);
+    }).catch(() => {
+      // The parent mutation already surfaces the save error; keep the form open.
     });
   };
 
@@ -191,33 +207,33 @@ function OutcomeForm({
     return (
       <button
         type="button"
-        className="folio-button beta-timeline__log-outcome"
+        className="folio-button garden-timeline__log-outcome"
         onClick={() => setOpen(true)}
       >
-        + Log harvest / outcome
+        {PLANT_TIMELINE_COPY.addOutcome}
       </button>
     );
   }
 
   return (
-    <form className="beta-form beta-form--compact beta-outcome-form" onSubmit={submit}>
-      <SpecimenLabel tone="olive">Record an outcome</SpecimenLabel>
-      <label className="beta-field">
-        <span>Result</span>
+    <form className="garden-form garden-form--compact garden-outcome-form" onSubmit={submit}>
+      <SpecimenLabel tone="olive">{PLANT_TIMELINE_COPY.outcomeHeading}</SpecimenLabel>
+      <label className="garden-field">
+        <span>What happened</span>
         <select
           className="input"
           value={result}
           onChange={(e) => setResult(e.target.value as GardenPlantOutcomeResult | "")}
         >
           <option value="">—</option>
-          <option value="success">Success</option>
-          <option value="partial">Partial</option>
-          <option value="failure">Failure</option>
+          <option value="success">Grew well</option>
+          <option value="partial">Struggled</option>
+          <option value="failure">Didn&apos;t work</option>
         </select>
       </label>
-      <div className="beta-outcome-form__row">
-        <label className="beta-field">
-          <span>Harvest qty</span>
+      <div className="garden-outcome-form__row">
+        <label className="garden-field">
+          <span>Harvest amount</span>
           <input
             className="input"
             type="number"
@@ -228,20 +244,20 @@ function OutcomeForm({
             placeholder="3.5"
           />
         </label>
-        <label className="beta-field">
+        <label className="garden-field">
           <span>Unit</span>
           <input
             className="input"
             type="text"
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
-            placeholder="kg, count…"
+            placeholder="lb, count..."
           />
         </label>
       </div>
-      <div className="beta-outcome-form__row">
-        <label className="beta-field">
-          <span>Quality</span>
+      <div className="garden-outcome-form__row">
+        <label className="garden-field">
+          <span>Harvest quality</span>
           <select className="input" value={quality} onChange={(e) => setQuality(e.target.value)}>
             <option value="">—</option>
             {[1, 2, 3, 4, 5].map((n) => (
@@ -251,7 +267,7 @@ function OutcomeForm({
             ))}
           </select>
         </label>
-        <label className="beta-field">
+        <label className="garden-field">
           <span>Harvested on</span>
           <input
             className="input"
@@ -261,19 +277,19 @@ function OutcomeForm({
           />
         </label>
       </div>
-      <label className="beta-field">
+      <label className="garden-field">
         <span>Notes</span>
         <textarea
-          className="input beta-textarea"
+          className="input garden-textarea"
           rows={2}
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-          placeholder="What worked, what didn't…"
+          placeholder="What worked, what to change..."
         />
       </label>
-      <div className="beta-drawer__actions-row">
+      <div className="garden-drawer__actions-row">
         <button className="button" type="submit" disabled={busy}>
-          Save outcome
+          {PLANT_TIMELINE_COPY.saveOutcome}
         </button>
         <button
           className="folio-button"
@@ -302,6 +318,7 @@ export function PlantTimeline({
   addPlantOutcome,
   deletePlantOutcome,
   busy = false,
+  isReadOnly = false,
 }: PlantTimelineProps) {
   // Optimistic: hide a suggestion the moment it is committed or dismissed,
   // before the snapshot refetch lands.
@@ -325,7 +342,7 @@ export function PlantTimeline({
       dueOn: item.date || dueDateISO(s.dueInDays),
       notes: s.rationale,
       // Scope the task to THIS plant explicitly, not the app-level active
-      // context (My Plants has its own selection state).
+      // context (Plants has its own selection state).
       propertyId: plant.property_id,
       zoneId: plant.zone_id,
       bedId: plant.bed_id,
@@ -335,19 +352,25 @@ export function PlantTimeline({
   const dismiss = (id: string) => setHidden((prev) => new Set(prev).add(id));
   const deleteOutcome = deletePlantOutcome
     ? (id: string) => {
-        setHidden((prev) => new Set(prev).add(`outcome:${id}`));
-        void Promise.resolve(deletePlantOutcome(id));
+        const itemId = `outcome:${id}`;
+        setHidden((prev) => new Set(prev).add(itemId));
+        void Promise.resolve(deletePlantOutcome(id)).catch(() => {
+          setHidden((prev) => {
+            const next = new Set(prev);
+            next.delete(itemId);
+            return next;
+          });
+        });
       }
     : undefined;
 
   return (
-    <div className="beta-timeline beta-timeline--arc">
-      <SpecimenLabel>Timeline</SpecimenLabel>
+    <div className="garden-timeline garden-timeline--arc">
+      <SpecimenLabel>Plant journal</SpecimenLabel>
 
       {isEmpty ? (
-        <p className="beta-drawer__muted">
-          No timeline yet — set a planting date, log a note, or record an outcome to start this
-          plant&rsquo;s story.
+        <p className="garden-drawer__muted">
+          {PLANT_TIMELINE_COPY.empty}
         </p>
       ) : (
         <>
@@ -362,13 +385,14 @@ export function PlantTimeline({
                 onDismiss={dismiss}
                 onDeleteOutcome={deleteOutcome}
                 busy={busy}
+                isReadOnly={isReadOnly}
               />
             ))}
 
-          <div className="beta-timeline__divider" role="separator">
-            <span className="beta-timeline__now">Today</span>
+          <div className="garden-timeline__divider" role="separator">
+            <span className="garden-timeline__now">Today</span>
             {timeline.currentStage ? (
-              <span className="beta-timeline__stage">
+              <span className="garden-timeline__stage">
                 {timeline.currentStage.label}
                 {timeline.currentStage.progress !== null
                   ? ` · ${Math.round(timeline.currentStage.progress * 100)}% to maturity`
@@ -386,17 +410,20 @@ export function PlantTimeline({
                 onCommit={commit}
                 onDismiss={dismiss}
                 busy={busy}
+                isReadOnly={isReadOnly}
               />
             ))
           ) : (
-            <p className="beta-drawer__muted">
-              Nothing scheduled ahead — check back as the season turns.
+            <p className="garden-drawer__muted">
+              {PLANT_TIMELINE_COPY.nothingPlanned}
             </p>
           )}
         </>
       )}
 
-      <OutcomeForm plant={plant} addPlantOutcome={addPlantOutcome} today={today} busy={busy} />
+      {isReadOnly ? null : (
+        <OutcomeForm plant={plant} addPlantOutcome={addPlantOutcome} today={today} busy={busy} />
+      )}
     </div>
   );
 }

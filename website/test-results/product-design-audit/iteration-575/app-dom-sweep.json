@@ -1,0 +1,582 @@
+[
+  {
+    "key": "today",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "profile": "desktop",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 757,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 654,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 520,
+        "x": 380,
+        "y": 51
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 720,
+      "vw": 1280
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "memory",
+    "url": "http://127.0.0.1:3021/app/garden-memory",
+    "profile": "desktop",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 757,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 654,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 520,
+        "x": 380,
+        "y": 51
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 720,
+      "vw": 1280
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "weekly-care",
+    "url": "http://127.0.0.1:3021/app/calendar",
+    "profile": "desktop",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 757,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 654,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 520,
+        "x": 380,
+        "y": 51
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 720,
+      "vw": 1280
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "plant-journal",
+    "url": "http://127.0.0.1:3021/app/my-plants",
+    "profile": "desktop",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 757,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 654,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 520,
+        "x": 380,
+        "y": 51
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 720,
+      "vw": 1280
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "choose-plants",
+    "url": "http://127.0.0.1:3021/app/plant-catalogue",
+    "profile": "desktop",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 757,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 654,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 520,
+        "x": 380,
+        "y": 51
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 720,
+      "vw": 1280
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "today",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "profile": "mobile",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 844,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 390,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 686,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 366,
+        "x": 12,
+        "y": 12
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 844,
+      "vw": 390
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "memory",
+    "url": "http://127.0.0.1:3021/app/garden-memory",
+    "profile": "mobile",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 844,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 390,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 686,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 366,
+        "x": 12,
+        "y": 12
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 844,
+      "vw": 390
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "weekly-care",
+    "url": "http://127.0.0.1:3021/app/calendar",
+    "profile": "mobile",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 844,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 390,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 686,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 366,
+        "x": 12,
+        "y": 12
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 844,
+      "vw": 390
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "plant-journal",
+    "url": "http://127.0.0.1:3021/app/my-plants",
+    "profile": "mobile",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 844,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 390,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 686,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 366,
+        "x": 12,
+        "y": 12
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 844,
+      "vw": 390
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  },
+  {
+    "key": "choose-plants",
+    "url": "http://127.0.0.1:3021/app/plant-catalogue",
+    "profile": "mobile",
+    "firstScreenBlocks": [
+      {
+        "cls": "garden-auth",
+        "h": 844,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 390,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "garden-auth__panel",
+        "h": 686,
+        "tag": "section",
+        "text": "Start your gardenYour garden, smarter.Track changes, ask what they mean, and keep useful answers with the right plant.Give one plant a home.Choose where it grows so every note has the right place to land.Enter your email. We'll send a link to start your garden",
+        "w": 366,
+        "x": 12,
+        "y": 12
+      }
+    ],
+    "forbidden": [],
+    "forms": [
+      {
+        "inputs": [
+          {
+            "aria": null,
+            "label": "Email address",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "tag": "input",
+            "type": "email"
+          }
+        ],
+        "text": "Email addressEmail me a start link"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "imageIssues": [],
+    "images": [],
+    "navLinks": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "title": "Garden.io | Your Garden, Smarter",
+    "viewport": {
+      "vh": 844,
+      "vw": 390
+    },
+    "visibleText": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants"
+  }
+]

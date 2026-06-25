@@ -1,0 +1,4 @@
+FOUND: Your garden, smarter.
+FOUND: Add a note or photo. Keep what helped with the right plant.
+FOUND: Save it so you remember what helped.
+MISSING: Save the note so next time has context.
