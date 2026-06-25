@@ -377,6 +377,12 @@ export function GardenAskView(props: GardenAskViewProps) {
             Add what changed. Get one next step.
           </p>
           <form className="garden-ai-composer" onSubmit={submitGardenQuestion}>
+            {!props.activeProperty && (
+              <div className="garden-notice" role="note">
+                Set up your garden to save notes and care tasks from your answers.{' '}
+                <a href="/app/garden-memory" className="garden-link-button">Get started</a>
+              </div>
+            )}
             <label className="sr-only" htmlFor="garden-ai-question">What changed in your garden?</label>
             <textarea
               id="garden-ai-question"

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { AuthGate, type AuthGateResult } from "@/components/auth-gate";
 import { InkStamp, SpecimenLabel } from "@/components/journal-primitives";
 import { getTodayISO } from "@/lib/garden-app-helpers";
@@ -79,7 +80,7 @@ const viewTitles: Record<GardenAppView, ViewTitle> = {
 
 const navItems: Array<{ view: GardenAppView; label: string; href: string }> = [
   { view: "ask", label: "Today", href: "/app/my-property" },
-  { view: "property", label: "My Garden", href: "/app/garden-memory" },
+  { view: "property", label: "My Garden", href: "/app/my-garden" },
   { view: "calendar", label: "Weekly care", href: "/app/calendar" },
   { view: "plants", label: "Plant Journal", href: "/app/my-plants" },
   { view: "catalogue", label: "Choose plants", href: "/app/plant-catalogue" }
@@ -143,6 +144,8 @@ export function GardenApp({ authResult = null, view }: GardenAppProps) {
 
 function GardenRecordsApp({ session, view }: { session: Session; view: GardenAppView }) {
   const supabase = useMemo(() => createBrowserSupabaseClient(), []);
+  const router = useRouter();
+  const hasAutoNavigated = useRef(false);
   const [snapshot, setSnapshot] = useState<GardenSnapshot>(emptySnapshot);
   const [selectedPropertyId, setSelectedPropertyId] = useState<string>("");
   const [selectedZoneId, setSelectedZoneId] = useState<string>("");
@@ -227,18 +230,15 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         .order("created_at", { ascending: true })
     ]);
 
-    const firstError =
+    const criticalError =
       propertiesResult.error ??
       zonesResult.error ??
       bedsResult.error ??
-      plantProfilesResult.error ??
       plantsResult.error ??
       observationsResult.error ??
-      tasksResult.error ??
-      outcomesResult.error ??
-      wishlistResult.error;
+      tasksResult.error;
 
-    if (firstError) {
+    if (criticalError) {
       setStatus("error");
       setNotice("Unable to load your garden. Please refresh and try again.");
       return;
@@ -260,13 +260,19 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       })),
       observations: observations,
       tasks: (tasksResult.data ?? []) as GardenTask[],
-      outcomes: (outcomesResult.data ?? []) as GardenPlantOutcome[],
-      wishlist: ((wishlistResult.data ?? []) as Omit<GardenWishlistItem, "plant_profile">[]).map((item) => ({
+      outcomes: (outcomesResult.error ? [] : (outcomesResult.data ?? [])) as GardenPlantOutcome[],
+      wishlist: (wishlistResult.error ? [] : (wishlistResult.data ?? []) as Omit<GardenWishlistItem, "plant_profile">[]).map((item) => ({
         ...item,
         plant_profile: profilesById.get(item.plant_profile_id) ?? null
       }))
     });
     setStatus("ready");
+
+    // Auto-navigate new users to the garden setup view.
+    if (!hasAutoNavigated.current && propertiesResult.data && propertiesResult.data.length === 0) {
+      hasAutoNavigated.current = true;
+      router.replace('/app/my-garden');
+    }
 
     // Resolve signed URLs for observation photos (private bucket).
     const paths = observations.map((observation) => observation.image_path).filter((path): path is string => Boolean(path));

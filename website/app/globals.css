@@ -4780,10 +4780,18 @@ p {
 
 .garden-breadcrumb {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.45rem;
   margin-bottom: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-width: 0;
+}
+
+.garden-breadcrumb::-webkit-scrollbar {
+  display: none;
 }
 
 .garden-breadcrumb__crumb {
@@ -5294,6 +5302,28 @@ button.garden-breadcrumb__crumb:hover {
   .garden-ai-save__actions .button,
   .garden-ai-save__actions .folio-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .garden-app-header__nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.25rem;
+    grid-template-columns: repeat(5, max-content);
+  }
+
+  .garden-app-header__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .garden-app-header__nav a {
+    white-space: nowrap;
+    font-size: 0.62rem;
+    flex-shrink: 0;
+    overflow: visible;
+    text-overflow: clip;
   }
 }
 
@@ -6810,11 +6840,14 @@ button.garden-breadcrumb__crumb:hover {
   margin-top: 0.2rem;
   background: transparent;
   border: none;
-  padding: 0.2rem 0;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.75rem;
   color: var(--olive);
   font-family: var(--font-label), serif;
   font-size: 0.86rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 .garden-zone__add:hover {
@@ -6868,6 +6901,7 @@ button.garden-breadcrumb__crumb:hover {
   font-family: var(--font-label), serif;
   font-size: 0.85rem;
   cursor: pointer;
+  min-height: 2.75rem;
 }
 
 .garden-bed__head {
@@ -7248,10 +7282,13 @@ button.garden-breadcrumb__crumb:hover {
   justify-self: start;
   background: transparent;
   border: none;
-  padding: 0.2rem 0;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.75rem;
   color: var(--berry);
   font-size: 0.85rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 .garden-drawer__danger:hover {
@@ -7342,10 +7379,13 @@ button.garden-breadcrumb__crumb:hover {
   flex: none;
   background: transparent;
   border: none;
-  padding: 0;
+  padding: 0.35rem 0.15rem;
+  min-height: 2.75rem;
   color: var(--ink-muted);
   font-size: 0.78rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
 .garden-link-button:hover {
@@ -7394,11 +7434,16 @@ button.garden-breadcrumb__crumb:hover {
 .garden-task-row__check {
   width: 1.15rem;
   height: 1.15rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
   transition: background var(--duration-fast) var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .garden-task-row__check.is-checked,
@@ -7468,7 +7513,8 @@ button.garden-breadcrumb__crumb:hover {
   }
 
   .garden-property .garden-drawer__scope {
-    display: none;
+    display: block;
+    font-size: 0.7rem;
   }
 
   .garden-property .garden-drawer__section {

@@ -1,5 +1,4 @@
-import { GardenApp } from "@/components/garden-app";
-
+import { redirect } from 'next/navigation';
 export default function GardenMemoryPage() {
-  return <GardenApp view="property" />;
+  redirect('/app/my-garden');
 }

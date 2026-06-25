@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primitives";
 import {
   formatGardenDate,
@@ -111,10 +111,10 @@ const SETUP_STEP_IDS: ActiveSetupStepId[] = ["area", "bed", "plant"];
 
 const SETUP_STEP_COPY: Record<ActiveSetupStepId, { label: string; title: string; body: string; action: string }> = {
   area: {
-    label: "Place",
+    label: "Area",
     title: "Name where it grows",
     body: "Choose the part of the garden you can picture first, like Kitchen Garden, Orchard Row, or Shade Border.",
-    action: "Add place"
+    action: "Add area"
   },
   bed: {
     label: "Bed",
@@ -139,6 +139,21 @@ function SetupWizard(props: {
   onClose: () => void;
   onPrimaryAction: () => void;
 }) {
+  const wizardRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = wizardRef.current;
+    if (!el) return;
+    const firstFocusable = el.querySelector<HTMLElement>('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    firstFocusable?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") props.onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   if (!isActiveSetupStep(props.progress.stepId)) return null;
 
   const currentStep = props.progress.stepId;
@@ -147,6 +162,7 @@ function SetupWizard(props: {
   return (
     <div className="garden-setup-wizard" role="presentation">
       <section
+        ref={wizardRef}
         aria-describedby="garden-setup-wizard-description"
         aria-labelledby="garden-setup-wizard-title"
         aria-modal="true"
@@ -155,9 +171,6 @@ function SetupWizard(props: {
       >
         <div className="garden-setup-wizard__header">
           <SpecimenLabel tone="olive">Give one plant a home</SpecimenLabel>
-          <button className="folio-button" type="button" onClick={props.onClose}>
-            Close
-          </button>
         </div>
         <h2 id="garden-setup-wizard-title">{copy.title}</h2>
         <p id="garden-setup-wizard-description">{copy.body}</p>
@@ -200,7 +213,7 @@ function focusLabel(focus: FocusLevel) {
 function drawerTabLabel(mode: DrawerMode, focus: FocusLevel) {
   if (mode === "info") return "Details";
   if (mode === "tasks") return "Weekly care";
-  if (mode === "ideas") return "Care ideas";
+  if (mode === "ideas") return "Suggestions";
   return focus === "plant" ? "Update" : "Add";
 }
 
@@ -503,7 +516,7 @@ export function PropertyView(props: PropertyViewProps) {
           <div className="garden-plot__firstrun">
             <SpecimenLabel tone="olive">First step</SpecimenLabel>
             <h2>Start with the place you grow.</h2>
-            <p>Name your garden. Then add one place, one bed, and one plant.</p>
+            <p>Name your garden. Then add one area (like a section or garden zone), one bed, and one plant.</p>
             <form
               className="garden-form"
               onSubmit={(event: FormEvent<HTMLFormElement>) => {
@@ -877,7 +890,7 @@ export function PropertyView(props: PropertyViewProps) {
           ? `${plural(growing(props.plants.filter((plant) => plant.bed_id === activeBed?.id)).length, "growing plant")} here`
           : [activeBed?.name, activeZone?.name].filter(Boolean).join(" · ") || "Plant in your garden";
     type TimelineEntry = { id: string; kind: "note" | "task"; date: string; title: string; note?: string; imagePath?: string | null; status?: string };
-    const timeline: TimelineEntry[] = [
+    const allTimelineItems: TimelineEntry[] = [
       ...props.observations
         .filter((o) => scopeMatch(o.zone_id, o.bed_id, o.plant_instance_id))
         .map((o) => ({ id: o.id, kind: "note" as const, date: (o.observed_at || o.created_at || "").slice(0, 10), title: "", note: o.note, imagePath: o.image_path })),
@@ -885,8 +898,8 @@ export function PropertyView(props: PropertyViewProps) {
         .filter((t) => scopeMatch(t.zone_id, t.bed_id, t.plant_instance_id))
         .map((t) => ({ id: t.id, kind: "task" as const, date: (t.completed_at || t.due_on || t.created_at || "").slice(0, 10), title: t.title, status: t.status }))
     ]
-      .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
-      .slice(0, 12);
+      .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    const timeline = allTimelineItems.slice(0, 12);
 
     const plantTimelineSuggestions =
       focus === "plant" && activePlant
@@ -981,6 +994,11 @@ export function PropertyView(props: PropertyViewProps) {
                 </div>
               </div>
             ))}
+            {allTimelineItems.length > 12 && (
+              <p className="garden-drawer__muted" style={{fontSize: '0.72rem', textAlign: 'center', marginTop: '0.5rem'}}>
+                Showing 12 of {allTimelineItems.length} entries
+              </p>
+            )}
           </div>
         ) : null}
 
@@ -1117,7 +1135,7 @@ export function PropertyView(props: PropertyViewProps) {
               void props.createZone(zoneDraft).then(() => setZoneDraft(EMPTY_ZONE));
             }}
           >
-            <SpecimenLabel tone="clay">Name this place</SpecimenLabel>
+            <SpecimenLabel tone="clay">Add your first area</SpecimenLabel>
             <FieldText label="Place name" required value={zoneDraft.name} placeholder="Kitchen garden" onChange={(value) => setZoneDraft({ ...zoneDraft, name: value })} />
             <FieldText label="Use" value={zoneDraft.purpose} placeholder="Vegetables, herbs, flowers..." onChange={(value) => setZoneDraft({ ...zoneDraft, purpose: value })} />
             <div className="garden-field-grid">
