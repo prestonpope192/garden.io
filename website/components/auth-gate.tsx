@@ -126,6 +126,10 @@ export function AuthGate({ authResult = null, children }: AuthGateProps) {
     setMessage(SIGN_IN_SENT_MESSAGE);
   };
 
+  if (status === "loading") {
+    return <div className="garden-auth" aria-label="Loading..." />;
+  }
+
   if (session) {
     return <>{children(session)}</>;
   }

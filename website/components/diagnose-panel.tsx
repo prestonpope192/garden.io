@@ -103,6 +103,12 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
   const [added, setAdded] = useState<Set<number>>(new Set());
   const [saved, setSaved] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const resultRef = useRef<HTMLDivElement | null>(null);
+
+  // Fix 4: Scroll result into view after a successful diagnosis
+  useEffect(() => {
+    if (result) resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [result]);
 
   function onFile(next: File | null) {
     setPreview((url) => {
@@ -166,36 +172,44 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
       <p className="garden-drawer__muted">
         Add what changed on {context.name}. A little context makes the answer more useful.
       </p>
-      <label className="garden-field">
+      {/* Fix 3: explicit id/htmlFor pairs on both inputs */}
+      <label className="garden-field" htmlFor="diagnose-prompt">
         <span>What changed on this plant?</span>
         <textarea
+          id="diagnose-prompt"
           className="input garden-textarea"
           placeholder="Yellowing lower leaves · spots on the fruit · wilting at midday…"
           value={symptoms}
           onChange={(event) => setSymptoms(event.target.value)}
         />
       </label>
-      <label className="garden-field">
+      <label className="garden-field" htmlFor="diagnose-photo">
         <span>Add a photo (optional)</span>
-        <input className="input" type="file" accept="image/*" onChange={(event) => onFile(event.target.files?.[0] ?? null)} />
+        <input id="diagnose-photo" className="input" type="file" accept="image/*" onChange={(event) => onFile(event.target.files?.[0] ?? null)} />
       </label>
       {preview ? <img className="garden-diagnose__preview" src={preview} alt={DIAGNOSE_COPY.previewAlt} /> : null}
+      {/* Fix 6: static disclaimer above the submit button */}
+      <p className="garden-diagnose__disclaimer">AI suggestions — always verify with your own observation.</p>
+      {/* Fix 5: more descriptive button label using context.name */}
       <button className="button" type="button" onClick={() => run()} disabled={loading || (!symptoms.trim() && !file)}>
-        {loading ? "Looking closely..." : "Get care help"}
+        {loading ? "Looking closely..." : `Ask about ${context.name}`}
       </button>
-      {error ? <p className="garden-diagnose__error">{error}</p> : null}
+      {/* Fix 2: role="alert" so screen readers announce the error */}
+      {error ? <p className="garden-diagnose__error" role="alert">{error}</p> : null}
 
+      {/* Fix 1: remove aria-label from skeleton container; move aria-live to the paragraph */}
       {loading ? (
-        <div className="garden-diagnose__skeleton" aria-live="polite" aria-label="Looking over this plant...">
+        <div className="garden-diagnose__skeleton">
           <span className="garden-diagnose__skel-line garden-diagnose__skel-line--wide" />
           <span className="garden-diagnose__skel-line" />
           <span className="garden-diagnose__skel-line garden-diagnose__skel-line--short" />
-          <p className="garden-diagnose__skel-note">Looking over {context.name}...</p>
+          <p aria-live="polite" className="garden-diagnose__skel-note">Looking over {context.name}...</p>
         </div>
       ) : null}
 
+      {/* Fix 4: resultRef attached here for smooth scroll-into-view */}
       {result ? (
-        <div className="garden-diagnose__result">
+        <div className="garden-diagnose__result" ref={resultRef}>
           <p className="garden-diagnose__summary">{result.summary}</p>
           {result.causes.map((cause, index) => (
             <div className="garden-diagnose__cause" key={index}>

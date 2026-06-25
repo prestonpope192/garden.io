@@ -1185,7 +1185,7 @@ export function CalendarView({
                   onClick={goPrev}
                   aria-label="Previous week"
                 >
-                  ‹ Prev
+                  ← Prev
                 </button>
                 <button
                   className="folio-button garden-cal2-nav__btn garden-cal2-nav__btn--today"
@@ -1200,7 +1200,7 @@ export function CalendarView({
                   onClick={goNext}
                   aria-label="Next week"
                 >
-                  Next ›
+                  Next →
                 </button>
               </nav>
             </>

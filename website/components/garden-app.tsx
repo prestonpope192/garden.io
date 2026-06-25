@@ -716,7 +716,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     }, GARDEN_MUTATION_MESSAGES.plantAdded);
   };
 
+  const [signingOut, setSigningOut] = useState(false);
   const signOut = async () => {
+    setSigningOut(true);
     await supabase.auth.signOut();
   };
 
@@ -750,8 +752,8 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         </nav>
         <div className="garden-app-header__account">
           <span>{session.user.email}</span>
-          <button className="folio-button" type="button" onClick={signOut}>
-            Sign out
+          <button className="folio-button" type="button" onClick={signOut} disabled={signingOut}>
+            {signingOut ? "Signing out…" : "Sign out"}
           </button>
         </div>
       </header>

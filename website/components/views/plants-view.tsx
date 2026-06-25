@@ -1934,6 +1934,13 @@ export function PlantsView({
                   isReadOnly={isReadOnly}
                 />
               )}
+              {drawerTab === "timeline" && !selectedPlant && selectedWishlist ? (
+                <div className="garden-drawer__section">
+                  <p className="garden-drawer__muted">
+                    Plant history appears once this variety is growing in a bed.
+                  </p>
+                </div>
+              ) : null}
               {drawerTab === "timeline" && selectedPlant ? (
                 <div className="garden-drawer__section">
                   <PlantTimeline

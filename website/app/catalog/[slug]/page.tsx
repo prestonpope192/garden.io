@@ -239,25 +239,24 @@ export default async function PublicPlantDetailPage({ params }: { params: Promis
 
             <div className="plant-detail-facts">
               <article className="plant-detail-fact">
-                <FieldIcon className="field-icon" name="sun" />
-                <span>Sun</span>
-                <strong>{formatCatalogueValue(plant.preferred_light)}</strong>
-              </article>
-              <article className="plant-detail-fact">
-                <FieldIcon className="field-icon" name="water" />
-                <span>Water</span>
-                <strong>{formatCatalogueValue(plant.water_need_level)}</strong>
-              </article>
-              <article className="plant-detail-fact">
                 <FieldIcon className="field-icon" name="soil" />
                 <span>Soil</span>
                 <strong>{plant.soil_texture_summary ?? plant.drainage_requirement ?? SOIL_SUMMARY_FALLBACK}</strong>
               </article>
-              <article className="plant-detail-fact">
-                <FieldIcon className="field-icon" name="leaf" />
-                <span>Height</span>
-                <strong>{formatInchesRange(plant.mature_height_min_in, plant.mature_height_max_in)}</strong>
-              </article>
+              {hasKnownCatalogueValue(plant.lifecycle_type) ? (
+                <article className="plant-detail-fact">
+                  <FieldIcon className="field-icon" name="leaf" />
+                  <span>Lifecycle</span>
+                  <strong>{formatCatalogueValue(plant.lifecycle_type)}</strong>
+                </article>
+              ) : null}
+              {propagationLabels.length ? (
+                <article className="plant-detail-fact">
+                  <FieldIcon className="field-icon" name="leaf" />
+                  <span>Start from</span>
+                  <strong>{propagationLabels.join(", ")}</strong>
+                </article>
+              ) : null}
             </div>
 
             <div className="section-card__split section-card__split--tight plant-profile-fit-grid">

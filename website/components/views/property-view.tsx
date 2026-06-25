@@ -199,7 +199,7 @@ function focusLabel(focus: FocusLevel) {
 
 function drawerTabLabel(mode: DrawerMode, focus: FocusLevel) {
   if (mode === "info") return "Details";
-  if (mode === "tasks") return "Care";
+  if (mode === "tasks") return "Weekly care";
   if (mode === "ideas") return "Care ideas";
   return focus === "plant" ? "Update" : "Add";
 }

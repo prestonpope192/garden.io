@@ -63,10 +63,30 @@ const viewTitles: Record<GardenAppView, ViewTitle> = {
 };
 
 const sampleViewTitles: Partial<Record<GardenAppView, ViewTitle>> = {
+  ask: {
+    kicker: "Sample garden",
+    title: "Today",
+    subtitle: "Sample data · your garden will have your own plants and notes."
+  },
+  property: {
+    kicker: "Sample garden",
+    title: "My Garden",
+    subtitle: "Sample data · your garden will have your own places and beds."
+  },
+  calendar: {
+    kicker: "Sample garden",
+    title: "Weekly care",
+    subtitle: "Sample data · your garden will have your own care tasks."
+  },
+  plants: {
+    kicker: "Sample garden",
+    title: "Plant Journal",
+    subtitle: "Sample data · your garden will have your own plant history."
+  },
   catalogue: {
-    kicker: "For your beds",
+    kicker: "Sample garden",
     title: "Choose plants",
-    subtitle: "Choose plants for the beds you have."
+    subtitle: "Sample data · your garden will have your own plant selections."
   }
 };
 
@@ -258,11 +278,16 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
           ))}
         </nav>
         <div className="garden-app-header__account">
-          <Link aria-label="Start your garden" className="folio-button" href="/app/my-property">
+          <Link aria-label="Start your garden" className="folio-button" href="/app">
             Start your garden
           </Link>
         </div>
       </header>
+
+      <div className="garden-tour-banner" role="note">
+        Exploring a sample garden ·{" "}
+        <a href="/app" className="garden-tour-banner__cta">Start your own</a>
+      </div>
 
       {isAskHome ? (
         <GardenAskView

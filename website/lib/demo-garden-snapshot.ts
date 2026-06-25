@@ -2,11 +2,13 @@ import type {
   GardenBed,
   GardenObservation,
   GardenPlantInstance,
+  GardenPlantOutcome,
   GardenPlantProfile,
   GardenPlantStatus,
   GardenProperty,
   GardenSnapshot,
   GardenTask,
+  GardenWishlistItem,
   GardenZone
 } from "@/lib/garden-app-types";
 import { getJournalStylePlantImageUrl } from "@/lib/plant-images";
@@ -199,8 +201,8 @@ function task(input: {
 
 export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenSnapshot {
   const plantProfiles = chooseDemoProfiles(profiles);
-  const calendula = profileAt(plantProfiles, 0);
-  const cilantro = profileAt(plantProfiles, 1);
+  const borage = profileAt(plantProfiles, 0);
+  const bouquetDill = profileAt(plantProfiles, 1);
   const bellPepper = profileAt(plantProfiles, 2);
 
   const property: GardenProperty = {
@@ -309,16 +311,16 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
   ];
 
   const plants = [
-    plantInstance(calendula, {
-      id: "demo-plant-calendula",
+    plantInstance(borage, {
+      id: "demo-plant-borage",
       zoneId: "demo-zone-pollinator",
       bedId: "demo-bed-border",
       quantity: 6,
       plantedOn: isoWithOffset(-33),
       notes: "Blooming hard after the last deep watering."
     }),
-    plantInstance(cilantro, {
-      id: "demo-plant-cilantro",
+    plantInstance(bouquetDill, {
+      id: "demo-plant-dill",
       zoneId: "demo-zone-kitchen",
       bedId: "demo-bed-herbs",
       quantity: 4,
@@ -333,8 +335,8 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
       plantedOn: isoWithOffset(-58),
       notes: "First blossoms held after the last deep watering."
     }),
-    plantInstance(calendula, {
-      id: "demo-plant-calendula-herb",
+    plantInstance(borage, {
+      id: "demo-plant-borage-herb",
       zoneId: "demo-zone-kitchen",
       bedId: "demo-bed-herbs",
       quantity: 2,
@@ -345,11 +347,11 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
 
   const observations: GardenObservation[] = [
     {
-      id: "demo-observation-calendula",
+      id: "demo-observation-borage",
       property_id: property.id,
       zone_id: "demo-zone-pollinator",
       bed_id: "demo-bed-border",
-      plant_instance_id: "demo-plant-calendula",
+      plant_instance_id: "demo-plant-borage",
       note: "First strong bloom after two hot days. Bees active before noon.",
       image_path: null,
       observed_at: stamp(1),
@@ -381,22 +383,22 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
       plantId: "demo-plant-bell-pepper"
     }),
     task({
-      id: "demo-task-cilantro",
+      id: "demo-task-dill",
       title: "Harvest dill before afternoon heat",
       notes: "Cut stems before the next hot stretch pushes the plant toward seed heads.",
       dueOffset: 2,
       zoneId: "demo-zone-kitchen",
       bedId: "demo-bed-herbs",
-      plantId: "demo-plant-cilantro"
+      plantId: "demo-plant-dill"
     }),
     task({
-      id: "demo-task-calendula",
+      id: "demo-task-borage",
       title: "Note bloom duration",
       notes: "Notice how long this flush lasts before deadheading.",
       dueOffset: 4,
       zoneId: "demo-zone-pollinator",
       bedId: "demo-bed-border",
-      plantId: "demo-plant-calendula"
+      plantId: "demo-plant-borage"
     }),
     task({
       id: "demo-task-mulch",
@@ -413,8 +415,61 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
       dueOffset: 5,
       zoneId: "demo-zone-kitchen",
       bedId: "demo-bed-herbs",
-      plantId: "demo-plant-calendula-herb"
+      plantId: "demo-plant-borage-herb"
     })
+  ];
+
+  const outcomes: GardenPlantOutcome[] = [
+    {
+      id: "demo-outcome-1",
+      plant_instance_id: "demo-plant-bell-pepper",
+      property_id: property.id,
+      result: "success",
+      harvest_quantity: 4.5,
+      harvest_unit: "lb",
+      quality_rating: 4,
+      harvested_on: "2025-09-12",
+      notes: "Good yield. Picked before the first cold snap.",
+      created_at: "2025-09-12T10:00:00Z",
+      updated_at: "2025-09-12T10:00:00Z"
+    },
+    {
+      id: "demo-outcome-2",
+      plant_instance_id: "demo-plant-dill",
+      property_id: property.id,
+      result: "success",
+      harvest_quantity: 6,
+      harvest_unit: "stems",
+      quality_rating: 5,
+      harvested_on: "2025-08-03",
+      notes: "Harvested before bolting. Tender stems, strong flavor.",
+      created_at: "2025-08-03T08:00:00Z",
+      updated_at: "2025-08-03T08:00:00Z"
+    }
+  ];
+
+  const wishlistProfile1 = profileAt(plantProfiles, 3) ?? profileAt(plantProfiles, 0);
+  const wishlistProfile2 = profileAt(plantProfiles, 4) ?? profileAt(plantProfiles, 1);
+
+  const wishlist: GardenWishlistItem[] = [
+    {
+      id: "demo-wishlist-1",
+      owner_user_id: "demo-user",
+      plant_profile_id: wishlistProfile1.plant_profile_id,
+      plant_profile: wishlistProfile1,
+      notes: "Want to try this next season.",
+      created_at: "2025-11-01T00:00:00Z",
+      updated_at: "2025-11-01T00:00:00Z"
+    },
+    {
+      id: "demo-wishlist-2",
+      owner_user_id: "demo-user",
+      plant_profile_id: wishlistProfile2.plant_profile_id,
+      plant_profile: wishlistProfile2,
+      notes: "Heard it does well in this zone.",
+      created_at: "2025-11-01T00:00:00Z",
+      updated_at: "2025-11-01T00:00:00Z"
+    }
   ];
 
   return {
@@ -425,7 +480,7 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
     plants,
     observations,
     tasks,
-    outcomes: [],
-    wishlist: []
+    outcomes,
+    wishlist
   };
 }

@@ -146,7 +146,10 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <p>Garden.io</p>
-        <p>A living notebook for your garden</p>
+        <nav aria-label="Footer" className="site-footer__nav">
+          <Link href="/catalog">Browse plants</Link>
+        </nav>
+        <p className="site-footer__copy">&copy; 2026 Garden.io</p>
       </footer>
     </main>
   );

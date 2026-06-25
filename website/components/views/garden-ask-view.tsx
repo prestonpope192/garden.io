@@ -210,13 +210,8 @@ function targetLabel(target: AskTarget, zones: GardenZone[], beds: GardenBed[], 
   return "Whole garden";
 }
 
-function answerNote(prompt: string, diagnosis: GardenAskDiagnosis) {
-  const lines = [`Noted: ${prompt.trim() || "Photo note"}`, diagnosis.summary];
-  const topAction = diagnosis.actions[0];
-  if (topAction) lines.push(`Try first: ${topAction}`);
-  const followUp = cleanFollowUp(diagnosis.follow_up);
-  if (followUp) lines.push(`Watch for: ${followUp}`);
-  return lines.join("\n");
+function answerNote(prompt: string, _diagnosis: GardenAskDiagnosis) {
+  return prompt.trim() || "Photo note";
 }
 
 function cleanFollowUp(followUp: string) {
@@ -251,7 +246,7 @@ export function GardenAskView(props: GardenAskViewProps) {
   const bedCount = `${props.beds.length} ${props.beds.length === 1 ? "bed" : "beds"}`;
   const contextSummary = props.activeProperty
     ? `${plantCount} in ${bedCount}`
-    : "Give one plant a home.";
+    : "No garden yet";
   const canAskGarden = Boolean(prompt.trim() || file);
   const targetOptions = useMemo(() => {
     const options: Array<{ value: string; label: string }> = [
@@ -374,7 +369,7 @@ export function GardenAskView(props: GardenAskViewProps) {
       {!diagnosis ? (
         <div className="garden-ai-entry">
           <div className="garden-ai-kicker">
-            <SpecimenLabel tone="olive">Today</SpecimenLabel>
+            <SpecimenLabel tone="olive">{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</SpecimenLabel>
             <span>{contextSummary}</span>
           </div>
           <h1 className="garden-ai-lead">Your garden, smarter.</h1>
@@ -418,7 +413,7 @@ export function GardenAskView(props: GardenAskViewProps) {
                 onChange={(event) => onFile(event.target.files?.[0] ?? null)}
               />
               <button className="garden-ai-send" type="submit" disabled={loading || !canAskGarden}>
-                {loading ? "Looking closely..." : canAskGarden ? "Get next step" : "Add a note or photo"}
+                {loading ? "Looking closely..." : "Get next step"}
               </button>
             </div>
             <p className="garden-ai-composer__hint">
@@ -451,17 +446,6 @@ export function GardenAskView(props: GardenAskViewProps) {
               ))}
             </div>
           ) : null}
-          <nav className="garden-ai-shortcuts" aria-label="Garden shortcuts">
-            <Link aria-label="Go to My Garden" className="garden-ai-shortcut" href={routes.memory}>
-              My Garden
-            </Link>
-            <Link aria-label="Go to weekly care" className="garden-ai-shortcut" href={routes.care}>
-              Weekly care
-            </Link>
-            <Link aria-label="Choose plants" className="garden-ai-shortcut" href={routes.guide}>
-              Choose plants
-            </Link>
-          </nav>
         </div>
       ) : null}
 
@@ -516,7 +500,7 @@ export function GardenAskView(props: GardenAskViewProps) {
               <span>Keep with</span>
               <strong>{targetLabel(saveTarget, props.zones, props.beds, props.plants)}</strong>
               <button
-                aria-controls="garden-ai-save-target-picker"
+                aria-controls="ask-save-target-select"
                 aria-expanded={showTargetPicker}
                 type="button"
                 onClick={() => setShowTargetPicker((value) => !value)}
@@ -525,9 +509,9 @@ export function GardenAskView(props: GardenAskViewProps) {
               </button>
             </div>
             {showTargetPicker ? (
-              <label id="garden-ai-save-target-picker">
+              <label htmlFor="ask-save-target-select">
                 <span>Choose where to keep it</span>
-                <select value={targetValue(saveTarget)} onChange={(event) => setSaveTarget(parseTarget(event.target.value))}>
+                <select id="ask-save-target-select" value={targetValue(saveTarget)} onChange={(event) => setSaveTarget(parseTarget(event.target.value))}>
                   {targetOptions.map((option) => (
                     <option key={option.value} value={option.value}>
                       {option.label}
