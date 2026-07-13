@@ -10,6 +10,12 @@ function authRedirect(request: Request, auth: "invalid_email" | "missing_config"
   return NextResponse.redirect(redirectUrl, 303);
 }
 
+function authCallbackUrl(request: Request) {
+  const callbackUrl = new URL("/auth/confirm", request.url);
+  callbackUrl.searchParams.set("next", "/app/my-property");
+  return callbackUrl.toString();
+}
+
 function normalizeEmail(value: FormDataEntryValue | null) {
   return typeof value === "string" ? value.trim().toLowerCase() : "";
 }
@@ -41,7 +47,7 @@ export async function POST(request: Request) {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: new URL("/app", request.url).toString(),
+      emailRedirectTo: authCallbackUrl(request),
       shouldCreateUser: true
     }
   });

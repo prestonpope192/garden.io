@@ -43,6 +43,21 @@ const trackingLoop = [
   }
 ];
 
+const planningSignals = [
+  {
+    title: "Wishlist becomes next steps",
+    description: "Save what you want to grow and Garden.io keeps planting windows, bed fit, and prep notes close by."
+  },
+  {
+    title: "Timed to your season",
+    description: "Advice shifts around frost dates, heat, rain patterns, and the plants already growing in each bed."
+  },
+  {
+    title: "Care stays connected",
+    description: "Weekly care can stay tied to the plants, notes, and places that made the task matter."
+  }
+];
+
 export default function HomePage() {
   const heroPlant = featuredPlants[0];
   const sampleGardenEnabled = isSampleGardenEnabled();
@@ -57,6 +72,7 @@ export default function HomePage() {
         </div>
 
         <nav aria-label="Primary" className="topnav">
+          <a href="#planning">Plan garden</a>
           <a href="#plants">Choose plants</a>
           <Link href="/catalog">Browse plants</Link>
         </nav>
@@ -103,9 +119,9 @@ export default function HomePage() {
 
       <section className="home-section home-loop" id="how">
         <div className="home-section__header">
-          <SpecimenLabel tone="clay">Simple habit</SpecimenLabel>
-          <h2>Care advice that starts with your garden.</h2>
-          <p>Keep notes, photos, beds, and plant history connected so every answer has context.</p>
+          <SpecimenLabel tone="clay">Growing record</SpecimenLabel>
+          <h2>Care advice that knows your garden.</h2>
+          <p>Garden.io automatically connects notes, photos, beds, and plant history so every answer has context.</p>
         </div>
 
         <div className="home-promise-grid">
@@ -118,11 +134,51 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section home-planning" id="planning">
+        <div className="home-section__header">
+          <SpecimenLabel tone="olive">Planning</SpecimenLabel>
+          <h2>A planting plan from your wishlist and garden notes.</h2>
+          <p>
+            Add the plants you want, then keep timing, placement, and care decisions next to the beds, seasons, and notes
+            that shape them.
+          </p>
+        </div>
+
+        <div className="home-planning__grid">
+          <div className="home-planning__schedule" aria-label="Example garden planning notes">
+            <div>
+              <span>Early March</span>
+              <strong>Start tomatoes indoors</strong>
+              <p>Based on last frost, seed-starting lead time, and your sunny south bed.</p>
+            </div>
+            <div>
+              <span>Late April</span>
+              <strong>Plant borage near strawberries</strong>
+              <p>Uses your wishlist, pollinator goals, and open edge space from last season.</p>
+            </div>
+            <div>
+              <span>After two dry weeks</span>
+              <strong>Mulch new fruiting plants</strong>
+              <p>Weather patterns and notes trigger care timing before stress shows up.</p>
+            </div>
+          </div>
+
+          <div className="home-planning__signals">
+            {planningSignals.map((item) => (
+              <article className="home-planning__signal" key={item.title}>
+                <strong>{item.title}</strong>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="home-section home-plants" id="plants">
         <div className="home-section__header">
           <SpecimenLabel tone="clay">Your plants</SpecimenLabel>
           <h2>Each plant keeps its own story.</h2>
-          <p>The image is the cover. The useful part is the growing history you keep with it.</p>
+          <p>Track disease pressure, diagnoses, fruiting history, harvests, and care notes so every season starts smarter.</p>
         </div>
 
         <div className="home-plant-grid">
@@ -141,6 +197,24 @@ export default function HomePage() {
               <p>{plant.note}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="home-section home-closing" id="start">
+        <div className="home-section__header">
+          <SpecimenLabel tone="olive">Begin the record</SpecimenLabel>
+          <h2>Start with one plant.</h2>
+          <p>Name where it grows. The journal keeps the rest.</p>
+        </div>
+        <div className="cover-sheet__actions">
+          <Link className="folio-link" href="/app/my-property">
+            Start your garden
+          </Link>
+          {sampleGardenEnabled ? (
+            <Link className="folio-link folio-link--secondary" href="/tour">
+              Tour a garden journal
+            </Link>
+          ) : null}
         </div>
       </section>
 

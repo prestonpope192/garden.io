@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState, useMemo, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { SpecimenLabel, InkStamp } from "@/components/journal-primitives";
+import { FieldSelect, SpecimenLabel, InkStamp } from "@/components/journal-primitives";
 import {
   formatGardenDate,
   getBedName,
@@ -193,7 +193,9 @@ function PlantThumbnail({
       aria-hidden="true"
       className="garden-plants-thumb garden-plants-thumb--fallback"
       style={{ width: size, height: size, flexShrink: 0 }}
-    />
+    >
+      <span className="garden-plants-thumb__initial">{alt.trim().charAt(0).toUpperCase() || "?"}</span>
+    </div>
   );
 }
 
@@ -215,307 +217,234 @@ function UrgencyMarker({ urgency }: { urgency: Urgency }) {
   return null;
 }
 
-// ─── Field helpers (same pattern as property-view) ────────────────────────────
+type PlantCardProps =
+  | {
+      variant: "growing";
+      plant: GardenPlantInstance;
+      beds: GardenBed[];
+      zones: GardenZone[];
+      tasks: GardenTask[];
+      today: string;
+      isSelected: boolean;
+      onSelect: () => void;
+      onDeepLink: () => void;
+      isReadOnly?: boolean;
+    }
+  | {
+      variant: "archived";
+      plant: GardenPlantInstance;
+      beds: GardenBed[];
+      zones: GardenZone[];
+      isSelected: boolean;
+      onSelect: () => void;
+      onDeepLink: () => void;
+      isReadOnly?: boolean;
+    }
+  | {
+      variant: "wishlist";
+      item: GardenWishlistItem;
+      isSelected: boolean;
+      onSelect: () => void;
+    };
 
-function FieldText(props: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  required?: boolean;
-  type?: string;
-}) {
-  return (
-    <label className="garden-field">
-      <span>{props.label}</span>
-      <input
-        className="input"
-        type={props.type ?? "text"}
-        required={props.required}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={(e) => props.onChange(e.target.value)}
-      />
-    </label>
-  );
-}
-
-function FieldSelect(props: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <label className="garden-field">
-      <span>{props.label}</span>
-      <select
-        className="input"
-        value={props.value}
-        onChange={(e) => props.onChange(e.target.value)}
-      >
-        {props.children}
-      </select>
-    </label>
-  );
-}
-
-// ─── Growing plant card (grid view) ──────────────────────────────────────────
-
-function GrowingCardGrid({
-  plant,
-  beds,
-  zones,
-  tasks,
-  today,
-  isSelected,
-  onSelect,
-  onDeepLink,
-  isReadOnly = false,
-}: {
-  plant: GardenPlantInstance;
-  beds: GardenBed[];
-  zones: GardenZone[];
-  tasks: GardenTask[];
-  today: string;
-  isSelected: boolean;
-  onSelect: () => void;
-  onDeepLink: () => void;
-  isReadOnly?: boolean;
-}) {
-  const nextTask = getSoonestTask(plant.id, tasks);
-  const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
-  const name = getCatalogPlantName(plant);
-  const stage = deriveLifecycleStage(plant);
-  const harvest = harvestReadiness(plant);
-  const scanLabel = getPlantScanLabel(plant);
-
-  return (
-    <article
-      className={`garden-plants-card garden-plants2-card${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
-    >
-      <button
-        type="button"
-        className="garden-plants2-card__select-btn"
-        aria-label={`Select ${name}`}
-        onClick={onSelect}
-      >
-        <PlantThumbnail src={getThumbSrc(plant)} alt={name} />
-      </button>
-      <div className="garden-plants-card__body">
-        <div className="garden-plants-card__head">
-          <strong className="garden-plants-card__name">{name}</strong>
-        </div>
-        {scanLabel ? (
-          <em className="garden-plants-card__botanical">
-            {scanLabel}
-          </em>
-        ) : null}
-        <p className="garden-plants-card__context">
-          {getZoneName(zones, plant.zone_id)} &middot;{" "}
-          {getBedName(beds, plant.bed_id)}
-        </p>
-        <p className="garden-plants-card__meta">
-          {formatPlantCount(plant.quantity)}
-          {plant.planted_on
-            ? ` · ${formatDaysInGround(plant.planted_on, today)}`
-            : ""}
-        </p>
-        {(stage || harvest) && (
-          <p className="garden-plants-stage-row">
-            {stage && <span className="garden-plants-stage-chip">{stage.label}</span>}
-            {harvest && (
-              <span className={`garden-plants-harvest${harvest.ready ? " is-ready" : ""}`}>
-                {harvest.label}
-              </span>
-            )}
-          </p>
-        )}
-        {nextTask && (
-          <div className="garden-plants2-card__task-row">
-            {isReadOnly ? null : <UrgencyMarker urgency={urgency} />}
-            <span className="garden-plants2-card__task-title">
-              {urgency === "overdue" ? "Overdue:" : "This week:"}{" "}
-              <span className="garden-plants2-card__task-name">
-                {nextTask.title}
-              </span>
-              {!isReadOnly && nextTask.due_on ? ` (due ${formatGardenDate(nextTask.due_on)})` : ""}
-            </span>
-          </div>
-        )}
-        {isReadOnly ? null : (
-          <div className="garden-plants-card__actions">
-            <button
-              className="folio-button"
-              type="button"
-              onClick={onDeepLink}
-              aria-label={`Show where ${name} is planted in My Garden`}
-            >
-              Show in My Garden
-            </button>
-          </div>
-        )}
-      </div>
-    </article>
-  );
-}
-
-// ─── Archived card (grid view) ────────────────────────────────────────────────
-
-function ArchivedCardGrid({
-  plant,
-  beds,
-  zones,
-  isSelected,
-  onSelect,
-  onDeepLink,
-  isReadOnly = false,
-}: {
-  plant: GardenPlantInstance;
-  beds: GardenBed[];
-  zones: GardenZone[];
-  isSelected: boolean;
-  onSelect: () => void;
-  onDeepLink: () => void;
-  isReadOnly?: boolean;
-}) {
-  const name = getCatalogPlantName(plant);
-  const scanLabel = getPlantScanLabel(plant);
-  return (
-    <article
-      className={`garden-plants-card garden-plants-card--archived garden-plants2-card${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
-    >
-      <button
-        type="button"
-        className="garden-plants2-card__select-btn"
-        aria-label={`Select ${name}`}
-        onClick={onSelect}
-      >
-        <PlantThumbnail src={getThumbSrc(plant)} alt={name} />
-      </button>
-      <div className="garden-plants-card__body">
-        <div className="garden-plants-card__head">
-          <strong className="garden-plants-card__name">{name}</strong>
-          <SpecimenLabel>Past</SpecimenLabel>
-        </div>
-        {scanLabel ? (
-          <em className="garden-plants-card__botanical">
-            {scanLabel}
-          </em>
-        ) : null}
-        <p className="garden-plants-card__context">
-          {getZoneName(zones, plant.zone_id)} &middot;{" "}
-          {getBedName(beds, plant.bed_id)}
-        </p>
-        <p className="garden-plants-card__meta">
-          {formatPlantCount(plant.quantity)}
-          {plant.planted_on ? ` · planted ${formatGardenDate(plant.planted_on)}` : ""}
-        </p>
-        {isReadOnly ? null : (
-          <div className="garden-plants-card__actions">
-            <button
-              className="folio-button"
-              type="button"
-              onClick={onDeepLink}
-              aria-label={`Show where ${name} is planted in My Garden`}
-            >
-              Show in My Garden
-            </button>
-          </div>
-        )}
-      </div>
-    </article>
-  );
-}
-
-// ─── Wishlist card (grid view) ────────────────────────────────────────────────
-
-function WishlistCardGrid({
-  item,
-  isSelected,
-  onSelect,
-}: {
-  item: GardenWishlistItem;
-  isSelected: boolean;
-  onSelect: () => void;
-}) {
+function PlantCard(props: PlantCardProps) {
+  const isWishlist = props.variant === "wishlist";
+  const item = isWishlist ? props.item : props.plant;
   const name = getCatalogPlantName(item);
   const scanLabel = getPlantScanLabel(item);
+  const selectsWholeCard = isWishlist || (!isWishlist && props.isReadOnly);
+  const className = [
+    "garden-plants-card",
+    props.variant === "archived" && "garden-plants-card--archived",
+    props.variant === "wishlist" && "garden-plants-card--wishlist",
+    "garden-plants2-card",
+    selectsWholeCard && "garden-plants2-card--selectable",
+    props.isSelected && "is-selected",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <article
-      className={`garden-plants-card garden-plants-card--wishlist garden-plants2-card${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
+      className={className}
+      aria-label={selectsWholeCard ? `Select ${name}` : undefined}
+      aria-selected={props.isSelected}
+      role={selectsWholeCard ? "button" : undefined}
+      tabIndex={selectsWholeCard ? 0 : undefined}
+      onClick={selectsWholeCard ? props.onSelect : undefined}
+      onKeyDown={
+        selectsWholeCard
+          ? (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                props.onSelect();
+              }
+            }
+          : undefined
+      }
     >
-      <button
-        type="button"
-        className="garden-plants2-card__select-btn"
-        aria-label={`Select ${name}`}
-        onClick={onSelect}
-      >
-        <PlantThumbnail src={getThumbSrc(item)} alt={name} />
-      </button>
+      {selectsWholeCard ? (
+        <span className="garden-plants2-card__select-btn" aria-hidden="true">
+          <PlantThumbnail src={getThumbSrc(item)} alt={name} />
+        </span>
+      ) : (
+        <button
+          type="button"
+          className="garden-plants2-card__select-btn"
+          aria-label={`Select ${name}`}
+          onClick={props.onSelect}
+        >
+          <PlantThumbnail src={getThumbSrc(item)} alt={name} />
+        </button>
+      )}
       <div className="garden-plants-card__body">
         <div className="garden-plants-card__head">
           <strong className="garden-plants-card__name">{name}</strong>
-          <SpecimenLabel tone="clay">To try</SpecimenLabel>
+          {props.variant === "archived" ? <SpecimenLabel>Past</SpecimenLabel> : null}
+          {props.variant === "wishlist" ? <SpecimenLabel tone="clay">To try</SpecimenLabel> : null}
         </div>
         {scanLabel ? (
           <em className="garden-plants-card__botanical">
             {scanLabel}
           </em>
         ) : null}
-        {item.plant_profile?.plant_type_code && (
-          <p className="garden-plants-card__context">
-            {formatPlantTypeLabel(item.plant_profile.plant_type_code)}
-          </p>
+        {props.variant === "wishlist" ? (
+          <>
+            {item.plant_profile?.plant_type_code ? (
+              <p className="garden-plants-card__context">
+                {formatPlantTypeLabel(item.plant_profile.plant_type_code)}
+              </p>
+            ) : null}
+            {item.notes ? (
+              <p className="garden-plants-card__meta">{item.notes}</p>
+            ) : null}
+          </>
+        ) : (
+          <PlantCardPlantDetails {...props} name={name} />
         )}
-        {item.notes ? (
-          <p className="garden-plants-card__meta">{item.notes}</p>
-        ) : null}
       </div>
     </article>
   );
 }
 
-// ─── List-view rows ───────────────────────────────────────────────────────────
+type PlantCardPlantDetailsProps =
+  | (Extract<PlantCardProps, { variant: "growing" }> & { name: string })
+  | (Extract<PlantCardProps, { variant: "archived" }> & { name: string });
 
-function GrowingListRow({
-  plant,
-  beds,
-  zones,
-  tasks,
-  today,
-  isSelected,
-  onSelect,
-  onDeepLink,
-  isReadOnly = false,
-}: {
-  plant: GardenPlantInstance;
-  beds: GardenBed[];
-  zones: GardenZone[];
-  tasks: GardenTask[];
-  today: string;
-  isSelected: boolean;
-  onSelect: () => void;
-  onDeepLink: () => void;
-  isReadOnly?: boolean;
-}) {
-  const nextTask = getSoonestTask(plant.id, tasks);
-  const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
-  const name = getCatalogPlantName(plant);
-  const scanLabel = getPlantScanLabel(plant);
+function PlantCardPlantDetails(props: PlantCardPlantDetailsProps) {
+  const { variant, plant, beds, zones, name, onDeepLink } = props;
+  const isReadOnly = props.isReadOnly ?? false;
+  const nextTask = variant === "growing" ? getSoonestTask(plant.id, props.tasks) : null;
+  const urgency = variant === "growing" && nextTask ? getUrgency(nextTask.due_on, props.today) : "normal";
+  const stage = variant === "growing" ? deriveLifecycleStage(plant) : null;
+  const harvest = variant === "growing" ? harvestReadiness(plant) : null;
+  const plantMeta =
+    variant === "growing"
+      ? plant.planted_on
+        ? ` · ${formatDaysInGround(plant.planted_on, props.today)}`
+        : ""
+      : plant.planted_on ? ` · planted ${formatGardenDate(plant.planted_on)}` : "";
+
   return (
-    <tr
-      className={`garden-plants2-list-row${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
-    >
+    <>
+      <p className="garden-plants-card__context">
+        {getZoneName(zones, plant.zone_id)} &middot;{" "}
+        {getBedName(beds, plant.bed_id)}
+      </p>
+      <p className="garden-plants-card__meta">
+        {formatPlantCount(plant.quantity)}
+        {plantMeta}
+      </p>
+      {(stage || harvest) && (
+        <p className="garden-plants-stage-row">
+          {stage && <span className="garden-plants-stage-chip">{stage.label}</span>}
+          {harvest && (
+            <span className={`garden-plants-harvest${harvest.ready ? " is-ready" : ""}`}>
+              {harvest.label}
+            </span>
+          )}
+        </p>
+      )}
+      {nextTask && (
+        <div className="garden-plants2-card__task-row">
+          {isReadOnly ? null : <UrgencyMarker urgency={urgency} />}
+          <span className="garden-plants2-card__task-title">
+            {urgency === "overdue" ? "Overdue:" : "This week:"}{" "}
+            <span className="garden-plants2-card__task-name">
+              {nextTask.title}
+            </span>
+            {!isReadOnly && nextTask.due_on ? ` (due ${formatGardenDate(nextTask.due_on)})` : ""}
+          </span>
+        </div>
+      )}
+      {isReadOnly ? null : (
+        <div className="garden-plants-card__actions">
+          <button
+            className="folio-button"
+            type="button"
+            onClick={onDeepLink}
+            aria-label={`Show where ${name} is planted in My Garden`}
+          >
+            Show in My Garden
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
+
+type PlantListRowProps =
+  | {
+      variant: "growing";
+      plant: GardenPlantInstance;
+      beds: GardenBed[];
+      zones: GardenZone[];
+      tasks: GardenTask[];
+      today: string;
+      isSelected: boolean;
+      onSelect: () => void;
+      onDeepLink: () => void;
+      isReadOnly?: boolean;
+    }
+  | {
+      variant: "archived";
+      plant: GardenPlantInstance;
+      beds: GardenBed[];
+      zones: GardenZone[];
+      today: string;
+      isSelected: boolean;
+      onSelect: () => void;
+      onDeepLink: () => void;
+      isReadOnly?: boolean;
+    }
+  | {
+      variant: "wishlist";
+      item: GardenWishlistItem;
+      isSelected: boolean;
+      onSelect: () => void;
+      isReadOnly?: boolean;
+    };
+
+function PlantListRow(props: PlantListRowProps) {
+  const isWishlist = props.variant === "wishlist";
+  const item = isWishlist ? props.item : props.plant;
+  const name = getCatalogPlantName(item);
+  const scanLabel = getPlantScanLabel(item);
+  const className = [
+    "garden-plants2-list-row",
+    props.variant === "archived" && "garden-plants2-list-row--archived",
+    props.isSelected && "is-selected",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <tr className={className} aria-selected={props.isSelected}>
       <td className="garden-plants2-list-col garden-plants2-list-col--name">
         <button
           type="button"
           className="garden-plants2-list-select-btn"
-          onClick={onSelect}
+          onClick={props.onSelect}
           aria-label={`Select ${name}`}
         >
           {name}
@@ -526,17 +455,44 @@ function GrowingListRow({
           </span>
         ) : null}
       </td>
+      {props.variant === "wishlist" ? (
+        <WishlistListCells item={props.item} isReadOnly={props.isReadOnly} />
+      ) : (
+        <PlantListCells {...props} name={name} />
+      )}
+    </tr>
+  );
+}
+
+type PlantListCellsProps =
+  | (Extract<PlantListRowProps, { variant: "growing" }> & { name: string })
+  | (Extract<PlantListRowProps, { variant: "archived" }> & { name: string });
+
+function PlantListCells(props: PlantListCellsProps) {
+  const { variant, plant, beds, zones, today, name, onDeepLink } = props;
+  const isReadOnly = props.isReadOnly ?? false;
+  const nextTask = variant === "growing" ? getSoonestTask(plant.id, props.tasks) : null;
+  const urgency = nextTask ? getUrgency(nextTask.due_on, today) : "normal";
+
+  return (
+    <>
       <td className="garden-plants2-list-col garden-plants2-list-col--location">
         {getZoneName(zones, plant.zone_id)} &middot;{" "}
         {getBedName(beds, plant.bed_id)}
       </td>
       <td className="garden-plants2-list-col garden-plants2-list-col--planted">
-        {plant.planted_on
-          ? formatDaysInGround(plant.planted_on, today)
-          : "No date set"}
+        {variant === "growing"
+          ? plant.planted_on
+            ? formatDaysInGround(plant.planted_on, today)
+            : "No date set"
+          : plant.planted_on
+            ? `Planted ${formatGardenDate(plant.planted_on)}`
+            : "—"}
       </td>
       <td className="garden-plants2-list-col garden-plants2-list-col--task">
-        {nextTask ? (
+        {variant === "archived" ? (
+          <span className="garden-plants2-list-empty">Past</span>
+        ) : nextTask ? (
           <span className="garden-plants2-list-task">
             <UrgencyMarker urgency={urgency} />
             {nextTask.title}
@@ -562,112 +518,19 @@ function GrowingListRow({
           </button>
         </td>
       )}
-    </tr>
+    </>
   );
 }
 
-function ArchivedListRow({
-  plant,
-  beds,
-  zones,
-  today,
-  isSelected,
-  onSelect,
-  onDeepLink,
-  isReadOnly = false,
-}: {
-  plant: GardenPlantInstance;
-  beds: GardenBed[];
-  zones: GardenZone[];
-  today: string;
-  isSelected: boolean;
-  onSelect: () => void;
-  onDeepLink: () => void;
-  isReadOnly?: boolean;
-}) {
-  const name = getCatalogPlantName(plant);
-  const scanLabel = getPlantScanLabel(plant);
-  return (
-    <tr
-      className={`garden-plants2-list-row garden-plants2-list-row--archived${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
-    >
-      <td className="garden-plants2-list-col garden-plants2-list-col--name">
-        <button
-          type="button"
-          className="garden-plants2-list-select-btn"
-          onClick={onSelect}
-          aria-label={`Select ${name}`}
-        >
-          {name}
-        </button>
-        {scanLabel ? (
-          <span className="garden-plants2-list-botanical">
-            {scanLabel}
-          </span>
-        ) : null}
-      </td>
-      <td className="garden-plants2-list-col garden-plants2-list-col--location">
-        {getZoneName(zones, plant.zone_id)} &middot;{" "}
-        {getBedName(beds, plant.bed_id)}
-      </td>
-      <td className="garden-plants2-list-col garden-plants2-list-col--planted">
-        {plant.planted_on
-          ? `Planted ${formatGardenDate(plant.planted_on)}`
-          : "—"}
-      </td>
-      <td className="garden-plants2-list-col garden-plants2-list-col--task">
-        <span className="garden-plants2-list-empty">Past</span>
-      </td>
-      {isReadOnly ? null : (
-        <td className="garden-plants2-list-col garden-plants2-list-col--actions">
-          <button
-            type="button"
-            className="folio-button"
-            onClick={onDeepLink}
-            aria-label={`Show where ${name} is planted in My Garden`}
-          >
-            Show
-          </button>
-        </td>
-      )}
-    </tr>
-  );
-}
-
-function WishlistListRow({
+function WishlistListCells({
   item,
-  isSelected,
-  onSelect,
   isReadOnly = false,
 }: {
   item: GardenWishlistItem;
-  isSelected: boolean;
-  onSelect: () => void;
   isReadOnly?: boolean;
 }) {
-  const name = getCatalogPlantName(item);
-  const scanLabel = getPlantScanLabel(item);
   return (
-    <tr
-      className={`garden-plants2-list-row${isSelected ? " is-selected" : ""}`}
-      aria-selected={isSelected}
-    >
-      <td className="garden-plants2-list-col garden-plants2-list-col--name">
-        <button
-          type="button"
-          className="garden-plants2-list-select-btn"
-          onClick={onSelect}
-          aria-label={`Select ${name}`}
-        >
-          {name}
-        </button>
-        {scanLabel ? (
-          <span className="garden-plants2-list-botanical">
-            {scanLabel}
-          </span>
-        ) : null}
-      </td>
+    <>
       <td className="garden-plants2-list-col garden-plants2-list-col--location">
         {item.plant_profile?.plant_type_code ? formatPlantTypeLabel(item.plant_profile.plant_type_code) : "—"}
       </td>
@@ -678,7 +541,7 @@ function WishlistListRow({
         <span className="garden-plants2-list-empty">To try</span>
       </td>
       {isReadOnly ? null : <td className="garden-plants2-list-col garden-plants2-list-col--actions">—</td>}
-    </tr>
+    </>
   );
 }
 
@@ -1534,8 +1397,9 @@ export function PlantsView({
     return (
       <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredGrowing.map((plant) => (
-          <GrowingCardGrid
+          <PlantCard
             key={plant.id}
+            variant="growing"
             plant={plant}
             beds={beds}
             zones={zones}
@@ -1572,8 +1436,9 @@ export function PlantsView({
           </thead>
           <tbody>
             {filteredGrowing.map((plant) => (
-              <GrowingListRow
+              <PlantListRow
                 key={plant.id}
+                variant="growing"
                 plant={plant}
                 beds={beds}
                 zones={zones}
@@ -1597,8 +1462,9 @@ export function PlantsView({
     return (
       <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredArchived.map((plant) => (
-          <ArchivedCardGrid
+          <PlantCard
             key={plant.id}
+            variant="archived"
             plant={plant}
             beds={beds}
             zones={zones}
@@ -1633,8 +1499,9 @@ export function PlantsView({
           </thead>
           <tbody>
             {filteredArchived.map((plant) => (
-              <ArchivedListRow
+              <PlantListRow
                 key={plant.id}
+                variant="archived"
                 plant={plant}
                 beds={beds}
                 zones={zones}
@@ -1657,8 +1524,9 @@ export function PlantsView({
     return (
       <div className="garden-plants-card-grid garden-plants2-card-grid">
         {filteredWishlist.map((item) => (
-          <WishlistCardGrid
+          <PlantCard
             key={item.id}
+            variant="wishlist"
             item={item}
             isSelected={selectedWishlistId === item.id}
             onSelect={() => selectWishlist(item.id)}
@@ -1689,8 +1557,9 @@ export function PlantsView({
           </thead>
           <tbody>
             {filteredWishlist.map((item) => (
-              <WishlistListRow
+              <PlantListRow
                 key={item.id}
+                variant="wishlist"
                 item={item}
                 isSelected={selectedWishlistId === item.id}
                 onSelect={() => selectWishlist(item.id)}

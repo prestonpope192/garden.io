@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
-import type { FormEvent, MouseEvent, ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { createBrowserSupabaseClient, getBrowserSupabaseConfig } from "@/lib/supabase-browser";
 import { SpecimenLabel } from "@/components/journal-primitives";
@@ -21,7 +21,7 @@ export type AuthGateResult = {
 export const SIGN_IN_UNAVAILABLE_MESSAGE =
   "We can't open your garden right now. You can still tour a garden journal or choose plants for the beds you have.";
 export const SIGN_IN_SENT_MESSAGE =
-  "Check your email for your sign-in link.";
+  "Check your email for your start link.";
 export const SIGN_IN_SEND_FAILED_MESSAGE =
   "We couldn't send the link. Please try again in a moment.";
 
@@ -83,11 +83,9 @@ export function AuthGate({ authResult = null, children }: AuthGateProps) {
     };
   }, [supabase]);
 
-  const sendLoginLink = async (
-    event?: FormEvent<HTMLFormElement> | MouseEvent<HTMLButtonElement>
-  ) => {
-    event?.preventDefault();
+  const submitLoginLink = async (event: FormEvent<HTMLFormElement>) => {
     if (!supabase) {
+      event.preventDefault();
       setStatus("error");
       setMessage(SIGN_IN_UNAVAILABLE_MESSAGE);
       return;
@@ -97,37 +95,48 @@ export function AuthGate({ authResult = null, children }: AuthGateProps) {
     const validationMessage = validateEmail(normalizedEmail);
 
     if (validationMessage) {
+      event.preventDefault();
       setStatus("error");
       setMessage(validationMessage);
       return;
     }
 
+    // Submit via fetch so a failed send keeps the typed email in place for a
+    // retry; the plain form POST below stays as the no-JS fallback.
+    event.preventDefault();
     setStatus("sending");
     setMessage("");
 
-    const redirectTo =
-      typeof window === "undefined" ? undefined : `${window.location.origin}/app`;
-
-    const { error } = await supabase.auth.signInWithOtp({
-      email: normalizedEmail,
-      options: {
-        emailRedirectTo: redirectTo,
-        shouldCreateUser: true
+    try {
+      const body = new FormData();
+      body.set("email", normalizedEmail);
+      const response = await fetch("/api/auth/magic-link", { method: "POST", body });
+      const auth = new URL(response.url).searchParams.get("auth");
+      if (auth === "sent") {
+        setStatus("sent");
+        setMessage(SIGN_IN_SENT_MESSAGE);
+      } else if (auth === "invalid_email") {
+        setStatus("error");
+        setMessage("Enter a valid email address.");
+      } else if (auth === "missing_config") {
+        setStatus("error");
+        setMessage(SIGN_IN_UNAVAILABLE_MESSAGE);
+      } else {
+        setStatus("error");
+        setMessage(SIGN_IN_SEND_FAILED_MESSAGE);
       }
-    });
-
-    if (error) {
+    } catch {
       setStatus("error");
       setMessage(SIGN_IN_SEND_FAILED_MESSAGE);
-      return;
     }
-
-    setStatus("sent");
-    setMessage(SIGN_IN_SENT_MESSAGE);
   };
 
   if (status === "loading") {
-    return <div className="garden-auth" aria-label="Loading..." />;
+    return (
+      <div className="garden-auth" role="status" aria-live="polite">
+        <span className="sr-only">Opening your garden...</span>
+      </div>
+    );
   }
 
   if (session) {
@@ -140,7 +149,7 @@ export function AuthGate({ authResult = null, children }: AuthGateProps) {
         <SpecimenLabel tone="olive">Start your garden</SpecimenLabel>
         <h1>Your garden, smarter.</h1>
         <p>
-          Save what you notice. Get care advice that remembers your plants.
+          Turn your plants, beds, notes, and weather into care and planting guidance with context.
         </p>
         <div className="garden-auth__first-steps" aria-label="Why start a garden notebook">
           <strong>Start with one plant.</strong>
@@ -152,7 +161,7 @@ export function AuthGate({ authResult = null, children }: AuthGateProps) {
           action="/api/auth/magic-link"
           className="garden-auth__form"
           method="post"
-          onSubmit={sendLoginLink}
+          onSubmit={submitLoginLink}
           noValidate
         >
           <label htmlFor="garden-auth-email">Email address</label>

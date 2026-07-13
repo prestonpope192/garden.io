@@ -10,6 +10,7 @@ This document is the canonical cold-start summary of the repository as it exists
 - Primary executable surface: [`website/`](../website/).
 - Primary local database contract: checked-in SQL under [`supabase/sql/`](../supabase/sql/).
 - Primary product intent docs: [`../PRODUCT_SPEC.md`](../PRODUCT_SPEC.md) and [`product/specs/`](product/specs/).
+- Latest working-session records: [`handoff/`](handoff/) — July 7, 2026 design audit, the three improvement passes shipped that day (uncommitted on `codex/garden-private-beta-mvp`), and the prioritized backlog with the next-pass prompt.
 
 ## What Is Implemented
 
@@ -20,6 +21,7 @@ Based on the checked-in code and tests, the repo currently supports these concre
 - Landing page at `/` with simple garden-notebook positioning, direct app entry, garden-journal tour entry, and public catalogue entry points.
 - Passwordless start/sign-in flow at `/api/auth/magic-link`.
 - Public tour routes at `/tour` and `/tour/[view]` for a no-account tour of the working garden flow.
+- The `/tour/ask` Today screen opens with a sample garden memory snapshot before the first question, including current garden facts, today care count, the latest note, and a link into the sample garden memory.
 - Legacy `/sample-garden` routes remain as redirect-only aliases to `/tour`.
 
 Evidence:
@@ -32,6 +34,7 @@ Evidence:
 - [`website/tests/homepage-content.test.ts`](../website/tests/homepage-content.test.ts)
 - [`website/tests/auth-magic-link-route.test.ts`](../website/tests/auth-magic-link-route.test.ts)
 - [`website/tests/sample-garden.test.ts`](../website/tests/sample-garden.test.ts)
+- [`website/e2e/finish-line-polish.spec.ts`](../website/e2e/finish-line-polish.spec.ts)
 
 ### Public plant catalogue
 
@@ -54,6 +57,7 @@ Evidence:
   - `Plant Journal`
   - `Choose plants`
 - `/app/my-property` is the authenticated Today entry by default: users describe what changed or add a photo, then save the useful note or care where it belongs.
+- The no-account sample tour uses the same Today interaction model while surfacing sample memory up front so visitors can see what context the assistant has before asking.
 - The map-style garden record is available as Garden Memory at `/app/garden-memory`, and `/app/my-property?zone=...&bed=...&plant=...` still opens the map context for deep links.
 - The first garden-name screen remains inside the Garden Memory/property view. After a property exists, the first useful setup path is Place -> Bed -> Plant, deriving progress from existing records instead of persisted onboarding state.
 

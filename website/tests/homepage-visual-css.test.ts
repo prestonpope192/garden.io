@@ -22,7 +22,8 @@ describe("homepage visual spacing", () => {
     expect(css).toMatch(/\.home-hero__photo \{[\s\S]*padding: clamp\(0\.45rem, 1\.2vw, 0\.85rem\);/);
     expect(css).toContain(".home-plant-card__image {");
     expect(css).toMatch(/\.home-plant-card__image \{[\s\S]*filter: saturate\(0\.78\) contrast\(0\.96\);/);
-    expect(css).toMatch(/\.home-plant-card__image \{[\s\S]*padding: 0\.6rem;/);
+    expect(css).toMatch(/\.home-plant-card__image \{[\s\S]*object-fit: cover;/);
+    expect(css).not.toMatch(/\.home-plant-card__image \{[\s\S]*padding: 0\.6rem;/);
     expect(css).toMatch(/\.home-plant-card \{[\s\S]*scroll-margin-block: 1rem;/);
     expect(css).toMatch(/\.home-plant-card:focus-visible \{[\s\S]*outline: 2px solid var\(--olive\);/);
     expect(css).toContain(".home-loop {");

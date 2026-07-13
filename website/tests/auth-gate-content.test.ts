@@ -24,7 +24,9 @@ describe("AuthGate content", () => {
     expect(html).not.toContain("We can&#x27;t open garden questions right now.");
     expect(html).toContain("Start your garden");
     expect(html).toContain("Your garden, smarter");
-    expect(html).toContain("Save what you notice. Get care advice that remembers your plants.");
+    expect(html).toContain("Turn your plants, beds, notes, and weather into care and planting guidance with context.");
+    expect(html).not.toContain("automatic care and planting guidance");
+    expect(html).not.toContain("Save what you notice. Get care advice that remembers your plants.");
     expect(html).not.toContain("Remember what you planted, what changed, and what to do next in one calm garden notebook.");
     expect(html).not.toContain("Keep plants, notes, photos, and care together in one calm garden notebook.");
     expect(html).not.toContain("Keep each plant, place, note, photo, and care plan in one calm garden notebook.");
@@ -140,7 +142,9 @@ describe("AuthGate content", () => {
     );
 
     expect(html).toContain(SIGN_IN_SENT_MESSAGE);
-    expect(html).toContain("Check your email, then give one plant a home");
+    expect(html).toContain("Check your email for your start link.");
+    expect(html).not.toContain("Check your email for your sign-in link.");
+    expect(html).not.toContain("Check your email, then give one plant a home");
     expect(html).not.toContain("Check your email, then add one plant to begin");
     expect(html).not.toContain("Use the garden link, then add one plant to begin");
     expect(html).not.toContain("Open the garden link, then add one plant to begin");

@@ -5,3 +5,8 @@ coverage
 .vercel
 
 *.tsbuildinfo
+
+# Local browser and visual QA artifacts.
+/test-results/
+/playwright-report/
+/blob-report/

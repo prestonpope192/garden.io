@@ -35,6 +35,18 @@ Optional:
 If `RESEND_API_KEY` + `WAITLIST_FROM_EMAIL` are set, custom welcome emails are sent.
 Otherwise the API falls back to Supabase `signInWithOtp` to send email confirmation.
 
+## Auth magic links
+
+The `/app/*` sign-in form posts to `/api/auth/magic-link`. That server route sends Supabase a redirect URL for `/auth/confirm?next=/app/my-property`.
+
+`/auth/confirm` supports both Supabase's default fragment-token redirect and the branded `token_hash` link stored in `../supabase/auth/magic-link-email.html`. It exchanges those values through `/api/auth/session`, sets the Supabase session cookie, and then opens the private app route.
+
+Run the local browser smoke against an already-running dev server:
+
+```bash
+BASE_URL=http://localhost:3001 npm run smoke:auth-confirm
+```
+
 ## Local setup
 
 ```bash
@@ -95,7 +107,12 @@ Notes:
 ```bash
 cd website
 npm test
+npm run test:browser
 ```
+
+`npm run test:browser` runs Playwright against the local Next app and covers the
+sample Garden.io ask chat flow, including chat turns, plant context chips, and
+context-chip navigation.
 
 ## Supabase table
 

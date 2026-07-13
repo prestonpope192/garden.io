@@ -48,6 +48,17 @@ const emptySnapshot: GardenSnapshot = {
   wishlist: []
 };
 
+type ReloadScope =
+  | "all"
+  | "properties"
+  | "zones"
+  | "beds"
+  | "plants"
+  | "observations"
+  | "tasks"
+  | "outcomes"
+  | "wishlist";
+
 type ViewTitle = { kicker: string; title: string; subtitle: string };
 
 const viewTitles: Record<GardenAppView, ViewTitle> = {
@@ -153,6 +164,8 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
   const [selectedPlantId, setSelectedPlantId] = useState<string>("");
   const [status, setStatus] = useState<"loading" | "ready" | "saving" | "error">("loading");
   const [notice, setNotice] = useState("");
+  // When set, the notice offers to undo the completion of this task.
+  const [undoTask, setUndoTask] = useState<GardenTask | null>(null);
   const [mediaUrls, setMediaUrls] = useState<Record<string, string>>({});
 
   const getPlantProfileBySlug = async (slug: string) => {
@@ -193,8 +206,26 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
   const activeBed = propertyBeds.find((bed) => bed.id === selectedBedId) ?? null;
   const activePlant = propertyPlants.find((plant) => plant.id === selectedPlantId) ?? null;
 
+  const refreshMediaUrls = async (observations: GardenObservation[]) => {
+    const paths = observations.map((observation) => observation.image_path).filter((path): path is string => Boolean(path));
+    if (paths.length > 0) {
+      const { data: signed } = await supabase.storage.from("garden-media").createSignedUrls(paths, 3600);
+      if (signed) {
+        const map: Record<string, string> = {};
+        for (const entry of signed) {
+          if (entry.path && entry.signedUrl) map[entry.path] = entry.signedUrl;
+        }
+        setMediaUrls(map);
+      }
+    } else {
+      setMediaUrls({});
+    }
+  };
+
   const loadGardenData = async () => {
-    setStatus("loading");
+    // Mid-mutation reloads keep "saving" so the header stamp doesn't flicker
+    // from the season to "Loading" on every write.
+    setStatus((current) => (current === "saving" ? current : "loading"));
     setNotice("");
 
     const [
@@ -275,19 +306,87 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     }
 
     // Resolve signed URLs for observation photos (private bucket).
-    const paths = observations.map((observation) => observation.image_path).filter((path): path is string => Boolean(path));
-    if (paths.length > 0) {
-      const { data: signed } = await supabase.storage.from("garden-media").createSignedUrls(paths, 3600);
-      if (signed) {
-        const map: Record<string, string> = {};
-        for (const entry of signed) {
-          if (entry.path && entry.signedUrl) map[entry.path] = entry.signedUrl;
-        }
-        setMediaUrls(map);
-      }
-    } else {
-      setMediaUrls({});
+    await refreshMediaUrls(observations);
+  };
+
+  const reloadGardenData = async (scope: ReloadScope | ReloadScope[] = "all") => {
+    const scopes = Array.isArray(scope) ? scope : [scope];
+    if (scopes.includes("all")) {
+      await loadGardenData();
+      return;
     }
+
+    const next: Partial<GardenSnapshot> = {};
+
+    await Promise.all(scopes.map(async (item) => {
+      if (item === "properties") {
+        const { data, error } = await supabase.from("garden_properties").select("*").order("created_at", { ascending: true });
+        if (error) throw error;
+        next.properties = (data ?? []) as GardenProperty[];
+      }
+
+      if (item === "zones") {
+        const { data, error } = await supabase.from("garden_zones").select("*").order("sort_order", { ascending: true });
+        if (error) throw error;
+        next.zones = (data ?? []) as GardenZone[];
+      }
+
+      if (item === "beds") {
+        const { data, error } = await supabase.from("garden_beds").select("*").order("sort_order", { ascending: true });
+        if (error) throw error;
+        next.beds = (data ?? []) as GardenBed[];
+      }
+
+      if (item === "plants") {
+        const { data, error } = await supabase
+          .from("garden_plant_instances")
+          .select("*")
+          .order("created_at", { ascending: true });
+        if (error) throw error;
+        const profilesById = new Map(snapshot.plantProfiles.map((profile) => [profile.plant_profile_id, profile]));
+        next.plants = ((data ?? []) as Omit<GardenPlantInstance, "plant_profile">[]).map((plant) => ({
+          ...plant,
+          plant_profile: profilesById.get(plant.plant_profile_id) ?? null
+        }));
+      }
+
+      if (item === "observations") {
+        const { data, error } = await supabase.from("garden_observations").select("*").order("observed_at", { ascending: false });
+        if (error) throw error;
+        next.observations = (data ?? []) as GardenObservation[];
+      }
+
+      if (item === "tasks") {
+        const { data, error } = await supabase.from("garden_tasks").select("*").order("due_on", { ascending: true, nullsFirst: false });
+        if (error) throw error;
+        next.tasks = (data ?? []) as GardenTask[];
+      }
+
+      if (item === "outcomes") {
+        const { data, error } = await supabase
+          .from("garden_plant_outcomes")
+          .select("*")
+          .order("harvested_on", { ascending: false, nullsFirst: false });
+        if (error) throw error;
+        next.outcomes = (data ?? []) as GardenPlantOutcome[];
+      }
+
+      if (item === "wishlist") {
+        const { data, error } = await supabase
+          .from("garden_wishlist")
+          .select("*")
+          .order("created_at", { ascending: true });
+        if (error) throw error;
+        const profilesById = new Map(snapshot.plantProfiles.map((profile) => [profile.plant_profile_id, profile]));
+        next.wishlist = ((data ?? []) as Omit<GardenWishlistItem, "plant_profile">[]).map((item) => ({
+          ...item,
+          plant_profile: profilesById.get(item.plant_profile_id) ?? null
+        }));
+      }
+    }));
+
+    setSnapshot((current) => ({ ...current, ...next }));
+    if (next.observations) await refreshMediaUrls(next.observations);
   };
 
   useEffect(() => {
@@ -318,14 +417,15 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
   const runMutation = async (
     mutation: () => Promise<void>,
     successMessage: string,
-    options: { rethrow?: boolean } = {}
+    options: { rethrow?: boolean; reload?: ReloadScope | ReloadScope[] } = {}
   ) => {
     setStatus("saving");
     setNotice("");
+    setUndoTask(null);
 
     try {
       await mutation();
-      await loadGardenData();
+      await reloadGardenData(options.reload ?? "all");
       setStatus("ready");
       setNotice(successMessage);
     } catch (error) {
@@ -352,13 +452,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
 
       if (error) throw error;
       setSelectedPropertyId(data.id);
-    }, GARDEN_MUTATION_MESSAGES.gardenCreated);
+    }, GARDEN_MUTATION_MESSAGES.gardenCreated, { reload: "properties" });
 
   const updateProperty = (id: string, patch: Partial<Pick<GardenProperty, "name" | "label" | "region" | "growing_zone" | "season" | "notes" | "latitude" | "longitude" | "location_label">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_properties").update(patch).eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.gardenUpdated);
+    }, GARDEN_MUTATION_MESSAGES.gardenUpdated, { reload: "properties" });
 
   const deleteProperty = (id: string) =>
     runMutation(async () => {
@@ -390,13 +490,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       setSelectedZoneId(data.id);
       setSelectedBedId("");
       setSelectedPlantId("");
-    }, GARDEN_MUTATION_MESSAGES.areaAdded);
+    }, GARDEN_MUTATION_MESSAGES.areaAdded, { reload: "zones" });
 
   const updateZone = (id: string, patch: Partial<Pick<GardenZone, "name" | "purpose" | "light" | "water" | "notes">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_zones").update(patch).eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.areaUpdated);
+    }, GARDEN_MUTATION_MESSAGES.areaUpdated, { reload: "zones" });
 
   const deleteZone = (id: string) =>
     runMutation(async () => {
@@ -429,13 +529,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       if (error) throw error;
       setSelectedBedId(data.id);
       setSelectedPlantId("");
-    }, GARDEN_MUTATION_MESSAGES.bedAdded);
+    }, GARDEN_MUTATION_MESSAGES.bedAdded, { reload: "beds" });
 
   const updateBed = (id: string, patch: Partial<Pick<GardenBed, "name" | "sun" | "water" | "soil" | "notes">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_beds").update(patch).eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.bedUpdated);
+    }, GARDEN_MUTATION_MESSAGES.bedUpdated, { reload: "beds" });
 
   const deleteBed = (id: string) =>
     runMutation(async () => {
@@ -469,13 +569,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
 
       if (error) throw error;
       setSelectedPlantId(data.id);
-    }, GARDEN_MUTATION_MESSAGES.plantAdded);
+    }, GARDEN_MUTATION_MESSAGES.plantAdded, { reload: "plants" });
 
   const updatePlant = (id: string, patch: Partial<Pick<GardenPlantInstance, "quantity" | "planted_on" | "notes">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_plant_instances").update(patch).eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.plantUpdated);
+    }, GARDEN_MUTATION_MESSAGES.plantUpdated, { reload: "plants" });
 
   const deletePlant = (id: string) =>
     runMutation(async () => {
@@ -492,7 +592,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         .eq("id", plant.id);
 
       if (error) throw error;
-    }, nextStatus === "archived" ? GARDEN_MUTATION_MESSAGES.plantFinished : GARDEN_MUTATION_MESSAGES.plantGrowing);
+    }, nextStatus === "archived" ? GARDEN_MUTATION_MESSAGES.plantFinished : GARDEN_MUTATION_MESSAGES.plantGrowing, { reload: "plants" });
 
   const addObservation = (note: string) =>
     runMutation(async () => {
@@ -506,13 +606,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       });
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.noteSaved);
+    }, GARDEN_MUTATION_MESSAGES.noteSaved, { reload: "observations" });
 
   const deleteObservation = (id: string) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_observations").delete().eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.noteRemoved);
+    }, GARDEN_MUTATION_MESSAGES.noteRemoved, { reload: "observations" });
 
   // One capture for a note plus optional photo against any scope.
   const quickLog = async (input: {
@@ -546,7 +646,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         image_path: imagePath
       });
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.savedToGarden);
+    }, GARDEN_MUTATION_MESSAGES.savedToGarden, { reload: "observations" });
   };
 
   const addTask = (input: {
@@ -575,33 +675,44 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       });
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.careAdded);
+    }, GARDEN_MUTATION_MESSAGES.careAdded, { reload: "tasks" });
 
-  const updateTaskStatus = (task: GardenTask) =>
-    runMutation(async () => {
-      const nextStatus = task.status === "done" ? "open" : "done";
-      const { error } = await supabase
-        .from("garden_tasks")
-        .update({
-          status: nextStatus,
-          completed_at: nextStatus === "done" ? new Date().toISOString() : null
-        })
-        .eq("id", task.id);
+  const updateTaskStatus = async (task: GardenTask) => {
+    const completing = task.status !== "done";
+    try {
+      await runMutation(
+        async () => {
+          const nextStatus = completing ? "done" : "open";
+          const { error } = await supabase
+            .from("garden_tasks")
+            .update({
+              status: nextStatus,
+              completed_at: nextStatus === "done" ? new Date().toISOString() : null
+            })
+            .eq("id", task.id);
 
-      if (error) throw error;
-    }, task.status === "done" ? GARDEN_MUTATION_MESSAGES.careReopened : GARDEN_MUTATION_MESSAGES.careCompleted);
+          if (error) throw error;
+        },
+        completing ? GARDEN_MUTATION_MESSAGES.careCompleted : GARDEN_MUTATION_MESSAGES.careReopened,
+        { rethrow: true, reload: "tasks" }
+      );
+      if (completing) setUndoTask({ ...task, status: "done" });
+    } catch {
+      // runMutation already surfaced the failure notice.
+    }
+  };
 
   const updateTask = (id: string, patch: Partial<Pick<GardenTask, "title" | "due_on" | "notes">>) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_tasks").update(patch).eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.careUpdated);
+    }, GARDEN_MUTATION_MESSAGES.careUpdated, { reload: "tasks" });
 
   const deleteTask = (id: string) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_tasks").delete().eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.careRemoved);
+    }, GARDEN_MUTATION_MESSAGES.careRemoved, { reload: "tasks" });
 
   const addPlantOutcome = (
     plant: GardenPlantInstance,
@@ -626,13 +737,13 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         notes: input.notes.trim() || null
       });
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.resultSaved, { rethrow: true });
+    }, GARDEN_MUTATION_MESSAGES.resultSaved, { rethrow: true, reload: "outcomes" });
 
   const deletePlantOutcome = (id: string) =>
     runMutation(async () => {
       const { error } = await supabase.from("garden_plant_outcomes").delete().eq("id", id);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.resultRemoved, { rethrow: true });
+    }, GARDEN_MUTATION_MESSAGES.resultRemoved, { rethrow: true, reload: "outcomes" });
 
   const saveWishlist = (slug: string) =>
     runMutation(async () => {
@@ -646,7 +757,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       );
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.plantIdeaSaved);
+    }, GARDEN_MUTATION_MESSAGES.plantIdeaSaved, { reload: "wishlist" });
 
   const removeWishlist = (plantProfileId: string) =>
     runMutation(async () => {
@@ -656,7 +767,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         .eq("owner_user_id", session.user.id)
         .eq("plant_profile_id", plantProfileId);
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.plantIdeaRemoved);
+    }, GARDEN_MUTATION_MESSAGES.plantIdeaRemoved, { reload: "wishlist" });
 
   const addPlantToBed = (slug: string, bedId: string) =>
     runMutation(async () => {
@@ -679,7 +790,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       if (error) throw error;
       setSelectedBedId(bed.id);
       setSelectedPlantId(data.id);
-    }, GARDEN_MUTATION_MESSAGES.plantAdded);
+    }, GARDEN_MUTATION_MESSAGES.plantAdded, { reload: "plants" });
 
   const logPlantObservation = (plant: GardenPlantInstance, note: string) =>
     runMutation(async () => {
@@ -691,7 +802,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         note: note.trim()
       });
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.noteSaved);
+    }, GARDEN_MUTATION_MESSAGES.noteSaved, { reload: "observations" });
 
   const addCatalogPlantToBed = async (slug: string) => {
     const targetBed = activeBed ?? propertyBeds[0] ?? null;
@@ -719,7 +830,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       if (error) throw error;
       setSelectedBedId(targetBed.id);
       setSelectedPlantId(data.id);
-    }, GARDEN_MUTATION_MESSAGES.plantAdded);
+    }, GARDEN_MUTATION_MESSAGES.plantAdded, { reload: "plants" });
   };
 
   const [signingOut, setSigningOut] = useState(false);
@@ -843,6 +954,19 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
           {notice ? (
             <p className={`garden-notice ${status === "error" ? "is-error" : ""}`} role={status === "error" ? "alert" : "status"}>
               {notice}
+              {undoTask ? (
+                <button
+                  className="garden-notice__undo"
+                  type="button"
+                  onClick={() => {
+                    const task = undoTask;
+                    setUndoTask(null);
+                    if (task) void updateTaskStatus(task);
+                  }}
+                >
+                  Undo
+                </button>
+              ) : null}
             </p>
           ) : null}
 

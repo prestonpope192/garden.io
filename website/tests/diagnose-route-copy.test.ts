@@ -24,7 +24,7 @@ describe("garden care-help route copy", () => {
           "content-type": "application/json"
         },
         method: "POST"
-      })
+      }) as Parameters<typeof POST>[0]
     );
     const payload = (await response.json()) as { message?: string };
 

@@ -307,7 +307,7 @@ describe("PublicCatalogueBrowser content", () => {
     expect(source).not.toContain("Check light, water, soil, and room before you make space.");
     expect(source).not.toContain("Check light, water, soil, and room before it goes in the bed.");
     expect(source).toContain("Where it belongs");
-    expect(source).toContain("Watch this season");
+    expect(source).toContain("Plant details");
     expect(source).toContain("Use it for");
     expect(source).toContain("Start from");
     expect(source).not.toContain("Good for");
@@ -434,7 +434,7 @@ describe("PublicCatalogueBrowser content", () => {
     expect(html).toContain("plant-art%2Fborage.jpg");
     expect(html).not.toContain("Unknown · Flower");
     expect(html).toContain("<dt>Grows as</dt><dd>Annual</dd>");
-    expect(html).not.toContain("Lifecycle");
+    expect(html).toContain("Lifecycle");
     expect(html).not.toContain("Grows as</dt><dd>Unknown");
     expect(html).not.toContain("Missing SUPABASE_DB_URL");
     expect(html).not.toContain("Photo coming soon");

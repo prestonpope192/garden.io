@@ -438,7 +438,8 @@ describe("CatalogueView", () => {
     expect(html).toContain("Fresh herbs, Pollinators");
     expect(html).toContain("Harvest timing, heat stress, and flavor.");
     expect(html).not.toContain("Choose plant type");
-    expect(html).toContain("Ready to plant? Add it to a bed. Still deciding? Keep it in plants to try.");
+    expect(html).toContain("Plant in a bed");
+    expect(html).not.toContain("Ready to plant? Add it to a bed. Still deciding? Keep it in plants to try.");
     expect(html).toContain("Add to plants to try");
     expect(html).not.toContain("Know where it belongs?");
     expect(html).not.toContain("Save for later");

@@ -67,24 +67,24 @@ describe("sample garden content", () => {
   it("uses journal-style plant art for the sample garden instead of ordinary photos", () => {
     const photoOnlySnapshot = buildDemoGardenSnapshot([
       {
-        ...snapshot.plants[0].plant_profile,
+        ...snapshot.plants[0].plant_profile!,
         slug: "borage",
         primary_image_url: "https://example.com/borage-garden-photo.jpg"
       },
       {
-        ...snapshot.plants[1].plant_profile,
+        ...snapshot.plants[1].plant_profile!,
         slug: "bouquet-dill",
         primary_image_url: "https://example.com/bouquet-dill-garden-photo.jpg"
       },
       {
-        ...snapshot.plants[2].plant_profile,
+        ...snapshot.plants[2].plant_profile!,
         slug: "bell-pepper",
         primary_image_url: "https://example.com/bell-pepper-garden-photo.jpg"
       }
     ]);
 
     expect(
-      photoOnlySnapshot.plants.map((plant) => plant.plant_profile.primary_image_url)
+      photoOnlySnapshot.plants.map((plant) => plant.plant_profile!.primary_image_url)
     ).toEqual(
       expect.arrayContaining([
         "https://koeawpuagswysumwuidc.supabase.co/storage/v1/object/public/plant-art/borage.jpg",
@@ -92,7 +92,7 @@ describe("sample garden content", () => {
         "https://koeawpuagswysumwuidc.supabase.co/storage/v1/object/public/plant-art/bell-pepper.jpg"
       ])
     );
-    expect(photoOnlySnapshot.plants.map((plant) => plant.plant_profile.primary_image_url).join(" ")).not.toContain(
+    expect(photoOnlySnapshot.plants.map((plant) => plant.plant_profile!.primary_image_url).join(" ")).not.toContain(
       "example.com"
     );
     expect(readFileSync(new URL("../lib/demo-garden-snapshot.ts", import.meta.url), "utf8")).not.toContain(
@@ -119,165 +119,28 @@ describe("sample garden content", () => {
     expect(previewSource).not.toContain('aria-label="Active context"');
     expect(previewSource).toContain('title: "Today"');
     expect(appSource).toContain('title: "Today"');
-    expect(previewSource).not.toContain('title: "Garden Check"');
-    expect(appSource).not.toContain('title: "Garden Check"');
-    expect(previewSource).not.toContain('title: "Your garden, smarter"');
-    expect(appSource).not.toContain('title: "Your garden, smarter"');
-    expect(previewSource).toContain('subtitle: "Add what changed. Get one next step."');
-    expect(appSource).toContain('subtitle: "Add what changed. Get one next step."');
-    expect(previewSource).not.toContain('subtitle: "Add what changed. Keep what helped."');
-    expect(appSource).not.toContain('subtitle: "Add what changed. Keep what helped."');
-    expect(previewSource).not.toContain('subtitle: "Show what changed. Save one care step."');
-    expect(appSource).not.toContain('subtitle: "Show what changed. Save one care step."');
-    expect(previewSource).not.toContain('subtitle: "Ask with a note or photo. Save the useful answer."');
-    expect(appSource).not.toContain('subtitle: "Ask with a note or photo. Save the useful answer."');
-    expect(previewSource).not.toContain('subtitle: "Show what changed. Save the next care step."');
-    expect(appSource).not.toContain('subtitle: "Show what changed. Save the next care step."');
-    expect(previewSource).not.toContain('subtitle: "Show what changed. Get one care step."');
-    expect(appSource).not.toContain('subtitle: "Show what changed. Get one care step."');
-    expect(previewSource).not.toContain('subtitle: "What changed in your garden?"');
-    expect(appSource).not.toContain('subtitle: "What changed in your garden?"');
-    expect(previewSource).not.toContain('subtitle: "Describe what changed. Save the care it needs."');
-    expect(appSource).not.toContain('subtitle: "Describe what changed. Save the care it needs."');
-    expect(previewSource).not.toContain('subtitle: "Describe what changed. Save the next care step."');
-    expect(appSource).not.toContain('subtitle: "Describe what changed. Save the next care step."');
-    expect(previewSource).not.toContain('subtitle: "Describe what changed. Get a next step you can save."');
-    expect(appSource).not.toContain('subtitle: "Describe what changed. Get a next step you can save."');
-    expect(previewSource).not.toContain('subtitle: "Notice what changed, then save what to try next with the plant."');
-    expect(appSource).not.toContain('subtitle: "Notice what changed, then save what to try next with the plant."');
-    expect(previewSource).not.toContain('subtitle: "Notice what changed, then save one care step with the plant."');
-    expect(appSource).not.toContain('subtitle: "Notice what changed, then save one care step with the plant."');
-    expect(previewSource).not.toContain('subtitle: "Describe the change. Get one care step you can save with the plant."');
-    expect(appSource).not.toContain('subtitle: "Describe the change. Get one care step you can save with the plant."');
-    expect(previewSource).not.toContain('subtitle: "Describe what changed. Get one clear care step from your garden notes."');
-    expect(appSource).not.toContain('subtitle: "Describe what changed. Get one clear care step from your garden notes."');
-    expect(previewSource).not.toContain('subtitle: "Show what changed. Get one care step using your garden notes."');
-    expect(appSource).not.toContain('subtitle: "Show what changed. Get one care step using your garden notes."');
-    expect(previewSource).not.toContain('subtitle: "Show what changed. Get one useful care step from the garden you already saved."');
-    expect(appSource).not.toContain('subtitle: "Show what changed. Get one useful care step from the garden you already saved."');
-    expect(previewSource).not.toContain("Write a garden note or add a photo. Keep what matters with the right plant, bed, and season.");
-    expect(appSource).not.toContain("Write a garden note or add a photo. Keep what matters with the right plant, bed, and season.");
-    expect(html).toContain("Today");
-    expect(html).not.toContain("Garden Check</span><span>4 plants saved");
-    expect(html).not.toContain("4 plants in 3 beds. Start with Bell Pepper. Choose any plant when you want its notes.");
-    expect(html).not.toContain("4 plants saved in 3 beds");
-    expect(html).not.toContain("2 areas, 3 beds, 4 growing plants");
-    expect(html).toContain("Yellow leaves, spots, storm damage...");
-    expect(html).not.toContain("What are you seeing?");
-    expect(html).not.toContain("Garden Check");
-    expect(html).toContain("Your garden, smarter.");
-    expect(html.match(/Your garden, smarter\./g)?.length).toBe(1);
-    expect(html).toContain("Add what changed. Get one next step.");
-    expect(html).not.toContain("Add what changed. Keep what helped.");
-    expect(html).not.toContain("Add a note or photo. Keep what helped with the right plant.");
-    expect(html).not.toContain("Add a note or photo. Get one useful care step, then save it with the right plant or bed.");
-    expect(html).not.toContain("Show what changed. Get the next care step.");
-    expect(html).not.toContain("Show what changed. Get one care step.");
-    expect(html).toContain("What changed in your garden?");
-    expect(html).not.toContain("Garden note or photo description");
-    expect(html).not.toContain("Describe what changed. Save the care it needs.");
-    expect(html).not.toContain("Describe what changed. Save the next care step.");
-    expect(html).not.toContain("Describe what changed. Get a next step you can save.");
-    expect(html).not.toContain("Notice what changed, then save what to try next with the plant.");
-    expect(html).not.toContain("Notice what changed, then save one care step with the plant.");
-    expect(html).not.toContain("One clear next step");
-    expect(html).not.toContain("Describe the change. Get one care step you can save with the plant.");
-    expect(html).not.toContain("Describe what changed. Get one clear care step from your garden notes.");
-    expect(html).not.toContain("Show what changed. Get one care step using your garden notes.");
-    expect(html).not.toContain("Show what changed. Get one useful care step from the garden you already saved.");
-    expect(html).toContain("The answer can use the plants, places, and notes you have saved.");
-    expect(html).not.toContain("Keep it where it belongs in your garden.");
-    expect(html).not.toContain("Keep it with the plant or bed it belongs to.");
-    expect(html).not.toContain("Save it with the plant or bed it belongs to.");
-    expect(html).not.toContain("Save it so you remember what helped.");
-    expect(html).not.toContain("Save the note so next time has context.");
-    expect(html).not.toContain("Save it once. Future checks remember.");
-    expect(html).not.toContain("Save what happened so next time starts there.");
-    expect(html).not.toContain("The next check starts with what you save.");
-    expect(html).not.toContain("Add a note or photo. Save the answer with the right plant or bed.");
-    expect(html).not.toContain("Save what you noticed with the right plant or bed.");
-    expect(html).not.toContain("Keep it with the right plant or bed.");
-    expect(html).not.toContain("Keep it with the plant for next time.");
-    expect(html).not.toContain("Save it with the plant for next time.");
-    expect(html).not.toContain("Your note, photo, and care plan stay together.");
-    expect(html).not.toContain("Your note, photo, and next care stay together.");
-    expect(html).not.toContain("Your note, photo, and care step stay together.");
-    expect(html).not.toContain("Save the note so next week is easier.");
-    expect(html).not.toContain("Save what you notice now so next week is easier.");
-    expect(html).not.toContain("The answer starts with your saved plants, beds, weather, and notes.");
-    expect(html).not.toContain("Save useful notes so the next visit starts with what you noticed.");
-    expect(html).toContain("Add a photo");
-    expect(html).toContain('aria-label="Add a photo"');
-    expect(html).toContain("Add a note or photo");
-    expect(html).not.toContain("<button class=\"garden-ai-send\" type=\"submit\" disabled=\"\">Get next step</button>");
-    expect(html).not.toContain("Check this change");
-    expect(html).not.toContain("Get one care step");
-    expect(html).not.toContain("Get care guidance");
-    expect(html).not.toContain("Get care step");
-    expect(html).not.toContain("Ask with saved notes");
-    expect(html).not.toContain("Check with notes");
-    expect(html).not.toContain("Check garden");
-    expect(html).not.toContain("Get a care step");
-    expect(html).toContain("Leaves are yellowing");
-    expect(html).toContain("Storm came through");
-    expect(html).not.toContain("Tomato leaves are yellowing");
-    expect(html).not.toContain("Why are my tomato leaves yellowing?");
-    expect(html).not.toContain("What should I do after heavy rain?");
-    expect(html).not.toContain("Ask from your garden");
-    expect(html).not.toContain("Get guidance");
-    expect(html).not.toContain("Photo selected for Garden.io");
-    expect(html).toContain("My Garden");
-    expect(html).not.toContain("See your garden");
-    expect(html).toContain("Weekly care");
-    expect(html).not.toContain("See next care");
-    expect(html).toContain("Choose plants");
-    expect(html).toContain("Plant Journal");
-    expect(html).not.toContain("Field Guide");
-    expect(html).toContain('aria-label="Garden sections"');
-    expect(html).toContain('aria-current="page" class="is-active" href="/sample-garden/ask">Today</a>');
-    expect(html).toContain('aria-label="Go to My Garden"');
-    expect(html).not.toContain('aria-label="Open My Garden"');
-    expect(html).not.toContain('aria-label="See your garden"');
-    expect(html).toContain('aria-label="Go to weekly care"');
-    expect(html).not.toContain('aria-label="Open weekly care"');
-    expect(html).not.toContain('aria-label="See next care"');
-    expect(html).toContain('aria-label="Choose plants"');
-    expect(html).not.toContain(">This Week</a>");
-    expect(html).not.toContain("Garden notes");
-    expect(html).not.toContain(">This week</a>");
-    expect(html).not.toContain("Field guide");
-    expect(html).not.toContain("See this week");
-    expect(html).not.toContain("Beds, plants, and notes together.");
-    expect(html).not.toContain("Watering, harvests, and checks in one place.");
-    expect(html).not.toContain("Find plants for the beds you have.");
-    expect(html).not.toContain("Beds, plants, and notes in one place.");
-    expect(html).not.toContain("Garden utilities");
-    expect(html).not.toContain("What needs attention today?");
-    expect(html).not.toContain("The care that needs attention.");
-    expect(html).not.toContain("Add a note or photo. Get a next step that knows your plants, beds, and season.");
-    expect(html).not.toContain("Add a note or photo. Get one clear next step that uses your plants, beds, and season.");
-    expect(html).not.toContain("Looking for one useful next step...");
-    expect(html).not.toContain("Add a note or photo. Get help that already knows your plants, beds, weather, and history.");
-    expect(html).not.toContain("Add a note or photo. Get help with the plants, beds, weather, and history already saved.");
-    expect(html).not.toContain("Add a note or photo. Ask from the plants, beds, weather, and notes you already saved.");
-    expect(html).not.toContain("The more you save, the more context your garden has.");
-    expect(html).not.toContain("The more you save, the smarter your garden gets.");
-    expect(html).not.toContain("Save the answer so future advice remembers what happened.");
-    expect(html).not.toContain("Save useful answers so the next check starts with what happened.");
-    expect(html).not.toContain("Save useful notes so the next visit starts with what happened.");
-    expect(html).toContain("Start your garden");
-    expect(html).not.toContain("Look around");
-    expect(html).not.toContain("Keep the useful answer with the right plant, bed, or season.");
-    expect(html).not.toContain("Answers can be saved with a plant, bed, or the whole garden.");
-    expect(html).not.toContain("Know what to do next");
-    expect(html).not.toContain("Ask with a quick note or photo");
-    expect(html).not.toContain("Garden memory");
-    expect(html).not.toContain("Ask Garden.io");
-    expect(html).not.toContain("Garden.io uses your plant records");
     expect(html).not.toContain('aria-label="Garden app navigation"');
-    expect(html).not.toContain(">Garden</a>");
-    expect(html).not.toContain(">Plants</a>");
-    expect(html).not.toContain(">Find</a>");
+    expect(html).toContain('aria-label="Garden shortcuts"');
+    expect(html).toContain('aria-label="Chat history"');
+    expect(html).toContain('aria-label="Open plant catalogue"');
+    expect(html).toContain('aria-label="Search garden and catalogue"');
+    expect(html).toContain('aria-label="Open my garden"');
+    expect(html).toContain('aria-label="Open weekly care"');
+    expect(html).toContain('href="/sample-garden/catalogue"');
+    expect(html).toContain('href="/sample-garden/property"');
+    expect(html).toContain('href="/sample-garden/calendar"');
+    expect(html).toContain("Ask about your garden...");
+    expect(html).toContain('aria-label="Add attachment"');
+    expect(html).toContain("Add file");
+    expect(html).toContain("Add photo");
+    expect(html).toContain("Take photo");
+    expect(html).toContain('capture="environment"');
+    expect(html).toContain('aria-label="Send"');
+    expect(html).not.toContain("Your garden, smarter.");
+    expect(html).not.toContain("Add what changed. Get one next step.");
+    expect(html).not.toContain("Yellow leaves, spots, storm damage...");
+    expect(html).not.toContain("The answer can use the plants, places, and notes you have saved.");
+    expect(html).not.toContain("Add a note or photo");
     expect(sampleRoutesSource).toContain('"ask"');
     expect(samplePageSource).toContain('redirect("/tour/ask")');
     expect(tourPageSource).toContain('redirect("/tour/ask")');
@@ -348,10 +211,10 @@ describe("sample garden content", () => {
     expect(html).not.toContain("Try it first");
     expect(html).not.toContain("Start your own garden");
     expect(html).not.toContain("Example garden");
-    expect(html).not.toContain("Sample garden");
+    expect(html).toContain("Sample garden");
     expect(html).not.toContain("garden-rail-name");
     expect(html).not.toContain('aria-label="Active context"');
-    expect(html).toContain("Garden map");
+    expect(html).toContain("My Garden");
     expect(html).not.toContain("Beds and areas");
     expect(appSource).toContain('kicker: "Garden map"');
     expect(appSource).not.toContain('kicker: "Where things grow"');
@@ -378,7 +241,7 @@ describe("sample garden content", () => {
     expect(text).not.toContain("Backyard Garden Home garden My Garden");
     expect(text).not.toContain("Your garden My Garden");
     expect(text).not.toContain("Garden journal Plant Journal");
-    expect(html).toContain("Places, beds, and plants in one view.");
+    expect(html).toContain("Sample data · your garden will have your own places and beds.");
     expect(appSource).toContain('subtitle: "Places, beds, and plants in one view."');
     expect(previewSource).toContain('subtitle: "Places, beds, and plants in one view."');
     expect(html).not.toContain("See what grows where, and what happened there.");
@@ -416,8 +279,8 @@ describe("sample garden content", () => {
     expect(html).not.toContain("Check first");
     expect(html).not.toContain("First plant to check");
     expect(html).not.toContain("First place to check");
-    expect(html).toContain("Garden map");
-    expect(html.indexOf("Garden map")).toBeLessThan(html.indexOf("This week"));
+    expect(html).toContain("My Garden");
+    expect(html.indexOf("My Garden")).toBeLessThan(html.indexOf("This week"));
     expect(html).not.toContain("Beds and areas");
     expect(html).not.toContain("Garden places");
     expect(html).not.toContain("Garden layout");
@@ -519,7 +382,7 @@ describe("sample garden content", () => {
     expect(getDemoSaveNotice("keep this note where it belongs")).not.toContain("save changes");
     expect(getDemoSaveNotice("adjust this care")).not.toContain("Care item");
     expect(html).not.toContain("Example garden");
-    expect(html).not.toContain("Sample garden");
+    expect(html).toContain("Sample garden");
     expect(html).not.toContain("Preview garden");
     expect(html).not.toContain("Demo garden");
     expect(getDemoSaveNotice("keep this note where it belongs")).not.toContain("This sample stays unchanged.");
@@ -655,15 +518,15 @@ describe("sample garden content", () => {
     expect(html).toContain("Plant Journal");
     expect(html).not.toContain("Plant records");
     expect(html).not.toContain("Plant history");
-    expect(html).toContain("Your plants");
+    expect(html).toContain("Sample garden");
     expect(html).toContain("Plant notes");
     expect(html).toContain("Choose a plant");
-    expect(html).toContain("Open a plant to see notes and care.");
+    expect(html).toContain("Start with Bell Pepper. Open any plant when you need its notes.");
     expect(html).not.toContain("Pick a plant");
     expect(html).not.toContain("My Plants");
     expect(appSource).toContain('title: "Plant Journal"');
     expect(appSource).not.toContain('title: "Plants"');
-    expect(html).toContain("Open a plant to see notes and care.");
+    expect(html).toContain("Start with Bell Pepper. Open any plant when you need its notes.");
     expect(html).not.toContain("Choose one plant to see what happened and what helped.");
     expect(appSource).toContain('subtitle: "Open a plant to see notes and care."');
     expect(appSource).not.toContain('subtitle: "Choose one plant to see what happened and what helped."');
@@ -798,7 +661,7 @@ describe("sample garden content", () => {
     expect(source).not.toContain("planted ${selectedPlant.planted_on}");
     expect(source).not.toContain("due ${nextTask.due_on}");
     expect(source).not.toContain("{nextTask.due_on}");
-    expect(source).toContain("Maybe later");
+    expect(source).toContain("To try");
     expect(source).not.toContain("Saved for later");
     expect(source).not.toContain("Saved as an idea");
   });
@@ -813,9 +676,9 @@ describe("sample garden content", () => {
     );
 
     expect(html).toContain("Choose plants");
-    expect(html).toContain("For your beds");
+    expect(html).toContain("Sample garden");
     expect(html).not.toContain("Plant choices");
-    expect(html).toContain("Choose plants for the beds you have.");
+    expect(html).toContain("Sample data · your garden will have your own plant selections.");
     expect(html).not.toContain("Choose plants for your light, water, and beds.");
     expect(html).not.toContain("Find plants that fit the beds you have.");
     expect(html).not.toContain("Plant Guide");
@@ -898,8 +761,8 @@ describe("sample garden content", () => {
       })
     );
 
-    expect(html).toContain("Start with what needs care. Let the rest wait.");
-    expect(html).toContain("This week");
+    expect(html).toContain("Sample data · your garden will have your own care tasks.");
+    expect(html).toContain("Care for this week");
     expect(html).toContain("Weekly care");
     expect(html).not.toContain(">This Week<");
     expect(html).not.toContain("Do the first care step. Let the rest wait.");

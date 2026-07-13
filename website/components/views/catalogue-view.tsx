@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { SpecimenLabel } from "@/components/journal-primitives";
 import type {
@@ -17,6 +17,10 @@ import {
   hasKnownCatalogueValue,
   getUseLabels
 } from "./shared";
+
+// How many catalogue cards mount per "Show more" step. The full catalogue is
+// 1,000+ profiles; mounting them all at once makes the page unusable on phones.
+const CATALOGUE_PAGE_SIZE = 48;
 
 export type CatalogueViewProps = {
   activeBed: GardenBed | null;
@@ -219,7 +223,7 @@ function CatalogCard({
     (plant.cultivar_overrides?.length ?? 0) > 0;
 
   return (
-    <article className={`garden-catalogue-card${photoUrl ? "" : " garden-catalogue-card--text-only"}`} key={plant.slug}>
+    <article className="garden-catalogue-card" key={plant.slug}>
       {photoUrl ? (
         <div className="garden-cat-card__image-col">
           <Image
@@ -230,7 +234,13 @@ function CatalogCard({
             width={180}
           />
         </div>
-      ) : null}
+      ) : (
+        <div aria-hidden="true" className="garden-cat-card__image-col">
+          <div className="garden-cat-card__placeholder">
+            <span>{plant.display_name.trim().charAt(0).toUpperCase() || "?"}</span>
+          </div>
+        </div>
+      )}
       <div className="garden-cat-card__body">
         <SpecimenLabel tone="clay">
           {hasKnownCatalogueValue(plant.lifecycle_type)
@@ -330,6 +340,12 @@ export function CatalogueView({
   const [query, setQuery] = useState("");
   const [activeType, setActiveType] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(CATALOGUE_PAGE_SIZE);
+
+  // A fresh search or kind filter restarts the visible window.
+  useEffect(() => {
+    setVisibleCount(CATALOGUE_PAGE_SIZE);
+  }, [query, activeType]);
 
   const typeChips = useMemo(() => buildTypeChips(plantProfiles), [plantProfiles]);
 
@@ -469,18 +485,34 @@ export function CatalogueView({
           </p>
         </div>
       ) : (
-        <div className="garden-catalogue-grid">
-          {filtered.map((plant) => (
-            <CatalogCard
-              activeBed={activeBed}
-              addCatalogPlantToBed={addCatalogPlantToBed}
-              isReadOnly={isReadOnly}
-              key={plant.slug}
-              plant={plant}
-              saveWishlist={saveWishlist}
-            />
-          ))}
-        </div>
+        <>
+          <div className="garden-catalogue-grid">
+            {filtered.slice(0, visibleCount).map((plant) => (
+              <CatalogCard
+                activeBed={activeBed}
+                addCatalogPlantToBed={addCatalogPlantToBed}
+                isReadOnly={isReadOnly}
+                key={plant.slug}
+                plant={plant}
+                saveWishlist={saveWishlist}
+              />
+            ))}
+          </div>
+          {filtered.length > visibleCount ? (
+            <div className="garden-catalogue-more">
+              <button
+                className="folio-button"
+                type="button"
+                onClick={() => setVisibleCount((count) => count + CATALOGUE_PAGE_SIZE)}
+              >
+                Show more plants
+              </button>
+              <span>
+                Showing {visibleCount} of {filtered.length}
+              </span>
+            </div>
+          ) : null}
+        </>
       )}
     </div>
   );

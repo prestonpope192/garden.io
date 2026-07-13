@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SpecimenLabel } from "@/components/journal-primitives";
 import { getZoneName, getBedName } from "@/lib/garden-app-helpers";
 import type { GardenBed, GardenPlantInstance, GardenZone } from "@/lib/garden-app-types";
@@ -47,8 +47,41 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [target, setTarget] = useState("property");
+  const fabRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   const growing = plants.filter((plant) => plant.status === "growing");
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusables = panel.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      fabRef.current?.focus();
+    };
+  }, [open]);
 
   const defaultTarget = () => {
     if (activePlantId) return `plant:${activePlantId}`;
@@ -109,7 +142,7 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
 
   if (!open) {
     return (
-      <button className="garden-quicklog-fab" type="button" onClick={openPanel} aria-label={QUICK_LOG_COPY.fabAria}>
+      <button className="garden-quicklog-fab" ref={fabRef} type="button" onClick={openPanel} aria-label={QUICK_LOG_COPY.fabAria}>
         <span aria-hidden="true" className="garden-quicklog-fab__mark">✎</span>
         <span className="garden-quicklog-fab__label">{QUICK_LOG_COPY.fabLabel}</span>
       </button>
@@ -118,7 +151,7 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
 
   return (
     <div className="garden-quicklog">
-      <div className="garden-quicklog__panel" role="dialog" aria-label={QUICK_LOG_COPY.dialogLabel}>
+      <div className="garden-quicklog__panel" ref={panelRef} role="dialog" aria-modal="true" aria-label={QUICK_LOG_COPY.dialogLabel}>
         <div className="garden-quicklog__head">
           <SpecimenLabel tone="olive">{QUICK_LOG_COPY.heading}</SpecimenLabel>
           <button className="garden-quicklog__close" type="button" onClick={() => setOpen(false)} aria-label={QUICK_LOG_COPY.closeAria}>✕</button>
@@ -151,7 +184,7 @@ export function QuickLog({ zones, beds, plants, activeZoneId, activeBedId, activ
           <select className="input" value={target} onChange={(event) => setTarget(event.target.value)}>
             <option value="property">{QUICK_LOG_COPY.wholeGarden}</option>
             {zones.map((zone) => (
-              <option key={zone.id} value={`zone:${zone.id}`}>{zone.name}</option>
+              <option key={zone.id} value={`zone:${zone.id}`}>{zone.name} place</option>
             ))}
             {beds.map((bed) => (
               <option key={bed.id} value={`bed:${bed.id}`}>{bed.name} in {getZoneName(zones, bed.zone_id)}</option>

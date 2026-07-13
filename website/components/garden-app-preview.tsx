@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { InkStamp, SpecimenLabel } from "@/components/journal-primitives";
 import { CalendarView } from "@/components/views/calendar-view";
 import { CatalogueView } from "@/components/views/catalogue-view";
@@ -102,6 +102,17 @@ async function noop() {
   return undefined;
 }
 
+// Only suggest questions the canned demo answers can genuinely honor —
+// a memory-flavored prompt that gets a generic reply undermines the pitch.
+const SAMPLE_GARDEN_PROMPTS = [
+  "Should I water today or wait?",
+  "When did we get rain last?",
+  "What should I plant in this empty bed?",
+  "Can basil grow next to these tomatoes?"
+];
+
+const DEMO_TASK_NOTICE = "It'll wait for your real garden.";
+
 async function askSampleGarden(input: {
   symptoms: string;
   imageDataUrl: string | null;
@@ -186,6 +197,7 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
   const [selectedBedId, setSelectedBedId] = useState("");
   const [selectedPlantId, setSelectedPlantId] = useState("");
   const [notice, setNotice] = useState("");
+  const [demoTasks, setDemoTasks] = useState<GardenTask[]>(() => snapshot.tasks);
 
   const activeProperty =
     snapshot.properties.find((property) => property.id === selectedPropertyId) ?? snapshot.properties[0] ?? null;
@@ -199,7 +211,7 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
     ? snapshot.plants.filter((plant) => plant.property_id === activeProperty.id)
     : [];
   const propertyTasks = activeProperty
-    ? snapshot.tasks.filter((task) => task.property_id === activeProperty.id)
+    ? demoTasks.filter((task) => task.property_id === activeProperty.id)
     : [];
   const propertyObservations = activeProperty
     ? snapshot.observations.filter((observation) => observation.property_id === activeProperty.id)
@@ -216,6 +228,21 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
   const plotSummary = activeProperty
     ? activeProperty.season?.trim() || `${propertyZones.length} places · ${growingCount} growing`
     : "New garden";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const zone = params.get("zone");
+    const bed = params.get("bed");
+    const plant = params.get("plant");
+    if (zone) setSelectedZoneId(zone);
+    if (bed) setSelectedBedId(bed);
+    if (plant) setSelectedPlantId(plant);
+  }, []);
+
+  useEffect(() => {
+    setDemoTasks(snapshot.tasks);
+  }, [snapshot.tasks]);
 
   const sampleSave = async (message: string) => {
     setNotice(getDemoSaveNotice(message));
@@ -242,7 +269,17 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
   const addObservation = async () => sampleSave("keep this note where it belongs");
   const deleteObservation = async () => sampleSave("change notes in your garden");
   const addTask = async () => sampleSave("add this to weekly care");
-  const updateTaskStatus = async (task: GardenTask) => sampleSave(task.status === "done" ? "put this back in weekly care" : "mark this care done");
+  const updateTaskStatus = async (task: GardenTask) => {
+    setNotice(DEMO_TASK_NOTICE);
+    await new Promise((resolve) => setTimeout(resolve, 420));
+    setDemoTasks((tasks) =>
+      tasks.map((candidate) =>
+        candidate.id === task.id
+          ? { ...candidate, status: task.status === "done" ? "open" : "done" }
+          : candidate
+      )
+    );
+  };
   const updateTask = async () => sampleSave("adjust this care");
   const deleteTask = async () => sampleSave("change weekly care");
   const addPlantOutcome = async () => sampleSave("keep this with the plant journal");
@@ -302,6 +339,7 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
           addTask={addTask}
           updateTaskStatus={updateTaskStatus}
           askGarden={askSampleGarden}
+          promptExamples={SAMPLE_GARDEN_PROMPTS}
           routes={{
             memory: `${basePath}/property`,
             care: `${basePath}/calendar`,
@@ -432,6 +470,7 @@ export function GardenAppPreview({ basePath = "/sample-garden", view, snapshot }
               region={activeProperty?.region ?? null}
               property={activeProperty}
               isReadOnly
+              allowReadOnlyTaskToggle
             />
           ) : null}
 

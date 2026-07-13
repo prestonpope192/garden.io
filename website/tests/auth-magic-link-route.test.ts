@@ -91,7 +91,7 @@ describe("magic-link auth fallback route", () => {
     expect(signInWithOtpMock).toHaveBeenCalledWith({
       email: "grower@example.com",
       options: {
-        emailRedirectTo: "http://127.0.0.1:3020/app",
+        emailRedirectTo: "http://127.0.0.1:3020/auth/confirm?next=%2Fapp%2Fmy-property",
         shouldCreateUser: true
       }
     });

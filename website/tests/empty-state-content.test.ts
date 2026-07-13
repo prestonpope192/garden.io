@@ -494,7 +494,7 @@ describe("empty state content", () => {
     expect(plantsHtml).not.toContain("plants have care this week");
     expect(plantsHtml).not.toContain("plants to check this week");
     expect(source).toContain("Care this week only");
-    expect(plantsHtml).toContain("Choose plants");
+    expect(plantsHtml).toContain("To try");
     expect(plantsHtml).not.toContain("Needs attention");
     expect(plantsHtml).not.toContain("Needs attention only");
     expect(plantsHtml).not.toContain("need attention soon");
@@ -502,7 +502,7 @@ describe("empty state content", () => {
     expect(plantsHtml).not.toContain("Needs care soon");
     expect(plantsHtml).not.toContain("Needs care soon only");
     expect(plantsHtml).not.toContain("Narrow plants");
-    expect(plantsHtml).not.toContain("Filter plants");
+    expect(plantsHtml).toContain("Filter plants");
   });
 
   it("keeps Plant Journal thumbnails in the journal-style image system", () => {
@@ -513,7 +513,7 @@ describe("empty state content", () => {
         ? {
             ...plant,
             plant_profile: {
-              ...plant.plant_profile,
+              ...plant.plant_profile!,
               primary_image_url: ordinaryPhotoUrl
             }
           }
@@ -669,7 +669,7 @@ describe("empty state content", () => {
     expect(plantsHtml).not.toContain("Pick one to see what happened and what needs care next.");
     expect(plantsHtml).toContain('aria-label="Show where Borage is planted in My Garden"');
     expect(source).toContain("Mixed or unknown");
-    expect(source).toContain("Hide plant choices");
+    expect(source).toContain("Hide filters");
     expect(source).not.toContain("Hide field guide");
     expect(source).toContain("Showing {filteredCount} of {totalCount}");
     expect(source).toContain("Show all plants");
@@ -696,7 +696,7 @@ describe("empty state content", () => {
     expect(source).toContain("Plants to try");
     expect(source).toContain("No plants to try yet");
     expect(source).toContain("Choose plants you might grow later. Plant one when you have a spot for it.");
-    expect(source).toContain("Maybe later");
+    expect(source).toContain("To try");
     expect(source).toContain("To try");
     expect(source).not.toContain("Saved plant");
     expect(source).not.toContain("Saved plants");
@@ -725,8 +725,8 @@ describe("empty state content", () => {
       actions: "Update"
     });
     expect(propertyHtml).toContain(">Details<");
-    expect(propertyHtml).toContain(">Care<");
-    expect(propertyHtml).toContain(">Care ideas<");
+    expect(propertyHtml).toContain(">Weekly care<");
+    expect(propertyHtml).toContain(">Suggestions<");
     expect(propertyHtml).toContain(">Update<");
     expect(propertyHtml).toContain("<h3>Borage</h3>");
     expect(propertyHtml).toContain("This week:");
@@ -759,7 +759,7 @@ describe("empty state content", () => {
     expect(propertySource).not.toContain("Check back as the season changes.");
     expect(propertyHtml).toContain("Move to past plants");
     expect(propertyHtml).toContain("Remove this plant");
-    expect(propertySource).toContain("Name this place");
+    expect(propertySource).toContain("Name where it grows");
     expect(propertySource).toContain('placeholder="Kitchen garden"');
     expect(propertySource).toContain('placeholder="Vegetables, herbs, flowers..."');
     expect(propertySource).toContain("Save this place");

@@ -71,12 +71,21 @@ describe("app flow visual layout", () => {
     const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
 
     expect(css).toContain(".garden-app-header__nav {");
+    expect(css).toContain(".garden-app-shell h1,\n.garden-app-shell h2,\n.garden-app-shell h3");
+    expect(css).toContain(".garden-app-header .journal-shell__brand");
+    expect(css).toContain("font-family: var(--font-body), \"Palatino Linotype\", serif;");
     expect(css).toContain("grid-template-columns: repeat(5, minmax(0, 1fr));");
     expect(css).toMatch(/\.garden-app-header__nav a \{[\s\S]*display: inline-flex;[\s\S]*min-height: 40px;/);
-    expect(css).toContain(".garden-ai-photo-button:focus-visible");
+    expect(css).toContain(".garden-ai-attachment-button:focus-visible,");
+    expect(css).toContain(".garden-ai-attachment-menu button:focus-visible");
     expect(css).toMatch(/\.garden-ai-photo-input \{[\s\S]*width: 0;[\s\S]*height: 0;[\s\S]*overflow: hidden;/);
-    expect(css).toMatch(/\.garden-ai-shortcut \{[\s\S]*min-height: 40px;/);
-    expect(css).toContain(".garden-ai-shortcut:focus-visible {\n  outline: 2px solid var(--olive);");
+    expect(css).toMatch(/\.garden-ai-icon-button \{[\s\S]*cursor: pointer;/);
+    expect(css).toContain(".garden-ai-icon-button:hover::before,\n.garden-ai-icon-button:hover::after,");
+    expect(css).toContain(".garden-ai-icon-button:focus-visible::before,\n.garden-ai-icon-button:focus-visible::after");
+    expect(css).toContain(".garden-ai-brand:focus-visible,\n.garden-ai-icon-button:focus-visible");
+    expect(css).toContain(".garden-tour-banner {");
+    expect(css).toContain("backdrop-filter: blur(10px);");
+    expect(css).toContain(".garden-ai-memory-strip {");
     expect(css).toContain(".garden-zone__head {\n  display: flex;");
     expect(css).toContain("min-height: 44px;");
     expect(css).toContain(".garden-bed__head {\n  display: flex;");
@@ -93,7 +102,8 @@ describe("app flow visual layout", () => {
     expect(css).toMatch(/\.garden-plants-card__actions \.folio-button \{[\s\S]*min-height: 40px;/);
     expect(css).toMatch(/\.garden-plants2-view-toggle__btn \{[\s\S]*min-height: 40px;/);
     expect(css).toMatch(/\.garden-cat-expand__toggle \{[\s\S]*min-height: 40px;/);
-    expect(css).toMatch(/\.garden-cat-sort__select \{[\s\S]*min-height: 40px;/);
+    expect(css).toMatch(/\.garden-cat-chip \{[\s\S]*min-height: 40px;/);
+    expect(css).not.toMatch(/\.garden-cat-sort__select \{[\s\S]*min-height: 40px;/);
     expect(css).toMatch(/\.garden-plants-search \{[\s\S]*min-height: 44px;/);
   });
 

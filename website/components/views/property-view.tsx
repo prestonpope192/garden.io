@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primitives";
+import { FieldSelect, FieldText, InkStamp, MarginNote, SpecimenLabel } from "@/components/journal-primitives";
 import {
   formatGardenDate,
   getGardenSetupProgress,
@@ -111,10 +111,10 @@ const SETUP_STEP_IDS: ActiveSetupStepId[] = ["area", "bed", "plant"];
 
 const SETUP_STEP_COPY: Record<ActiveSetupStepId, { label: string; title: string; body: string; action: string }> = {
   area: {
-    label: "Area",
+    label: "Place",
     title: "Name where it grows",
     body: "Choose the part of the garden you can picture first, like Kitchen Garden, Orchard Row, or Shade Border.",
-    action: "Add area"
+    action: "Add place"
   },
   bed: {
     label: "Bed",
@@ -236,38 +236,6 @@ function getPlantTypeSummary(profile: GardenPlantProfile | null | undefined) {
   return [type, lifecycleLabel].filter(Boolean).join(" · ");
 }
 
-function FieldText(props: { label: string; value: string; onChange: (value: string) => void; placeholder?: string; required?: boolean; type?: string }) {
-  return (
-    <label className="garden-field">
-      <span>{props.label}</span>
-      <input
-        className="input"
-        type={props.type ?? "text"}
-        required={props.required}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={(event) => props.onChange(event.target.value)}
-      />
-    </label>
-  );
-}
-
-function FieldSelect(props: { label: string; value: string; onChange: (value: string) => void; options: string[] }) {
-  return (
-    <label className="garden-field">
-      <span>{props.label}</span>
-      <select className="input" value={props.value} onChange={(event) => props.onChange(event.target.value)}>
-        <option value="">—</option>
-        {props.options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
-
 export function PropertyView(props: PropertyViewProps) {
   const { activeProperty, activeZone, activeBed, activePlant } = props;
   const isReadOnly = props.isReadOnly ?? false;
@@ -314,25 +282,37 @@ export function PropertyView(props: PropertyViewProps) {
     { label: string; latitude: number; longitude: number }[]
   >([]);
   const [geoBusy, setGeoBusy] = useState(false);
+  const [weatherNotice, setWeatherNotice] = useState("");
+  const [geoNotice, setGeoNotice] = useState("");
 
   const lat = activeProperty?.latitude ?? null;
   const lon = activeProperty?.longitude ?? null;
   useEffect(() => {
     if (lat == null || lon == null) {
       setFrostAlert(null);
+      setWeatherNotice("");
       return;
     }
     let cancelled = false;
     void (async () => {
       try {
+        setWeatherNotice("");
         const res = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
         const data = (await res.json()) as { ok?: boolean; days?: ForecastDay[] };
-        if (cancelled || !data.ok || !data.days) return;
+        if (cancelled) return;
+        if (!data.ok || !data.days) {
+          setFrostAlert(null);
+          setWeatherNotice("Weather check unavailable. Frost alerts will try again later.");
+          return;
+        }
         setFrostAlert(
           buildFrostAlert({ days: data.days, growingPlants: props.plants, today: getTodayISO() })
         );
       } catch {
-        if (!cancelled) setFrostAlert(null);
+        if (!cancelled) {
+          setFrostAlert(null);
+          setWeatherNotice("Weather check unavailable. Frost alerts will try again later.");
+        }
       }
     })();
     return () => {
@@ -345,15 +325,22 @@ export function PropertyView(props: PropertyViewProps) {
     const q = (editDraft.location_query ?? "").trim();
     if (q.length < 2) return;
     setGeoBusy(true);
+    setGeoNotice("");
     try {
       const res = await fetch(`/api/weather?geocode=${encodeURIComponent(q)}`);
       const data = (await res.json()) as {
         ok?: boolean;
         matches?: { label: string; latitude: number; longitude: number }[];
       };
-      setGeoMatches(data.ok ? data.matches ?? [] : []);
+      if (!data.ok) {
+        setGeoMatches([]);
+        setGeoNotice("Location search unavailable. You can add it later.");
+        return;
+      }
+      setGeoMatches(data.matches ?? []);
     } catch {
       setGeoMatches([]);
+      setGeoNotice("Location search unavailable. You can add it later.");
     } finally {
       setGeoBusy(false);
     }
@@ -367,6 +354,7 @@ export function PropertyView(props: PropertyViewProps) {
       longitude: String(match.longitude),
     }));
     setGeoMatches([]);
+    setGeoNotice("");
   };
 
   // Reset transient drawer state whenever the focused node changes.
@@ -516,7 +504,7 @@ export function PropertyView(props: PropertyViewProps) {
           <div className="garden-plot__firstrun">
             <SpecimenLabel tone="olive">First step</SpecimenLabel>
             <h2>Start with the place you grow.</h2>
-            <p>Name your garden. Then add one area (like a section or garden zone), one bed, and one plant.</p>
+            <p>Name your garden. Then add one place, one bed, and one plant.</p>
             <form
               className="garden-form"
               onSubmit={(event: FormEvent<HTMLFormElement>) => {
@@ -587,6 +575,7 @@ export function PropertyView(props: PropertyViewProps) {
         location_query: ""
       });
       setGeoMatches([]);
+      setGeoNotice("");
     } else if (focus === "zone" && activeZone) {
       setEditDraft({
         name: activeZone.name,
@@ -718,6 +707,9 @@ export function PropertyView(props: PropertyViewProps) {
                       ))}
                     </ul>
                   ) : null}
+                  {geoNotice ? (
+                    <p className="garden-drawer__muted">{geoNotice}</p>
+                  ) : null}
                   {editDraft.location_label ? (
                     <p className="garden-drawer__muted">📍 {editDraft.location_label}</p>
                   ) : null}
@@ -842,8 +834,10 @@ export function PropertyView(props: PropertyViewProps) {
       rows.push(["Quantity", `${formatQuantity(activePlant.quantity)} growing`]);
       if (activePlant.planted_on) rows.push(["Planted", formatGardenDate(activePlant.planted_on)]);
       const stage = deriveLifecycleStage(activePlant);
-      if (stage) rows.push(["Stage", stage.label]);
       const harvest = harvestReadiness(activePlant);
+      // "Stage: Harvest-ready" beside "Harvest: Ready to harvest" says one
+      // thing twice — keep the actionable Harvest row and drop the echo.
+      if (stage && !(harvest?.ready && stage.label === "Harvest-ready")) rows.push(["Stage", stage.label]);
       const ph = activePlant.plant_profile;
       if (harvest) rows.push(["Harvest", harvest.label]);
       else if (ph?.perennial_first_harvest_label) rows.push(["Harvest", ph.perennial_first_harvest_label]);
@@ -1135,7 +1129,7 @@ export function PropertyView(props: PropertyViewProps) {
               void props.createZone(zoneDraft).then(() => setZoneDraft(EMPTY_ZONE));
             }}
           >
-            <SpecimenLabel tone="clay">Add your first area</SpecimenLabel>
+            <SpecimenLabel tone="clay">Add your first place</SpecimenLabel>
             <FieldText label="Place name" required value={zoneDraft.name} placeholder="Kitchen garden" onChange={(value) => setZoneDraft({ ...zoneDraft, name: value })} />
             <FieldText label="Use" value={zoneDraft.purpose} placeholder="Vegetables, herbs, flowers..." onChange={(value) => setZoneDraft({ ...zoneDraft, purpose: value })} />
             <div className="garden-field-grid">
@@ -1271,6 +1265,9 @@ export function PropertyView(props: PropertyViewProps) {
     if (withFrost.length === 0) {
       return (
         <div className="garden-drawer__section">
+          {weatherNotice ? (
+            <p className="garden-drawer__muted">{weatherNotice}</p>
+          ) : null}
           <p className="garden-drawer__muted">No new care ideas for this {focusLabel(focus).toLowerCase()} right now. Add notes as the season changes.</p>
         </div>
       );
@@ -1278,6 +1275,9 @@ export function PropertyView(props: PropertyViewProps) {
 
     return (
       <div className="garden-drawer__section garden-ideas">
+        {weatherNotice ? (
+          <p className="garden-drawer__muted">{weatherNotice}</p>
+        ) : null}
         {withFrost.map((idea) => (
           <article className={`garden-idea garden-idea--${idea.type}`} key={idea.id}>
             <div className="garden-idea__head">

@@ -26,7 +26,8 @@ describe("HomePage", () => {
     expect(html).not.toContain("what to care for now");
     expect(html).toContain("Start with one plant. Add more when the season gives you a reason.");
     expect(html).not.toContain("Start with one plant. Add notes as the season unfolds.");
-    expect(html).toContain("A living notebook for your garden");
+    expect(html).toContain("Growing record");
+    expect(html).toContain("Care advice that knows your garden.");
     expect(html).not.toContain("A simple garden journal that remembers");
     expect(html).not.toContain("Every note makes your garden smarter");
     expect(html).not.toContain("A living memory for your garden");
@@ -90,7 +91,7 @@ describe("HomePage", () => {
 
   it("keeps app shell navigation in journal language", () => {
     const html = renderToStaticMarkup(
-      createElement(JournalShell, { currentPath: "/app/my-plants" }, createElement("div"))
+      createElement(JournalShell, { currentPath: "/app/my-plants", children: createElement("div") })
     );
 
     expect(html).toContain("Plant Journal");
@@ -114,9 +115,11 @@ describe("HomePage", () => {
     expect(html).toContain("/tour");
     expect(html).not.toContain("/sample-garden");
     expect(html).toContain("Choose plants");
+    expect(html).toContain("Plan garden");
     expect(html).not.toContain("Find plants");
-    expect(html.match(/Start your garden/g)?.length).toBe(1);
-    expect(html.match(/Tour a garden journal/g)?.length).toBe(1);
+    // Hero CTA plus the closing "Begin the record" section.
+    expect(html.match(/Start your garden/g)?.length).toBe(2);
+    expect(html.match(/Tour a garden journal/g)?.length).toBe(2);
     expect(html).toContain("Apple journal-style plant image");
     expect(html).not.toContain("Apple garden note");
     expect(html).toContain("Apple journal-style plant image.");
@@ -197,11 +200,14 @@ describe("HomePage", () => {
     expect(html).not.toContain("When something looks off, ask with the plant and what you already noticed.");
     expect(html).not.toContain("Ask from saved notes");
     expect(html).not.toContain("When something looks off, start with the plant and what you already noticed.");
-    expect(html).toContain("Simple habit");
-    expect(html).toContain("Care advice that starts with your garden.");
+    expect(html).toContain("Growing record");
+    expect(html).toContain("Care advice that knows your garden.");
+    expect(html).not.toContain("Simple habit");
+    expect(html).not.toContain("Care advice that starts with your garden.");
     expect(html).not.toContain("Simple garden habit");
     expect(html).not.toContain("A simple habit for fewer garden guesses.");
-    expect(html).toContain("Keep notes, photos, beds, and plant history connected so every answer has context.");
+    expect(html).toContain("Garden.io automatically connects notes, photos, beds, and plant history so every answer has context.");
+    expect(html).not.toContain("Keep notes, photos, beds, and plant history connected so every answer has context.");
     expect(html).not.toContain("A small habit for fewer garden guesses.");
     expect(html).not.toContain("Add the note now. Use it when the next decision comes.");
     expect(html).not.toContain("Notice the change before you act.");
@@ -234,7 +240,8 @@ describe("HomePage", () => {
     expect(html).not.toContain("See each plant&#x27;s season in one place.");
     expect(html).not.toContain("Remember what happened to each plant.");
     expect(html).not.toContain("Each plant keeps its place in the journal.");
-    expect(html).toContain("The image is the cover. The useful part is the growing history you keep with it.");
+    expect(html).toContain("Track disease pressure, diagnoses, fruiting history, harvests, and care notes so every season starts smarter.");
+    expect(html).not.toContain("The image is the cover. The useful part is the growing history you keep with it.");
     expect(html).not.toContain("Keep bloom dates, pests, harvests, and what helped as the season changes.");
     expect(html).not.toContain("Save bloom dates, pests, harvests, and what helped as the season changes.");
     expect(html).not.toContain("Each note helps you remember what happened and what helped.");
@@ -270,7 +277,7 @@ describe("HomePage", () => {
     expect(html).not.toContain("Photos, notes, tasks");
     expect(html).not.toContain("Garden tracking example");
     expect(html).not.toContain("Plant memory");
-    expect(html).not.toContain("Garden.io turns");
+    expect(html).not.toContain("Garden.io turns your notes");
     expect(html).not.toContain("AI can use your notes");
     expect(html).not.toContain("AI turns your notes");
     expect(html).not.toContain("practical suggestions");
@@ -318,5 +325,30 @@ describe("HomePage", () => {
     expect(html).not.toContain("plant-art%2Fcurry-leaf.jpg");
     expect(html).not.toContain("/art/specimen-");
     expect(html).not.toContain(".svg");
+  });
+
+  it("describes planning from wishlist and garden context without overclaiming automation", () => {
+    const html = renderToStaticMarkup(createElement(HomePage));
+
+    expect(html).toContain("Planning");
+    expect(html).toContain("A planting plan from your wishlist and garden notes.");
+    expect(html).toContain(
+      "Add the plants you want, then keep timing, placement, and care decisions next to the beds, seasons, and notes that shape them."
+    );
+    expect(html).toContain("Example garden planning notes");
+    expect(html).toContain("Early March");
+    expect(html).toContain("Start tomatoes indoors");
+    expect(html).toContain("Late April");
+    expect(html).toContain("Plant borage near strawberries");
+    expect(html).toContain("After two dry weeks");
+    expect(html).toContain("Mulch new fruiting plants");
+    expect(html).toContain("Wishlist becomes next steps");
+    expect(html).toContain("Timed to your season");
+    expect(html).toContain("Care stays connected");
+    expect(html).toContain("Weekly care can stay tied to the plants, notes, and places that made the task matter.");
+    expect(html).not.toContain("An automatic planting schedule from your wishlist.");
+    expect(html).not.toContain("Example automated garden schedule");
+    expect(html).not.toContain("The garden schedule is auto-crafted from your wishlist, current plants, notes, and local weather patterns.");
+    expect(html).not.toContain("manually");
   });
 });

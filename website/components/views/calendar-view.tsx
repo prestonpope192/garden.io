@@ -45,6 +45,7 @@ export type CalendarViewProps = {
   region: string | null;
   property: GardenProperty | null;
   isReadOnly?: boolean;
+  allowReadOnlyTaskToggle?: boolean;
 };
 
 // ─── Event type classification ────────────────────────────────────────────────
@@ -223,6 +224,7 @@ type TaskCardProps = {
   compact?: boolean;
   featured?: boolean;
   isReadOnly?: boolean;
+  allowReadOnlyToggle?: boolean;
 };
 
 function TaskCard({
@@ -236,23 +238,30 @@ function TaskCard({
   compact = false,
   featured = false,
   isReadOnly = false,
+  allowReadOnlyToggle = false,
 }: TaskCardProps) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [completing, setCompleting] = useState(false);
   const [rescheduleTo, setRescheduleTo] = useState("");
   const [showReschedule, setShowReschedule] = useState(false);
 
   const isDone = task.status === "done";
+  const canToggle = !isReadOnly || allowReadOnlyToggle;
   const isOverdue = !isDone && Boolean(todayISO) && Boolean(task.due_on) && (task.due_on ?? "") < todayISO!;
   const eventType = classifyTask(task.title);
   const context = buildTaskContext(task, zones, beds, plants);
 
   async function handleToggle() {
     setBusy(true);
+    // The ink strike plays while the mutation and reload run; the card leaves
+    // the list when the fresh snapshot lands.
+    if (!isDone) setCompleting(true);
     try {
       await updateTaskStatus(task);
     } finally {
       setBusy(false);
+      setCompleting(false);
     }
   }
 
@@ -291,12 +300,10 @@ function TaskCard({
 
   return (
     <article
-      className={`garden-cal2-card${isDone ? " garden-cal2-card--done" : ""}${compact ? " garden-cal2-card--compact" : ""}${featured ? " garden-cal2-card--featured" : ""}`}
+      className={`garden-cal2-card${isDone ? " garden-cal2-card--done" : ""}${completing ? " garden-cal2-card--completing" : ""}${compact ? " garden-cal2-card--compact" : ""}${featured ? " garden-cal2-card--featured" : ""}`}
     >
       <div className="garden-cal2-card__top">
-        {isReadOnly ? (
-          <span className={`garden-cal2-card__check${isDone ? " is-checked" : ""}`} aria-hidden="true" />
-        ) : (
+        {canToggle ? (
           <button
             className={`garden-cal2-card__check${isDone ? " is-checked" : ""}`}
             type="button"
@@ -304,6 +311,8 @@ function TaskCard({
             disabled={busy}
             onClick={handleToggle}
           />
+        ) : (
+          <span className={`garden-cal2-card__check${isDone ? " is-checked" : ""}`} aria-hidden="true" />
         )}
         <div className="garden-cal2-card__body">
           <span className="garden-cal2-card__title">{task.title}</span>
@@ -405,7 +414,7 @@ function SeasonStrip({ season, region }: SeasonStripProps) {
         <SpecimenLabel tone="olive">This season</SpecimenLabel>
         <span className="garden-cal2-season-strip__region">{derived}</span>
         {showUserSeason ? (
-          <span className="garden-cal2-season-strip__region">Your season: {userSeason}</span>
+          <span className="garden-cal2-season-strip__region">{userSeason} in your garden</span>
         ) : null}
         {region ? (
           <span className="garden-cal2-season-strip__region">{region}</span>
@@ -689,6 +698,25 @@ function tasksForWeek(tasks: GardenTask[], weekMonday: Date): GardenTask[] {
     .sort((a, b) => (a.due_on ?? "").localeCompare(b.due_on ?? ""));
 }
 
+// Open tasks that fell due before the visible week began. Without this, an
+// overdue task from an earlier week never appears in any later week's list.
+export function overdueBacklogTasks(
+  tasks: GardenTask[],
+  todayISO: string,
+  weekMonday: Date
+): GardenTask[] {
+  const weekMondayISO = toISODate(weekMonday);
+  return tasks
+    .filter(
+      (task) =>
+        task.status !== "done" &&
+        task.due_on &&
+        task.due_on < todayISO &&
+        task.due_on < weekMondayISO
+    )
+    .sort((a, b) => (a.due_on ?? "").localeCompare(b.due_on ?? ""));
+}
+
 function upcomingTasks(tasks: GardenTask[], todayISO: string, days = 14): GardenTask[] {
   const windowEndISO = toISODate(addDays(new Date(`${todayISO}T00:00:00`), days));
   return tasks
@@ -711,6 +739,7 @@ function upcomingTasks(tasks: GardenTask[], todayISO: string, days = 14): Garden
 type WeekAttentionListProps = {
   weekTasks: GardenTask[];
   nextTasks?: GardenTask[];
+  overdueTasks?: GardenTask[];
   todayISO: string;
   zones: GardenZone[];
   beds: GardenBed[];
@@ -721,11 +750,13 @@ type WeekAttentionListProps = {
     patch: Partial<Pick<GardenTask, "title" | "due_on" | "notes">>
   ) => Promise<void>;
   isReadOnly?: boolean;
+  allowReadOnlyTaskToggle?: boolean;
 };
 
 function WeekAttentionList({
   weekTasks,
   nextTasks = [],
+  overdueTasks = [],
   todayISO,
   zones,
   beds,
@@ -733,6 +764,7 @@ function WeekAttentionList({
   updateTaskStatus,
   updateTask,
   isReadOnly = false,
+  allowReadOnlyTaskToggle = false,
 }: WeekAttentionListProps) {
   const fallbackTasks = isReadOnly && weekTasks.length === 0 ? nextTasks.slice(0, 1) : [];
   const displayTasks = weekTasks.length ? weekTasks : fallbackTasks;
@@ -747,24 +779,56 @@ function WeekAttentionList({
 
   return (
     <section className="garden-cal2-attention" aria-label="Care for this week">
+      {overdueTasks.length > 0 ? (
+        <div className="garden-cal2-attention__overdue">
+          <div className="garden-cal2-attention__subhead">
+            <SpecimenLabel tone="berry">Overdue</SpecimenLabel>
+            <span>
+              {overdueTasks.length === 1
+                ? "1 item is waiting from earlier"
+                : `${overdueTasks.length} items are waiting from earlier`}
+            </span>
+          </div>
+          <div className="garden-cal2-attention__overdue-list">
+            {overdueTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                task={task}
+                todayISO={todayISO}
+                zones={zones}
+                beds={beds}
+                plants={plants}
+                updateTaskStatus={updateTaskStatus}
+                updateTask={updateTask}
+                isReadOnly={isReadOnly}
+                allowReadOnlyToggle={allowReadOnlyTaskToggle}
+              />
+            ))}
+          </div>
+        </div>
+      ) : null}
       <div className="garden-cal2-attention__head">
         <SpecimenLabel tone="olive">First up</SpecimenLabel>
         <span>
           {isShowingUpcoming
             ? "After this week"
             : weekTasks.length === 0
-              ? "All clear this week"
+              ? overdueTasks.length > 0
+                ? "Nothing new this week"
+                : "All clear this week"
               : weekTasks.length === 1
                 ? "1 thing needs care this week"
                 : `${weekTasks.length} things need care this week`}
         </span>
       </div>
       {displayTasks.length === 0 ? (
-        <p className="garden-cal2-attention__empty">
-          {isReadOnly
-            ? "Nothing is due this week. Upcoming care is below."
-            : "Nothing is due this week. Add care when you notice it."}
-        </p>
+        overdueTasks.length > 0 ? null : (
+          <p className="garden-cal2-attention__empty">
+            {isReadOnly
+              ? "Nothing is due this week. Upcoming care is below."
+              : "Nothing is due this week. Add care when you notice it."}
+          </p>
+        )
       ) : (
         <div className="garden-cal2-attention__flow">
           {firstTask ? (
@@ -780,6 +844,7 @@ function WeekAttentionList({
                 updateTask={updateTask}
                 featured
                 isReadOnly={isReadOnly}
+                allowReadOnlyToggle={allowReadOnlyTaskToggle}
               />
             </div>
           ) : null}
@@ -801,6 +866,7 @@ function WeekAttentionList({
                     updateTask={updateTask}
                     compact
                     isReadOnly={isReadOnly}
+                    allowReadOnlyToggle={allowReadOnlyTaskToggle}
                   />
                 ))}
               </div>
@@ -1122,6 +1188,7 @@ export function CalendarView({
   region,
   property,
   isReadOnly = false,
+  allowReadOnlyTaskToggle = false,
 }: CalendarViewProps) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -1148,6 +1215,7 @@ export function CalendarView({
   const filteredTasks = applyFilters(tasks, filterState);
   const weekTasks = tasksForWeek(filteredTasks, weekMonday);
   const nextTasks = upcomingTasks(filteredTasks, todayISO);
+  const overdueBacklog = overdueBacklogTasks(filteredTasks, todayISO, weekMonday);
 
   // Navigation
   function goToToday() {
@@ -1247,6 +1315,7 @@ export function CalendarView({
           <WeekAttentionList
             weekTasks={weekTasks}
             nextTasks={nextTasks}
+            overdueTasks={overdueBacklog}
             todayISO={todayISO}
             zones={zones}
             beds={beds}
@@ -1254,6 +1323,7 @@ export function CalendarView({
             updateTaskStatus={updateTaskStatus}
             updateTask={updateTask}
             isReadOnly={isReadOnly}
+            allowReadOnlyTaskToggle={allowReadOnlyTaskToggle}
           />
         ) : null}
 

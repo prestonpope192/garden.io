@@ -9,7 +9,7 @@ function cx(...classNames: Array<string | false | null | undefined>) {
 
 type SpecimenLabelProps = {
   children: ReactNode;
-  tone?: "default" | "olive" | "clay";
+  tone?: "default" | "olive" | "clay" | "berry";
   className?: string;
 };
 
@@ -196,5 +196,62 @@ export function JournalShell({ currentPath, children, signOut, userEmail }: Jour
 
       <div className="journal-shell__body">{children}</div>
     </div>
+  );
+}
+
+type FieldTextProps = {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  required?: boolean;
+  type?: string;
+};
+
+export function FieldText({ label, value, onChange, placeholder, required, type }: FieldTextProps) {
+  return (
+    <label className="garden-field">
+      <span>{label}</span>
+      <input
+        className="input"
+        type={type ?? "text"}
+        required={required}
+        placeholder={placeholder}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      />
+    </label>
+  );
+}
+
+type FieldSelectProps = {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  /** Convenience: renders an em-dash empty option followed by these choices. */
+  options?: string[];
+  /** Full control over the option list; ignored when `options` is given. */
+  children?: ReactNode;
+};
+
+export function FieldSelect({ label, value, onChange, options, children }: FieldSelectProps) {
+  return (
+    <label className="garden-field">
+      <span>{label}</span>
+      <select className="input" value={value} onChange={(event) => onChange(event.target.value)}>
+        {options ? (
+          <>
+            <option value="">—</option>
+            {options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </>
+        ) : (
+          children
+        )}
+      </select>
+    </label>
   );
 }

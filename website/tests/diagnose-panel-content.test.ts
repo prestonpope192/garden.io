@@ -31,7 +31,8 @@ describe("DiagnosePanel content", () => {
     expect(html).toContain("What changed on this plant?");
     expect(html).not.toContain("What are you seeing?");
     expect(html).toContain("Add a photo (optional)");
-    expect(html).toContain("Get care help");
+    expect(html).toContain("Ask about Autumn Sage");
+    expect(html).not.toContain("Get care help");
     expect(html).not.toContain("Get guidance");
     expect(DIAGNOSE_COPY.previewAlt).toBe("Photo you added for this plant");
     expect(DIAGNOSE_COPY.saveHint).toBe("Kept with this plant so you remember what helped.");
@@ -66,7 +67,6 @@ describe("DiagnosePanel content", () => {
     expect(source).not.toContain("plant check");
     const panelSource = readFileSync(new URL("../components/diagnose-panel.tsx", import.meta.url), "utf8");
     expect(panelSource).toContain("Looking closely...");
-    expect(panelSource).toContain("Looking over this plant...");
     expect(panelSource).toContain("Looking over {context.name}...");
     expect(panelSource).not.toContain("Reading notes...");
     expect(panelSource).not.toContain("Reading plant notes...");
