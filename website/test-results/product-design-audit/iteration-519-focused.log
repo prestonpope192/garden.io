@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run sample-garden.test.ts ai-first-garden-home.test.tsx quick-log-content.test.ts homepage-content.test.ts diagnose-panel-content.test.ts
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  5 passed (5)
+      Tests  27 passed (27)
+   Start at  08:30:32
+   Duration  341ms (transform 510ms, setup 0ms, import 690ms, tests 64ms, environment 0ms)
+

@@ -1,0 +1,7 @@
+FOUND: Plant Journal
+FOUND: This week:
+MISSING: Care:
+FOUND: Water deeply before the hot afternoon
+FOUND: Open one plant to see what happened and what helped.
+This week count: 4
+Care count: 0

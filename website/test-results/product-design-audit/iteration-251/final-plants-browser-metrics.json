@@ -1,0 +1,42 @@
+{
+  "mobile": {
+    "title": "My Plants",
+    "subtitle": "Start with the next plant to check, then open any plant record.",
+    "hasFirstPlantToCheck": true,
+    "hasNextPlantCopy": true,
+    "guideText": "First plant to checkCucumberWater deeply before the hot afternoon · Jun 23Kitchen Garden · Container Row4 growing plants across 3 beds. The list starts with the next plant to check. Open any plant for its notes, photos, and history.4 plants have care this week.",
+    "cardNames": [
+      "Cucumber",
+      "Cilantro",
+      "Calendula",
+      "Calendula"
+    ],
+    "firstCard": "Cucumber",
+    "cucumberBeforeCilantro": true,
+    "waterBeforeHarvest": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "textHead": "Garden.io\nAsk\nStart\nHOME GARDEN\nMy Plants\n\nStart with the next plant to check, then open any plant record.\n\nSUMMER\nCucumber\nVine · Annual\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nCilantro\nHerb · Annual\n\nKitchen Garden · Herb Bed\n\n4 plants · 3 weeks in ground\n\nNext step: Harvest cilantro before afternoon heat\nCalendula\nFlower\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nFlowering\nHarvest in ~12 days\n\nNext step: Note bloom duration\nCalendula\nFlower\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nVegetative\nHarvest in ~24 days\n\nNext step: Check the herb bed after afternoon heat\nFIRST PLANT TO CHECK\n\nCucumber\nWater deeply before the hot afternoon · Jun 23\nKitchen Garden · Container Row\n\n4 growing plants across 3 beds. The list starts with the next plant to check. Open any plant for its notes, photos, and history.\n\n4 plants have care this week."
+  },
+  "desktop": {
+    "title": "My Plants",
+    "subtitle": "Start with the next plant to check, then open any plant record.",
+    "hasFirstPlantToCheck": true,
+    "hasNextPlantCopy": true,
+    "guideText": "First plant to checkCucumberWater deeply before the hot afternoon · Jun 23Kitchen Garden · Container Row4 growing plants across 3 beds. The list starts with the next plant to check. Open any plant for its notes, photos, and history.4 plants have care this week.",
+    "cardNames": [
+      "Cucumber",
+      "Cilantro",
+      "Calendula",
+      "Calendula"
+    ],
+    "firstCard": "Cucumber",
+    "cucumberBeforeCilantro": true,
+    "waterBeforeHarvest": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "textHead": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nMy Plants\n\nStart with the next plant to check, then open any plant record.\n\nSUMMER\nCucumber\nVine · Annual\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nCilantro\nHerb · Annual\n\nKitchen Garden · Herb Bed\n\n4 plants · 3 weeks in ground\n\nNext step: Harvest cilantro before afternoon heat\nCalendula\nFlower\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nFlowering\nHarvest in ~12 days\n\nNext step: Note bloom duration\nCalendula\nFlower\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nVegetative\nHarvest in ~24 days\n\nNext step: Check the herb bed after afternoon heat\nMY PLANTS\nFIRST PLANT TO CHECK\n\nCucumber\nWater deeply before the hot afternoon · Jun 23\nKitchen Garden · Container Row\n\n4 growing plants across 3 beds. The list starts with the next plant to check. Open any plant for its notes, photos, and history.\n\n4 plants have care this week."
+  }
+}

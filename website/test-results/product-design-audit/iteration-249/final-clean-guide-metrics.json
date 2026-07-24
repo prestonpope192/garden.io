@@ -1,0 +1,32 @@
+{
+  "mobile-final-clean": {
+    "h1": "Find Plants",
+    "textStart": "Garden.io\nAsk\nStart\nHOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nFLOWER\nCalendula\nFlower\nFITS\nSmall beds, edges, and containers.\nLIGHT\nFull Sun To Light Shade.\nWATER\nLow\nREMEMBER\nSave bloom timing, pollinator visits, and deadheading notes.\nANNUAL\nCilantro\nHerb\nFITS\nSow seeds outdoors in cool weather.\nLIGHT\nFull Sun\nWATER\nMedium\nREMEMBER\nSave harvest timing, heat stress, and flavor notes.\nANNUAL\nCucumber\nVine\nFITS\nUse vertical supports to maximize space and improve fruit quality.\nLIGHT\nFull Sun\nWATER\nHigh\nREMEMBER\nSave watering, support, harvest, and pest notes.",
+    "firstCardText": "FlowerCalendulaFlowerFitsSmall beds, edges, and containers.LightFull Sun To Light Shade.WaterLowRememberSave bloom timing, pollinator visits, and deadheading notes.",
+    "oldTerms": [],
+    "requiredTerms": [
+      "Ask",
+      "Fits",
+      "Light",
+      "Water",
+      "Remember",
+      "Save bloom timing, pollinator visits, and deadheading notes."
+    ],
+    "visibleOverflow": []
+  },
+  "desktop-final-clean": {
+    "h1": "Find Plants",
+    "textStart": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nFLOWER\nCalendula\nFlower\nFITS\nSmall beds, edges, and containers.\nLIGHT\nFull Sun To Light Shade.\nWATER\nLow\nREMEMBER\nSave bloom timing, pollinator visits, and deadheading notes.\nANNUAL\nCilantro\nHerb\nFITS\nSow seeds outdoors in cool weather.\nLIGHT\nFull Sun\nWATER\nMedium\nREMEMBER\nSave harvest timing, heat stress, and flavor notes.\nANNUAL\nCucumber\nVine\nFITS\nUse vertical supports to maximize space and improve fruit quality.\nLIGHT\nFull Sun\nWATER\nHigh\nREMEMBER\nSave watering, support, harvest, and pest notes.",
+    "firstCardText": "FlowerCalendulaFlowerFitsSmall beds, edges, and containers.LightFull Sun To Light Shade.WaterLowRememberSave bloom timing, pollinator visits, and deadheading notes.",
+    "oldTerms": [],
+    "requiredTerms": [
+      "Ask",
+      "Fits",
+      "Light",
+      "Water",
+      "Remember",
+      "Save bloom timing, pollinator visits, and deadheading notes."
+    ],
+    "visibleOverflow": []
+  }
+}

@@ -1,0 +1,64 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Specimen: Anethum graveolens (Dill) -->
+  <!-- Main tall hollow stem -->
+  <path d="M 320 560 Q 321 480 320 400 Q 319 320 320 240 Q 321 160 320 100" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Feathery foliage along stem - lower section -->
+  <path d="M 320 480 Q 290 470 270 475 Q 265 478 268 485" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+  <path d="M 320 470 Q 350 460 370 465 Q 375 468 372 475" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+
+  <path d="M 320 420 Q 295 405 275 410 Q 270 412 273 420" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+  <path d="M 320 415 Q 345 400 365 405 Q 370 407 367 415" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+
+  <path d="M 320 360 Q 298 340 280 345 Q 275 347 278 355" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.35" stroke-linecap="round"/>
+  <path d="M 320 355 Q 342 335 360 340 Q 365 342 362 350" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.35" stroke-linecap="round"/>
+
+  <path d="M 320 300 Q 305 280 288 285 Q 283 287 286 295" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.3" stroke-linecap="round"/>
+  <path d="M 320 295 Q 335 275 352 280 Q 357 282 354 290" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.3" stroke-linecap="round"/>
+
+  <!-- Umbrella-shaped seed umbel at top -->
+  <g id="umbel">
+    <!-- Primary rays emanating from center -->
+    <path d="M 320 110 Q 290 90 270 75" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 110 Q 310 85 305 60" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 110 Q 325 80 330 55" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 110 Q 335 85 345 65" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 110 Q 350 90 370 75" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Tiny seed florets at ray ends -->
+    <circle cx="270" cy="75" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="305" cy="60" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="330" cy="55" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="345" cy="65" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="370" cy="75" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+
+    <!-- Secondary rays for fuller appearance -->
+    <path d="M 320 110 Q 275 100 250 95" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <path d="M 320 110 Q 365 100 390 95" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <circle cx="250" cy="95" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.3"/>
+    <circle cx="390" cy="95" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.3"/>
+  </g>
+
+  <!-- Annotation 1: umbel seed head -->
+  <line x1="320" y1="70" x2="420" y2="40" stroke="#A78545" stroke-width="3"/>
+  <text x="425" y="55" font-family="serif" font-size="24" fill="#7D6740">umbel seed head</text>
+
+  <!-- Annotation 2: feathery foliage -->
+  <line x1="275" y1="410" x2="140" y2="370" stroke="#A78545" stroke-width="3"/>
+  <text x="45" y="388" font-family="serif" font-size="24" fill="#7D6740">feathery foliage</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Anethum graveolens</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 102 · Dill study</text>
+</svg>

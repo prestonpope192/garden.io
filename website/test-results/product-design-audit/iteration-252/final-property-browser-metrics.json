@@ -1,0 +1,30 @@
+{
+  "mobile": {
+    "title": "My Garden",
+    "subtitle": "See each area, bed, plant, and note by place.",
+    "hasFirstPlaceToCheck": true,
+    "hasOpenPlantRecord": true,
+    "hasOldGenericGuide": false,
+    "guideText": "First place to checkCucumberWater deeply before the hot afternoon · Jun 23Container Row · Kitchen Garden2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history.Open plant record",
+    "firstPlaceBeforeLayout": true,
+    "cucumberBeforeLayout": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "textHead": "Garden.io\nAsk\nStart\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nFIRST PLACE TO CHECK\n\nCucumber\nWater deeply before the hot afternoon · Jun 23\nContainer Row · Kitchen Garden\n\n2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history.\n\nOpen plant record\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n2\nCilantro ·4\nCalendula ·2\nContainer Row\n1\nCucumber\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n1\nCalendula ·6"
+  },
+  "desktop": {
+    "title": "My Garden",
+    "subtitle": "See each area, bed, plant, and note by place.",
+    "hasFirstPlaceToCheck": true,
+    "hasOpenPlantRecord": true,
+    "hasOldGenericGuide": false,
+    "guideText": "First place to checkCucumberWater deeply before the hot afternoon · Jun 23Container Row · Kitchen Garden2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history.Open plant record",
+    "firstPlaceBeforeLayout": true,
+    "cucumberBeforeLayout": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "textHead": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN\nHome garden · Backyard Garden\nFIRST PLACE TO CHECK\n\nCucumber\nWater deeply before the hot afternoon · Jun 23\nContainer Row · Kitchen Garden\n\n2 areas, 3 beds, 4 growing plants. Open a place or plant for its notes, photos, and history.\n\nOpen plant record\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n2\nCilantro ·4\nCalendula ·2\nContainer Row\n1\nCucumber\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n1\nCalendula ·6"
+  }
+}

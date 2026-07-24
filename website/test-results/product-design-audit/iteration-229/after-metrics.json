@@ -1,0 +1,90 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "document": {
+    "scrollWidth": 375,
+    "bodyScrollWidth": 375
+  },
+  "header": {
+    "x": 0,
+    "y": 0,
+    "width": 375,
+    "height": 88.4,
+    "right": 375,
+    "bottom": 88.4,
+    "scrollWidth": 375,
+    "clientWidth": 375,
+    "text": "Garden.ioGardenThi  WeekPlant FindLook aroundStart"
+  },
+  "action": {
+    "x": 323.5,
+    "y": 7.2,
+    "width": 42.7,
+    "height": 34,
+    "right": 366.2,
+    "bottom": 41.2,
+    "scrollWidth": 41,
+    "clientWidth": 41,
+    "text": "Start"
+  },
+  "nav": {
+    "x": 8.8,
+    "y": 46.9,
+    "width": 357.4,
+    "height": 32.8,
+    "right": 366.2,
+    "bottom": 79.7,
+    "scrollWidth": 357,
+    "clientWidth": 357,
+    "text": "GardenThi  WeekPlant Find"
+  },
+  "links": [
+    {
+      "x": 8.8,
+      "y": 47.7,
+      "width": 87,
+      "height": 32,
+      "right": 95.8,
+      "bottom": 79.7,
+      "scrollWidth": 85,
+      "clientWidth": 85,
+      "text": "Garden"
+    },
+    {
+      "x": 98.9,
+      "y": 47.7,
+      "width": 87,
+      "height": 32,
+      "right": 185.9,
+      "bottom": 79.7,
+      "scrollWidth": 85,
+      "clientWidth": 85,
+      "text": "Thi  Week"
+    },
+    {
+      "x": 189.1,
+      "y": 47.7,
+      "width": 87,
+      "height": 32,
+      "right": 276,
+      "bottom": 79.7,
+      "scrollWidth": 85,
+      "clientWidth": 85,
+      "text": "Plant "
+    },
+    {
+      "x": 279.2,
+      "y": 47.7,
+      "width": 87,
+      "height": 32,
+      "right": 366.2,
+      "bottom": 79.7,
+      "scrollWidth": 85,
+      "clientWidth": 85,
+      "text": "Find"
+    }
+  ],
+  "overflowingElements": []
+}

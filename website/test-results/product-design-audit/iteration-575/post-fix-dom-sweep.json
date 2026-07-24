@@ -1,0 +1,247 @@
+[
+  {
+    "key": "app-auth-today",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "profile": "desktop",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "imageIssues": [],
+    "images": [],
+    "overflow": 0,
+    "textSample": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-today",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "profile": "desktop",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "imageIssues": [],
+    "images": [],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add a note or photo. Keep what helps for later. What changed in your garden? Add a photo See what helps A little context makes the answer more useful. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-plants",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "profile": "desktop",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Plant Journal"
+    ],
+    "imageIssues": [],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": true,
+        "height": 94,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": true,
+        "height": 94,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 94,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 94,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+        "width": 94
+      }
+    ],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden YOUR PLANTS Plant Journal Open a plant to see notes and care. SUMMER Bell Pepper Vegetable · Annual Kitchen Garden · Container Row 1 plant · 8 weeks, 2 days in ground This week: Water deeply before the hot afternoon Bouquet Dill Herb · Annual Kitchen Garden · Herb Bed 4 plants · 3 weeks in ground This week: Harvest dill before afternoon heat Borage Flower · Annual Pollinator Edge · Bloom Border 6 plants · 4 weeks, 5 days in ground This week: Note bloom duration Borage Flower · Annual Kitchen Garden · Herb Bed 2 plants · 3 weeks in ground This week: Check the herb bed after afternoon heat PLANT NOTES CHOOSE A PLANT Start with Bell Pepper. Open any plant when you need its notes. 4 plants need care this week.",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-catalogue",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "profile": "desktop",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "imageIssues": [
+      "[Circular]",
+      "[Circular]"
+    ],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": false,
+        "height": 180,
+        "naturalWidth": 0,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=384&q=75",
+        "width": 136
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 180,
+        "naturalWidth": 192,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=384&q=75",
+        "width": 136
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": false,
+        "height": 180,
+        "naturalWidth": 0,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=384&q=75",
+        "width": 136
+      }
+    ],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden FOR YOUR BEDS Choose plants Choose plants for the beds you have. SUMMER 3 PLANTS TO CHOOSE FROM ANNUAL Bell Pepper Vegetable BEST SPOT Warm containers or bed edges where watering and heat stress are easy to notice. SUN Full Sun WATER High GOOD TO REMEMBER Watering, support, harvest, and pests. ANNUAL Borage Flower BEST SPOT Sunny bed edges where pollinator visits and reseeding are easy to watch. SUN Full Sun WATER Moderate GOOD TO REMEMBER Bloom timing, pollinator visits, and deadheading. ANNUAL Bouquet Dill Herb BEST SPOT A sunny herb bed where repeat sowings and harvest timing stay visible. SUN Full Sun WATER Moderate GOOD TO REMEMBER Harvest timing, heat stress, and flavor.",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "app-auth-today",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "profile": "mobile",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "imageIssues": [],
+    "images": [],
+    "overflow": 0,
+    "textSample": "START YOUR GARDEN Your garden, smarter. Track changes, ask what they mean, and keep useful answers with the right plant. Give one plant a home. Choose where it grows so every note has the right place to land. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-today",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "profile": "mobile",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "imageIssues": [],
+    "images": [],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add a note or photo. Keep what helps for later. What changed in your garden? Add a photo See what helps A little context makes the answer more useful. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-plants",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "profile": "mobile",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Plant Journal"
+    ],
+    "imageIssues": [],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": true,
+        "height": 82,
+        "naturalWidth": 96,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=96&q=75",
+        "width": 82
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": true,
+        "height": 82,
+        "naturalWidth": 96,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=96&q=75",
+        "width": 82
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 82,
+        "naturalWidth": 96,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=96&q=75",
+        "width": 82
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 82,
+        "naturalWidth": 96,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=96&q=75",
+        "width": 82
+      }
+    ],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden YOUR PLANTS Plant Journal Open a plant to see notes and care. SUMMER Bell Pepper Vegetable · Annual Kitchen Garden · Container Row 1 plant · 8 weeks, 2 days in ground This week: Water deeply before the hot afternoon Bouquet Dill Herb · Annual Kitchen Garden · Herb Bed 4 plants · 3 weeks in ground This week: Harvest dill before afternoon heat Borage Flower · Annual Pollinator Edge · Bloom Border 6 plants · 4 weeks, 5 days in ground This week: Note bloom duration Borage Flower · Annual Kitchen Garden · Herb Bed 2 plants · 3 weeks in ground This week: Check the herb bed after afternoon heat CHOOSE A PLANT Start with Bell Pepper. Open any plant when you need its notes. 4 plants need care this week.",
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "key": "tour-catalogue",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "profile": "mobile",
+    "forbidden": [],
+    "fullColorImages": [],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "imageIssues": [],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": true,
+        "height": 112,
+        "naturalWidth": 256,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=256&q=75",
+        "width": 96
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 112,
+        "naturalWidth": 256,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+        "width": 96
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": true,
+        "height": 112,
+        "naturalWidth": 256,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=256&q=75",
+        "width": 96
+      }
+    ],
+    "overflow": 0,
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden FOR YOUR BEDS Choose plants Choose plants for the beds you have. SUMMER 3 PLANTS TO CHOOSE FROM ANNUAL Bell Pepper Vegetable BEST SPOT Warm containers or bed edges where watering and heat stress are easy to notice. SUN Full Sun WATER High ANNUAL Borage Flower BEST SPOT Sunny bed edges where pollinator visits and reseeding are easy to watch. SUN Full Sun WATER Moderate ANNUAL Bouquet Dill Herb BEST SPOT A sunny herb bed where repeat sowings and harvest timing stay visible. SUN Full Sun WATER Moderate",
+    "title": "Garden.io | Your Garden, Smarter"
+  }
+]

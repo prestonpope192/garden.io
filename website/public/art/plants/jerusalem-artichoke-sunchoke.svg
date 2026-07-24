@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main tall sunflower-like stem -->
+  <path d="M 320 560 Q 322 460 325 360 Q 328 260 330 160" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Rough oval leaves along stem - left side -->
+  <path d="M 318 480 Q 270 470 245 485 Q 270 475 295 470" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  <path d="M 320 400 Q 260 385 230 400 Q 265 390 300 395" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  <path d="M 318 300 Q 265 280 235 295 Q 270 285 305 290" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+
+  <!-- Rough oval leaves along stem - right side -->
+  <path d="M 322 480 Q 370 470 395 485 Q 370 475 345 470" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  <path d="M 320 400 Q 380 385 410 400 Q 375 390 340 395" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+  <path d="M 322 300 Q 375 280 405 295 Q 370 285 335 290" stroke="#7D6740" stroke-width="3.5" fill="none"/>
+
+  <!-- Leaf vein details -->
+  <path d="M 280 480 Q 275 475 270 470" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 290 475 Q 285 470 280 465" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 270 400 Q 265 395 260 390" stroke="#7D6740" stroke-width="2" fill="none"/>
+  <path d="M 285 395 Q 280 390 275 385" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+  <!-- Small sunflower head at top -->
+  <circle cx="330" cy="140" r="28" fill="#D3BF98" fill-opacity="0.35" stroke="#6C5A3A" stroke-width="2.5"/>
+
+  <!-- Petal rays around flower head -->
+  <path d="M 330 112 Q 330 110 335 105" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 345 125 Q 348 122 355 120" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 358 140 Q 360 143 365 148" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 345 155 Q 348 158 355 160" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 330 168 Q 330 170 325 175" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 315 155 Q 312 158 305 160" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 302 140 Q 300 143 295 148" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M 315 125 Q 312 122 305 120" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Flower center -->
+  <circle cx="330" cy="140" r="12" fill="#D8C49C" fill-opacity="0.5" stroke="#6C5A3A" stroke-width="1.5"/>
+
+  <!-- Knobby tubers at root zone -->
+  <g>
+    <!-- Tuber 1 - left -->
+    <path d="M 310 560 Q 295 575 285 590 Q 290 600 305 595 Q 310 590 310 575" stroke="#7D6740" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="295" cy="595" r="8" fill="#D3BF98" fill-opacity="0.45" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="285" cy="605" r="7" fill="#D6C29A" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+
+    <!-- Tuber 2 - center -->
+    <path d="M 320 565 Q 315 580 310 600 Q 320 605 330 600 Q 325 585 320 570" stroke="#7D6740" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="315" cy="605" r="9" fill="#D3BF98" fill-opacity="0.45" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="328" cy="610" r="8" fill="#D6C29A" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+
+    <!-- Tuber 3 - right -->
+    <path d="M 330 560 Q 345 575 355 590 Q 350 600 335 595 Q 330 590 330 575" stroke="#7D6740" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="345" cy="595" r="8" fill="#D3BF98" fill-opacity="0.45" stroke="#6C5A3A" stroke-width="1.5"/>
+    <circle cx="355" cy="605" r="7" fill="#D6C29A" fill-opacity="0.4" stroke="#6C5A3A" stroke-width="1.5"/>
+  </g>
+
+  <!-- Annotation leaders and labels -->
+  <line x1="330" y1="140" x2="480" y2="110" stroke="#A78545" stroke-width="3"/>
+  <text x="485" y="120" font-family="serif" font-size="24" fill="#7D6740">small sun head</text>
+
+  <line x1="315" y1="600" x2="450" y2="620" stroke="#A78545" stroke-width="3"/>
+  <text x="455" y="630" font-family="serif" font-size="24" fill="#7D6740">knobby tuber</text>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Helianthus tuberosus</text>
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 120 · Jerusalem artichoke study</text>
+</svg>

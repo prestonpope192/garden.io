@@ -1,0 +1,47 @@
+[
+  {
+    "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning.",
+    "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=750&q=75",
+    "complete": true,
+    "naturalWidth": 465,
+    "naturalHeight": 584,
+    "rect": {
+      "x": 21,
+      "y": 24.375,
+      "w": 348,
+      "h": 210
+    },
+    "opacity": "1",
+    "display": "block"
+  },
+  {
+    "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+    "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=750&q=75",
+    "complete": true,
+    "naturalWidth": 750,
+    "naturalHeight": 1200,
+    "rect": {
+      "x": 21,
+      "y": 402.546875,
+      "w": 348,
+      "h": 210
+    },
+    "opacity": "1",
+    "display": "block"
+  },
+  {
+    "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+    "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=750&q=75",
+    "complete": true,
+    "naturalWidth": 750,
+    "naturalHeight": 1265,
+    "rect": {
+      "x": 21,
+      "y": 780.71875,
+      "w": 348,
+      "h": 210
+    },
+    "opacity": "1",
+    "display": "block"
+  }
+]

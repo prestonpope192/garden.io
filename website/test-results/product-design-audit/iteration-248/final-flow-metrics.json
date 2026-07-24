@@ -1,0 +1,122 @@
+{
+  "desktop-final": [
+    {
+      "label": "Ask empty state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-final-01-ask-empty.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          }
+        ],
+        "textStart": "Garden.io\nLook around\nStart\nYour garden, smarter\nMemory\nCare\nGuide\nYOUR GARDEN, SMARTER\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Your plants, beds, notes, and season help shape the next step.\n\nAsk about your garden\nAdd photo\nGet next step\n\nSave useful answers so future questions have more to work with.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "oldCopy": [
+          "Garden Questions"
+        ],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask answered state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-final-02-answer.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "textStart": "Garden.io\nLook around\nStart\nYour garden, smarter\nMemory\nCare\nGuide\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has more to work with.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nThe exact plant and bed matter\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have more to work with.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSave note",
+        "oldCopy": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Saved answer state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-final-03-saved.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "textStart": "Garden.io\nLook around\nStart\nYour garden, smarter\nMemory\nCare\nGuide\n\nSaved to Whole garden.\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has more to work with.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nThe exact plant and bed matter\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have more to work with.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSaved",
+        "oldCopy": [],
+        "visibleOverflow": []
+      }
+    }
+  ],
+  "mobile-final": [
+    {
+      "label": "Ask empty state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-final-01-ask-empty.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          }
+        ],
+        "textStart": "Garden.io\nStart\nYour garden, smarter\nMemory\nCare\nGuide\nYOUR GARDEN, SMARTER\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Your plants, beds, notes, and season help shape the next step.\n\nAsk about your garden\nAdd photo\nGet next step\n\nSave useful answers so future questions have more to work with.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "oldCopy": [
+          "Garden Questions"
+        ],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask answered state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-final-02-answer.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "textStart": "Garden.io\nStart\nYour garden, smarter\nMemory\nCare\nGuide\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has more to work with.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nThe exact plant and bed matter\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have more to work with.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSave note",
+        "oldCopy": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Saved answer state after copy pass",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-final-03-saved.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Your garden, smarter"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "textStart": "Garden.io\nStart\nYour garden, smarter\nMemory\nCare\nGuide\n\nSaved to Whole garden.\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has more to work with.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nThe exact plant and bed matter\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have more to work with.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSaved",
+        "oldCopy": [],
+        "visibleOverflow": []
+      }
+    }
+  ]
+}

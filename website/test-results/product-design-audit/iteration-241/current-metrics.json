@@ -1,0 +1,865 @@
+[
+  {
+    "step": "01-home-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Your garden, smarter.",
+    "visibleTextStart": "Garden.io Find plants Your garden, smarter. Ask with a quick note or photo. Keep the answer with the plant, bed, or season it belongs to. Start your garden Look around Find plants that fit Built for gardeners who want help that remembers the garden they actually have. CALENDULA Blooming along the bed edge Next step: note how long this flush lasts before deadheading. HOW IT HELPS A simple place to remember what happened and what to do next. Add a quick note now. Find the useful answer later. Map what you have Add beds and plants once so every note has a place. Save quick notes Capture photos, blooms, harvests, pests, weather, and care while they are fresh. Ask what to do next When a plant looks off, get a next step based on its notes, bed, photo, and season. YOUR PLANTS Each plant keeps its own story. Photos, notes, harvests, and next steps all stay with the right plant. CALENDULA Bloom a",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Your garden, smarter."
+      },
+      {
+        "tag": "H2",
+        "text": "A simple place to remember what happened and what to do next."
+      },
+      {
+        "tag": "H2",
+        "text": "Each plant keeps its own story."
+      },
+      {
+        "tag": "H2",
+        "text": "Start with one bed and one plant."
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/#top",
+        "className": "brand"
+      },
+      {
+        "tag": "A",
+        "text": "Find plants",
+        "href": "http://127.0.0.1:3021/#plants",
+        "className": ""
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "topbar-cta"
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-link"
+      },
+      {
+        "tag": "A",
+        "text": "Look around",
+        "href": "http://127.0.0.1:3021/sample-garden",
+        "className": "folio-link folio-link--secondary"
+      },
+      {
+        "tag": "A",
+        "text": "Find plants that fit",
+        "href": "http://127.0.0.1:3021/catalog",
+        "className": "folio-link folio-link--secondary"
+      },
+      {
+        "tag": "A",
+        "text": "CalendulaBloom and companion notesRemember bloom timing, nearby vegetables, and when deadheading helped.",
+        "href": "http://127.0.0.1:3021/catalog/calendula",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "CilantroHarvest and heat notesTrack harvests, bolting, and where it stayed tender longest.",
+        "href": "http://127.0.0.1:3021/catalog/cilantro",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "CucumberWatering and trellis notesKeep watering, trellis growth, and first fruit notes together.",
+        "href": "http://127.0.0.1:3021/catalog/cucumber",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-link"
+      },
+      {
+        "tag": "A",
+        "text": "Look around",
+        "href": "http://127.0.0.1:3021/sample-garden",
+        "className": "folio-link folio-link--secondary"
+      }
+    ],
+    "imageCount": 4,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [
+      {
+        "alt": "Calendula in bloom.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=1080&q=75",
+        "complete": true,
+        "naturalWidth": 414,
+        "naturalHeight": 586
+      },
+      {
+        "alt": "Calendula.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 414,
+        "naturalHeight": 586
+      },
+      {
+        "alt": "Cilantro.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 470,
+        "naturalHeight": 592
+      },
+      {
+        "alt": "Cucumber.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 750,
+        "naturalHeight": 750
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "step": "02-home-desktop-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Your garden, smarter.",
+    "visibleTextStart": "Garden.io Find plants Start your garden Your garden, smarter. Ask with a quick note or photo. Keep the answer with the plant, bed, or season it belongs to. Start your garden Look around Find plants that fit Built for gardeners who want help that remembers the garden they actually have. CALENDULA Blooming along the bed edge Next step: note how long this flush lasts before deadheading. HOW IT HELPS A simple place to remember what happened and what to do next. Add a quick note now. Find the useful answer later. Map what you have Add beds and plants once so every note has a place. Save quick notes Capture photos, blooms, harvests, pests, weather, and care while they are fresh. Ask what to do next When a plant looks off, get a next step based on its notes, bed, photo, and season. YOUR PLANTS Each plant keeps its own story. Photos, notes, harvests, and next steps all stay with the right plant.",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Your garden, smarter."
+      },
+      {
+        "tag": "H2",
+        "text": "A simple place to remember what happened and what to do next."
+      },
+      {
+        "tag": "H2",
+        "text": "Each plant keeps its own story."
+      },
+      {
+        "tag": "H2",
+        "text": "Start with one bed and one plant."
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/#top",
+        "className": "brand"
+      },
+      {
+        "tag": "A",
+        "text": "Find plants",
+        "href": "http://127.0.0.1:3021/#plants",
+        "className": ""
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "topbar-cta"
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-link"
+      },
+      {
+        "tag": "A",
+        "text": "Look around",
+        "href": "http://127.0.0.1:3021/sample-garden",
+        "className": "folio-link folio-link--secondary"
+      },
+      {
+        "tag": "A",
+        "text": "Find plants that fit",
+        "href": "http://127.0.0.1:3021/catalog",
+        "className": "folio-link folio-link--secondary"
+      },
+      {
+        "tag": "A",
+        "text": "CalendulaBloom and companion notesRemember bloom timing, nearby vegetables, and when deadheading helped.",
+        "href": "http://127.0.0.1:3021/catalog/calendula",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "CilantroHarvest and heat notesTrack harvests, bolting, and where it stayed tender longest.",
+        "href": "http://127.0.0.1:3021/catalog/cilantro",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "CucumberWatering and trellis notesKeep watering, trellis growth, and first fruit notes together.",
+        "href": "http://127.0.0.1:3021/catalog/cucumber",
+        "className": "home-plant-card"
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-link"
+      },
+      {
+        "tag": "A",
+        "text": "Look around",
+        "href": "http://127.0.0.1:3021/sample-garden",
+        "className": "folio-link folio-link--secondary"
+      }
+    ],
+    "imageCount": 4,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [
+      {
+        "alt": "Calendula in bloom.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=1080&q=75",
+        "complete": true,
+        "naturalWidth": 414,
+        "naturalHeight": 586
+      },
+      {
+        "alt": "Calendula.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 414,
+        "naturalHeight": 586
+      },
+      {
+        "alt": "Cilantro.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 470,
+        "naturalHeight": 592
+      },
+      {
+        "alt": "Cucumber.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=750&q=75",
+        "complete": true,
+        "naturalWidth": 750,
+        "naturalHeight": 750
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "step": "03-auth-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Your garden, smarter.",
+    "visibleTextStart": "ASK YOUR GARDEN Your garden, smarter. Ask with a quick note or photo. Save the answer with the plant, bed, or season it belongs to. Ask first. Save what matters. Ask a question. Add a photo. Keep the care step. When you are ready, name your garden so notes, plants, and care have a place to go. Enter your email and we'll send a link back to this page. No password needed. EMAIL ADDRESS Email me the link Look around Find plants that fit",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Your garden, smarter."
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "BUTTON",
+        "text": "Email me the link",
+        "href": null,
+        "className": "button"
+      },
+      {
+        "tag": "A",
+        "text": "Look around",
+        "href": "http://127.0.0.1:3021/sample-garden",
+        "className": "garden-auth__secondary"
+      },
+      {
+        "tag": "A",
+        "text": "Find plants that fit",
+        "href": "http://127.0.0.1:3021/catalog",
+        "className": "garden-auth__secondary"
+      }
+    ],
+    "imageCount": 0,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [],
+    "overflow": []
+  },
+  {
+    "step": "04-sample-ask-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Ask Garden.io",
+    "visibleTextStart": "Garden.io Start Ask Garden.io Memory Care Guide GARDEN HOME 2 areas, 3 beds, 4 growing plants Ask about your garden Add photo Get next step Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today?",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Ask Garden.io"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "journal-shell__brand"
+      },
+      {
+        "tag": "A",
+        "text": "Start",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-button"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Memory",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Care",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Guide",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Get next step",
+        "href": null,
+        "className": "garden-ai-send"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Leaves are yellowing on my tomato.",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "What should I do after heavy rain?",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Can I plant basil here?",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "What needs attention today?",
+        "href": null,
+        "className": ""
+      }
+    ],
+    "imageCount": 0,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [],
+    "overflow": [
+      {
+        "tag": "H1",
+        "className": "sr-only",
+        "text": "Ask Garden.io",
+        "scrollWidth": 245,
+        "clientWidth": 1
+      },
+      {
+        "tag": "LABEL",
+        "className": "sr-only",
+        "text": "Ask about your garden",
+        "scrollWidth": 139,
+        "clientWidth": 1
+      },
+      {
+        "tag": "INPUT",
+        "className": "",
+        "text": "",
+        "scrollWidth": 203,
+        "clientWidth": 1
+      }
+    ]
+  },
+  {
+    "step": "05-sample-plants-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "My Plants",
+    "visibleTextStart": "Garden.io Ask garden Start HOME GARDEN My Plants Choose a plant to see its notes, photos, and next steps. SUMMER Calendula Flower Pollinator Edge · Bloom Border 6 plants · 4 weeks, 5 days in ground Flowering Harvest in ~12 days Next step: Note bloom duration Cilantro Herb · Annual Kitchen Garden · Herb Bed 4 plants · 3 weeks in ground Next step: Harvest cilantro before afternoon heat Cucumber Vine · Annual Kitchen Garden · Container Row 1 plant · 8 weeks, 2 days in ground Next step: Water deeply before the hot afternoon Calendula Flower Kitchen Garden · Herb Bed 2 plants · 3 weeks in ground Vegetative Harvest in ~24 days Next step: Check the herb bed after afternoon heat CHOOSE A PLANT 4 growing plants across 3 beds. Pick one to see notes, photos, and next steps. 4 plants have care this week.",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "My Plants"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "journal-shell__brand"
+      },
+      {
+        "tag": "A",
+        "text": "Ask garden",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "garden-app-header__home-link"
+      },
+      {
+        "tag": "A",
+        "text": "Start",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-button"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Kitchen Garden2 beds",
+        "href": null,
+        "className": "garden-tree__zone "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Pollinator Edge1 bed",
+        "href": null,
+        "className": "garden-tree__zone "
+      }
+    ],
+    "imageCount": 4,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [
+      {
+        "alt": "Calendula",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 136
+      },
+      {
+        "alt": "Cilantro",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 121
+      },
+      {
+        "alt": "Cucumber",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 96
+      },
+      {
+        "alt": "Calendula",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=96&q=75",
+        "complete": true,
+        "naturalWidth": 96,
+        "naturalHeight": 136
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "step": "06-sample-catalogue-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Find Plants",
+    "visibleTextStart": "Garden.io Ask garden Start HOME GARDEN Find Plants Choose plants that fit your beds. SUMMER 3 PLANTS FLOWER Calendula Flower Calendula officinalis BEST SPOT Its compact size makes it ideal for small spaces; plant in sunny spots for continual vibrant blooms. Consider growing alongside herbs and vegetables for extra appeal. LIGHT Full Sun To Light Shade. WATER Low An easy seasonal flower for edges, pollinator support, and steady cut-and-come-again blooms. ANNUAL Cilantro Herb Coriandrum sativum BEST SPOT Sow seeds outdoors in cool weather; thin seedlings for best growth. LIGHT Full Sun WATER Medium HEIGHT 12-24 in Cilantro (Coriandrum sativum) is an aromatic annual herb cultivated for its pungent leaves and seeds. ANNUAL Cucumber Vine Cucumis sativus BEST SPOT Use vertical supports to maximize space and improve fruit quality. LIGHT Full Sun WATER High HEIGHT 12-72 in Cucumber is a fast-gro",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Find Plants"
+      },
+      {
+        "tag": "H2",
+        "text": "Calendula"
+      },
+      {
+        "tag": "H2",
+        "text": "Cilantro"
+      },
+      {
+        "tag": "H2",
+        "text": "Cucumber"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "journal-shell__brand"
+      },
+      {
+        "tag": "A",
+        "text": "Ask garden",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "garden-app-header__home-link"
+      },
+      {
+        "tag": "A",
+        "text": "Start",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-button"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Kitchen Garden2 beds",
+        "href": null,
+        "className": "garden-tree__zone "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Pollinator Edge1 bed",
+        "href": null,
+        "className": "garden-tree__zone "
+      }
+    ],
+    "imageCount": 3,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [
+      {
+        "alt": "Calendula",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 362
+      },
+      {
+        "alt": "Cilantro",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 322
+      },
+      {
+        "alt": "Cucumber",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 256
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "step": "07-public-catalogue-mobile-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Find plants that fit your garden.",
+    "visibleTextStart": "Garden.io Home Find plants FIND PLANTS SEARCH BY NAME, USE, SUN, OR WATER Find plants that fit your garden. Check the basics before you buy, plant, or make room in a bed. Search plants All plants Choose plant type FIND PLANTS 988 plants FLOWER Calendula Calendula officinalis Check fit An easy seasonal flower for edges, pollinator support, and steady cut-and-come-again blooms. Sun Full Sun To Light Shade. Water Low ANNUAL · HERB Cilantro Coriandrum sativum Check fit Cilantro (Coriandrum sativum) is an aromatic annual herb cultivated for its pungent leaves and seeds. Sun Full Sun Water Medium Height 12-24 in ANNUAL · VINE Cucumber Cucumis sativus Check fit Cucumber is a fast-growing annual vine cultivated for its crisp, edible fruits commonly used fresh or pickled. Sun Full Sun Water High Height 12-72 in PERENNIAL · SHRUB Abelia Abelia x grandiflora Check fit Deciduous to semi-evergreen sh",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Find plants that fit your garden."
+      },
+      {
+        "tag": "H2",
+        "text": "Calendula"
+      },
+      {
+        "tag": "H2",
+        "text": "988 plants"
+      },
+      {
+        "tag": "H3",
+        "text": "Calendula"
+      },
+      {
+        "tag": "H3",
+        "text": "Cilantro"
+      },
+      {
+        "tag": "H3",
+        "text": "Cucumber"
+      },
+      {
+        "tag": "H3",
+        "text": "Abelia"
+      },
+      {
+        "tag": "H3",
+        "text": "Acerola"
+      },
+      {
+        "tag": "H3",
+        "text": "Ackee"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/",
+        "className": "brand"
+      },
+      {
+        "tag": "A",
+        "text": "Home",
+        "href": "http://127.0.0.1:3021/",
+        "className": ""
+      },
+      {
+        "tag": "A",
+        "text": "Find plants",
+        "href": "http://127.0.0.1:3021/catalog#browse",
+        "className": ""
+      },
+      {
+        "tag": "A",
+        "text": "Start your garden",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "topbar-cta"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Choose plant type",
+        "href": null,
+        "className": "folio-link folio-link--secondary"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/calendula",
+        "className": "folio-link"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/calendula",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/cilantro",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/cucumber",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/abelia",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/acerola",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "A",
+        "text": "Check fit",
+        "href": "http://127.0.0.1:3021/catalog/ackee",
+        "className": "folio-link folio-link--small"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Show more plants",
+        "href": null,
+        "className": "folio-button"
+      }
+    ],
+    "imageCount": 7,
+    "brokenImages": 2,
+    "svgImages": [],
+    "images": [
+      {
+        "alt": "Calendula plant image.",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=384&q=75",
+        "complete": true,
+        "naturalWidth": 384,
+        "naturalHeight": 544
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcalendula.jpg&w=384&q=75",
+        "complete": true,
+        "naturalWidth": 192,
+        "naturalHeight": 272
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcilantro.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 322
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcucumber.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 256
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fabelia.jpg&w=256&q=75",
+        "complete": true,
+        "naturalWidth": 256,
+        "naturalHeight": 256
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Facerola.jpg&w=384&q=75",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      },
+      {
+        "alt": "",
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fackee.jpg&w=384&q=75",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      }
+    ],
+    "overflow": [
+      {
+        "tag": "LABEL",
+        "className": "sr-only",
+        "text": "Search plants",
+        "scrollWidth": 80,
+        "clientWidth": 1
+      }
+    ]
+  },
+  {
+    "step": "08-sample-ask-desktop-current",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "h1": "Ask Garden.io",
+    "visibleTextStart": "Garden.io Look around Start Ask Garden.io Memory Care Guide GARDEN HOME 2 areas, 3 beds, 4 growing plants Ask about your garden Add photo Get next step Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today?",
+    "rawDevTerms": [],
+    "oldHomepageCopy": false,
+    "unknownFallbacks": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Ask Garden.io"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "A",
+        "text": "Garden.io",
+        "href": "http://127.0.0.1:3021/sample-garden/ask",
+        "className": "journal-shell__brand"
+      },
+      {
+        "tag": "A",
+        "text": "Start",
+        "href": "http://127.0.0.1:3021/app/my-property",
+        "className": "folio-button"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Memory",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Care",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Guide",
+        "href": null,
+        "className": "garden-ai-icon-button "
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Get next step",
+        "href": null,
+        "className": "garden-ai-send"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Leaves are yellowing on my tomato.",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "What should I do after heavy rain?",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Can I plant basil here?",
+        "href": null,
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "What needs attention today?",
+        "href": null,
+        "className": ""
+      }
+    ],
+    "imageCount": 0,
+    "brokenImages": 0,
+    "svgImages": [],
+    "images": [],
+    "overflow": [
+      {
+        "tag": "H1",
+        "className": "sr-only",
+        "text": "Ask Garden.io",
+        "scrollWidth": 525,
+        "clientWidth": 1
+      },
+      {
+        "tag": "LABEL",
+        "className": "sr-only",
+        "text": "Ask about your garden",
+        "scrollWidth": 139,
+        "clientWidth": 1
+      },
+      {
+        "tag": "INPUT",
+        "className": "",
+        "text": "",
+        "scrollWidth": 203,
+        "clientWidth": 1
+      }
+    ]
+  }
+]

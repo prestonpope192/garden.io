@@ -1,0 +1,4 @@
+FOUND: Then remember what happened and what helped next time.
+MISSING: Then remember what happened and what helped.
+FOUND: Plant note
+FOUND: Apple

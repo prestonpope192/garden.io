@@ -1,0 +1,2338 @@
+[
+  {
+    "route": "home",
+    "viewportName": "desktop",
+    "screenshot": "desktop-home-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#top",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#plants",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 138
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 165
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/apple",
+        "tag": "a",
+        "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning",
+        "visible": true,
+        "width": 405
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/borage",
+        "tag": "a",
+        "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+        "visible": true,
+        "width": 405
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/bouquet-dill",
+        "tag": "a",
+        "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+        "visible": true,
+        "width": 405
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter.",
+      "A garden notebook that can answer back.",
+      "Each plant keeps its own story."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "#plants",
+        "text": "Choose plants",
+        "width": 93
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-ask",
+    "viewportName": "desktop",
+    "screenshot": "desktop-tour-ask-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 208,
+        "href": null,
+        "tag": "textarea",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "visible": true,
+        "width": 709
+      },
+      {
+        "disabled": false,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a photo",
+        "visible": true,
+        "width": 123
+      },
+      {
+        "disabled": true,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a note first",
+        "visible": true,
+        "width": 147
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Leaves are yellowing",
+        "visible": true,
+        "width": 149
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Heavy rain last night",
+        "visible": true,
+        "width": 153
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 95
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 109
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 108
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 95
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 99
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 109
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-property",
+    "viewportName": "desktop",
+    "screenshot": "desktop-tour-property-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "visible": true,
+        "width": 307
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Herb Bed2",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bouquet Dill ·4",
+        "visible": true,
+        "width": 97
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·2",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Container Row1",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bell Pepper",
+        "visible": true,
+        "width": 77
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "visible": true,
+        "width": 307
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bloom Border1",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·6",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "View Bell Pepper notes",
+        "visible": true,
+        "width": 172
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "My Garden",
+      "Backyard Garden"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/property",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-calendar",
+    "viewportName": "desktop",
+    "screenshot": "desktop-tour-calendar-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Weekly care",
+      "June 22–28, 2026"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-plants",
+    "viewportName": "desktop",
+    "screenshot": "desktop-tour-plants-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "input",
+        "text": "Search plants by name, bed, or place",
+        "visible": true,
+        "width": 646
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 96
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Plant Journal"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-catalogue",
+    "viewportName": "desktop",
+    "screenshot": "desktop-tour-catalogue-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 62
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 94
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 98
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 104
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 108
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "catalog",
+    "viewportName": "desktop",
+    "screenshot": "desktop-catalog-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/",
+        "tag": "a",
+        "text": "Home",
+        "visible": true,
+        "width": 46
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#browse",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 139
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "input",
+        "text": "Search plants, shade, pollinators...",
+        "visible": true,
+        "width": 616
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "Browse by kind",
+        "visible": true,
+        "width": 126
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/apple",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 421
+      },
+      {
+        "disabled": false,
+        "height": 211,
+        "href": null,
+        "tag": "button",
+        "text": "See Calendula details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/calendula",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 297,
+        "href": null,
+        "tag": "button",
+        "text": "See Cilantro details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/cilantro",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 297,
+        "href": null,
+        "tag": "button",
+        "text": "See Cucumber details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/cucumber",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 297,
+        "href": null,
+        "tag": "button",
+        "text": "See Abelia details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/abelia",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 297,
+        "href": null,
+        "tag": "button",
+        "text": "See Acerola details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/acerola",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 297,
+        "href": null,
+        "tag": "button",
+        "text": "See Ackee details",
+        "visible": true,
+        "width": 132
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/catalog/ackee",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "Show more plants",
+        "visible": true,
+        "width": 142
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Choose a plant for the spot you have.",
+      "Apple",
+      "988 plants",
+      "Calendula",
+      "Cilantro",
+      "Cucumber",
+      "Abelia",
+      "Acerola",
+      "Ackee"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/",
+        "text": "Home",
+        "width": 46
+      },
+      {
+        "height": 40,
+        "href": "#browse",
+        "text": "Choose plants",
+        "width": 93
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/catalog",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "app-gate",
+    "viewportName": "desktop",
+    "screenshot": "desktop-app-gate-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 53,
+        "href": null,
+        "tag": "input",
+        "text": "you@example.com",
+        "visible": true,
+        "width": 441
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Email me a start link",
+        "visible": true,
+        "width": 441
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 144
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "home",
+    "viewportName": "mobile",
+    "screenshot": "mobile-home-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#top",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 88
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#plants",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      },
+      {
+        "disabled": false,
+        "height": 42,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 344
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 139
+      },
+      {
+        "disabled": false,
+        "height": 366,
+        "href": "/catalog/apple",
+        "tag": "a",
+        "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning",
+        "visible": true,
+        "width": 374
+      },
+      {
+        "disabled": false,
+        "height": 366,
+        "href": "/catalog/borage",
+        "tag": "a",
+        "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+        "visible": true,
+        "width": 374
+      },
+      {
+        "disabled": false,
+        "height": 341,
+        "href": "/catalog/bouquet-dill",
+        "tag": "a",
+        "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+        "visible": true,
+        "width": 374
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter.",
+      "A garden notebook that can answer back.",
+      "Each plant keeps its own story."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "#plants",
+        "text": "Choose plants",
+        "width": 93
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-ask",
+    "viewportName": "mobile",
+    "screenshot": "mobile-tour-ask-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 263
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 102
+      },
+      {
+        "disabled": false,
+        "height": 160,
+        "href": null,
+        "tag": "textarea",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "visible": true,
+        "width": 363
+      },
+      {
+        "disabled": false,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a photo",
+        "visible": true,
+        "width": 123
+      },
+      {
+        "disabled": true,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a note first",
+        "visible": true,
+        "width": 147
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Leaves are yellowing",
+        "visible": true,
+        "width": 363
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Heavy rain last night",
+        "visible": true,
+        "width": 363
+      },
+      {
+        "disabled": false,
+        "height": 41,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 177
+      },
+      {
+        "disabled": false,
+        "height": 41,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 177
+      },
+      {
+        "disabled": false,
+        "height": 41,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 363
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 72
+      },
+      {
+        "height": 41,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 177
+      },
+      {
+        "height": 41,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 177
+      },
+      {
+        "height": 41,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 363
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-property",
+    "viewportName": "mobile",
+    "screenshot": "mobile-tour-property-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 263
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 102
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "visible": true,
+        "width": 313
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Herb Bed2",
+        "visible": true,
+        "width": 289
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bouquet Dill ·4",
+        "visible": true,
+        "width": 97
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·2",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Container Row1",
+        "visible": true,
+        "width": 289
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bell Pepper",
+        "visible": true,
+        "width": 77
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "visible": true,
+        "width": 313
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bloom Border1",
+        "visible": true,
+        "width": 289
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·6",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "View Bell Pepper notes",
+        "visible": true,
+        "width": 172
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "My Garden",
+      "Backyard Garden"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 72
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/property",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-calendar",
+    "viewportName": "mobile",
+    "screenshot": "mobile-tour-calendar-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 263
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 102
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Weekly care",
+      "June 22–28, 2026"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 72
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-plants",
+    "viewportName": "mobile",
+    "screenshot": "mobile-tour-plants-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 263
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 102
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "input",
+        "text": "Search plants by name, bed, or place",
+        "visible": true,
+        "width": 287
+      },
+      {
+        "disabled": false,
+        "height": 84,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "visible": true,
+        "width": 84
+      },
+      {
+        "disabled": false,
+        "height": 84,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "visible": true,
+        "width": 84
+      },
+      {
+        "disabled": false,
+        "height": 84,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 84
+      },
+      {
+        "disabled": false,
+        "height": 84,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 84
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Plant Journal"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 72
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "tour-catalogue",
+    "viewportName": "mobile",
+    "screenshot": "mobile-tour-catalogue-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 263
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 72
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 102
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "hiddenImageCount": 0,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/tour/ask",
+        "text": "Today",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/property",
+        "text": "My Garden",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/calendar",
+        "text": "Weekly care",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/plants",
+        "text": "Plant Journal",
+        "width": 72
+      },
+      {
+        "height": 40,
+        "href": "/tour/catalogue",
+        "text": "Choose plants",
+        "width": 72
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "catalog",
+    "viewportName": "mobile",
+    "screenshot": "mobile-catalog-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 88
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/",
+        "tag": "a",
+        "text": "Home",
+        "visible": true,
+        "width": 46
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#browse",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "input",
+        "text": "Search plants, shade, pollinators...",
+        "visible": true,
+        "width": 285
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Browse by kind",
+        "visible": true,
+        "width": 118
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Calendula details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/calendula",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Cilantro details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/cilantro",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Cucumber details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/cucumber",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Abelia details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/abelia",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Acerola details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/acerola",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 109,
+        "href": null,
+        "tag": "button",
+        "text": "See Ackee details",
+        "visible": true,
+        "width": 90
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog/ackee",
+        "tag": "a",
+        "text": "View plant",
+        "visible": true,
+        "width": 85
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "Show more plants",
+        "visible": true,
+        "width": 142
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Choose a plant for the spot you have.",
+      "Apple",
+      "988 plants",
+      "Calendula",
+      "Cilantro",
+      "Cucumber",
+      "Abelia",
+      "Acerola",
+      "Ackee"
+    ],
+    "hiddenImageCount": 1,
+    "nav": [
+      {
+        "height": 40,
+        "href": "/",
+        "text": "Home",
+        "width": 46
+      },
+      {
+        "height": 40,
+        "href": "#browse",
+        "text": "Choose plants",
+        "width": 93
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/catalog",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  },
+  {
+    "route": "app-gate",
+    "viewportName": "mobile",
+    "screenshot": "mobile-app-gate-after.png",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 53,
+        "href": null,
+        "tag": "input",
+        "text": "you@example.com",
+        "visible": true,
+        "width": 327
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Email me a start link",
+        "visible": true,
+        "width": 327
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 144
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      }
+    ],
+    "forbidden": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "hiddenImageCount": 0,
+    "nav": [],
+    "overflow": 0,
+    "smallTargets": [],
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    },
+    "visibleImageIssues": []
+  }
+]

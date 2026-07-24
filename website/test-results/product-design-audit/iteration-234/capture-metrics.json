@@ -1,0 +1,543 @@
+[
+  {
+    "file": "01-home-desktop.png",
+    "path": "/",
+    "width": 1280,
+    "height": 900,
+    "mobile": false,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "Know what to do next in your garden.",
+      "h2s": [
+        "Keep beds, plants, notes, photos, and next steps in one place.",
+        "Each plant keeps its own story.",
+        "Start with one bed and one plant."
+      ],
+      "firstText": "Garden.io\nFind plant \nStart your garden\nKnow what to do next in your garden.\n\nKeep plant , photo , note , and care in one place  o every next  tep ha  context.\n\nStart your garden\nLook around\nFind plant  that fit\n\nBuilt for bu y gardener  who need a quick an wer, not another  pread heet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext  tep: keep watering  teady thi  week and note how long the bloom la t .\n\nHOW IT HELPS\nKeep bed , plant , note , photo , and next  tep  in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd bed  and plant  once  o every note ha  a place.\n\nSave quick note \n\nCapture photo , bloom , harve t , pe t , weather, and care while they are fre h.\n\nA k what to do next\n\nWhen a plant look  off, get a next  tep ba ed on it  note , bed, pho",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "#top",
+          "aria": null
+        },
+        {
+          "text": "Find plants",
+          "href": "#plants",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "aria": null
+        },
+        {
+          "text": "French MarigoldBloom and companion notesRemember when it bloomed and what nearby plants it helped.",
+          "href": "/catalog/french-marigold",
+          "aria": null
+        },
+        {
+          "text": "Autumn SagePruning and heat notesKeep pruning, blooms, and weather stress tied to this plant.",
+          "href": "/catalog/autumn-sage",
+          "aria": null
+        },
+        {
+          "text": "Curry LeafContainer watering notesSee container moves, watering changes, and what helped it grow.",
+          "href": "/catalog/curry-leaf",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        }
+      ],
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "02-home-mobile.png",
+    "path": "/",
+    "width": 390,
+    "height": 1200,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "Know what to do next in your garden.",
+      "h2s": [
+        "Keep beds, plants, notes, photos, and next steps in one place.",
+        "Each plant keeps its own story.",
+        "Start with one bed and one plant."
+      ],
+      "firstText": "Garden.io\nFind plant \nKnow what to do next in your garden.\n\nKeep plant , photo , note , and care in one place  o every next  tep ha  context.\n\nStart your garden\nLook around\nFind plant  that fit\n\nBuilt for bu y gardener  who need a quick an wer, not another  pread heet.\n\nFRENCH MARIGOLD\nBlooming in the pollinator edge\n\nNext  tep: keep watering  teady thi  week and note how long the bloom la t .\n\nHOW IT HELPS\nKeep bed , plant , note , photo , and next  tep  in one place.\n\nAdd a quick note now. Know what to do later.\n\nMap what you have\n\nAdd bed  and plant  once  o every note ha  a place.\n\nSave quick note \n\nCapture photo , bloom , harve t , pe t , weather, and care while they are fre h.\n\nA k what to do next\n\nWhen a plant look  off, get a next  tep ba ed on it  note , bed, photo, and  ea on.\n\nY",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "#top",
+          "aria": null
+        },
+        {
+          "text": "Find plants",
+          "href": "#plants",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "aria": null
+        },
+        {
+          "text": "French MarigoldBloom and companion notesRemember when it bloomed and what nearby plants it helped.",
+          "href": "/catalog/french-marigold",
+          "aria": null
+        },
+        {
+          "text": "Autumn SagePruning and heat notesKeep pruning, blooms, and weather stress tied to this plant.",
+          "href": "/catalog/autumn-sage",
+          "aria": null
+        },
+        {
+          "text": "Curry LeafContainer watering notesSee container moves, watering changes, and what helped it grow.",
+          "href": "/catalog/curry-leaf",
+          "aria": null
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "03-sample-property-mobile.png",
+    "path": "/sample-garden/property",
+    "width": 390,
+    "height": 1400,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/sample-garden/property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "My Garden",
+      "h2s": [
+        "Backyard Garden"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nWHAT NEEDS CARE NEXT\n\n2 area , 3 bed , 4 growing plant . Pick a place or plant to  ee it  note  and next  tep.\n\nNext  tep: Water deeply before the hot afternoon (Jun 22)\n\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texa  · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerb  and daily cooking plant  · Morning  un\n\nHerb Bed\n1\nFrench Marigold ·2\nContainer Row\n1\nCurry Leaf\nPollinator Edge\n1 BED\n\nFlower , perennial color, and beneficial in ect  · Full  un\n\nBloom Border\n2\nFrench Marigold ·6\nAutumn Sage ·2",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "aria": null
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "aria": null
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "aria": null
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "aria": null
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "aria": null
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "aria": "Start your garden"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": null,
+          "aria": "Kitchen Garden area, 2 beds"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": null,
+          "aria": "Pollinator Edge area, 1 bed"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Herb Bed1",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "French Marigold ·2",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Container Row1",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Curry Leaf",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Bloom Border2",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "French Marigold ·6",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Autumn Sage ·2",
+          "href": null,
+          "aria": null
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "04-sample-plants-mobile.png",
+    "path": "/sample-garden/plants",
+    "width": 390,
+    "height": 1400,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/sample-garden/plants",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "My Plants",
+      "h2s": [],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nMy Plant \n\nChoo e a plant to  ee it  note , photo , and next  tep .\n\nSUMMER\nFrench Marigold\nFlower · Annual\n\nPollinator Edge · Bloom Border\n\n6 plant  · 4 week , 5 day  in ground\n\nNext  tep: Note bloom duration\nAutumn Sage\nShrub · Perennial\n\nPollinator Edge · Bloom Border\n\n2 plant  · 11 week , 5 day  in ground\n\nNext  tep: Trim  pent  age bloom \nCurry Leaf\nShrub · Perennial\n\nKitchen Garden · Container Row\n\n1 plant · 8 week , 2 day  in ground\n\nNext  tep: Water deeply before the hot afternoon\nFrench Marigold\nFlower · Annual\n\nKitchen Garden · Herb Bed\n\n2 plant  · 3 week  in ground\n\nNext  tep: Check the herb bed after afternoon heat\nCHOOSE A PLANT\n\n4 growing plant  acro  3 bed . Pick one to  ee note , photo , and next  tep .\n\n4 plant  have",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "aria": null
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "aria": null
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "aria": null
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "aria": null
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "aria": null
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "aria": "Start your garden"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": null,
+          "aria": "Kitchen Garden area, 2 beds"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": null,
+          "aria": "Pollinator Edge area, 1 bed"
+        },
+        {
+          "text": "",
+          "href": null,
+          "aria": "Select French Marigold"
+        },
+        {
+          "text": "",
+          "href": null,
+          "aria": "Select Autumn Sage"
+        },
+        {
+          "text": "",
+          "href": null,
+          "aria": "Select Curry Leaf"
+        },
+        {
+          "text": "",
+          "href": null,
+          "aria": "Select French Marigold"
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "05-sample-calendar-mobile.png",
+    "path": "/sample-garden/calendar",
+    "width": 390,
+    "height": 1400,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/sample-garden/calendar",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "This Week",
+      "h2s": [
+        "June 22–28, 2026"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nThi  Week\n\nStart with thi  week'  care. Let the re t wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 thing  to do\nWater deeply before the hot afternoon\nCurry Leaf in Container Row, Kitchen Garden\nWATER\nJun 22\nTrim  pent  age bloom \nAutumn Sage in Bloom Border, Pollinator Edge\nCARE\nJun 24\nNote bloom duration\nFrench Marigold in Bloom Border, Pollinator Edge\nNOTE\nJun 26\nCheck the herb bed after afternoon heat\nFrench Marigold in Herb Bed, Kitchen Garden\nCHECK\nJun 27\nTHIS SEASON\nSummer\nCentral Texa \nSow  mall batche  of quick crop  every couple of week .\nWater deeply at the root zone during heat  pell .\nCheck leafy green  for bolting and heat  tre .\nLATER CARE\nJun 29\nRefre h mulch on expo ed  oil\nHerb Bed in Kitchen Garden\nIDEAS FOR LATER",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "aria": null
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "aria": null
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "aria": null
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "aria": null
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "aria": null
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "aria": "Start your garden"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": null,
+          "aria": "Kitchen Garden area, 2 beds"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": null,
+          "aria": "Pollinator Edge area, 1 bed"
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "06-sample-catalogue-mobile.png",
+    "path": "/sample-garden/catalogue",
+    "width": 390,
+    "height": 1400,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/sample-garden/catalogue",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "Find Plants",
+      "h2s": [
+        "Autumn Sage",
+        "Curry Leaf",
+        "French Marigold"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nFind Plant \n\nChoo e plant  that fit your bed .\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\nNot li ted\nBEST SPOT\nSunny border  where long bloom  can  upport pollinator .\n\nA tough perennial  age with long bloom window  in warm garden .\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nLIGHT\nBright Light\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nWarm container  near the kitchen for quick harve t .\n\nA container-friendly culinary plant that benefit  from  teady warmth.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagete  patula\n\nLIGHT\nFull Sun\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nEdge  near vegetable  where pollinator  and companion flower  help.\n\nA compact flower for pollinator edge  and companion",
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "aria": null
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "aria": null
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "aria": null
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "aria": null
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "aria": null
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "aria": "Start your garden"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": null,
+          "aria": "Kitchen Garden area, 2 beds"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": null,
+          "aria": "Pollinator Edge area, 1 bed"
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "07-app-my-property-mobile.png",
+    "path": "/app/my-property",
+    "width": 390,
+    "height": 1400,
+    "mobile": true,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/app/my-property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "Know what to do next.",
+      "h2s": [],
+      "firstText": "ASK YOUR GARDEN\nKnow what to do next.\n\nA k with a quick note or photo. Your bed , plant , note , and care  tay together.\n\nEnter your email and we'll  end a link back to thi  page. No pa word needed.\n\nEMAIL ADDRESS\nEmail me the link\nLook around\nFind plant  that fit",
+      "links": [
+        {
+          "text": "Email me the link",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "aria": null
+        }
+      ],
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "08-app-my-property-desktop.png",
+    "path": "/app/my-property",
+    "width": 1280,
+    "height": 900,
+    "mobile": false,
+    "metrics": {
+      "url": "http://127.0.0.1:3021/app/my-property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "h1": "Know what to do next.",
+      "h2s": [],
+      "firstText": "ASK YOUR GARDEN\nKnow what to do next.\n\nA k with a quick note or photo. Your bed , plant , note , and care  tay together.\n\nEnter your email and we'll  end a link back to thi  page. No pa word needed.\n\nEMAIL ADDRESS\nEmail me the link\nLook around\nFind plant  that fit",
+      "links": [
+        {
+          "text": "Email me the link",
+          "href": null,
+          "aria": null
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "aria": null
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "aria": null
+        }
+      ],
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "overflowing": []
+    }
+  }
+]

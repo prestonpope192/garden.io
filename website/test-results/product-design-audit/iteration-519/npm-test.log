@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  23 passed (23)
+      Tests  131 passed (131)
+   Start at  08:31:00
+   Duration  532ms (transform 1.52s, setup 0ms, import 2.22s, tests 656ms, environment 1ms)
+

@@ -1,0 +1,58 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Specimen: Acanthus mollis -->
+  <!-- Main upright stem -->
+  <path d="M 320 560 Q 318 480 322 400 Q 325 320 320 240 Q 318 160 320 100" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Large base leaves (deeply lobed, arching) -->
+  <path d="M 320 540 Q 280 560 240 540 Q 220 530 210 500 Q 200 460 210 420 Q 230 400 250 410 Q 280 430 300 450 Q 320 480 320 540" stroke="#7D6740" stroke-width="3.5" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+  <path d="M 305 480 Q 280 490 250 475 M 275 460 Q 260 470 245 455 M 290 440 Q 270 445 250 430" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <path d="M 320 540 Q 360 565 400 540 Q 420 530 430 500 Q 440 460 430 420 Q 410 400 390 410 Q 360 430 340 450 Q 320 480 320 540" stroke="#7D6740" stroke-width="3.5" fill="#D3BF98" fill-opacity="0.35" stroke-linecap="round"/>
+  <path d="M 335 480 Q 360 490 390 475 M 345 460 Q 360 470 385 455 M 340 440 Q 360 445 390 430" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Lower middle leaf -->
+  <path d="M 318 420 Q 260 440 210 410 Q 190 390 180 350 Q 175 310 195 290 Q 220 290 240 310 Q 280 350 310 390" stroke="#7D6740" stroke-width="3.5" fill="#D8C49C" fill-opacity="0.4" stroke-linecap="round"/>
+  <path d="M 240 360 Q 210 370 190 350 M 250 330 Q 220 335 195 315" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Hooded flower spike (stacked blooms) -->
+  <g id="flowers">
+    <!-- Top bloom -->
+    <ellipse cx="320" cy="140" rx="18" ry="24" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.4"/>
+    <path d="M 315 125 Q 320 115 325 125" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Upper-mid bloom -->
+    <ellipse cx="315" cy="180" rx="20" ry="26" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+    <path d="M 308 162 Q 315 150 322 162" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Mid bloom -->
+    <ellipse cx="325" cy="235" rx="22" ry="28" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.4"/>
+    <path d="M 318 215 Q 325 202 332 215" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Lower-mid bloom -->
+    <ellipse cx="320" cy="290" rx="20" ry="26" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.35"/>
+    <path d="M 314 270 Q 320 258 326 270" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  </g>
+
+  <!-- Annotation 1: hooded bloom -->
+  <line x1="335" y1="175" x2="480" y2="140" stroke="#A78545" stroke-width="3"/>
+  <text x="485" y="148" font-family="serif" font-size="24" fill="#7D6740">hooded bloom</text>
+
+  <!-- Annotation 2: deeply lobed leaf -->
+  <line x1="240" y1="470" x2="120" y2="480" stroke="#A78545" stroke-width="3"/>
+  <text x="45" y="495" font-family="serif" font-size="24" fill="#7D6740">deeply lobed leaf</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Acanthus mollis</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 101 · Bear's Breeches study</text>
+</svg>

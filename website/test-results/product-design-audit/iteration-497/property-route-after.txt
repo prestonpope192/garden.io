@@ -1,0 +1,5 @@
+FOUND: Start with Bell Pepper. View its notes when you need context.
+MISSING: Start with Bell Pepper. Open it when you want its notes.
+MISSING: View Bell Pepper notes
+MISSING: Open Bell Pepper
+FOUND: Where things grow

@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run diagnose-panel-content.test.ts diagnose-route-copy.test.ts sample-garden.test.ts
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  3 passed (3)
+      Tests  17 passed (17)
+   Start at  07:40:06
+   Duration  328ms (transform 258ms, setup 0ms, import 337ms, tests 118ms, environment 0ms)
+

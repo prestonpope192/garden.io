@@ -1,0 +1,52 @@
+[
+  {
+    "step": "01-ask-answer-mobile-final",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "primaryActionText": "Check soil moisture before changing the watering rhythm.",
+    "primaryButtonText": "Add to care list",
+    "secondaryHeading": "Other helpful checks",
+    "secondaryActions": [
+      {
+        "text": "Inspect the most affected leaves for pests or spotting.",
+        "button": "Add"
+      },
+      {
+        "text": "Save one note with the plant or bed so the next answer has context.",
+        "button": "Add"
+      }
+    ],
+    "equalOldActionCards": 0,
+    "actionButtonTexts": [
+      "Add to care list",
+      "Add",
+      "Add"
+    ],
+    "rawTerms": [],
+    "visibleOverflow": []
+  },
+  {
+    "step": "02-ask-answer-desktop-final",
+    "answerH1": "start with one close check, then save the next care step with the right plant or bed.",
+    "primaryActionText": "Check soil moisture before changing the watering rhythm.",
+    "primaryButtonText": "Add to care list",
+    "secondaryHeading": "Other helpful checks",
+    "secondaryActions": [
+      {
+        "text": "Inspect the most affected leaves for pests or spotting.",
+        "button": "Add"
+      },
+      {
+        "text": "Save one note with the plant or bed so the next answer has context.",
+        "button": "Add"
+      }
+    ],
+    "equalOldActionCards": 0,
+    "actionButtonTexts": [
+      "Add to care list",
+      "Add",
+      "Add"
+    ],
+    "rawTerms": [],
+    "visibleOverflow": []
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "step": "01-ask-mobile-final",
+    "h1": "Ask your garden",
+    "textStart": "Garden.io Start Ask your garden Memory Care Guide ASK YOUR GARDEN 2 areas, 3 beds, 4 growing plants Ask with a note or photo. Keep the useful answer with the right plant, bed, or season. Ask about your garden Add photo Get next step Answers can be saved with a plant, bed, or the whole garden. Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today?",
+    "hasAskYourGarden": true,
+    "hasLead": true,
+    "hasSaveHint": true,
+    "oldAskCopy": false,
+    "rawTerms": [],
+    "textarea": {
+      "width": 363,
+      "height": 160,
+      "top": 229,
+      "left": 14,
+      "placeholder": "What are you seeing?"
+    },
+    "visibleOverflow": []
+  },
+  {
+    "step": "02-ask-desktop-final",
+    "h1": "Ask your garden",
+    "textStart": "Garden.io Look around Start Ask your garden Memory Care Guide ASK YOUR GARDEN 2 areas, 3 beds, 4 growing plants Ask with a note or photo. Keep the useful answer with the right plant, bed, or season. Ask about your garden Add photo Get next step Answers can be saved with a plant, bed, or the whole garden. Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today?",
+    "hasAskYourGarden": true,
+    "hasLead": true,
+    "hasSaveHint": true,
+    "oldAskCopy": false,
+    "rawTerms": [],
+    "textarea": {
+      "width": 709,
+      "height": 210,
+      "top": 252,
+      "left": 366,
+      "placeholder": "What are you seeing?"
+    },
+    "visibleOverflow": []
+  }
+]

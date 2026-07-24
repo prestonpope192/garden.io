@@ -1,0 +1,16 @@
+=== /sample-garden/ask ===
+FOUND: aria-label="Go to My Garden"
+MISSING: aria-label="Open My Garden"
+FOUND: aria-label="Go to weekly care"
+MISSING: aria-label="Open weekly care"
+FOUND: My Garden
+FOUND: Weekly care
+FOUND: Choose plants
+=== /sample-garden ===
+FOUND: aria-label="Go to My Garden"
+MISSING: aria-label="Open My Garden"
+FOUND: aria-label="Go to weekly care"
+MISSING: aria-label="Open weekly care"
+FOUND: My Garden
+FOUND: Weekly care
+FOUND: Choose plants

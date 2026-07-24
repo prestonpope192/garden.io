@@ -1,0 +1,80 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Specimen: Anethum graveolens 'Bouquet' (Compact Dill) -->
+  <!-- Main compact stem, shorter than standard dill -->
+  <path d="M 320 540 Q 320 460 319 380 Q 320 300 320 220" stroke="#6C5A3A" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+
+  <!-- Fine foliage along stem -->
+  <path d="M 320 460 Q 295 450 280 452 Q 276 455 279 460" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.33" stroke-linecap="round"/>
+  <path d="M 320 455 Q 345 445 360 447 Q 364 450 361 455" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.33" stroke-linecap="round"/>
+
+  <path d="M 320 400 Q 298 385 282 388 Q 278 390 281 398" stroke="#7D6740" stroke-width="2.8" fill="#D8C49C" fill-opacity="0.33" stroke-linecap="round"/>
+  <path d="M 320 395 Q 342 380 358 383 Q 362 385 359 393" stroke="#7D6740" stroke-width="2.8" fill="#D8C49C" fill-opacity="0.33" stroke-linecap="round"/>
+
+  <path d="M 320 340 Q 303 325 288 327 Q 284 329 287 337" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.3" stroke-linecap="round"/>
+  <path d="M 320 335 Q 337 320 352 322 Q 356 324 353 332" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.3" stroke-linecap="round"/>
+
+  <!-- First dense umbel (upper) -->
+  <g id="umbel-upper">
+    <!-- Primary rays -->
+    <path d="M 320 220 Q 298 195 280 175" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 220 Q 315 190 315 160" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 220 Q 325 190 325 160" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 220 Q 342 195 360 175" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Seed florets -->
+    <circle cx="280" cy="175" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="315" cy="160" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="325" cy="160" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="360" cy="175" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+
+    <!-- Secondary rays -->
+    <path d="M 320 220 Q 285 205 265 195" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <path d="M 320 220 Q 355 205 375 195" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <circle cx="265" cy="195" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.32"/>
+    <circle cx="375" cy="195" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.32"/>
+  </g>
+
+  <!-- Second dense umbel (lower, offset) -->
+  <g id="umbel-lower">
+    <!-- Primary rays -->
+    <path d="M 318 300 Q 300 275 283 255" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 318 300 Q 315 270 315 240" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 318 300 Q 321 270 321 240" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 318 300 Q 336 275 353 255" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Seed florets -->
+    <circle cx="283" cy="255" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="315" cy="240" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="321" cy="240" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+    <circle cx="353" cy="255" r="4" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.4"/>
+
+    <!-- Secondary rays -->
+    <path d="M 318 300 Q 288 285 268 275" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <path d="M 318 300 Q 348 285 368 275" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <circle cx="268" cy="275" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.32"/>
+    <circle cx="368" cy="275" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.32"/>
+  </g>
+
+  <!-- Annotation 1: compact umbel -->
+  <line x1="325" y1="160" x2="460" y2="120" stroke="#A78545" stroke-width="3"/>
+  <text x="465" y="135" font-family="serif" font-size="24" fill="#7D6740">compact umbel</text>
+
+  <!-- Annotation 2: early seed set -->
+  <line x1="283" y1="255" x2="140" y2="260" stroke="#A78545" stroke-width="3"/>
+  <text x="45" y="278" font-family="serif" font-size="24" fill="#7D6740">early seed set</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Anethum graveolens 'Bouquet'</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 103 · Bouquet Dill study</text>
+</svg>

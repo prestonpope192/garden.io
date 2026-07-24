@@ -1,0 +1,197 @@
+[
+  {
+    "bottomLeft": [
+      {
+        "cls": "cover-sheet home-hero",
+        "h": 629,
+        "id": "top",
+        "tag": "section",
+        "text": "Your garden, smarter.Note what changed. Ask what it means. Remember what worked.",
+        "w": 1240,
+        "x": 13,
+        "y": 100
+      },
+      {
+        "cls": "site site--marketing",
+        "h": 1887,
+        "id": "",
+        "tag": "main",
+        "text": "Garden.ioChoose plantsYour garden, smarter.Note what changed. Ask what it means.",
+        "w": 1240,
+        "x": 13,
+        "y": 0
+      },
+      {
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 1887,
+        "id": "",
+        "tag": "body",
+        "text": "Garden.ioChoose plantsYour garden, smarter.Note what changed. Ask what it means.",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "",
+        "h": 1887,
+        "id": "",
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-sty",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "focusableCount": 7,
+    "h1": "Your garden, smarter.",
+    "overflowX": 0,
+    "pathname": "/",
+    "portals": [
+      {
+        "h": 0,
+        "hasShadow": true,
+        "text": "",
+        "w": 0
+      }
+    ],
+    "smallTargets": [
+      {
+        "h": 25,
+        "href": "#plants",
+        "label": "Choose plants",
+        "tag": "a",
+        "w": 87,
+        "x": 144,
+        "y": 37
+      }
+    ],
+    "textFlags": {
+      "careNotesThisWeek": false,
+      "localDevBadgeVisible": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "thingsNeedCare": false
+    },
+    "url": "http://localhost:3021/"
+  },
+  {
+    "bottomLeft": [
+      {
+        "cls": "garden-app-shell garden-app-shell--ai",
+        "h": 894,
+        "id": "",
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenToday",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 894,
+        "id": "",
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenToday",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "",
+        "h": 894,
+        "id": "",
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-sty",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "focusableCount": 14,
+    "h1": "Your garden, smarter.",
+    "overflowX": 0,
+    "pathname": "/tour/ask",
+    "portals": [
+      {
+        "h": 0,
+        "hasShadow": true,
+        "text": "",
+        "w": 0
+      }
+    ],
+    "smallTargets": [
+      {
+        "h": 1,
+        "href": null,
+        "label": "Add a photo",
+        "tag": "input",
+        "w": 1,
+        "x": 555,
+        "y": 628
+      }
+    ],
+    "textFlags": {
+      "careNotesThisWeek": false,
+      "localDevBadgeVisible": false,
+      "newAskLead": true,
+      "oldAskLead": false,
+      "thingsNeedCare": false
+    },
+    "url": "http://localhost:3021/tour/ask"
+  },
+  {
+    "bottomLeft": [
+      {
+        "cls": "garden-app-shell ",
+        "h": 720,
+        "id": "",
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitch",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 720,
+        "id": "",
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitch",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "cls": "",
+        "h": 720,
+        "id": "",
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-sty",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "focusableCount": 7,
+    "h1": "Weekly care",
+    "overflowX": 0,
+    "pathname": "/tour/calendar",
+    "portals": [
+      {
+        "h": 0,
+        "hasShadow": true,
+        "text": "",
+        "w": 0
+      }
+    ],
+    "smallTargets": [],
+    "textFlags": {
+      "careNotesThisWeek": false,
+      "localDevBadgeVisible": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "thingsNeedCare": true
+    },
+    "url": "http://localhost:3021/tour/calendar"
+  }
+]

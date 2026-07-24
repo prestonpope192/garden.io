@@ -1,0 +1,6 @@
+FOUND: Your garden, smarter.
+FOUND: Save what changed. Keep what helped. See what works.
+FOUND: Simple garden habit
+FOUND: Add what changed while it is fresh, with the plant or bed it belongs to.
+FOUND: Keep what helped with the plant or bed it belongs to.
+MISSING: Save useful care with the plant or bed it belongs to.

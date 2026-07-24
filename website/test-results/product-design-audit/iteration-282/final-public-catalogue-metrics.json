@@ -1,0 +1,104 @@
+{
+  "h1": "Find plants that fit your garden.",
+  "visibleTextStart": "Garden.io\nHome\nFind plants\nFIND PLANTS\nFind plants that fit your garden.\n\nCheck the basics before you buy, plant, or make room in a bed.\n\nSearch plants\n\nAll plants\n\nChoose plant type\nFIND PLANTS\n988 plants\nFLOWER\nCalendula\nCheck fit\nSun\nFull Sun To Light Shade.\nWater\nLow\nANNUAL · HERB\nCilantro\nCheck fit\nSun\nFull Sun\nWater\nMedium\nHeight\n12-24 in\nANNUAL · VINE\nCucumber\nCheck fit\nSun\nFull Sun\nWater\nHigh\nHeight\n12-72 in\nPERENNIAL · SHRUB\nAbelia\nCheck fit\nSun\nFull Sun\nWater\nMedium\nHeight\n36-72 in\nPERENNIAL · SHRUB\nAcerola\nCheck fit\nSun\nFull Sun\nWater\nMedium\nHeight\n72-144 in\nPERENNIAL · TREE\nAckee\nCheck fit\nSun\nFull Sun\nWater\nMedium\nHeight\n600-900 in\n\n6 of 988 plants shown.\n\nShow more plants",
+  "innerWidth": 390,
+  "scrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 2044,
+  "hero": {
+    "text": "Find plantsSearch by name, use, sun, or waterFind plants that fit your garden.Check the basics before you buy, plant, or make room in a bed.Search plantsAll pla",
+    "top": 81,
+    "bottom": 428,
+    "height": 347,
+    "width": 374
+  },
+  "workbench": {
+    "text": "Find plants988 plantsFlowerCalendulaCalendula officinalisCheck fitAn easy seasonal flower for edges, pollinator support, and steady cut-and-come-again blooms.Su",
+    "top": 444,
+    "bottom": 1980,
+    "height": 1536,
+    "width": 374
+  },
+  "resultsHeader": {
+    "text": "Find plants988 plants",
+    "top": 460,
+    "bottom": 520,
+    "height": 60,
+    "width": 342
+  },
+  "rows": [
+    {
+      "text": "FLOWER Calendula Check fit Sun Full Sun To Light Shade. Water Low",
+      "top": 536,
+      "bottom": 719,
+      "height": 183,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 554
+      }
+    },
+    {
+      "text": "ANNUAL · HERB Cilantro Check fit Sun Full Sun Water Medium Height 12-24 in",
+      "top": 730,
+      "bottom": 949,
+      "height": 219,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 748
+      }
+    },
+    {
+      "text": "ANNUAL · VINE Cucumber Check fit Sun Full Sun Water High Height 12-72 in",
+      "top": 960,
+      "bottom": 1179,
+      "height": 219,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 978
+      }
+    },
+    {
+      "text": "PERENNIAL · SHRUB Abelia Check fit Sun Full Sun Water Medium Height 36-72 in",
+      "top": 1190,
+      "bottom": 1409,
+      "height": 219,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 1208
+      }
+    },
+    {
+      "text": "PERENNIAL · SHRUB Acerola Check fit Sun Full Sun Water Medium Height 72-144 in",
+      "top": 1420,
+      "bottom": 1639,
+      "height": 219,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 1438
+      }
+    },
+    {
+      "text": "PERENNIAL · TREE Ackee Check fit Sun Full Sun Water Medium Height 600-900 in",
+      "top": 1650,
+      "bottom": 1869,
+      "height": 219,
+      "width": 342,
+      "image": {
+        "width": 77,
+        "height": 96,
+        "top": 1668
+      }
+    }
+  ],
+  "offenders": []
+}

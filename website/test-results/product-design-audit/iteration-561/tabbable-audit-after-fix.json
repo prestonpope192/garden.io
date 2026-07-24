@@ -1,0 +1,633 @@
+[
+  {
+    "name": "ask",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 263,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 279,
+          "y": 7
+        },
+        "className": "folio-button",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 160,
+          "w": 363,
+          "x": 14,
+          "y": 276
+        },
+        "className": "",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "textarea",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 1,
+          "w": 1,
+          "x": 118,
+          "y": 475
+        },
+        "className": "",
+        "focusProxy": true,
+        "minTargetOk": true,
+        "tag": "input",
+        "text": "Add a photo",
+        "type": "file",
+        "visible": false,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 48,
+          "w": 363,
+          "x": 14,
+          "y": 548
+        },
+        "className": "",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Leaves are yellowing",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 48,
+          "w": 363,
+          "x": 14,
+          "y": 604
+        },
+        "className": "",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Heavy rain last night",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 177,
+          "x": 14,
+          "y": 668
+        },
+        "className": "garden-ai-shortcut",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "My Garden",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 177,
+          "x": 199,
+          "y": 668
+        },
+        "className": "garden-ai-shortcut",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Weekly care",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 41,
+          "w": 363,
+          "x": 14,
+          "y": 716
+        },
+        "className": "garden-ai-shortcut",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Choose plants",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      }
+    ],
+    "unresolvedHidden": [],
+    "smallTargets": []
+  },
+  {
+    "name": "property",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 248,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 264,
+          "y": 7
+        },
+        "className": "folio-button",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 28,
+          "w": 298,
+          "x": 38,
+          "y": 366
+        },
+        "className": "garden-zone__head",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 446
+        },
+        "className": "garden-bed__head",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Herb Bed2",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 94,
+          "x": 51,
+          "y": 479
+        },
+        "className": "garden-chip ",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Bouquet Dill ·4",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 64,
+          "x": 150,
+          "y": 479
+        },
+        "className": "garden-chip ",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Borage ·2",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 536
+        },
+        "className": "garden-bed__head",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Container Row1",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 73,
+          "x": 51,
+          "y": 569
+        },
+        "className": "garden-chip ",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Bell Pepper",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 28,
+          "w": 298,
+          "x": 38,
+          "y": 654
+        },
+        "className": "garden-zone__head",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 25,
+          "w": 274,
+          "x": 51,
+          "y": 735
+        },
+        "className": "garden-bed__head",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Bloom Border1",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 24,
+          "w": 64,
+          "x": 51,
+          "y": 767
+        },
+        "className": "garden-chip ",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Borage ·6",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 46,
+          "w": 172,
+          "x": 35,
+          "y": 1052
+        },
+        "className": "folio-button",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "View Bell Pepper notes",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      }
+    ],
+    "unresolvedHidden": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      }
+    ],
+    "smallTargets": []
+  },
+  {
+    "name": "plants",
+    "tabbables": [
+      {
+        "box": {
+          "h": 25,
+          "w": 248,
+          "x": 9,
+          "y": 12
+        },
+        "className": "journal-shell__brand",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Garden.io",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 57,
+          "x": 9,
+          "y": 47
+        },
+        "className": "garden-app-header__home-link",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Today",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 34,
+          "w": 102,
+          "x": 264,
+          "y": 7
+        },
+        "className": "folio-button",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "a",
+        "text": "Start your garden",
+        "type": null,
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 27,
+          "w": 272,
+          "x": 65,
+          "y": 477
+        },
+        "className": "garden-plants-search",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "input",
+        "text": "Search plants by name, bed, or place",
+        "type": "search",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 84,
+          "w": 84,
+          "x": 34,
+          "y": 545
+        },
+        "className": "garden-plants2-card__select-btn",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 84,
+          "w": 84,
+          "x": 34,
+          "y": 713
+        },
+        "className": "garden-plants2-card__select-btn",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 84,
+          "w": 84,
+          "x": 34,
+          "y": 882
+        },
+        "className": "garden-plants2-card__select-btn",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      },
+      {
+        "box": {
+          "h": 84,
+          "w": 84,
+          "x": 34,
+          "y": 1029
+        },
+        "className": "garden-plants2-card__select-btn",
+        "focusProxy": false,
+        "minTargetOk": true,
+        "tag": "button",
+        "text": "Select Borage",
+        "type": "button",
+        "visible": true,
+        "visibleOrProxied": true
+      }
+    ],
+    "unresolvedHidden": [
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      },
+      {
+        "box": {
+          "h": 0,
+          "w": 0,
+          "x": 0,
+          "y": 0
+        },
+        "className": "garden-tree__zone ",
+        "focusProxy": false,
+        "minTargetOk": false,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "type": "button",
+        "visible": false,
+        "visibleOrProxied": false
+      }
+    ],
+    "smallTargets": []
+  }
+]

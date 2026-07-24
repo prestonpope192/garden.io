@@ -1,0 +1,551 @@
+[
+  {
+    "name": "desktop-catalogue-after.png",
+    "href": "http://localhost:3021/sample-garden/catalogue",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1440,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 73,
+      "height": 73,
+      "left": 0,
+      "right": 1440,
+      "width": 1440
+    },
+    "title": {
+      "top": 122,
+      "bottom": 238,
+      "height": 117,
+      "left": 179,
+      "right": 1261,
+      "width": 1082
+    },
+    "catalogueGrid": {
+      "top": 298,
+      "bottom": 980,
+      "height": 682,
+      "left": 179,
+      "right": 1261,
+      "width": 1082
+    },
+    "firstCard": {
+      "top": 298,
+      "bottom": 632,
+      "height": 334,
+      "left": 179,
+      "right": 712,
+      "width": 533
+    },
+    "firstImage": {
+      "top": 313,
+      "bottom": 493,
+      "height": 180,
+      "left": 194,
+      "right": 330,
+      "width": 136
+    },
+    "firstFitList": {
+      "top": 428,
+      "bottom": 549,
+      "height": 122,
+      "left": 343,
+      "right": 697,
+      "width": 354
+    },
+    "firstDesc": {
+      "top": 558,
+      "bottom": 618,
+      "height": 60,
+      "left": 343,
+      "right": 697,
+      "width": 354
+    },
+    "carePanel": null,
+    "order": {
+      "quickFit": -1,
+      "light": 181,
+      "bestSpot": 222,
+      "descriptionMarigold": -1,
+      "careThisWeek": -1
+    },
+    "prominentRects": [
+      {
+        "text": "PerennialAutumn SageShrubSalvia greggiiLightFull SunWaterLowHeight24-36 inBest s",
+        "top": 298,
+        "bottom": 632,
+        "left": 179,
+        "right": 712,
+        "width": 533,
+        "height": 334
+      },
+      {
+        "text": "",
+        "top": 313,
+        "bottom": 493,
+        "left": 194,
+        "right": 330,
+        "width": 136,
+        "height": 180
+      },
+      {
+        "text": "LightFull SunWaterLowHeight24-36 inBest spotCompact size fits well; prune to kee",
+        "top": 428,
+        "bottom": 549,
+        "left": 343,
+        "right": 697,
+        "width": 354,
+        "height": 122
+      },
+      {
+        "text": "A compact, evergreen woody shrub with aromatic leaves and tubular flowers that b",
+        "top": 558,
+        "bottom": 618,
+        "left": 343,
+        "right": 697,
+        "width": 354,
+        "height": 60
+      },
+      {
+        "text": "PerennialCurry LeafShrubMurraya koenigiiLightFull SunWaterMediumHeight72-120 inB",
+        "top": 298,
+        "bottom": 632,
+        "left": 728,
+        "right": 1261,
+        "width": 533,
+        "height": 334
+      },
+      {
+        "text": "",
+        "top": 313,
+        "bottom": 493,
+        "left": 743,
+        "right": 879,
+        "width": 136,
+        "height": 180
+      },
+      {
+        "text": "LightFull SunWaterMediumHeight72-120 inBest spotSmall size suits patios and kitc",
+        "top": 428,
+        "bottom": 567,
+        "left": 892,
+        "right": 1246,
+        "width": 354,
+        "height": 139
+      },
+      {
+        "text": "A perennial aromatic shrub prized for its flavorful leaves used in Indian and So",
+        "top": 575,
+        "bottom": 615,
+        "left": 892,
+        "right": 1246,
+        "width": 354,
+        "height": 40
+      },
+      {
+        "text": "AnnualFrench MarigoldFlowerTagetes patulaLightFull SunWaterMediumHeight6-12 inBe",
+        "top": 648,
+        "bottom": 980,
+        "left": 179,
+        "right": 712,
+        "width": 533,
+        "height": 332
+      },
+      {
+        "text": "",
+        "top": 663,
+        "bottom": 843,
+        "left": 194,
+        "right": 330,
+        "width": 136,
+        "height": 180
+      },
+      {
+        "text": "LightFull SunWaterMediumHeight6-12 inBest spotIdeal for borders and containers d",
+        "top": 778,
+        "bottom": 917,
+        "left": 343,
+        "right": 697,
+        "width": 354,
+        "height": 139
+      },
+      {
+        "text": "Compact annual flower known for bright orange, yellow, and red blooms with a spi",
+        "top": 926,
+        "bottom": 965,
+        "left": 343,
+        "right": 697,
+        "width": 354,
+        "height": 40
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHome garden\nChoose plants that fit your beds.\nSummer\n3 plants\nPerennial\nAutumn Sage\nShrub\nSalvia greggii\nLight\nFull Sun\nWater\nLow\nHeight\n24-36 in\nBest spot\nCompact size fits well; prune to keep tidy.\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.\nCurry Leaf\nMurraya koenigii\nMedium\n72-120 in\nSmall size suits patios and kitchen gardens; protect from frost.\nA perennial aromatic shrub prized for its flavorful leaves used in Indian and Southeast Asian cuisine.\nAnnual\nFrench Marigold\nFlower\nTagetes patula\n6-12 in\nIdeal for borders and containers due to compact size.\nCompact annual flower known for bright orange, yellow, and red blooms with a spicy scent.",
+    "overflowOffenders": [
+      {
+        "tag": "header",
+        "className": "garden-app-title",
+        "text": "Home gardenFind PlantsChoose plants that fit your beds.Summer",
+        "scrollWidth": 1084,
+        "clientWidth": 1082,
+        "left": 179,
+        "right": 1261,
+        "width": 1082
+      }
+    ]
+  },
+  {
+    "name": "mobile-catalogue-after.png",
+    "href": "http://localhost:3021/sample-garden/catalogue",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 97,
+      "height": 97,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "title": {
+      "top": 121,
+      "bottom": 218,
+      "height": 96,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "catalogueGrid": {
+      "top": 274,
+      "bottom": 1773,
+      "height": 1500,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "firstCard": {
+      "top": 274,
+      "bottom": 764,
+      "height": 491,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "firstImage": {
+      "top": 287,
+      "bottom": 437,
+      "height": 150,
+      "left": 34,
+      "right": 356,
+      "width": 321
+    },
+    "firstFitList": {
+      "top": 566,
+      "bottom": 683,
+      "height": 117,
+      "left": 34,
+      "right": 356,
+      "width": 321
+    },
+    "firstDesc": {
+      "top": 692,
+      "bottom": 751,
+      "height": 60,
+      "left": 34,
+      "right": 356,
+      "width": 321
+    },
+    "carePanel": null,
+    "order": {
+      "quickFit": -1,
+      "light": 169,
+      "bestSpot": 210,
+      "descriptionMarigold": -1,
+      "careThisWeek": -1
+    },
+    "prominentRects": [
+      {
+        "text": "PerennialAutumn SageShrubSalvia greggiiLightFull SunWaterLowHeight24-36 inBest s",
+        "top": 274,
+        "bottom": 764,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 491
+      },
+      {
+        "text": "",
+        "top": 287,
+        "bottom": 437,
+        "left": 34,
+        "right": 356,
+        "width": 321,
+        "height": 150
+      },
+      {
+        "text": "LightFull SunWaterLowHeight24-36 inBest spotCompact size fits well; prune to kee",
+        "top": 566,
+        "bottom": 683,
+        "left": 34,
+        "right": 356,
+        "width": 321,
+        "height": 117
+      },
+      {
+        "text": "A compact, evergreen woody shrub with aromatic leaves and tubular flowers that b",
+        "top": 692,
+        "bottom": 751,
+        "left": 34,
+        "right": 356,
+        "width": 321,
+        "height": 60
+      },
+      {
+        "text": "PerennialCurry LeafShrubMurraya koenigiiLightFull SunWaterMediumHeight72-120 inB",
+        "top": 780,
+        "bottom": 1269,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 488
+      },
+      {
+        "text": "",
+        "top": 793,
+        "bottom": 943,
+        "left": 34,
+        "right": 356,
+        "width": 321,
+        "height": 150
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHome garden\nChoose plants that fit your beds.\nSummer\n3 plants\nPerennial\nAutumn Sage\nShrub\nSalvia greggii\nLight\nFull Sun\nWater\nLow\nHeight\n24-36 in\nBest spot\nCompact size fits well; prune to keep tidy.\nA compact, evergreen woody shrub with aromatic leaves and tubular flowers that bloom in late summer to autumn, attracting hummingbirds.",
+    "overflowOffenders": []
+  },
+  {
+    "name": "mobile-calendar-regression.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 97,
+      "height": 97,
+      "left": 0,
+      "right": 390,
+      "width": 390
+    },
+    "title": {
+      "top": 121,
+      "bottom": 218,
+      "height": 96,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "catalogueGrid": null,
+    "firstCard": null,
+    "firstImage": null,
+    "firstFitList": null,
+    "firstDesc": null,
+    "carePanel": {
+      "top": 265,
+      "bottom": 932,
+      "height": 667,
+      "left": 21,
+      "right": 369,
+      "width": 347
+    },
+    "order": {
+      "quickFit": -1,
+      "light": -1,
+      "bestSpot": -1,
+      "descriptionMarigold": -1,
+      "careThisWeek": 148
+    },
+    "prominentRects": [
+      {
+        "text": "Care this week4 things to doWater deeply before the hot afternoonKitchen Garden ",
+        "top": 265,
+        "bottom": 932,
+        "left": 21,
+        "right": 369,
+        "width": 347,
+        "height": 667
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart yours\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote\nNotice how long this flush lasts before deadheading.\nJun 26\nCheck the herb bed after afternoon heat\nKitchen Garden · Herb Bed · French Marigold\nCheck",
+    "overflowOffenders": [
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 258,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 269,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 268,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 259,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-upcoming-item__title",
+        "text": "Refresh mulch on exposed soil",
+        "scrollWidth": 171,
+        "clientWidth": 37,
+        "left": 122,
+        "right": 160,
+        "width": 37
+      }
+    ]
+  },
+  {
+    "name": "desktop-calendar-regression.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1425,
+    "hasHorizontalOverflow": false,
+    "header": {
+      "top": 0,
+      "bottom": 73,
+      "height": 73,
+      "left": 0,
+      "right": 1425,
+      "width": 1425
+    },
+    "title": {
+      "top": 122,
+      "bottom": 238,
+      "height": 117,
+      "left": 171,
+      "right": 1254,
+      "width": 1082
+    },
+    "catalogueGrid": null,
+    "firstCard": null,
+    "firstImage": null,
+    "firstFitList": null,
+    "firstDesc": null,
+    "carePanel": {
+      "top": 299,
+      "bottom": 685,
+      "height": 386,
+      "left": 171,
+      "right": 1254,
+      "width": 1082
+    },
+    "order": {
+      "quickFit": -1,
+      "light": -1,
+      "bestSpot": -1,
+      "descriptionMarigold": -1,
+      "careThisWeek": 160
+    },
+    "prominentRects": [
+      {
+        "text": "Care this week4 things to doWater deeply before the hot afternoonKitchen Garden ",
+        "top": 299,
+        "bottom": 685,
+        "left": 171,
+        "right": 1254,
+        "width": 1082,
+        "height": 386
+      }
+    ],
+    "visibleTextStart": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart yours\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote\nNotice how long this flush lasts before deadheading.\nJun 26\nCheck the herb bed after afternoon heat\nKitchen Garden · Herb Bed · French Marigold\nCheck\nAdd a note if leaves are still wilting by evening.\nJun 27\nThis season\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLater care\nJun 29\nRefresh mulch on exposed soil\nKitchen Garden · Herb Bed\nIdeas",
+    "overflowOffenders": [
+      {
+        "tag": "header",
+        "className": "garden-app-title",
+        "text": "Home gardenThis WeekStart with this week's care. Let the rest wait.Summer",
+        "scrollWidth": 1084,
+        "clientWidth": 1082,
+        "left": 171,
+        "right": 1254,
+        "width": 1082
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 201,
+        "left": 235,
+        "right": 437,
+        "width": 201
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 212,
+        "left": 589,
+        "right": 800,
+        "width": 212
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 211,
+        "left": 942,
+        "right": 1153,
+        "width": 211
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 202,
+        "left": 235,
+        "right": 437,
+        "width": 202
+      }
+    ]
+  }
+]

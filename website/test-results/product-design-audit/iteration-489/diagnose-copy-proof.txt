@@ -1,0 +1,3 @@
+../website/tests/diagnose-panel-content.test.ts:34:    expect(DIAGNOSE_COPY.saveHint).toBe("Saved with this plant so you remember what helped.");
+../website/tests/diagnose-panel-content.test.ts:35:    expect(DIAGNOSE_COPY.saveHint).not.toContain("next time starts with what you tried");
+../website/components/diagnose-panel.tsx:54:  saveHint: "Saved with this plant so you remember what helped."

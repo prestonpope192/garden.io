@@ -1,0 +1,66 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Specimen: Anethum graveolens 'Mammoth' (Very tall dill) -->
+  <!-- Single very thick main stem extending nearly full height -->
+  <path d="M 320 560 Q 321 460 320 360 Q 319 260 320 160 Q 321 90 320 100" stroke="#6C5A3A" stroke-width="4.8" stroke-linecap="round" fill="none"/>
+
+  <!-- Sparse fine foliage - only 2 sets along stem -->
+  <path d="M 320 420 Q 302 405 285 408 Q 280 410 283 418" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.28" stroke-linecap="round"/>
+  <path d="M 320 415 Q 338 400 355 403 Q 360 405 357 413" stroke="#7D6740" stroke-width="2.8" fill="#D3BF98" fill-opacity="0.28" stroke-linecap="round"/>
+
+  <path d="M 320 280 Q 305 260 288 263 Q 283 265 286 273" stroke="#7D6740" stroke-width="2.8" fill="#D8C49C" fill-opacity="0.28" stroke-linecap="round"/>
+  <path d="M 320 275 Q 335 255 352 258 Q 357 260 354 268" stroke="#7D6740" stroke-width="2.8" fill="#D8C49C" fill-opacity="0.28" stroke-linecap="round"/>
+
+  <!-- Broad open umbrella-shaped umbel at top -->
+  <g id="broad-umbel">
+    <!-- Primary rays emanating widely -->
+    <path d="M 320 100 Q 278 70 240 50" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 100 Q 305 65 295 35" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 100 Q 325 65 330 35" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 100 Q 335 65 345 35" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+    <path d="M 320 100 Q 362 70 400 50" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+    <!-- Secondary rays for breadth -->
+    <path d="M 320 100 Q 270 80 245 70" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <path d="M 320 100 Q 370 80 395 70" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+    <!-- Tertiary rays for fullness -->
+    <path d="M 320 100 Q 300 75 280 60" stroke="#7D6740" stroke-width="2" fill="none"/>
+    <path d="M 320 100 Q 340 75 360 60" stroke="#7D6740" stroke-width="2" fill="none"/>
+
+    <!-- Seed florets at ray ends - sparse distribution -->
+    <circle cx="240" cy="50" r="4.5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.42"/>
+    <circle cx="295" cy="35" r="4.5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.42"/>
+    <circle cx="330" cy="35" r="4.5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.42"/>
+    <circle cx="345" cy="35" r="4.5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.42"/>
+    <circle cx="400" cy="50" r="4.5" stroke="#7D6740" stroke-width="2" fill="#D3BF98" fill-opacity="0.42"/>
+
+    <!-- Secondary florets -->
+    <circle cx="245" cy="70" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.35"/>
+    <circle cx="395" cy="70" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.35"/>
+    <circle cx="280" cy="60" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.35"/>
+    <circle cx="360" cy="60" r="3.5" stroke="#7D6740" stroke-width="1.5" fill="#D8C49C" fill-opacity="0.35"/>
+  </g>
+
+  <!-- Annotation 1: broad umbel -->
+  <line x1="330" y1="35" x2="450" y2="20" stroke="#A78545" stroke-width="3"/>
+  <text x="455" y="38" font-family="serif" font-size="24" fill="#7D6740">broad umbel</text>
+
+  <!-- Annotation 2: hollow stem -->
+  <line x1="330" y1="350" x2="480" y2="380" stroke="#A78545" stroke-width="3"/>
+  <text x="485" y="398" font-family="serif" font-size="24" fill="#7D6740">hollow stem</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Anethum graveolens 'Mammoth'</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 104 · Mammoth Dill study</text>
+</svg>

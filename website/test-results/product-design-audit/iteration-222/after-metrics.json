@@ -1,0 +1,144 @@
+[
+  {
+    "name": "05-desktop-this-week-after.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 1440,
+      "height": 1100
+    },
+    "documentWidth": 1425,
+    "bodyWidth": 1425,
+    "hasHorizontalOverflow": false,
+    "visibleText": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nLook around\nStart your garden\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote\nNotice how long this flush lasts before deadheading.\nJun 26\nCheck the herb bed after afternoon heat\nKitchen Garden · Herb Bed · French Marigold\nCheck\nAdd a note if leaves are still wilting by evening.\nJun 27\nThis season\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLater care\nJun 29\nRefresh mulch on exposed soil\nKitchen Garden · Herb Bed\nIdeas for later\nSet a watering rhythm before the next heat spell\nA steady deep-watering habit prevents stress during summer peaks.\nLater\nAdd one more bed when you need room\nIf this area starts to feel crowded, one clear bed gives future plants a place to go.",
+    "order": {
+      "careThisWeek": 166,
+      "thisSeason": 747,
+      "laterCare": 927,
+      "ideasForLater": 1001
+    },
+    "overflowOffenders": [
+      {
+        "tag": "header",
+        "className": "garden-app-title",
+        "text": "Home gardenThis WeekStart with this week's care. Let the rest wait.Summer",
+        "scrollWidth": 1084,
+        "clientWidth": 1082,
+        "left": 171,
+        "right": 1254,
+        "width": 1082
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 201,
+        "left": 235,
+        "right": 437,
+        "width": 201
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 212,
+        "left": 589,
+        "right": 800,
+        "width": 212
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 211,
+        "left": 942,
+        "right": 1153,
+        "width": 211
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 202,
+        "left": 235,
+        "right": 437,
+        "width": 202
+      }
+    ]
+  },
+  {
+    "name": "06-mobile-this-week-after.png",
+    "href": "http://localhost:3021/sample-garden/calendar",
+    "title": "Garden.io | Know What Your Garden Needs",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "documentWidth": 390,
+    "bodyWidth": 390,
+    "hasHorizontalOverflow": false,
+    "visibleText": "Garden.io\nMy Garden\nThis Week\nMy Plants\nFind Plants\nStart your garden\nHome garden\nStart with this week's care. Let the rest wait.\nSummer\nJune 22–28, 2026\nCare this week\n4 things to do\nWater deeply before the hot afternoon\nKitchen Garden · Container Row · Curry Leaf\nWater\nFocus on containers and newly planted herbs.\nJun 22\nTrim spent sage blooms\nPollinator Edge · Bloom Border · Autumn Sage\nCare\nA light prune should bring the next bloom flush.\nJun 24\nNote bloom duration\nPollinator Edge · Bloom Border · French Marigold\nNote",
+    "order": {
+      "careThisWeek": 154,
+      "thisSeason": -1,
+      "laterCare": -1,
+      "ideasForLater": -1
+    },
+    "overflowOffenders": [
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Container Row · Curry Leaf",
+        "scrollWidth": 368,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 258,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · Autumn Sage",
+        "scrollWidth": 379,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 269,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Pollinator Edge · Bloom Border · French Marigold",
+        "scrollWidth": 419,
+        "clientWidth": 183,
+        "left": 85,
+        "right": 268,
+        "width": 183
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-card__context",
+        "text": "Kitchen Garden · Herb Bed · French Marigold",
+        "scrollWidth": 370,
+        "clientWidth": 173,
+        "left": 85,
+        "right": 259,
+        "width": 173
+      },
+      {
+        "tag": "span",
+        "className": "garden-cal2-upcoming-item__title",
+        "text": "Refresh mulch on exposed soil",
+        "scrollWidth": 171,
+        "clientWidth": 37,
+        "left": 122,
+        "right": 160,
+        "width": 37
+      }
+    ]
+  }
+]

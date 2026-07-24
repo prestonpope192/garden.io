@@ -1,0 +1,76 @@
+[
+  {
+    "overflow": 0,
+    "profile": "desktop",
+    "shortcuts": [
+      {
+        "h": 38,
+        "label": "Choose plants",
+        "tag": "a",
+        "visible": true,
+        "w": 108
+      },
+      {
+        "h": 40,
+        "label": "Go to My Garden",
+        "tag": "a",
+        "visible": true,
+        "w": 95
+      },
+      {
+        "h": 40,
+        "label": "Go to weekly care",
+        "tag": "a",
+        "visible": true,
+        "w": 99
+      },
+      {
+        "h": 40,
+        "label": "Choose plants",
+        "tag": "a",
+        "visible": true,
+        "w": 109
+      }
+    ],
+    "smallTargets": [],
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add a note or photo. Keep what helps for later. What changed in your garden? Add a photo See what helps A little context makes the answer more useful. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "url": "http://127.0.0.1:3021/tour/ask"
+  },
+  {
+    "overflow": 0,
+    "profile": "mobile",
+    "shortcuts": [
+      {
+        "h": 40,
+        "label": "Choose plants",
+        "tag": "a",
+        "visible": true,
+        "w": 72
+      },
+      {
+        "h": 41,
+        "label": "Go to My Garden",
+        "tag": "a",
+        "visible": true,
+        "w": 177
+      },
+      {
+        "h": 41,
+        "label": "Go to weekly care",
+        "tag": "a",
+        "visible": true,
+        "w": 177
+      },
+      {
+        "h": 41,
+        "label": "Choose plants",
+        "tag": "a",
+        "visible": true,
+        "w": 363
+      }
+    ],
+    "smallTargets": [],
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add a note or photo. Keep what helps for later. What changed in your garden? Add a photo See what helps A little context makes the answer more useful. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "url": "http://127.0.0.1:3021/tour/ask"
+  }
+]

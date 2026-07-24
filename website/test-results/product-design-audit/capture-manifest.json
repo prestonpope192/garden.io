@@ -1,0 +1,115 @@
+[
+  {
+    "step": 1,
+    "label": "App preview desktop - Garden Map",
+    "file": "13-app-single-column-garden-map.png",
+    "url": "http://127.0.0.1:3020/app/preview/property",
+    "viewport": "1265x720",
+    "accepted": true,
+    "checks": {
+      "horizontalOverflow": false,
+      "textHasUsdaZone": true
+    }
+  },
+  {
+    "step": 2,
+    "label": "App preview desktop - This Week",
+    "file": "14-app-single-column-this-week.png",
+    "url": "http://127.0.0.1:3020/app/preview/calendar",
+    "viewport": "1265x720",
+    "accepted": true
+  },
+  {
+    "step": 3,
+    "label": "App preview desktop - Plants",
+    "file": "15-app-single-column-plants.png",
+    "url": "http://127.0.0.1:3020/app/preview/plants",
+    "viewport": "1265x720",
+    "accepted": true
+  },
+  {
+    "step": 4,
+    "label": "App preview desktop - Plant Guide",
+    "file": "16-app-single-column-plant-guide.png",
+    "url": "http://127.0.0.1:3020/app/preview/catalogue",
+    "viewport": "1265x720",
+    "accepted": true
+  },
+  {
+    "step": 5,
+    "label": "App preview mobile - Garden Map",
+    "file": "25-app-mobile-garden-map-final.png",
+    "url": "http://127.0.0.1:3020/app/preview/property",
+    "viewport": "390x844",
+    "accepted": true,
+    "checks": {
+      "horizontalOverflow": false,
+      "textHasUsdaZone": true
+    }
+  },
+  {
+    "step": 6,
+    "label": "App preview mobile - This Week",
+    "file": "26-app-mobile-this-week-final.png",
+    "url": "http://127.0.0.1:3020/app/preview/calendar",
+    "viewport": "390x844",
+    "accepted": true,
+    "checks": {
+      "horizontalOverflow": false,
+      "attentionVisible": true,
+      "weekGridVisible": false
+    }
+  },
+  {
+    "step": 7,
+    "label": "App preview mobile - Plants",
+    "file": "27-app-mobile-plants-final.png",
+    "url": "http://127.0.0.1:3020/app/preview/plants",
+    "viewport": "390x844",
+    "accepted": true,
+    "checks": {
+      "horizontalOverflow": false,
+      "firstPlantPhoto": "298x150"
+    }
+  },
+  {
+    "step": 8,
+    "label": "App preview mobile - Plant Guide",
+    "file": "28-app-mobile-plant-guide-final.png",
+    "url": "http://127.0.0.1:3020/app/preview/catalogue",
+    "viewport": "390x844",
+    "accepted": true,
+    "checks": {
+      "horizontalOverflow": false
+    }
+  },
+  {
+    "step": 9,
+    "label": "Public plant detail - care snapshot",
+    "file": "29-plant-detail-care-snapshot.png",
+    "url": "http://127.0.0.1:3020/catalog/autumn-sage",
+    "viewport": "1280x900",
+    "accepted": true,
+    "checks": {
+      "hasCareSnapshot": true,
+      "hasPlantPhotoCard": true,
+      "hasPlate41": false,
+      "horizontalOverflow": false,
+      "imageComplete": true
+    }
+  },
+  {
+    "step": 10,
+    "label": "Auth gate - start or sign in",
+    "file": "30-auth-gate-start-sign-in.png",
+    "url": "http://127.0.0.1:3020/app/my-property",
+    "viewport": "1280x900",
+    "accepted": true,
+    "checks": {
+      "hasBetaText": false,
+      "horizontalOverflow": false,
+      "buttonType": "button",
+      "buttonDisabled": false
+    }
+  }
+]

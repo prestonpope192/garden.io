@@ -1,0 +1,43 @@
+
+> garden-io-website@0.1.0 build
+> next build
+
+▲ Next.js 16.2.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1090ms
+  Running TypeScript ...
+  Finished TypeScript in 2.2s ...
+  Collecting page data using 13 workers ...
+  Generating static pages using 13 workers (0/13) ...
+  Generating static pages using 13 workers (3/13) 
+  Generating static pages using 13 workers (6/13) 
+  Generating static pages using 13 workers (9/13) 
+✓ Generating static pages using 13 workers (13/13) in 113ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/auth/magic-link
+├ ƒ /api/diagnose
+├ ƒ /api/plant-profiles
+├ ƒ /api/weather
+├ ƒ /app
+├ ○ /app/calendar
+├ ○ /app/garden-memory
+├ ○ /app/my-plants
+├ ƒ /app/my-property
+├ ○ /app/plant-catalogue
+├ ƒ /catalog
+├ ƒ /catalog/[slug]
+├ ○ /sample-garden
+└ ƒ /sample-garden/[view]
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

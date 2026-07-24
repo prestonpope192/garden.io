@@ -1,0 +1,32 @@
+{
+  "metrics": {
+    "h1": "Your garden, smarter",
+    "h2s": [],
+    "links": [
+      {
+        "href": "/sample-garden/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/sample-garden/property",
+        "text": "Open garden mapPlants, beds, and saved notes."
+      },
+      {
+        "href": "/sample-garden/calendar",
+        "text": "See this weekThe care that needs attention."
+      },
+      {
+        "href": "/sample-garden/catalogue",
+        "text": "Find plantsChoose what fits your beds."
+      }
+    ],
+    "textLength": 540,
+    "textStart": "Garden.io Start your garden Your garden, smarter YOUR GARDEN, SMARTER 2 areas, 3 beds, 4 growing plants Add a note or photo. Get a next step that knows your plants, beds, and season. Ask about your garden Add photo Get next step Save the answer so future advice remembers what happened. Leaves are yellowing on my tomato. What should I do after heavy rain? Can I plant basil here? What needs attention today? Open garden map Plants, beds, and saved notes. See this week The care that needs attention. Find plants Choose what fits your beds.",
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/sample-garden/ask"
+  }
+}

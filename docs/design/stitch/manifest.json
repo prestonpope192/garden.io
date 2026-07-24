@@ -1,0 +1,331 @@
+{
+  "projectId": "6971513088865518209",
+  "projectTitle": "garden.io",
+  "importedAt": "2026-03-28",
+  "screens": [
+    {
+      "screenId": "b56bc28ba1a247f79ef5efdb5c8aaf7f",
+      "title": "Field Journal - Bed View (South Barn Bed)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-south-barn-bed-v1"
+    },
+    {
+      "screenId": "170f4db1ca624dd48cd27dd62538f13d",
+      "title": "Field Journal - Bed View (Refined)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-refined"
+    },
+    {
+      "screenId": "2143606125826913873",
+      "title": "01-my-property-interface.md",
+      "category": "uploaded-spec",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-01-my-property-interface"
+    },
+    {
+      "screenId": "46cda68ceb9e4526841dd9240249a19d",
+      "title": "Field Journal - Zone View (Refined)",
+      "category": "field-journal-zone",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-zone-refined-v1"
+    },
+    {
+      "screenId": "afea856537a74e0bbfd2e2efd259bf3c",
+      "title": "Field Journal - Bed View (Immersive Spread)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-immersive-spread"
+    },
+    {
+      "screenId": "e0024bec0f164a5988e175484b4403d9",
+      "title": "Field Journal - Property View (Expansive Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-expansive-spread-v1"
+    },
+    {
+      "screenId": "4315639210697077251",
+      "title": "10-database-architecture-postgres.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-10-database-architecture-postgres"
+    },
+    {
+      "screenId": "3c7c030015734ac6982575904902c523",
+      "title": "My Property - Bed View (Journal Style)",
+      "category": "my-property-legacy",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "my-property-bed-journal-style"
+    },
+    {
+      "screenId": "2143606125826913609",
+      "title": "07-style-and-branding.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-07-style-and-branding"
+    },
+    {
+      "screenId": "6510307682b7400ea8bcafe8d113cad9",
+      "title": "My Property - Bed View (Updated Nav)",
+      "category": "my-property-legacy",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "my-property-bed-updated-nav"
+    },
+    {
+      "screenId": "4315639210697079783",
+      "title": "08-user-management-shared-access.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-08-user-management-shared-access"
+    },
+    {
+      "screenId": "4315639210697078219",
+      "title": "05-task-system.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-05-task-system"
+    },
+    {
+      "screenId": "149ae0253bbe46af8a7e91948cef5aa9",
+      "title": "Field Journal - Property View (Immersive Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-immersive-spread"
+    },
+    {
+      "screenId": "e3773dcb848a45c984f5917be0e79b81",
+      "title": "Field Journal - Bed View (Consolidated)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-consolidated-v1"
+    },
+    {
+      "screenId": "e466b32191454b12961e02e173668046",
+      "title": "Plant Catalogue - Herbs Search",
+      "category": "plant-catalogue",
+      "targetRoute": "/app/plant-catalogue",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "plant-catalogue-herbs-search"
+    },
+    {
+      "screenId": "2143606125826915723",
+      "title": "04-plant-catalogue-ux.md",
+      "category": "uploaded-spec",
+      "targetRoute": "/app/plant-catalogue",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-04-plant-catalogue-ux"
+    },
+    {
+      "screenId": "2cd44e446f444184b04da18cad9feebd",
+      "title": "Field Journal - Property View (Refined Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-refined-spread"
+    },
+    {
+      "screenId": "90f513a70d824234845b52e981b046ec",
+      "title": "Calendar - Weekly Planner",
+      "category": "calendar",
+      "targetRoute": "/app/calendar",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "calendar-weekly-planner"
+    },
+    {
+      "screenId": "497228ad06ca45ad9fc865fba6052630",
+      "title": "Field Journal - Property View (Expansive Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-expansive-spread-v2"
+    },
+    {
+      "screenId": "97fa7df20784401487ad1038a3cc5d71",
+      "title": "Field Journal - Property View (Clean Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-clean-spread"
+    },
+    {
+      "screenId": "2bc67bcd6aa44a3384d23de969740998",
+      "title": "Field Journal - Bed View (Refined Journal Style)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-refined-journal-style"
+    },
+    {
+      "screenId": "4cc73c3e8caa4861ab3431dc74ea6f1a",
+      "title": "Field Journal - Bed View (South Barn Bed)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-south-barn-bed-v2"
+    },
+    {
+      "screenId": "cfd8a02c460b47a6b2dd2e9a052eee40",
+      "title": "Field Journal - Bed View (Desk Spread)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-desk-spread"
+    },
+    {
+      "screenId": "28d5c4c698c94ee1831b4c8a7e744113",
+      "title": "Field Journal - Zone View (Orchard)",
+      "category": "field-journal-zone",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-zone-orchard"
+    },
+    {
+      "screenId": "2143606125826915855",
+      "title": "02-calendar-design.md",
+      "category": "uploaded-spec",
+      "targetRoute": "/app/calendar",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-02-calendar-design"
+    },
+    {
+      "screenId": "9d1cb4b362bb48a9a8401c2feef19059",
+      "title": "Field Journal - Property View (Archival Spread)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-archival-spread"
+    },
+    {
+      "screenId": "1422280804f84c069fe6ab0bbd30f06b",
+      "title": "Field Journal - Property View (Refined)",
+      "category": "field-journal-property",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-property-refined"
+    },
+    {
+      "screenId": "4315639210697079001",
+      "title": "06-ai-suggestion-system.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-06-ai-suggestion-system"
+    },
+    {
+      "screenId": "db01230c945c435c882b7e4eb2d7aba5",
+      "title": "My Property - Property View (Updated Nav)",
+      "category": "my-property-legacy",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "my-property-property-updated-nav"
+    },
+    {
+      "screenId": "aef3e08d5f4b4fab9eb64065a935764c",
+      "title": "Field Journal - Bed View (Consolidated)",
+      "category": "field-journal-bed",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-bed-consolidated-v2"
+    },
+    {
+      "screenId": "ba1b0a2afe7847e08902f2f5dc7c73e9",
+      "title": "Plant Catalogue (Updated Nav)",
+      "category": "plant-catalogue",
+      "targetRoute": "/app/plant-catalogue",
+      "referenceRole": "primary",
+      "implementationTarget": true,
+      "rawBaseName": "plant-catalogue-updated-nav"
+    },
+    {
+      "screenId": "20b64d00272c4c74a2147508bf985c41",
+      "title": "My Property - Property View (Journal Style)",
+      "category": "my-property-legacy",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "my-property-property-journal-style"
+    },
+    {
+      "screenId": "4315639210697080565",
+      "title": "09-system-architecture-overview.md",
+      "category": "uploaded-spec",
+      "targetRoute": "",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-09-system-architecture-overview"
+    },
+    {
+      "screenId": "12682466698628019588",
+      "title": "image.png",
+      "category": "uploaded-asset",
+      "targetRoute": "",
+      "referenceRole": "asset",
+      "implementationTarget": false,
+      "rawBaseName": "uploaded-image"
+    },
+    {
+      "screenId": "de721064939a4194bc2d28ed51aa5d42",
+      "title": "Field Journal - Zone View (Refined)",
+      "category": "field-journal-zone",
+      "targetRoute": "/app/my-property",
+      "referenceRole": "supporting",
+      "implementationTarget": true,
+      "rawBaseName": "field-journal-zone-refined-v2"
+    },
+    {
+      "screenId": "2143606125826913741",
+      "title": "03-my-plants.md",
+      "category": "uploaded-spec",
+      "targetRoute": "/app/my-plants",
+      "referenceRole": "spec",
+      "implementationTarget": false,
+      "rawBaseName": "spec-03-my-plants"
+    }
+  ]
+}

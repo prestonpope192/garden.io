@@ -1,0 +1,34 @@
+{
+  "mobile": {
+    "hasFirstToday": true,
+    "hasComingUp": true,
+    "firstBeforeComing": true,
+    "featuredTaskTitle": "Water deeply before the hot afternoon",
+    "attentionCardTitles": [
+      "Water deeply before the hot afternoon",
+      "Harvest cilantro before afternoon heat",
+      "Note bloom duration",
+      "Check the herb bed after afternoon heat"
+    ],
+    "horizontalOverflow": false,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "visibleTextHead": "Garden.io\nAsk\nStart\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nFIRST TODAY\nWater deeply before the hot afternoon\nCucumber in Container Row, Kitchen Garden\nWATER\nJun 23\nCOMING UP\n3 later this week\nHarvest cilantro before afternoon heat\nCilantro in Herb Bed, Kitchen Garden\nNote bloom duration\nCalendula in Bloom Border, Pollinator Edge\nCheck the herb bed after afternoon heat\nCalendula in Herb Bed, Kitchen Garden\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 30\nRefresh mulch on exposed soil\nHerb Bed in Kitchen Garden\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat spell\n\nA steady deep-watering habit prevents stress during summer peaks"
+  },
+  "desktop": {
+    "hasFirstToday": true,
+    "hasComingUp": true,
+    "firstBeforeComing": true,
+    "featuredTaskTitle": "Water deeply before the hot afternoon",
+    "attentionCardTitles": [
+      "Water deeply before the hot afternoon",
+      "Harvest cilantro before afternoon heat",
+      "Note bloom duration",
+      "Check the herb bed after afternoon heat"
+    ],
+    "horizontalOverflow": false,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "visibleTextHead": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nFIRST TODAY\nWater deeply before the hot afternoon\nCucumber in Container Row, Kitchen Garden\nWATER\n\nFocus on the cucumber container and newly planted herbs.\n\nJun 23\nCOMING UP\n3 later this week\nHarvest cilantro before afternoon heat\nCilantro in Herb Bed, Kitchen Garden\nNote bloom duration\nCalendula in Bloom Border, Pollinator Edge\nCheck the herb bed after afternoon heat\nCalendula in Herb Bed, Kitchen Garden\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 30\nRefresh mulch on exposed soil\nHerb Bed in Kitchen Garden\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat "
+  }
+}

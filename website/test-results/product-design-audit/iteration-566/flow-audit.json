@@ -1,0 +1,1264 @@
+[
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 1887
+      },
+      {
+        "aria": null,
+        "cls": "cover-sheet home-hero",
+        "h": 629,
+        "id": "top",
+        "role": null,
+        "tag": "section",
+        "text": "Your garden, smarter.Note what changed. Ask what it means. Remember what worked.Start your gardenTour a garden journalSt",
+        "w": 1240,
+        "x": 13,
+        "y": 100
+      },
+      {
+        "aria": null,
+        "cls": "site site--marketing",
+        "h": 1887,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioChoose plantsYour garden, smarter.Note what changed. Ask what it means. Remember what worked.Start your gardenT",
+        "w": 1240,
+        "x": 13,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 1887,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioChoose plantsYour garden, smarter.Note what changed. Ask what it means. Remember what worked.Start your gardenT",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 1887,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "#top",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 31,
+        "y": 32
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": "#plants",
+        "label": "Choose plants",
+        "tag": "a",
+        "w": 87,
+        "x": 144,
+        "y": 37
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 138,
+        "x": 47,
+        "y": 359
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 46,
+        "href": "/tour",
+        "label": "Tour a garden journal",
+        "tag": "a",
+        "w": 165,
+        "x": 197,
+        "y": 359
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 387,
+        "href": "/catalog/apple",
+        "label": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning",
+        "tag": "a",
+        "w": 403,
+        "x": 13,
+        "y": 1368
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 387,
+        "href": "/catalog/borage",
+        "label": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees.",
+        "tag": "a",
+        "w": 403,
+        "x": 431,
+        "y": 1368
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 387,
+        "href": "/catalog/bouquet-dill",
+        "label": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form.",
+        "tag": "a",
+        "w": 403,
+        "x": 850,
+        "y": 1368
+      }
+    ],
+    "focusableCount": 7,
+    "h1": "Your garden, smarter.",
+    "overflowX": 0,
+    "pathname": "/",
+    "smallTargets": [
+      "[Circular]"
+    ],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 894
+      },
+      {
+        "aria": null,
+        "cls": "garden-app-shell garden-app-shell--ai",
+        "h": 894,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenToday4 plants in 3 bedsYour garden, smarter.A",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 894,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenToday4 plants in 3 bedsYour garden, smarter.A",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 894,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "/tour/ask",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 32,
+        "y": 18
+      },
+      {
+        "aria": null,
+        "current": "page",
+        "h": 38,
+        "href": "/tour/ask",
+        "label": "Today",
+        "tag": "a",
+        "w": 62,
+        "x": 366,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/property",
+        "label": "My Garden",
+        "tag": "a",
+        "w": 94,
+        "x": 440,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/calendar",
+        "label": "Weekly care",
+        "tag": "a",
+        "w": 98,
+        "x": 547,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/plants",
+        "label": "Plant Journal",
+        "tag": "a",
+        "w": 104,
+        "x": 658,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/catalogue",
+        "label": "Field Guide",
+        "tag": "a",
+        "w": 96,
+        "x": 775,
+        "y": 17
+      },
+      {
+        "aria": "Start your garden",
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 127,
+        "x": 1106,
+        "y": 13
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 208,
+        "href": null,
+        "label": "Yellow leaves, new spots, heavy rain...",
+        "tag": "textarea",
+        "w": 709,
+        "x": 278,
+        "y": 381
+      },
+      {
+        "aria": "Add a photo",
+        "current": null,
+        "h": 1,
+        "href": null,
+        "label": "Add a photo",
+        "tag": "input",
+        "w": 1,
+        "x": 555,
+        "y": 628
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 48,
+        "href": null,
+        "label": "Leaves are yellowing",
+        "tag": "button",
+        "w": 149,
+        "x": 477,
+        "y": 701
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 48,
+        "href": null,
+        "label": "Heavy rain last night",
+        "tag": "button",
+        "w": 153,
+        "x": 635,
+        "y": 701
+      },
+      {
+        "aria": "Go to My Garden",
+        "current": null,
+        "h": 34,
+        "href": "/tour/property",
+        "label": "Go to My Garden",
+        "tag": "a",
+        "w": 93,
+        "x": 477,
+        "y": 764
+      },
+      {
+        "aria": "Go to weekly care",
+        "current": null,
+        "h": 34,
+        "href": "/tour/calendar",
+        "label": "Go to weekly care",
+        "tag": "a",
+        "w": 97,
+        "x": 577,
+        "y": 764
+      },
+      {
+        "aria": "Choose plants",
+        "current": null,
+        "h": 34,
+        "href": "/tour/catalogue",
+        "label": "Choose plants",
+        "tag": "a",
+        "w": 107,
+        "x": 681,
+        "y": 764
+      }
+    ],
+    "focusableCount": 14,
+    "h1": "Your garden, smarter.",
+    "overflowX": 0,
+    "pathname": "/tour/ask",
+    "smallTargets": [
+      "[Circular]"
+    ],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": true,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 720
+      },
+      {
+        "aria": null,
+        "cls": "garden-app-shell ",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedThis ",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedThis ",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "/tour/ask",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 32,
+        "y": 18
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/ask",
+        "label": "Today",
+        "tag": "a",
+        "w": 62,
+        "x": 373,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/property",
+        "label": "My Garden",
+        "tag": "a",
+        "w": 94,
+        "x": 448,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": "page",
+        "h": 38,
+        "href": "/tour/calendar",
+        "label": "Weekly care",
+        "tag": "a",
+        "w": 98,
+        "x": 554,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/plants",
+        "label": "Plant Journal",
+        "tag": "a",
+        "w": 104,
+        "x": 666,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/catalogue",
+        "label": "Field Guide",
+        "tag": "a",
+        "w": 96,
+        "x": 783,
+        "y": 17
+      },
+      {
+        "aria": "Start your garden",
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 127,
+        "x": 1121,
+        "y": 13
+      }
+    ],
+    "focusableCount": 7,
+    "h1": "Weekly care",
+    "overflowX": 0,
+    "pathname": "/tour/calendar",
+    "smallTargets": [],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": true
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 720
+      },
+      {
+        "aria": null,
+        "cls": "garden-app-shell ",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedWhere",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedWhere",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 720,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1280,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "/tour/ask",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 32,
+        "y": 18
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/ask",
+        "label": "Today",
+        "tag": "a",
+        "w": 62,
+        "x": 373,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": "page",
+        "h": 38,
+        "href": "/tour/property",
+        "label": "My Garden",
+        "tag": "a",
+        "w": 94,
+        "x": 448,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/calendar",
+        "label": "Weekly care",
+        "tag": "a",
+        "w": 98,
+        "x": 554,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/plants",
+        "label": "Plant Journal",
+        "tag": "a",
+        "w": 104,
+        "x": 666,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/catalogue",
+        "label": "Field Guide",
+        "tag": "a",
+        "w": 96,
+        "x": 783,
+        "y": 17
+      },
+      {
+        "aria": "Start your garden",
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 127,
+        "x": 1121,
+        "y": 13
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 28,
+        "href": null,
+        "label": "Kitchen Garden2 beds",
+        "tag": "button",
+        "w": 307,
+        "x": 116,
+        "y": 388
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": null,
+        "label": "Herb Bed2",
+        "tag": "button",
+        "w": 283,
+        "x": 128,
+        "y": 469
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 24,
+        "href": null,
+        "label": "Bouquet Dill ·4",
+        "tag": "button",
+        "w": 94,
+        "x": 128,
+        "y": 502
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 24,
+        "href": null,
+        "label": "Borage ·2",
+        "tag": "button",
+        "w": 64,
+        "x": 227,
+        "y": 502
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": null,
+        "label": "Container Row1",
+        "tag": "button",
+        "w": 283,
+        "x": 128,
+        "y": 559
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 24,
+        "href": null,
+        "label": "Bell Pepper",
+        "tag": "button",
+        "w": 73,
+        "x": 128,
+        "y": 592
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 28,
+        "href": null,
+        "label": "Pollinator Edge1 bed",
+        "tag": "button",
+        "w": 307,
+        "x": 473,
+        "y": 388
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": null,
+        "label": "Bloom Border1",
+        "tag": "button",
+        "w": 283,
+        "x": 485,
+        "y": 469
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 24,
+        "href": null,
+        "label": "Borage ·6",
+        "tag": "button",
+        "w": 64,
+        "x": 485,
+        "y": 502
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 46,
+        "href": null,
+        "label": "View Bell Pepper notes",
+        "tag": "button",
+        "w": 172,
+        "x": 838,
+        "y": 531
+      }
+    ],
+    "focusableCount": 17,
+    "h1": "My Garden",
+    "overflowX": 0,
+    "pathname": "/tour/property",
+    "smallTargets": [
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]"
+    ],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 1108
+      },
+      {
+        "aria": null,
+        "cls": "garden-app-shell ",
+        "h": 1108,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedYour ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 1108,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedYour ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 1108,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "/tour/ask",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 32,
+        "y": 18
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/ask",
+        "label": "Today",
+        "tag": "a",
+        "w": 62,
+        "x": 366,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/property",
+        "label": "My Garden",
+        "tag": "a",
+        "w": 94,
+        "x": 440,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/calendar",
+        "label": "Weekly care",
+        "tag": "a",
+        "w": 98,
+        "x": 547,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": "page",
+        "h": 38,
+        "href": "/tour/plants",
+        "label": "Plant Journal",
+        "tag": "a",
+        "w": 104,
+        "x": 658,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/catalogue",
+        "label": "Field Guide",
+        "tag": "a",
+        "w": 96,
+        "x": 775,
+        "y": 17
+      },
+      {
+        "aria": "Start your garden",
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 127,
+        "x": 1106,
+        "y": 13
+      },
+      {
+        "aria": "Search plants by name, bed, or place",
+        "current": null,
+        "h": 27,
+        "href": null,
+        "label": "Search plants by name, bed, or place",
+        "tag": "input",
+        "w": 646,
+        "x": 135,
+        "y": 263
+      },
+      {
+        "aria": "Select Bell Pepper",
+        "current": null,
+        "h": 96,
+        "href": null,
+        "label": "Select Bell Pepper",
+        "tag": "button",
+        "w": 96,
+        "x": 108,
+        "y": 334
+      },
+      {
+        "aria": "Select Bouquet Dill",
+        "current": null,
+        "h": 96,
+        "href": null,
+        "label": "Select Bouquet Dill",
+        "tag": "button",
+        "w": 96,
+        "x": 108,
+        "y": 524
+      },
+      {
+        "aria": "Select Borage",
+        "current": null,
+        "h": 96,
+        "href": null,
+        "label": "Select Borage",
+        "tag": "button",
+        "w": 96,
+        "x": 108,
+        "y": 713
+      },
+      {
+        "aria": "Select Borage",
+        "current": null,
+        "h": 96,
+        "href": null,
+        "label": "Select Borage",
+        "tag": "button",
+        "w": 96,
+        "x": 108,
+        "y": 903
+      }
+    ],
+    "focusableCount": 12,
+    "h1": "Plant Journal",
+    "overflowX": 0,
+    "pathname": "/tour/plants",
+    "smallTargets": [
+      "[Circular]"
+    ],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 938
+      },
+      {
+        "aria": null,
+        "cls": "garden-app-shell ",
+        "h": 938,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedFor y",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 938,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Garden.ioTodayMy GardenWeekly carePlant JournalField GuideStart your gardenKitchen Garden2 bedsPollinator Edge1 bedFor y",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 938,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 35,
+        "href": "/tour/ask",
+        "label": "Garden.io",
+        "tag": "a",
+        "w": 99,
+        "x": 32,
+        "y": 18
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/ask",
+        "label": "Today",
+        "tag": "a",
+        "w": 62,
+        "x": 366,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/property",
+        "label": "My Garden",
+        "tag": "a",
+        "w": 94,
+        "x": 440,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/calendar",
+        "label": "Weekly care",
+        "tag": "a",
+        "w": 98,
+        "x": 547,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 38,
+        "href": "/tour/plants",
+        "label": "Plant Journal",
+        "tag": "a",
+        "w": 104,
+        "x": 658,
+        "y": 17
+      },
+      {
+        "aria": null,
+        "current": "page",
+        "h": 38,
+        "href": "/tour/catalogue",
+        "label": "Field Guide",
+        "tag": "a",
+        "w": 96,
+        "x": 775,
+        "y": 17
+      },
+      {
+        "aria": "Start your garden",
+        "current": null,
+        "h": 46,
+        "href": "/app/my-property",
+        "label": "Start your garden",
+        "tag": "a",
+        "w": 127,
+        "x": 1106,
+        "y": 13
+      }
+    ],
+    "focusableCount": 7,
+    "h1": "Field Guide",
+    "overflowX": 0,
+    "pathname": "/tour/catalogue",
+    "smallTargets": [],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  },
+  {
+    "bottomLeft": [
+      {
+        "aria": null,
+        "cls": "",
+        "h": 0,
+        "id": "",
+        "role": null,
+        "tag": "nextjs-portal",
+        "text": "",
+        "w": 0,
+        "x": 0,
+        "y": 742
+      },
+      {
+        "aria": null,
+        "cls": "garden-auth",
+        "h": 742,
+        "id": "",
+        "role": null,
+        "tag": "main",
+        "text": "Start your gardenYour garden, smarter.Remember what you planted, what changed, and what helped in one calm garden notebo",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "eb_garamond_aac81e66-module__4VfoAq__variable ibarra_real_nova_89796130-module__26kdTG__variable caveat_6007892d-module__zXC9sG__variable",
+        "h": 742,
+        "id": "",
+        "role": null,
+        "tag": "body",
+        "text": "Start your gardenYour garden, smarter.Remember what you planted, what changed, and what helped in one calm garden notebo",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "aria": null,
+        "cls": "",
+        "h": 742,
+        "id": "",
+        "role": null,
+        "tag": "html",
+        "text": "Garden.io | Your Garden, Smarter@font-face{font-family:'__nextjs-Geist';font-style:normal;font-weight:400 600;font-displ",
+        "w": 1265,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "fixed": [],
+    "focusable": [
+      {
+        "aria": null,
+        "current": null,
+        "h": 53,
+        "href": null,
+        "label": "you@example.com",
+        "tag": "input",
+        "w": 441,
+        "x": 412,
+        "y": 497
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 48,
+        "href": null,
+        "label": "Email me a start link",
+        "tag": "button",
+        "w": 441,
+        "x": 412,
+        "y": 562
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": "/tour",
+        "label": "Tour a garden journal",
+        "tag": "a",
+        "w": 144,
+        "x": 412,
+        "y": 626
+      },
+      {
+        "aria": null,
+        "current": null,
+        "h": 25,
+        "href": "/catalog",
+        "label": "Choose plants",
+        "tag": "a",
+        "w": 93,
+        "x": 572,
+        "y": 626
+      }
+    ],
+    "focusableCount": 4,
+    "h1": "Your garden, smarter.",
+    "overflowX": 0,
+    "pathname": "/app/my-property",
+    "smallTargets": [
+      "[Circular]",
+      "[Circular]"
+    ],
+    "textFlags": {
+      "beta": false,
+      "careNotesThisWeek": false,
+      "newAskLead": false,
+      "oldAskLead": false,
+      "productSpeak": false,
+      "thingsNeedCare": false
+    },
+    "title": "Garden.io | Your Garden, Smarter"
+  }
+]

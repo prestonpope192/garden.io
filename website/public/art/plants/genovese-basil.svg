@@ -1,0 +1,64 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main upright square stem -->
+  <path d="M 320 550 Q 318 480 320 380 Q 322 280 325 180" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Leaf pair 1 (lower, left and right) -->
+  <path d="M 305 480 Q 270 465 250 490 Q 275 510 305 500 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.45"/>
+  <path d="M 280 485 Q 290 500" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 275 495 Q 288 505" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <path d="M 335 480 Q 370 465 390 490 Q 365 510 335 500 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.45"/>
+  <path d="M 360 485 Q 350 500" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 365 495 Q 352 505" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Leaf pair 2 (middle, left and right) -->
+  <path d="M 305 360 Q 270 345 250 370 Q 275 390 305 380 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.48"/>
+  <path d="M 280 365 Q 290 380" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 275 375 Q 288 385" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <path d="M 335 360 Q 370 345 390 370 Q 365 390 335 380 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.48"/>
+  <path d="M 360 365 Q 350 380" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 365 375 Q 352 385" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Leaf pair 3 (upper, left and right) -->
+  <path d="M 310 260 Q 280 245 265 270 Q 285 290 310 280 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.45"/>
+  <path d="M 285 265 Q 295 280" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 280 275 Q 293 285" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <path d="M 330 260 Q 360 245 375 270 Q 355 290 330 280 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.45"/>
+  <path d="M 355 265 Q 345 280" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <path d="M 360 275 Q 347 285" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+
+  <!-- Small flower spike at tip (upright, multiple tiny flowers) -->
+  <path d="M 325 170 Q 328 150 330 120" stroke="#6C5A3A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Tiny flower 1 -->
+  <circle cx="328" cy="145" r="4" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="2"/>
+  <!-- Tiny flower 2 -->
+  <circle cx="332" cy="130" r="4" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="2"/>
+  <!-- Tiny flower 3 -->
+  <circle cx="330" cy="115" r="4" fill="#D3BF98" fill-opacity="0.5" stroke="#7D6740" stroke-width="2"/>
+  <!-- Tiny flower 4 -->
+  <circle cx="326" cy="105" r="3.5" fill="#D3BF98" fill-opacity="0.45" stroke="#7D6740" stroke-width="2"/>
+
+  <!-- Annotation lines and labels -->
+  <!-- Cupped leaf pair annotation -->
+  <path d="M 335 360 L 480 300" stroke="#A78545" stroke-width="3" fill="none"/>
+  <text x="485" y="315" font-family="serif" font-size="24" fill="#7D6740">cupped leaf pair</text>
+
+  <!-- Pinch point annotation -->
+  <path d="M 325 160 L 480 140" stroke="#A78545" stroke-width="3" fill="none"/>
+  <text x="485" y="155" font-family="serif" font-size="24" fill="#7D6740">pinch point</text>
+
+  <!-- Caption divider lines -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Ocimum basilicum 'Genovese'</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 110 · Genovese Basil study</text>
+</svg>

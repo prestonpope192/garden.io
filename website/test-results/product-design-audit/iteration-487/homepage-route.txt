@@ -1,0 +1,5 @@
+FOUND: Add what changed while it is fresh, with the right plant or bed.
+FOUND: Keep the helpful note with the right plant or bed.
+MISSING: Add what changed while it is fresh, with the plant or bed it belongs to.
+MISSING: Keep the helpful note with the plant or bed it belongs to.
+FOUND: Your garden, smarter.

@@ -1,0 +1,117 @@
+[
+  {
+    "h1": "Plant Journal",
+    "headerHeight": 73,
+    "nav": [
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "active": true,
+        "current": "page",
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/catalogue",
+        "text": "Field Guide"
+      }
+    ],
+    "overflow": 0,
+    "pathname": "/tour/plants"
+  },
+  {
+    "h1": "Weekly care",
+    "headerHeight": 73,
+    "nav": [
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "active": true,
+        "current": "page",
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "active": false,
+        "current": null,
+        "href": "/tour/catalogue",
+        "text": "Field Guide"
+      }
+    ],
+    "overflow": 0,
+    "pathname": "/tour/calendar"
+  },
+  {
+    "mobile": true,
+    "h1": "Plant Journal",
+    "headerHeight": 88,
+    "nav": [
+      {
+        "current": null,
+        "height": 32,
+        "text": "Today",
+        "width": 69
+      },
+      {
+        "current": null,
+        "height": 32,
+        "text": "My Garden",
+        "width": 69
+      },
+      {
+        "current": null,
+        "height": 32,
+        "text": "Weekly care",
+        "width": 69
+      },
+      {
+        "current": "page",
+        "height": 32,
+        "text": "Plant Journal",
+        "width": 69
+      },
+      {
+        "current": null,
+        "height": 32,
+        "text": "Field Guide",
+        "width": 69
+      }
+    ],
+    "overflow": 0,
+    "pathname": "/tour/plants"
+  }
+]

@@ -909,31 +909,6 @@ create table if not exists catalog.plant_growth_profiles (
   check (mature_width_min_in is null or mature_width_max_in is null or mature_width_min_in <= mature_width_max_in)
 );
 
-create table if not exists catalog.plant_propagation_profiles (
-  id uuid primary key default gen_random_uuid(),
-  plant_profile_id uuid not null unique references catalog.plant_profiles(id) on delete cascade,
-  proliferation_behavior text,
-  self_seeds boolean,
-  reseeding_intensity smallint check (reseeding_intensity between 0 and 10),
-  spreads_by_runners boolean,
-  spreads_by_rhizomes boolean,
-  division_possible boolean,
-  cutting_possible boolean,
-  grafted_common boolean,
-  seed_viability_duration_months int,
-  germination_days_min int,
-  germination_days_max int,
-  cold_stratification_required boolean,
-  scarification_required boolean,
-  rooting_hormone_helpful boolean,
-  transplant_shock_risk_code text references catalog.tolerance_levels(code),
-  establishment_difficulty smallint check (establishment_difficulty between 0 and 10),
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now(),
-  version int not null default 1,
-  check (germination_days_min is null or germination_days_max is null or germination_days_min <= germination_days_max)
-);
-
 create table if not exists catalog.plant_propagation_methods (
   id uuid primary key default gen_random_uuid(),
   plant_profile_id uuid not null references catalog.plant_profiles(id) on delete cascade,
@@ -944,10 +919,30 @@ create table if not exists catalog.plant_propagation_methods (
   depth_max_in numeric(8,2),
   spacing_min_in numeric(8,2),
   spacing_max_in numeric(8,2),
+  proliferation_behavior text,
+  self_seeds boolean,
+  reseeding_intensity smallint check (reseeding_intensity between 0 and 10),
+  spreads_by_runners boolean,
+  spreads_by_rhizomes boolean,
+  grafted_common boolean,
+  seed_viability_duration_months int,
+  germination_days_min int,
+  germination_days_max int,
+  cold_stratification_required boolean,
+  scarification_required boolean,
+  rooting_hormone_helpful boolean,
+  transplant_shock_risk_code text references catalog.tolerance_levels(code),
+  establishment_difficulty smallint check (establishment_difficulty between 0 and 10),
   notes text,
   created_at timestamptz not null default now(),
-  unique (plant_profile_id, planting_method_code)
+  updated_at timestamptz not null default now(),
+  version int not null default 1,
+  unique (plant_profile_id, planting_method_code),
+  check (germination_days_min is null or germination_days_max is null or germination_days_min <= germination_days_max)
 );
+
+create index if not exists idx_plant_propagation_methods_profile_preferred
+  on catalog.plant_propagation_methods(plant_profile_id, is_preferred desc, planting_method_code);
 
 create table if not exists catalog.plant_flowering_profiles (
   id uuid primary key default gen_random_uuid(),
@@ -1024,6 +1019,9 @@ create table if not exists catalog.plant_soil_profiles (
   mulch_preference text,
   mulch_depth_preference_in numeric(5,2),
   waterlogging_sensitivity_code text references catalog.tolerance_levels(code),
+  texture_preferences jsonb not null default '{}'::jsonb check (jsonb_typeof(texture_preferences) = 'object'),
+  preferred_soil_texture_codes text[] not null default '{}',
+  soil_texture_summary text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   version int not null default 1,
@@ -1031,14 +1029,11 @@ create table if not exists catalog.plant_soil_profiles (
   check (ph_ideal_min is null or ph_ideal_max is null or ph_ideal_min <= ph_ideal_max)
 );
 
-create table if not exists catalog.plant_soil_texture_preferences (
-  id uuid primary key default gen_random_uuid(),
-  plant_profile_id uuid not null references catalog.plant_profiles(id) on delete cascade,
-  soil_type_code text not null references catalog.soil_types(code),
-  preference_level smallint not null default 5 check (preference_level between 0 and 10),
-  created_at timestamptz not null default now(),
-  unique (plant_profile_id, soil_type_code)
-);
+create index if not exists idx_plant_soil_profiles_texture_preferences
+  on catalog.plant_soil_profiles using gin (texture_preferences);
+
+create index if not exists idx_plant_soil_profiles_texture_codes
+  on catalog.plant_soil_profiles using gin (preferred_soil_texture_codes);
 
 create table if not exists catalog.plant_water_profiles (
   id uuid primary key default gen_random_uuid(),

@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><title>plates2</title>
+<style>body{margin:0;background:#222;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+figure{margin:0}img{width:100%;display:block}figcaption{color:#eee;font:11px monospace;text-align:center}</style>
+<body>
+<script>
+const slugs=["bee-balm","raspberry","blackberry","jerusalem-artichoke-sunchoke","pawpaw-mango","pecan","hellebores","beautyberry"];
+document.body.innerHTML = slugs.map(s=>`<figure><img src="/art/plants/${s}.svg"><figcaption>${s}</figcaption></figure>`).join("");
+</script>

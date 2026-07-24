@@ -3,3 +3,10 @@ node_modules
 .env.local
 coverage
 .vercel
+
+*.tsbuildinfo
+
+# Local browser and visual QA artifacts.
+/test-results/
+/playwright-report/
+/blob-report/

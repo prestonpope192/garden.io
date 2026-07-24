@@ -1,0 +1,10 @@
+{
+  "route": "/sample-garden/ask",
+  "viewport": {
+    "innerWidth": 390,
+    "innerHeight": 844
+  },
+  "documentElementScrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "overflowingElements": []
+}

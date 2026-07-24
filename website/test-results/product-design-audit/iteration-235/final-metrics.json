@@ -1,0 +1,50 @@
+[
+  {
+    "file": "03-find-plants-mobile-final.png",
+    "path": "/sample-garden/catalogue",
+    "metrics": {
+      "h1": "Find Plants",
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nFind Plant \n\nChoo e plant  that fit your bed .\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nBEST SPOT\nSunny border  where long bloom  can  upport pollinator .\nLIGHT\nFull Sun\nWATER\nLow\n\nA tough perennial  age with long bloom window  in warm garden .\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nBEST SPOT\nWarm container  near the kitchen for quick harve t .\nLIGHT\nBright Light\nWATER\nModerate\n\nA container-friendly culinary plant that benefit  from  teady warmth.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagete  patula\n\nBEST SPOT\nEdge  near vegetable  where pollinator  and companion flower  help.\nLIGHT\nFull Sun\nWATER\nModerate\n\nA compact flower for pollinator edge  and companion planting.",
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "firstLabels": [
+        "Best spot",
+        "Light",
+        "Water"
+      ],
+      "firstValues": [
+        "Sunny borders where long blooms can support pollinators.",
+        "Full Sun",
+        "Low"
+      ],
+      "bestSpotBeforeLight": true,
+      "hasNotListed": false,
+      "overflowing": []
+    }
+  },
+  {
+    "file": "04-find-plants-desktop-final.png",
+    "path": "/sample-garden/catalogue",
+    "metrics": {
+      "h1": "Find Plants",
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nLook around\nStart\nHOME GARDEN\nFind Plant \n\nChoo e plant  that fit your bed .\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nBEST SPOT\nSunny border  where long bloom  can  upport pollinator .\nLIGHT\nFull Sun\nWATER\nLow\n\nA tough perennial  age with long bloom window  in warm garden .\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nBEST SPOT\nWarm container  near the kitchen for quick harve t .\nLIGHT\nBright Light\nWATER\nModerate\n\nA container-friendly culinary plant that benefit  from  teady warmth.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagete  patula\n\nBEST SPOT\nEdge  near vegetable  where pollinator  and companion flower  help.\nLIGHT\nFull Sun\nWATER\nModerate\n\nA compact flower for pollinator edge  and companion planting.",
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "firstLabels": [
+        "Best spot",
+        "Light",
+        "Water"
+      ],
+      "firstValues": [
+        "Sunny borders where long blooms can support pollinators.",
+        "Full Sun",
+        "Low"
+      ],
+      "bestSpotBeforeLight": true,
+      "hasNotListed": false,
+      "overflowing": []
+    }
+  }
+]

@@ -1,0 +1,1355 @@
+[
+  {
+    "route": "home",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#top",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "#plants",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 138
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 165
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/apple",
+        "tag": "a",
+        "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year",
+        "visible": true,
+        "width": 405
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/borage",
+        "tag": "a",
+        "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and broug",
+        "visible": true,
+        "width": 405
+      },
+      {
+        "disabled": false,
+        "height": 387,
+        "href": "/catalog/bouquet-dill",
+        "tag": "a",
+        "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let se",
+        "visible": true,
+        "width": 405
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]"
+    ],
+    "headings": [
+      "Your garden, smarter.",
+      "A garden notebook that can answer back.",
+      "Each plant keeps its own story."
+    ],
+    "images": [
+      {
+        "alt": "Apple journal-style plant image.",
+        "complete": true,
+        "height": 553,
+        "naturalHeight": 292,
+        "naturalWidth": 232,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=3840&q=75",
+        "width": 446
+      },
+      {
+        "alt": "Apple journal-style plant image.",
+        "complete": true,
+        "height": 230,
+        "naturalHeight": 292,
+        "naturalWidth": 232,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fapple.jpg&w=1920&q=75",
+        "width": 379
+      },
+      {
+        "alt": "Borage journal-style plant image.",
+        "complete": true,
+        "height": 230,
+        "naturalHeight": 1024,
+        "naturalWidth": 640,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=1920&q=75",
+        "width": 379
+      },
+      {
+        "alt": "Bouquet Dill journal-style plant image.",
+        "complete": true,
+        "height": 230,
+        "naturalHeight": 1079,
+        "naturalWidth": 640,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=1920&q=75",
+        "width": 379
+      }
+    ],
+    "links": [
+      {
+        "href": "#top",
+        "text": "Garden.io"
+      },
+      {
+        "href": "#plants",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/tour",
+        "text": "Tour a garden journal"
+      },
+      {
+        "href": "/catalog/apple",
+        "text": "AppleBloom, prune, harvestCompare this year's bloom and harvest before next year's pruning."
+      },
+      {
+        "href": "/catalog/borage",
+        "text": "BoragePollinators and reseedingRemember where it bloomed, self-seeded, and brought bees."
+      },
+      {
+        "href": "/catalog/bouquet-dill",
+        "text": "Bouquet DillCuttings and seed headsKnow when to sow again, cut stems, and let seed form."
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Choose plants",
+      "Your garden, smarter.",
+      "Track changes. Ask what they mean. Keep answers with each plant.",
+      "Start your garden",
+      "Tour a garden journal",
+      "Start with one plant today. Add more only when the garden gives you a reason.",
+      "APPLE",
+      "First bloom",
+      "Apr. 12. Compare fruit set and harvest later.",
+      "SIMPLE HABIT",
+      "A garden notebook that can answer back.",
+      "Add what you notice now. Use it when you water, prune, replant, or ask for help.",
+      "Remember the details",
+      "Bloom dates, pests, weather, and harvests stay with the plant.",
+      "Ask with the full story",
+      "A note or photo can include the plant, place, season, and past notes.",
+      "Keep what helps",
+      "Useful answers can become weekly care or stay in the plant journal.",
+      "YOUR PLANTS",
+      "Each plant keeps its own story.",
+      "The image is the cover. The useful part is the growing history you keep with it.",
+      "APPLE",
+      "Bloom, prune, harvest",
+      "Compare this year's bloom and harvest before next year's pruning.",
+      "BORAGE",
+      "Pollinators and reseeding",
+      "Remember where it bloomed, self-seeded, and brought bees.",
+      "BOUQUET DILL",
+      "Cuttings and seed heads",
+      "Know when to sow again, cut stems, and let seed form.",
+      "Garden.io",
+      "A living notebook for your garden"
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "home.png"
+  },
+  {
+    "route": "tour-ask",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 208,
+        "href": null,
+        "tag": "textarea",
+        "text": "Yellow leaves, new spots, heavy rain...",
+        "visible": true,
+        "width": 709
+      },
+      {
+        "disabled": false,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a photo",
+        "visible": true,
+        "width": 123
+      },
+      "[Circular]",
+      {
+        "disabled": true,
+        "height": 54,
+        "href": null,
+        "tag": "button",
+        "text": "Add a note first",
+        "visible": true,
+        "width": 147
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Leaves are yellowing",
+        "visible": true,
+        "width": 149
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Heavy rain last night",
+        "visible": true,
+        "width": 153
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 95
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 99
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 109
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "images": [],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      },
+      {
+        "disabled": false,
+        "height": 1,
+        "href": null,
+        "tag": "input",
+        "text": "",
+        "visible": true,
+        "width": 1
+      }
+    ],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Today",
+      "My Garden",
+      "Weekly care",
+      "Plant Journal",
+      "Choose plants",
+      "Start your garden",
+      "TODAY",
+      "4 plants in 3 beds",
+      "Your garden, smarter.",
+      "Add a note or photo. Keep what helps for later.",
+      "What changed in your garden?",
+      "Add a photo",
+      "Add a note first",
+      "A little context makes the answer more useful.",
+      "Leaves are yellowing",
+      "Heavy rain last night",
+      "My Garden",
+      "Weekly care",
+      "Choose plants"
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "tour-ask.png"
+  },
+  {
+    "route": "tour-property",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Kitchen Garden2 beds",
+        "visible": true,
+        "width": 307
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Herb Bed2",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bouquet Dill ·4",
+        "visible": true,
+        "width": 97
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·2",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Container Row1",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bell Pepper",
+        "visible": true,
+        "width": 77
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "button",
+        "text": "Pollinator Edge1 bed",
+        "visible": true,
+        "width": 307
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Bloom Border1",
+        "visible": true,
+        "width": 283
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": null,
+        "tag": "button",
+        "text": "Borage ·6",
+        "visible": true,
+        "width": 67
+      },
+      {
+        "disabled": false,
+        "height": 46,
+        "href": null,
+        "tag": "button",
+        "text": "View Bell Pepper notes",
+        "visible": true,
+        "width": 172
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [],
+    "headings": [
+      "My Garden",
+      "Backyard Garden"
+    ],
+    "images": [],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      }
+    ],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Today",
+      "My Garden",
+      "Weekly care",
+      "Plant Journal",
+      "Choose plants",
+      "Start your garden",
+      "GARDEN MAP",
+      "My Garden",
+      "Places, beds, and plants in one view.",
+      "SUMMER",
+      "YOUR GARDEN",
+      "Backyard Garden",
+      "Central Texas · Growing zone 8b · Summer",
+      "Kitchen Garden",
+      "2 BEDS",
+      "Herbs and daily cooking plants · Morning sun",
+      "Herb Bed",
+      "2",
+      "Bouquet Dill ·4",
+      "Borage ·2",
+      "Container Row",
+      "1",
+      "Bell Pepper",
+      "Pollinator Edge",
+      "1 BED",
+      "Flowers, perennial color, and beneficial insects · Full sun",
+      "Bloom Border",
+      "1",
+      "Borage ·6",
+      "GARDEN",
+      "Backyard Garden",
+      "THIS WEEK",
+      "Bell Pepper",
+      "Water deeply before the hot afternoon · Jun 24",
+      "Container Row · Kitchen Garden",
+      "4 plants in 3 beds. Start with Bell Pepper. Read its notes before you act.",
+      "View Bell Pepper notes"
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/tour/property",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "tour-property.png"
+  },
+  {
+    "route": "tour-calendar",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [],
+    "headings": [
+      "Weekly care",
+      "June 22–28, 2026"
+    ],
+    "images": [],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      }
+    ],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Today",
+      "My Garden",
+      "Weekly care",
+      "Plant Journal",
+      "Choose plants",
+      "Start your garden",
+      "THIS WEEK",
+      "Weekly care",
+      "Start with what needs care. Let the rest wait.",
+      "SUMMER",
+      "June 22–28, 2026",
+      "FIRST UP",
+      "3 things need care this week",
+      "TODAY",
+      "Water deeply before the hot afternoon",
+      "Bell Pepper in Container Row, Kitchen Garden",
+      "WATER",
+      "Focus on the bell pepper container and newly planted herbs.",
+      "Jun 24",
+      "LATER THIS WEEK",
+      "Harvest dill before afternoon heat",
+      "Bouquet Dill in Herb Bed, Kitchen Garden",
+      "Note bloom duration",
+      "Borage in Bloom Border, Pollinator Edge"
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "tour-calendar.png"
+  },
+  {
+    "route": "tour-plants",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      },
+      {
+        "disabled": false,
+        "height": 44,
+        "href": null,
+        "tag": "input",
+        "text": "Search plants by name, bed, or place",
+        "visible": true,
+        "width": 646
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bell Pepper",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Bouquet Dill",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 96
+      },
+      {
+        "disabled": false,
+        "height": 96,
+        "href": null,
+        "tag": "button",
+        "text": "Select Borage",
+        "visible": true,
+        "width": 96
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]"
+    ],
+    "headings": [
+      "Plant Journal"
+    ],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": true,
+        "height": 94,
+        "naturalHeight": 158,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": true,
+        "height": 94,
+        "naturalHeight": 215,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 94,
+        "naturalHeight": 205,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+        "width": 94
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 94,
+        "naturalHeight": 205,
+        "naturalWidth": 128,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=256&q=75",
+        "width": 94
+      }
+    ],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      }
+    ],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Today",
+      "My Garden",
+      "Weekly care",
+      "Plant Journal",
+      "Choose plants",
+      "Start your garden",
+      "YOUR PLANTS",
+      "Plant Journal",
+      "Open a plant to see notes and care.",
+      "SUMMER",
+      "Bell Pepper",
+      "Vegetable · Annual",
+      "Kitchen Garden · Container Row",
+      "1 plant · 8 weeks, 2 days in ground",
+      "This week: Water deeply before the hot afternoon",
+      "Bouquet Dill",
+      "Herb · Annual",
+      "Kitchen Garden · Herb Bed",
+      "4 plants · 3 weeks in ground",
+      "This week: Harvest dill before afternoon heat",
+      "Borage",
+      "Flower · Annual",
+      "Pollinator Edge · Bloom Border",
+      "6 plants · 4 weeks, 5 days in ground",
+      "This week: Note bloom duration",
+      "Borage",
+      "Flower · Annual",
+      "Kitchen Garden · Herb Bed",
+      "2 plants · 3 weeks in ground",
+      "This week: Check the herb bed after afternoon heat",
+      "PLANT NOTES",
+      "CHOOSE A PLANT",
+      "Start with Bell Pepper. Open any plant when you need its notes.",
+      "4 plants need care this week."
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "tour-plants.png"
+  },
+  {
+    "route": "tour-catalogue",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Garden.io",
+        "visible": true,
+        "width": 99
+      },
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      "[Circular]",
+      {
+        "disabled": false,
+        "height": 46,
+        "href": "/app/my-property",
+        "tag": "a",
+        "text": "Start your garden",
+        "visible": true,
+        "width": 127
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [
+      "[Circular]",
+      "[Circular]",
+      "[Circular]"
+    ],
+    "headings": [
+      "Choose plants",
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "images": [
+      {
+        "alt": "Bell Pepper",
+        "complete": true,
+        "height": 180,
+        "naturalHeight": 237,
+        "naturalWidth": 192,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbell-pepper.jpg&w=384&q=75",
+        "width": 136
+      },
+      {
+        "alt": "Borage",
+        "complete": true,
+        "height": 180,
+        "naturalHeight": 307,
+        "naturalWidth": 192,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fborage.jpg&w=384&q=75",
+        "width": 136
+      },
+      {
+        "alt": "Bouquet Dill",
+        "complete": true,
+        "height": 180,
+        "naturalHeight": 323,
+        "naturalWidth": 192,
+        "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fbouquet-dill.jpg&w=384&q=75",
+        "width": 136
+      }
+    ],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/plants",
+        "text": "Plant Journal"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/ask",
+        "tag": "a",
+        "text": "Today",
+        "visible": true,
+        "width": 62
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/property",
+        "tag": "a",
+        "text": "My Garden",
+        "visible": true,
+        "width": 94
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/calendar",
+        "tag": "a",
+        "text": "Weekly care",
+        "visible": true,
+        "width": 98
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/plants",
+        "tag": "a",
+        "text": "Plant Journal",
+        "visible": true,
+        "width": 104
+      },
+      {
+        "disabled": false,
+        "height": 38,
+        "href": "/tour/catalogue",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 108
+      }
+    ],
+    "svgImages": [],
+    "textSnippets": [
+      "Garden.io",
+      "Today",
+      "My Garden",
+      "Weekly care",
+      "Plant Journal",
+      "Choose plants",
+      "Start your garden",
+      "FOR YOUR BEDS",
+      "Choose plants",
+      "Choose plants for the beds you have.",
+      "SUMMER",
+      "3 PLANTS TO CHOOSE FROM",
+      "ANNUAL",
+      "Bell Pepper",
+      "Vegetable",
+      "BEST SPOT",
+      "Warm containers or bed edges where watering and heat stress are easy to notice.",
+      "SUN",
+      "Full Sun",
+      "WATER",
+      "High",
+      "GOOD TO REMEMBER",
+      "Watering, support, harvest, and pests.",
+      "ANNUAL",
+      "Borage",
+      "Flower",
+      "BEST SPOT",
+      "Sunny bed edges where pollinator visits and reseeding are easy to watch.",
+      "SUN",
+      "Full Sun",
+      "WATER",
+      "Moderate",
+      "GOOD TO REMEMBER",
+      "Bloom timing, pollinator visits, and deadheading.",
+      "ANNUAL",
+      "Bouquet Dill",
+      "Herb",
+      "BEST SPOT",
+      "A sunny herb bed where repeat sowings and harvest timing stay visible.",
+      "SUN",
+      "Full Sun",
+      "WATER",
+      "Moderate",
+      "GOOD TO REMEMBER",
+      "Harvest timing, heat stress, and flavor."
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "tour-catalogue.png"
+  },
+  {
+    "route": "app-gate",
+    "controls": [
+      {
+        "disabled": false,
+        "height": 53,
+        "href": null,
+        "tag": "input",
+        "text": "you@example.com",
+        "visible": true,
+        "width": 441
+      },
+      {
+        "disabled": false,
+        "height": 48,
+        "href": null,
+        "tag": "button",
+        "text": "Email me a start link",
+        "visible": true,
+        "width": 441
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/tour",
+        "tag": "a",
+        "text": "Tour a garden journal",
+        "visible": true,
+        "width": 144
+      },
+      {
+        "disabled": false,
+        "height": 40,
+        "href": "/catalog",
+        "tag": "a",
+        "text": "Choose plants",
+        "visible": true,
+        "width": 93
+      }
+    ],
+    "forbidden": [],
+    "fullColorCandidateImages": [],
+    "headings": [
+      "Your garden, smarter."
+    ],
+    "images": [],
+    "links": [
+      {
+        "href": "/tour",
+        "text": "Tour a garden journal"
+      },
+      {
+        "href": "/catalog",
+        "text": "Choose plants"
+      }
+    ],
+    "overflow": 0,
+    "smallTargets": [],
+    "svgImages": [],
+    "textSnippets": [
+      "START YOUR GARDEN",
+      "Your garden, smarter.",
+      "Track changes, ask what they mean, and keep useful answers with the right plant.",
+      "Give one plant a home.",
+      "Choose where it grows so every note has the right place to land.",
+      "Enter your email. We'll send a link to start your garden.",
+      "EMAIL ADDRESS",
+      "Email me a start link",
+      "Tour a garden journal",
+      "Choose plants"
+    ],
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "screenshot": "app-gate.png"
+  }
+]

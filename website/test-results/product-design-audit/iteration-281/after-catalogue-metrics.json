@@ -1,0 +1,50 @@
+{
+  "h1": "Find Plants",
+  "visibleTextStart": "Garden.io\nAsk\nStart your garden\nHOME GARDEN\nFind Plants\n\nChoose plants that fit your beds.\n\nSUMMER\n3 PLANTS\nANNUAL\nBell Pepper\nVegetable\nFITS\nWarm containers or bed edges where watering and heat notes are easy to track.\nLIGHT\nFull Sun\nWATER\nHigh\nANNUAL\nCalendula\nFlower\nFITS\nEdges near vegetables where pollinators and companion flowers help.\nLIGHT\nFull Sun\nWATER\nModerate\nANNUAL\nCilantro\nHerb\nFITS\nCool morning-sun herb beds where harvest notes help avoid bolting.\nLIGHT\nFull Sun To Partial Shade\nWATER\nModerate",
+  "innerWidth": 390,
+  "scrollWidth": 390,
+  "bodyScrollWidth": 390,
+  "docHeight": 1014,
+  "cards": [
+    {
+      "text": "AnnualBell PepperVegetableFitsWarm containers or bed edges where watering and heat notes are easy to track.LightFull SunWaterHighRememberSave watering, support, harvest, and pest n",
+      "top": 266,
+      "bottom": 473,
+      "height": 207,
+      "width": 347,
+      "image": {
+        "width": 96,
+        "height": 112,
+        "top": 277
+      },
+      "memoryVisible": false
+    },
+    {
+      "text": "AnnualCalendulaFlowerFitsEdges near vegetables where pollinators and companion flowers help.LightFull SunWaterModerateRememberSave bloom timing, pollinator visits, and deadheading ",
+      "top": 484,
+      "bottom": 691,
+      "height": 207,
+      "width": 347,
+      "image": {
+        "width": 96,
+        "height": 112,
+        "top": 495
+      },
+      "memoryVisible": false
+    },
+    {
+      "text": "AnnualCilantroHerbFitsCool morning-sun herb beds where harvest notes help avoid bolting.LightFull Sun To Partial ShadeWaterModerateRememberSave harvest timing, heat stress, and fla",
+      "top": 702,
+      "bottom": 924,
+      "height": 223,
+      "width": 347,
+      "image": {
+        "width": 96,
+        "height": 112,
+        "top": 713
+      },
+      "memoryVisible": false
+    }
+  ],
+  "offenders": []
+}

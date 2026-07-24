@@ -1,0 +1,14 @@
+{
+  "choosePlants": {
+    "h": 34,
+    "href": "#plants",
+    "label": "Choose plants",
+    "tag": "a",
+    "w": 93,
+    "x": 144,
+    "y": 33
+  },
+  "overflowX": 0,
+  "pathname": "/",
+  "smallTargets": []
+}

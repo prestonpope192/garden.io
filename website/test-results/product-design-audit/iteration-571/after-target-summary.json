@@ -1,0 +1,330 @@
+[
+  {
+    "name": "after-home-mobile",
+    "url": "http://127.0.0.1:3021/",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter.",
+        "A garden notebook that can answer back.",
+        "Each plant keeps its own story."
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [
+        {
+          "tag": "A",
+          "text": "Choose plants",
+          "w": 93,
+          "h": 34,
+          "x": 286,
+          "y": 20,
+          "cls": "",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 4,
+        "loaded": 4,
+        "svg": 0,
+        "plantArt": 4
+      }
+    }
+  },
+  {
+    "name": "after-tour-ask-mobile",
+    "url": "http://127.0.0.1:3021/tour/ask",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter."
+      ],
+      "smallControls": [
+        {
+          "tag": "INPUT",
+          "text": "Add a photo",
+          "w": 1,
+          "h": 1,
+          "x": 118,
+          "y": 522,
+          "cls": "",
+          "visibility": "visible"
+        }
+      ],
+      "smallStrictTouch": [
+        {
+          "tag": "INPUT",
+          "text": "Add a photo",
+          "w": 1,
+          "h": 1,
+          "x": 118,
+          "y": 522,
+          "cls": "",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "after-tour-property-mobile",
+    "url": "http://127.0.0.1:3021/tour/property",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "My Garden",
+        "Backyard Garden"
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [
+        {
+          "tag": "BUTTON",
+          "text": "Bouquet Dill ·4",
+          "w": 97,
+          "h": 34,
+          "x": 51,
+          "y": 502,
+          "cls": "garden-chip ",
+          "visibility": "visible"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "Borage ·2",
+          "w": 67,
+          "h": 34,
+          "x": 153,
+          "y": 502,
+          "cls": "garden-chip ",
+          "visibility": "visible"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "Bell Pepper",
+          "w": 77,
+          "h": 34,
+          "x": 51,
+          "y": 618,
+          "cls": "garden-chip ",
+          "visibility": "visible"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "Borage ·6",
+          "w": 67,
+          "h": 34,
+          "x": 51,
+          "y": 857,
+          "cls": "garden-chip ",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "after-tour-calendar-mobile",
+    "url": "http://127.0.0.1:3021/tour/calendar",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Weekly care",
+        "June 22–28, 2026"
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  },
+  {
+    "name": "after-tour-plants-mobile",
+    "url": "http://127.0.0.1:3021/tour/plants",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Plant Journal"
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 4,
+        "loaded": 4,
+        "svg": 0,
+        "plantArt": 4
+      }
+    }
+  },
+  {
+    "name": "after-tour-catalogue-mobile",
+    "url": "http://127.0.0.1:3021/tour/catalogue",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Choose plants",
+        "Bell Pepper",
+        "Borage",
+        "Bouquet Dill"
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 3,
+        "loaded": 3,
+        "svg": 0,
+        "plantArt": 3
+      }
+    }
+  },
+  {
+    "name": "after-catalog-mobile",
+    "url": "http://127.0.0.1:3021/catalog",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Choose a plant for the spot you have.",
+        "Apple",
+        "988 plants",
+        "Calendula",
+        "Cilantro",
+        "Cucumber",
+        "Abelia",
+        "Acerola",
+        "Ackee"
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [
+        {
+          "tag": "A",
+          "text": "Home",
+          "w": 46,
+          "h": 34,
+          "x": 230,
+          "y": 20,
+          "cls": "",
+          "visibility": "visible"
+        },
+        {
+          "tag": "A",
+          "text": "Choose plants",
+          "w": 93,
+          "h": 34,
+          "x": 286,
+          "y": 20,
+          "cls": "",
+          "visibility": "visible"
+        },
+        {
+          "tag": "BUTTON",
+          "text": "Browse by kind",
+          "w": 118,
+          "h": 38,
+          "x": 247,
+          "y": 362,
+          "cls": "folio-link folio-link--secondary",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 7,
+        "loaded": 7,
+        "svg": 0,
+        "plantArt": 7
+      }
+    }
+  },
+  {
+    "name": "after-plant-detail-mobile",
+    "url": "http://127.0.0.1:3021/catalog/borage",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Borage",
+        "Borage",
+        "Match it to the garden you have.",
+        "Where it belongs",
+        "Watch this season",
+        "Give it a place to grow."
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [
+        {
+          "tag": "A",
+          "text": "Choose plants",
+          "w": 93,
+          "h": 34,
+          "x": 286,
+          "y": 20,
+          "cls": "",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 1,
+        "loaded": 1,
+        "svg": 0,
+        "plantArt": 1
+      }
+    }
+  },
+  {
+    "name": "after-auth-gate-mobile",
+    "url": "http://127.0.0.1:3021/app/my-property",
+    "audit": {
+      "overflowX": 0,
+      "headings": [
+        "Your garden, smarter."
+      ],
+      "smallControls": [],
+      "smallStrictTouch": [
+        {
+          "tag": "A",
+          "text": "Tour a garden journal",
+          "w": 144,
+          "h": 34,
+          "x": 31,
+          "y": 587,
+          "cls": "garden-auth__secondary",
+          "visibility": "visible"
+        },
+        {
+          "tag": "A",
+          "text": "Choose plants",
+          "w": 93,
+          "h": 34,
+          "x": 31,
+          "y": 633,
+          "cls": "garden-auth__secondary",
+          "visibility": "visible"
+        }
+      ],
+      "visibleBadCopy": [],
+      "images": {
+        "count": 0,
+        "loaded": 0,
+        "svg": 0,
+        "plantArt": 0
+      }
+    }
+  }
+]

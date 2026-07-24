@@ -1,0 +1,78 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Dense clump base -->
+  <path d="M 300 560 Q 295 540 298 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 310 560 Q 308 540 310 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 320 560 Q 318 540 320 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 330 560 Q 332 540 330 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 340 560 Q 342 540 340 520" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Thin hollow upright blades (lower cluster) -->
+  <path d="M 298 520 Q 290 480 285 440" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 308 520 Q 302 475 300 420" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 318 520 Q 318 475 320 420" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 328 520 Q 335 475 340 420" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 338 520 Q 348 480 355 440" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Hollow blade details (subtle inner lines) -->
+  <path d="M 290 500 Q 288 460 286 420" stroke="#D3BF98" stroke-width="1.5" fill="none"/>
+  <path d="M 310 500 Q 308 465 306 420" stroke="#D3BF98" stroke-width="1.5" fill="none"/>
+  <path d="M 330 500 Q 335 465 340 420" stroke="#D3BF98" stroke-width="1.5" fill="none"/>
+  <path d="M 350 500 Q 352 460 354 420" stroke="#D3BF98" stroke-width="1.5" fill="none"/>
+
+  <!-- Taller stalk 1 (left flower head) -->
+  <path d="M 295 520 Q 280 480 275 420 Q 273 380 275 340" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Taller stalk 2 (right flower head) -->
+  <path d="M 345 520 Q 360 480 365 420 Q 367 380 365 340" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Globe umbel flower head 1 (left) - composite of small florets -->
+  <circle cx="275" cy="340" r="14" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <!-- Individual florets around globe -->
+  <circle cx="265" cy="335" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="275" cy="325" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="285" cy="335" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="275" cy="345" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="270" cy="328" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="280" cy="328" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="280" cy="350" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="270" cy="350" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+
+  <!-- Globe umbel flower head 2 (right) - composite of small florets -->
+  <circle cx="365" cy="340" r="14" stroke="#7D6740" stroke-width="2.5" fill="none"/>
+  <!-- Individual florets around globe -->
+  <circle cx="355" cy="335" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="365" cy="325" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="375" cy="335" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="365" cy="345" r="3.5" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.45"/>
+  <circle cx="360" cy="328" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="370" cy="328" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="370" cy="350" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+  <circle cx="360" cy="350" r="3" stroke="#7D6740" stroke-width="2" fill="#D8C49C" fill-opacity="0.4"/>
+
+  <!-- Additional mid-level blades for fuller clump -->
+  <path d="M 305 500 Q 310 450 315 400" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 335 500 Q 330 450 325 400" stroke="#7D6740" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Caption zone -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="690" fill="#6C5A3A" font-family="serif" font-size="32">Allium schoenoprasum</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 113 · Chives study</text>
+
+  <!-- Annotation 1: globe umbel -->
+  <line x1="275" y1="340" x2="380" y2="300" stroke="#A78545" stroke-width="3"/>
+  <text x="380" y="285" font-family="serif" font-size="24" fill="#7D6740">globe umbel</text>
+
+  <!-- Annotation 2: hollow blade -->
+  <line x1="310" y1="460" x2="440" y2="440" stroke="#A78545" stroke-width="3"/>
+  <text x="440" y="465" font-family="serif" font-size="24" fill="#7D6740">hollow blade</text>
+</svg>

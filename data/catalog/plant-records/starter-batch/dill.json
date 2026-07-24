@@ -1,0 +1,1003 @@
+{
+  "schema_version": "2026-06-plant-profile-v1",
+  "slug": "dill",
+  "taxonomy": {
+    "kingdom_name": "Plantae",
+    "family_name": "Apiaceae",
+    "genus_name": "Anethum",
+    "species_name": "graveolens",
+    "subspecies_name": null,
+    "variety_name": null,
+    "botanical_name_full": "Anethum graveolens",
+    "taxon_rank": "species",
+    "native_range": "Asia and Mediterranean/western Asian region; exact origin varies by source framing.",
+    "origin_type": "exotic"
+  },
+  "names": [
+    {
+      "name": "Dill",
+      "name_type": "common",
+      "locale": "en",
+      "is_primary": true
+    },
+    {
+      "name": "Anethum graveolens",
+      "name_type": "latin_variant",
+      "locale": "en",
+      "is_primary": false
+    },
+    {
+      "name": "Dillweed",
+      "name_type": "common",
+      "locale": "en",
+      "is_primary": false
+    }
+  ],
+  "profile": {
+    "display_name": "Dill",
+    "plant_type_code": "herb",
+    "lifecycle_type": "annual",
+    "confidence_score": 0.84,
+    "evidence_count": 8,
+    "source_count": 4,
+    "source_last_reviewed_at": "2026-06-03T00:00:00+00:00",
+    "ai_generated_summary": true,
+    "human_verified": false,
+    "conflict_flag": false,
+    "region_specific_conflict_notes": "Florida/fall planting timing differs from temperate spring timing; keep phenology regionalized.",
+    "is_ai_generated": true,
+    "generation_status": "ai_reviewed",
+    "is_published": true,
+    "review_status": "pending_review"
+  },
+  "aesthetic_styles": [
+    {
+      "style_code": "cottage",
+      "weight_score": 6
+    },
+    {
+      "style_code": "edible_landscape",
+      "weight_score": 8
+    }
+  ],
+  "uses": [
+    {
+      "use_type_code": "culinary",
+      "evidence_strength_code": "strong",
+      "supports_use": true,
+      "mechanism_description": "Leaves, flowers, and seeds are edible and used fresh, dried, or in pickling.",
+      "target_benefit": "Fresh herb, seed spice, pickling",
+      "target_pest": null,
+      "target_soil_effect": null,
+      "notes": "Use leaves fresh; harvest seed heads as fruiting tops mature."
+    },
+    {
+      "use_type_code": "pollinator_support",
+      "evidence_strength_code": "moderate",
+      "supports_use": true,
+      "mechanism_description": "Flat yellow umbels provide small-flower insect forage.",
+      "target_benefit": "Beneficial insect/pollinator resource",
+      "target_pest": null,
+      "target_soil_effect": null,
+      "notes": "Allow some plants to bloom if pollinator value is desired."
+    },
+    {
+      "use_type_code": "cut_flower",
+      "evidence_strength_code": "weak",
+      "supports_use": true,
+      "mechanism_description": "Umbels and scented foliage can be cut for arrangements or pickling jars.",
+      "target_benefit": "Cut scented foliage/flower heads",
+      "target_pest": null,
+      "target_soil_effect": null,
+      "notes": "More relevant for Mammoth and Bouquet than compact leaf cultivars."
+    }
+  ],
+  "narratives": {
+    "locale": "en",
+    "short_description": "Fast-growing annual culinary herb with fine blue-green foliage, yellow umbels, edible leaves, flowers, and seeds.",
+    "why_plant_it": "Grow dill for fresh leaves, seed heads for pickling, beneficial insect flowers, and easy succession-sown herb production.",
+    "pros_summary": "Easy from seed, useful in containers, edible leaves and seeds, attracts beneficial insects, and self-seeds if allowed.",
+    "cons_summary": "Taproot resents transplanting, plants decline after flowering, can self-sow, and humid conditions may bring mildew or aphid pressure.",
+    "primary_use_cases": "Fresh herb, pickling seed heads, culinary seed, pollinator/insectary annual, orchard-guild annual companion layer.",
+    "notes_for_homestead": "Direct-sow near orchard guild edges or herb beds and repeat sow every 2 weeks for steady leaf harvest. Let selected plants flower for seed and beneficial insects.",
+    "notes_for_small_garden": "Use compact or succession plantings; deadhead if self-seeding is not wanted.",
+    "notes_for_container_growing": "Works in containers, but use a deep container and direct sow because the taproot dislikes transplant disturbance.",
+    "editorial_summary": "Dill is best modeled at species level with cultivar-specific profiles for Bouquet and Mammoth because cultivar choice affects height, days to seed/flower, and use emphasis."
+  },
+  "ornamental": {
+    "evergreen_deciduous": "deciduous",
+    "ornamental_season_interest": [
+      "spring foliage",
+      "summer flowers",
+      "seed heads"
+    ],
+    "visual_texture": "Fine, feathery foliage with flat yellow umbels when flowering.",
+    "foliage_color": "Green to blue-green",
+    "evergreen_foliage": false,
+    "winter_interest": false
+  },
+  "climate": {
+    "usda_hardiness_min": null,
+    "usda_hardiness_max": null,
+    "ahs_heat_zone_min": null,
+    "ahs_heat_zone_max": null,
+    "cold_tolerance_absolute_f": null,
+    "cold_tolerance_established_f": null,
+    "heat_tolerance_f": null,
+    "humidity_tolerance_code": "medium",
+    "drought_tolerance_code": "low",
+    "flood_tolerance_code": "very_low",
+    "wind_tolerance_code": "medium",
+    "salt_tolerance_code": "unknown",
+    "chill_hours_min": null,
+    "chill_hours_max": null,
+    "frost_tender": true,
+    "reemergence_after_freeze_behavior": "Annual; replant or allow self-sown seedlings rather than expecting perennial return.",
+    "sun_min_hours": 6,
+    "sun_max_hours": 10,
+    "preferred_light": "Full sun.",
+    "shade_tolerance_score": 3,
+    "afternoon_sun_tolerance_score": 5,
+    "reflected_heat_tolerance_score": 3
+  },
+  "growth": {
+    "mature_height_min_in": 24,
+    "mature_height_max_in": 48,
+    "mature_width_min_in": 12,
+    "mature_width_max_in": 24,
+    "annual_growth_height_in": 48,
+    "annual_growth_width_in": 18,
+    "growth_rate_code": "high",
+    "growth_habit": "Upright annual herb with hollow stems, fine foliage, taproot, and terminal umbels.",
+    "root_behavior": "Taprooted; dislikes root disturbance and is best direct-sown.",
+    "spread_aggressiveness": 5,
+    "pruning_response": "Harvest foliage regularly; remove flower stalks to delay bolting or leave umbels for seed.",
+    "transplant_tolerance": 2,
+    "container_tolerance": 8,
+    "trellis_needed": false,
+    "support_type": null
+  },
+  "propagation_methods": [
+    {
+      "planting_method_code": "direct_sow",
+      "allowed": true,
+      "is_preferred": true,
+      "depth_min_in": 0.25,
+      "depth_max_in": 0.5,
+      "spacing_min_in": 12,
+      "spacing_max_in": 18,
+      "proliferation_behavior": "Direct sow before/around last frost in temperate spring timing or in regional cool-season windows; self-seeds if seed heads are left.",
+      "self_seeds": true,
+      "reseeding_intensity": 5,
+      "spreads_by_runners": false,
+      "spreads_by_rhizomes": false,
+      "grafted_common": false,
+      "seed_viability_duration_months": null,
+      "germination_days_min": 7,
+      "germination_days_max": 21,
+      "cold_stratification_required": false,
+      "scarification_required": false,
+      "rooting_hormone_helpful": false,
+      "transplant_shock_risk_code": "high",
+      "establishment_difficulty": 2,
+      "notes": "Preferred method because dill taproots dislike transplanting."
+    },
+    {
+      "planting_method_code": "transplant_seedling",
+      "allowed": true,
+      "is_preferred": false,
+      "depth_min_in": null,
+      "depth_max_in": null,
+      "spacing_min_in": 12,
+      "spacing_max_in": 18,
+      "proliferation_behavior": "Possible only with care before roots are disturbed.",
+      "self_seeds": null,
+      "reseeding_intensity": null,
+      "spreads_by_runners": false,
+      "spreads_by_rhizomes": false,
+      "grafted_common": false,
+      "seed_viability_duration_months": null,
+      "germination_days_min": null,
+      "germination_days_max": null,
+      "cold_stratification_required": false,
+      "scarification_required": false,
+      "rooting_hormone_helpful": false,
+      "transplant_shock_risk_code": "high",
+      "establishment_difficulty": 5,
+      "notes": "Use deep cells or soil blocks only if transplanting is necessary."
+    }
+  ],
+  "flowering": {
+    "flowering_bool": true,
+    "flower_color": "Yellow",
+    "flower_size": "Large, flat-topped compound umbels",
+    "bloom_start_week": 20,
+    "bloom_end_week": 36,
+    "bloom_duration_days": 35,
+    "flower_abundance": "Moderate to high after bolting",
+    "flower_fragrance_strength": 3,
+    "pollinator_value": 7,
+    "nectar_value": 6,
+    "pollen_value": 5,
+    "attracts_bees": true,
+    "attracts_butterflies": true,
+    "attracts_hummingbirds": false,
+    "larval_host": false,
+    "native_pollinator_value": 3
+  },
+  "fruiting": {
+    "fruiting_bool": true,
+    "fruit_color": "Tan to brown when mature",
+    "fruit_size": "Small dry schizocarps commonly treated as dill seed",
+    "fruit_flavor": "Aromatic dill/caraway-like seed flavor",
+    "fruiting_start_age_years": 0.15,
+    "yield_lb_per_plant_year_min": null,
+    "yield_lb_per_plant_year_max": null,
+    "harvest_window_start_week": 24,
+    "harvest_window_end_week": 40,
+    "fruit_drop_behavior": "Seeds drop from mature umbels if not bagged or harvested promptly.",
+    "wildlife_attraction": 3,
+    "first_harvest_time_from_planting_days": 45,
+    "productive_years_min": 1,
+    "productive_years_max": 1,
+    "harvest_frequency": "Leaves as needed before bolting; seed heads when fruit is developed but before fully brown.",
+    "preservation_uses": "Fresh leaves, dried leaves, dried seed heads, pickling seed heads.",
+    "edible_parts": [
+      "leaves",
+      "flowers",
+      "seeds"
+    ],
+    "medicinal_parts": [],
+    "fodder_parts": []
+  },
+  "soil": {
+    "drainage_requirement": "Moist, well-drained soil; avoid waterlogging.",
+    "organic_matter_preference": "Loamy, vegetable-garden soil preferred, but can tolerate poorer soil if drained.",
+    "compaction_tolerance_code": "low",
+    "rocky_soil_tolerance_code": "medium",
+    "ph_min": 5.8,
+    "ph_max": 7.8,
+    "ph_ideal_min": 6.0,
+    "ph_ideal_max": 7.5,
+    "ph_sensitivity_code": "low",
+    "fertility_need": "low_to_medium",
+    "nitrogen_need": "low_to_medium",
+    "phosphorus_need": "medium",
+    "potassium_need": "medium",
+    "calcium_sensitivity_code": "unknown",
+    "soil_oxygen_need": "High enough to protect taproot from wet, anaerobic soil.",
+    "mycorrhizal_association_notes": null,
+    "mulch_preference": "Light mulch after seedlings establish can even moisture without burying crowns.",
+    "mulch_depth_preference_in": 1,
+    "waterlogging_sensitivity_code": "high",
+    "texture_preferences": {
+      "loam": {
+        "suitability": 5,
+        "description": "Best general texture."
+      },
+      "sandy_loam": {
+        "suitability": 4,
+        "description": "Good when watered consistently."
+      },
+      "silt_loam": {
+        "suitability": 4,
+        "description": "Good if drainage and airflow are adequate."
+      },
+      "sand": {
+        "suitability": 3,
+        "description": "Possible with fertility and water support."
+      }
+    },
+    "preferred_soil_texture_codes": [
+      "loam",
+      "sandy_loam",
+      "silt_loam"
+    ],
+    "soil_texture_summary": "Loamy, well-drained garden soil is preferred; poor soils are possible but less ideal."
+  },
+  "water": {
+    "water_need_level": "medium",
+    "drought_tolerance_code": "low",
+    "moisture_sensitivity_code": "medium",
+    "preferred_irrigation_method": "Water at soil level; keep evenly moist without saturating.",
+    "root_zone_depth_in": 12,
+    "container_water_multiplier": 1.2,
+    "mulched_water_reduction_factor": 0.9,
+    "summer_heat_adjustment_factor": 1.2
+  },
+  "water_establishment": [
+    {
+      "week_from_planting_start": 0,
+      "week_from_planting_end": 3,
+      "gallons_per_week": 0.5,
+      "frequency_per_week": 3,
+      "deep_vs_frequent": "frequent_light",
+      "notes": "Keep seedbed evenly moist through germination and early seedling establishment."
+    }
+  ],
+  "water_seasonal": [],
+  "ecology": {
+    "invasive_risk_code": "caution",
+    "wildlife_food_value": 2,
+    "erosion_control_value": 1,
+    "biomass_value": 2,
+    "compost_value": 3,
+    "chop_drop_value": 1
+  },
+  "maintenance": {
+    "pruning_frequency": "Harvest foliage regularly; remove flower stalks to extend leaf production or leave selected umbels for seed.",
+    "deadheading_helpful": true,
+    "division_interval_years": null,
+    "staking_needed": false,
+    "suckering_management": null,
+    "cleanup_intensity": 3,
+    "disease_susceptibility_level": 5,
+    "pest_susceptibility_level": 5,
+    "humidity_disease_risk": 5,
+    "air_flow_importance": 7
+  },
+  "safety": [
+    {
+      "subject_type_code": "human",
+      "safety_level_code": "safe",
+      "toxic_parts": [],
+      "condition_notes": "Leaves, flowers, and seeds are treated as edible culinary parts in the sourced profile.",
+      "symptoms": null,
+      "evidence_source_type": "extension",
+      "safe_use_notes": "Use culinary quantities; do not infer medicinal dosing from this profile."
+    },
+    {
+      "subject_type_code": "dog",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Pet safety not curated in this pass.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Avoid pet-safety claims until a veterinary source is added."
+    },
+    {
+      "subject_type_code": "cat",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Pet safety not curated in this pass.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Avoid pet-safety claims until a veterinary source is added."
+    },
+    {
+      "subject_type_code": "chicken",
+      "safety_level_code": "unknown",
+      "toxic_parts": [],
+      "condition_notes": "Poultry safety not curated in this pass.",
+      "symptoms": null,
+      "evidence_source_type": "curation_needed",
+      "safe_use_notes": "Avoid poultry-safety claims until a livestock source is added."
+    }
+  ],
+  "relationships": [],
+  "phenology_templates": [
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "is_default": true,
+      "notes": "Generic annual dill timing; use regional windows for local climates.",
+      "events": [
+        {
+          "stage_code": "direct_sow",
+          "stage_name": "Direct sow dill",
+          "trigger_type": "calendar",
+          "trigger_rule": "Spring, around 1-2 weeks before last frost in temperate guidance; regional warm climates may use fall/winter windows.",
+          "timing_type": "calendar",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 10,
+          "week_end_of_year": 18,
+          "month_start": 3,
+          "month_end": 4,
+          "offset_days_from_planting": null,
+          "repeat_every_days": 14,
+          "cues": "Soil workable and cool-season window open",
+          "recommended_action": "Direct sow shallowly and thin seedlings after emergence.",
+          "recurrence": "annual",
+          "urgency_code": "medium",
+          "failure_risk_if_missed": "Late heat can shorten leaf harvest and accelerate bolting.",
+          "priority_weight": 55,
+          "repeatable": true
+        },
+        {
+          "stage_code": "harvest",
+          "stage_name": "Harvest dill leaves",
+          "trigger_type": "plant_observation",
+          "trigger_rule": "Plants have enough foliage to cut without stripping",
+          "timing_type": "event_offset",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 16,
+          "week_end_of_year": 34,
+          "month_start": 4,
+          "month_end": 8,
+          "offset_days_from_planting": 35,
+          "repeat_every_days": 7,
+          "cues": "Fine foliage present before heavy flowering",
+          "recommended_action": "Cut outer foliage in the morning for fresh use.",
+          "recurrence": "during active growth",
+          "urgency_code": "low",
+          "failure_risk_if_missed": "Leaves decline after bolting.",
+          "priority_weight": 35,
+          "repeatable": true
+        },
+        {
+          "stage_code": "seed_set",
+          "stage_name": "Harvest seed heads",
+          "trigger_type": "plant_observation",
+          "trigger_rule": "Fruiting tops fully developed but not fully brown",
+          "timing_type": "event_offset",
+          "earliest_date": null,
+          "typical_date": null,
+          "latest_date": null,
+          "week_start_of_year": 24,
+          "week_end_of_year": 40,
+          "month_start": 6,
+          "month_end": 10,
+          "offset_days_from_planting": 65,
+          "repeat_every_days": null,
+          "cues": "Seed heads heavy and turning color",
+          "recommended_action": "Cut heads with stem, cure in shade or bag to collect seeds.",
+          "recurrence": "annual",
+          "urgency_code": "medium",
+          "failure_risk_if_missed": "Seed drops and self-sows.",
+          "priority_weight": 50,
+          "repeatable": true
+        }
+      ]
+    }
+  ],
+  "zone_profiles": [
+    {
+      "region_type": "generic",
+      "region_value": null,
+      "usda_zone_min": null,
+      "usda_zone_max": null,
+      "planting_window_start_week": 10,
+      "planting_window_end_week": 18,
+      "harvest_window_start_week": 16,
+      "harvest_window_end_week": 40,
+      "bloom_window_start_week": 20,
+      "bloom_window_end_week": 36,
+      "dieback_window_start_week": 36,
+      "reemergence_window_start_week": null,
+      "proliferation_behavior": "Annual that can self-sow from dropped seed.",
+      "maintenance_timing_notes": "Succession sow every two weeks for leaf continuity; leave selected plants to flower for seed and beneficial insects.",
+      "seasonal_risk_notes": "Heat and flowering shorten leaf-harvest quality; humid sites need airflow."
+    }
+  ],
+  "care_events": [
+    {
+      "stage_code": "direct_sow",
+      "task_type_code": "plant",
+      "source_type_code": "lifecycle",
+      "title": "Direct sow dill",
+      "description": "Sow dill shallowly in place and thin seedlings; avoid transplanting when possible.",
+      "recurrence_rule": "FREQ=YEARLY",
+      "lead_days": 0,
+      "window_days": 14,
+      "priority_code": "medium",
+      "requires_confirmation": true,
+      "repeatable": true,
+      "is_active": true
+    },
+    {
+      "stage_code": "maintenance",
+      "task_type_code": "plant",
+      "source_type_code": "maintenance",
+      "title": "Succession sow dill",
+      "description": "Sow another small patch every two weeks if steady leaf harvest is desired.",
+      "recurrence_rule": "FREQ=WEEKLY;INTERVAL=2",
+      "lead_days": 0,
+      "window_days": 7,
+      "priority_code": "low",
+      "requires_confirmation": false,
+      "repeatable": true,
+      "is_active": true
+    },
+    {
+      "stage_code": "harvest",
+      "task_type_code": "harvest",
+      "source_type_code": "lifecycle",
+      "title": "Harvest dill leaves",
+      "description": "Cut fresh foliage before heavy flowering for best leaf use.",
+      "recurrence_rule": "FREQ=WEEKLY;INTERVAL=1",
+      "lead_days": 0,
+      "window_days": 5,
+      "priority_code": "low",
+      "requires_confirmation": false,
+      "repeatable": true,
+      "is_active": true
+    },
+    {
+      "stage_code": "seed_set",
+      "task_type_code": "harvest",
+      "source_type_code": "lifecycle",
+      "title": "Harvest dill seed heads",
+      "description": "Cut seed heads once fruiting tops are developed but before seed drop.",
+      "recurrence_rule": "FREQ=YEARLY",
+      "lead_days": 0,
+      "window_days": 10,
+      "priority_code": "medium",
+      "requires_confirmation": true,
+      "repeatable": true,
+      "is_active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_ref": "ncstate-dill",
+      "source_name": "NC State Extension Gardener Plant Toolbox: Anethum graveolens",
+      "source_type": "extension",
+      "publisher": "North Carolina State Extension",
+      "author": null,
+      "source_url": "https://plants.ces.ncsu.edu/plants/anethum-graveolens/",
+      "citation_text": "NC State Extension Gardener Plant Toolbox profile for Anethum graveolens.",
+      "published_on": null,
+      "credibility_score": 0.86,
+      "license": null,
+      "notes": "Used for botanical identity, edible parts, images, and general profile context.",
+      "last_reviewed_at": "2026-06-03T00:00:00+00:00"
+    },
+    {
+      "source_ref": "udel-dill",
+      "source_name": "University of Delaware Cooperative Extension: Dill",
+      "source_type": "extension",
+      "publisher": "University of Delaware Cooperative Extension",
+      "author": "New Castle County Master Gardeners Rick Judd and Gail Hermenaus",
+      "source_url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/dill/",
+      "citation_text": "University of Delaware Cooperative Extension dill fact sheet, October 2024.",
+      "published_on": "2024-10-01",
+      "credibility_score": 0.88,
+      "license": null,
+      "notes": "Used for sun, soil, annual lifecycle, container suitability, cultivar notes, pests, and diseases.",
+      "last_reviewed_at": "2026-06-03T00:00:00+00:00"
+    },
+    {
+      "source_ref": "illinois-dill",
+      "source_name": "Illinois Extension: Dill",
+      "source_type": "extension",
+      "publisher": "University of Illinois Extension",
+      "author": null,
+      "source_url": "https://extension.illinois.edu/herbs/dill",
+      "citation_text": "Illinois Extension herb profile for dill.",
+      "published_on": null,
+      "credibility_score": 0.88,
+      "license": null,
+      "notes": "Used for direct-sow guidance, taproot transplant sensitivity, self-seeding, harvesting, and popular cultivar positioning.",
+      "last_reviewed_at": "2026-06-03T00:00:00+00:00"
+    },
+    {
+      "source_ref": "uf-ifas-dill",
+      "source_name": "UF/IFAS Extension: Dill, Anethum graveolens L.",
+      "source_type": "extension",
+      "publisher": "University of Florida IFAS Extension",
+      "author": "James M. Stephens",
+      "source_url": "https://www.growables.org/informationVeg/documents/Dill.pdf",
+      "citation_text": "UF/IFAS Extension HS593 Dill fact sheet.",
+      "published_on": null,
+      "credibility_score": 0.86,
+      "license": null,
+      "notes": "Used for sowing depth, thinning, Florida planting timing, height, Long Island Mammoth maturity, and seed harvest guidance.",
+      "last_reviewed_at": "2026-06-03T00:00:00+00:00"
+    },
+    {
+      "source_ref": "starter-workbook-dill",
+      "source_name": "Garden.io March 2026 starter workbook",
+      "source_type": "internal_curation",
+      "publisher": "Garden.io",
+      "author": null,
+      "source_url": null,
+      "citation_text": "Source: Plants list as of March 2026.docx; last modified 2026-03-07",
+      "published_on": null,
+      "credibility_score": 0.3,
+      "license": null,
+      "notes": "Workbook sheet: wishlist. Candidate/actual zone: Orchard A (West Orchard). Candidate/actual bed: Orchard A Companion Guild Layer. Notes: Planned northwest of trunk, alternating with bee balm.",
+      "last_reviewed_at": "2026-06-03T00:00:00+00:00"
+    }
+  ],
+  "claims": [
+    {
+      "claim_type": "taxonomy.botanical_identity",
+      "value_json": {
+        "botanical_name_full": "Anethum graveolens",
+        "family_name": "Apiaceae"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.9,
+      "source_ref": "udel-dill",
+      "source_quote_or_excerpt": "Anethum graveolens, Dill; Apiaceae family.",
+      "source_url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/dill/",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "climate.light_requirement",
+      "value_json": {
+        "preferred_light": "full sun",
+        "sun_min_hours": 6
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.88,
+      "source_ref": "udel-dill",
+      "source_quote_or_excerpt": "Sunlight: full sun.",
+      "source_url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/dill/",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "soil.drainage_requirement",
+      "value_json": {
+        "soil": "loamy, well drained",
+        "poor_soil_tolerance": true
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_ref": "udel-dill",
+      "source_quote_or_excerpt": "Grows best in loamy, well drained soil but can grow in poor soil.",
+      "source_url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/dill/",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "propagation.direct_sow",
+      "value_json": {
+        "preferred": true,
+        "reason": "taproot transplant sensitivity",
+        "depth_min_in": 0.25,
+        "depth_max_in": 0.5
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.87,
+      "source_ref": "illinois-dill",
+      "source_quote_or_excerpt": "Dill does best when it is directly sown.",
+      "source_url": "https://extension.illinois.edu/herbs/dill",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "growth.self_seeding",
+      "value_json": {
+        "self_seeds": true,
+        "management": "deadhead or harvest seed heads to reduce self-sowing"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.82,
+      "source_ref": "illinois-dill",
+      "source_quote_or_excerpt": "Dill reseeds readily.",
+      "source_url": "https://extension.illinois.edu/herbs/dill",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "maintenance.pests_diseases",
+      "value_json": {
+        "diseases": [
+          "downy mildew",
+          "powdery mildew"
+        ],
+        "pests": [
+          "aphids",
+          "army worm",
+          "cut worm"
+        ]
+      },
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.78,
+      "source_ref": "udel-dill",
+      "source_quote_or_excerpt": "Common pests and diseases include downy mildew, powdery mildew, aphids, army worm, and cut worm.",
+      "source_url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/dill/",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "fruiting.edible_parts",
+      "value_json": {
+        "edible_parts": [
+          "leaves",
+          "flowers",
+          "seeds"
+        ],
+        "seed_harvest": "fruiting tops fully developed but not brown"
+      },
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_ref": "uf-ifas-dill",
+      "source_quote_or_excerpt": "Dried or freshly chopped dill leaves are used... fruiting tops may be used either fresh or dried.",
+      "source_url": "https://www.growables.org/informationVeg/documents/Dill.pdf",
+      "reviewed_by_human": false,
+      "review_status": "approved",
+      "region_scope": null,
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    },
+    {
+      "claim_type": "profile.workbook_presence",
+      "value_json": {
+        "plant_name": "Dill",
+        "catalog_slug": "dill",
+        "sheet_name": "wishlist",
+        "zone_name": "Orchard A (West Orchard)",
+        "bed_name": "Orchard A Companion Guild Layer",
+        "notes": "Planned northwest of trunk, alternating with bee balm."
+      },
+      "evidence_strength_code": "unknown",
+      "confidence_score": 0.3,
+      "source_ref": "starter-workbook-dill",
+      "source_quote_or_excerpt": "Planned northwest of trunk, alternating with bee balm.",
+      "source_url": null,
+      "reviewed_by_human": false,
+      "review_status": "needs_more_evidence",
+      "region_scope": "Preston property plan",
+      "cultivar_scope": null,
+      "ai_generated_summary": false,
+      "human_verified": false,
+      "conflict_flag": false,
+      "region_specific_conflict_notes": null
+    }
+  ],
+  "images": [
+    {
+      "source_ref": null,
+      "stage_code": "flowering",
+      "image_url": "/art/specimen-herbarium-sheet.svg",
+      "storage_key": "art/specimen-herbarium-sheet.svg",
+      "mime_type": "image/svg+xml",
+      "width_px": null,
+      "height_px": null,
+      "attribution_text": "Garden.io placeholder specimen illustration",
+      "license": "internal placeholder",
+      "is_primary": true,
+      "is_public": true
+    }
+  ],
+  "ratings": [
+    {
+      "dimension_code": "sun_need",
+      "rating": 4,
+      "description": "Full sun crop; best leaf and seed production needs strong direct light.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "shade_tolerance",
+      "rating": 2,
+      "description": "Can tolerate light relief in hot weather, but shade reduces performance.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.58,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "afternoon_sun_tolerance",
+      "rating": 3,
+      "description": "Handles full sun when soil moisture is even; hot weather speeds bolting.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.68,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "water_need",
+      "rating": 3,
+      "description": "Medium water need; moist, well-drained soil is preferred.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.84,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "drought_tolerance",
+      "rating": 2,
+      "description": "Not a true drought herb; dry stress accelerates decline and bolting.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.68,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "wet_feet_tolerance",
+      "rating": 1,
+      "description": "Requires drainage and is not suited to waterlogged soil.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.84,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "soil_drainage_need",
+      "rating": 4,
+      "description": "Well-drained soil is consistently recommended.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "soil_fertility_need",
+      "rating": 2,
+      "description": "Can grow in poor soil but performs best in loamy soil.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.76,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "soil_compaction_tolerance",
+      "rating": 2,
+      "description": "Taproot and direct-sow preference imply low tolerance for compaction/disturbance.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.58,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "soil_texture_flexibility",
+      "rating": 4,
+      "description": "Tolerates vegetable-garden soils when drainage is adequate.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.72,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "maintenance_need",
+      "rating": 2,
+      "description": "Easy annual, but succession sowing and bolting management matter.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.76,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "beginner_friendliness",
+      "rating": 4,
+      "description": "Easy direct-sown herb if not transplanted and succession-sown.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.76,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "spread_aggressiveness",
+      "rating": 3,
+      "description": "Can reseed readily if seed heads are left in place.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.78,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "container_suitability",
+      "rating": 4,
+      "description": "Extension guidance says it grows well in containers, with taproot-aware handling.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.82,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "transplant_tolerance",
+      "rating": 1,
+      "description": "Taproot makes transplanting difficult; direct sow is preferred.",
+      "evidence_strength_code": "strong",
+      "confidence_score": 0.86,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "pollinator_value",
+      "rating": 4,
+      "description": "Umbel flowers provide insect/pollinator value.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.72,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "wildlife_food_value",
+      "rating": 2,
+      "description": "Not primarily grown as wildlife food; value is mostly insect floral resource.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.5,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "erosion_control_value",
+      "rating": 1,
+      "description": "Annual herb with limited soil-stabilizing role.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.45,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "biomass_value",
+      "rating": 2,
+      "description": "Moderate annual foliage but not a major biomass plant.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.5,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "invasive_risk",
+      "rating": 2,
+      "description": "Self-seeds readily but is generally manageable in garden context.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.68,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "disease_susceptibility",
+      "rating": 3,
+      "description": "Downy mildew and powdery mildew are listed concerns.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.72,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "pest_susceptibility",
+      "rating": 3,
+      "description": "Aphids, army worm, and cut worm are listed concerns.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.72,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "humidity_disease_risk",
+      "rating": 3,
+      "description": "Mildew risk makes airflow and spacing relevant in humid sites.",
+      "evidence_strength_code": "moderate",
+      "confidence_score": 0.68,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "deer_resistance",
+      "rating": 3,
+      "description": "Aromatic foliage may help, but source support is cultivar/vendor-level and context dependent.",
+      "evidence_strength_code": "weak",
+      "confidence_score": 0.48,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    },
+    {
+      "dimension_code": "rabbit_resistance",
+      "rating": 2,
+      "description": "No strong source-backed resistance claim; treat as vulnerable until observed.",
+      "evidence_strength_code": "unknown",
+      "confidence_score": 0.35,
+      "source_notes": "Derived from Dill extension/source-enriched profile."
+    }
+  ],
+  "import_notes": "Source-enriched base species profile. Bouquet and Mammoth are modeled as cultivar-linked profiles, not separate taxa."
+}

@@ -1,0 +1,634 @@
+{
+  "desktop": [
+    {
+      "label": "Sample garden start",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-01-start.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Get next step",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Leaves are yellowing on my tomato.",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What should I do after heavy rain?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Can I plant basil here?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What needs attention today?",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [
+          {
+            "text": "Ask about your gardenAdd photoGet next stepAnswers can be saved with a plant, bed, or the whole garden.",
+            "labels": [
+              "Ask about your garden",
+              "Add photo"
+            ]
+          }
+        ],
+        "textStart": "Garden.io\nLook around\nStart\nAsk your garden\nMemory\nCare\nGuide\nASK YOUR GARDEN\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Keep the useful answer with the right plant, bed, or season.\n\nAsk about your garden\nAdd photo\nGet next step\n\nAnswers can be saved with a plant, bed, or the whole garden.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask empty state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-02-ask-empty.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Get next step",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Leaves are yellowing on my tomato.",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What should I do after heavy rain?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Can I plant basil here?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What needs attention today?",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [
+          {
+            "text": "Ask about your gardenAdd photoGet next stepAnswers can be saved with a plant, bed, or the whole garden.",
+            "labels": [
+              "Ask about your garden",
+              "Add photo"
+            ]
+          }
+        ],
+        "textStart": "Garden.io\nLook around\nStart\nAsk your garden\nMemory\nCare\nGuide\nASK YOUR GARDEN\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Keep the useful answer with the right plant, bed, or season.\n\nAsk about your garden\nAdd photo\nGet next step\n\nAnswers can be saved with a plant, bed, or the whole garden.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask answered state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-03-answer.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add to care list",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Change",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Ask follow-up",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Save note",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [],
+        "textStart": "Garden.io\nLook around\nStart\nAsk your garden\nMemory\nCare\nGuide\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has context.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nPlant-specific context matters\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have context.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSave note",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Saved answer state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/desktop-04-saved.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add to care list",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Change",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Ask follow-up",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Saved",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [],
+        "textStart": "Garden.io\nLook around\nStart\nAsk your garden\nMemory\nCare\nGuide\n\nSaved to Whole garden.\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has context.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nPlant-specific context matters\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have context.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSaved",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    }
+  ],
+  "mobile": [
+    {
+      "label": "Sample garden start",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-01-start.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Get next step",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Leaves are yellowing on my tomato.",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What should I do after heavy rain?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Can I plant basil here?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What needs attention today?",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [
+          {
+            "text": "Ask about your gardenAdd photoGet next stepAnswers can be saved with a plant, bed, or the whole garden.",
+            "labels": [
+              "Ask about your garden",
+              "Add photo"
+            ]
+          }
+        ],
+        "textStart": "Garden.io\nStart\nAsk your garden\nMemory\nCare\nGuide\nASK YOUR GARDEN\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Keep the useful answer with the right plant, bed, or season.\n\nAsk about your garden\nAdd photo\nGet next step\n\nAnswers can be saved with a plant, bed, or the whole garden.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask empty state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-02-ask-empty.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Get next step",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Leaves are yellowing on my tomato.",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What should I do after heavy rain?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Can I plant basil here?",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "What needs attention today?",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [
+          {
+            "text": "Ask about your gardenAdd photoGet next stepAnswers can be saved with a plant, bed, or the whole garden.",
+            "labels": [
+              "Ask about your garden",
+              "Add photo"
+            ]
+          }
+        ],
+        "textStart": "Garden.io\nStart\nAsk your garden\nMemory\nCare\nGuide\nASK YOUR GARDEN\n2 areas, 3 beds, 4 growing plants\n\nAsk with a note or photo. Keep the useful answer with the right plant, bed, or season.\n\nAsk about your garden\nAdd photo\nGet next step\n\nAnswers can be saved with a plant, bed, or the whole garden.\n\nLeaves are yellowing on my tomato.\nWhat should I do after heavy rain?\nCan I plant basil here?\nWhat needs attention today?",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Ask answered state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-03-answer.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add to care list",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Change",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Ask follow-up",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Save note",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [],
+        "textStart": "Garden.io\nStart\nAsk your garden\nMemory\nCare\nGuide\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has context.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nPlant-specific context matters\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have context.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSave note",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    },
+    {
+      "label": "Saved answer state",
+      "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-248/screenshots/mobile-04-saved.png",
+      "metrics": {
+        "url": "http://127.0.0.1:3021/sample-garden/ask",
+        "title": "Garden.io | Know What Your Garden Needs",
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Ask your garden"
+          },
+          {
+            "tag": "H1",
+            "text": "start with one close check, then save the next care step with the right plant or bed."
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Garden.io",
+            "href": "/sample-garden/ask",
+            "aria": null
+          },
+          {
+            "text": "Start",
+            "href": "/app/my-property",
+            "aria": "Start your garden"
+          },
+          {
+            "text": "Memory",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Care",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Guide",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add to care list",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Add",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Change",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Ask follow-up",
+            "href": null,
+            "aria": null
+          },
+          {
+            "text": "Saved",
+            "href": null,
+            "aria": null
+          }
+        ],
+        "forms": [],
+        "textStart": "Garden.io\nStart\nAsk your garden\nMemory\nCare\nGuide\n\nSaved to Whole garden.\n\n\"Leaves are yellowing on my tomato.\"\n\nstart with one close check, then save the next care step with the right plant or bed.\nDO THIS FIRST\nCheck soil moisture before changing the watering rhythm.\nAdd to care list\nOTHER HELPFUL CHECKS\n\nInspect the most affected leaves for pests or spotting.\n\nAdd\n\nSave one note with the plant or bed so the next answer has context.\n\nAdd\nWHY THIS ANSWER\nHeat and watering are the first things to rule out\nPossible\n\nThe sample garden is in summer and has containers, herbs, and bloom borders with different water needs.\n\nPlant-specific context matters\nPossible\n\nFrench Marigold, Foxglove, and Curry Leaf are in different beds, so the useful next step depends on place.\n\nLook for: Look for whether the issue is on old leaves, new growth, or the whole plant.\n\nSAVE TO MEMORY\n\nKeep the answer with the right place so future questions have context.\n\nSave with\nWhole garden\nChange\nAsk follow-up\nSaved",
+        "rawTerms": [],
+        "visibleOverflow": []
+      }
+    }
+  ]
+}

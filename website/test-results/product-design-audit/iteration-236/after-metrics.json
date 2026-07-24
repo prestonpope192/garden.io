@@ -1,0 +1,254 @@
+[
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-236/screenshots/03-home-mobile-final.png",
+    "metrics": {
+      "route": "/",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 3166,
+      "horizontalOverflow": false,
+      "hasFoxglove": false,
+      "hasAutumnSage": false,
+      "hasAutumnSageImage": false,
+      "hasSvgImage": false,
+      "plantImages": [
+        {
+          "alt": "French Marigold in bloom.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=1080&q=75",
+          "complete": true,
+          "naturalWidth": 1080,
+          "rect": {
+            "x": 25,
+            "y": 458,
+            "w": 340,
+            "h": 260
+          }
+        },
+        {
+          "alt": "French Marigold.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 21,
+            "y": 1598,
+            "w": 348,
+            "h": 210
+          }
+        },
+        {
+          "alt": "Foxglove.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffoxglove.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 21,
+            "y": 1980,
+            "w": 348,
+            "h": 210
+          }
+        },
+        {
+          "alt": "Curry Leaf.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 21,
+            "y": 2362,
+            "w": 348,
+            "h": 210
+          }
+        }
+      ]
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-236/screenshots/04-home-desktop-final.png",
+    "metrics": {
+      "route": "/",
+      "viewportWidth": 1280,
+      "viewportHeight": 900,
+      "docWidth": 1280,
+      "bodyWidth": 1280,
+      "scrollHeight": 2092,
+      "horizontalOverflow": false,
+      "hasFoxglove": false,
+      "hasAutumnSage": false,
+      "hasAutumnSageImage": false,
+      "hasSvgImage": false,
+      "plantImages": [
+        {
+          "alt": "French Marigold in bloom.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=1080&q=75",
+          "complete": true,
+          "naturalWidth": 1080,
+          "rect": {
+            "x": 768,
+            "y": 144,
+            "w": 457,
+            "h": 461
+          }
+        },
+        {
+          "alt": "French Marigold.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 33,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          }
+        },
+        {
+          "alt": "Foxglove.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffoxglove.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 452,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          }
+        },
+        {
+          "alt": "Curry Leaf.",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=750&q=75",
+          "complete": true,
+          "naturalWidth": 750,
+          "rect": {
+            "x": 870,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          }
+        }
+      ]
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-236/screenshots/05-my-plants-mobile-final.png",
+    "metrics": {
+      "route": "/sample-garden/plants",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1194,
+      "horizontalOverflow": false,
+      "hasFoxglove": true,
+      "hasAutumnSage": false,
+      "hasAutumnSageImage": false,
+      "hasSvgImage": false,
+      "plantImages": [
+        {
+          "alt": "French Marigold",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 96,
+          "rect": {
+            "x": 35,
+            "y": 504,
+            "w": 82,
+            "h": 82
+          }
+        },
+        {
+          "alt": "Foxglove",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffoxglove.jpg&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 96,
+          "rect": {
+            "x": 35,
+            "y": 651,
+            "w": 82,
+            "h": 82
+          }
+        },
+        {
+          "alt": "Curry Leaf",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 96,
+          "rect": {
+            "x": 35,
+            "y": 798,
+            "w": 82,
+            "h": 82
+          }
+        },
+        {
+          "alt": "French Marigold",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=96&q=75",
+          "complete": true,
+          "naturalWidth": 96,
+          "rect": {
+            "x": 35,
+            "y": 966,
+            "w": 82,
+            "h": 82
+          }
+        }
+      ]
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-236/screenshots/06-find-plants-mobile-final.png",
+    "metrics": {
+      "route": "/sample-garden/catalogue",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1782,
+      "horizontalOverflow": false,
+      "hasFoxglove": true,
+      "hasAutumnSage": false,
+      "hasAutumnSageImage": false,
+      "hasSvgImage": false,
+      "plantImages": [
+        {
+          "alt": "Curry Leaf",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Fcurry-leaf.jpg&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 256,
+          "rect": {
+            "x": 34,
+            "y": 278,
+            "w": 321,
+            "h": 150
+          }
+        },
+        {
+          "alt": "Foxglove",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffoxglove.jpg&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 256,
+          "rect": {
+            "x": 34,
+            "y": 747,
+            "w": 321,
+            "h": 150
+          }
+        },
+        {
+          "alt": "French Marigold",
+          "src": "http://127.0.0.1:3021/_next/image?url=https%3A%2F%2Fkoeawpuagswysumwuidc.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fplant-art%2Ffrench-marigold.jpg&w=256&q=75",
+          "complete": true,
+          "naturalWidth": 256,
+          "rect": {
+            "x": 34,
+            "y": 1234,
+            "w": 321,
+            "h": 150
+          }
+        }
+      ]
+    }
+  }
+]

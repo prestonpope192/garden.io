@@ -1,0 +1,6 @@
+FOUND: Field Guide
+FOUND: Bell Pepper
+FOUND: Warm containers or bed edges where watering and heat stress are easy to notice.
+MISSING: Warm containers or bed edges where watering and heat notes are easy to track.
+FOUND: Good to remember
+FOUND: Watering, support, harvest, and pests.

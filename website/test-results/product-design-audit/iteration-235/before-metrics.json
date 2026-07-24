@@ -1,0 +1,38 @@
+[
+  {
+    "file": "01-find-plants-mobile-before.png",
+    "path": "/sample-garden/catalogue",
+    "metrics": {
+      "h1": "Find Plants",
+      "h2s": [
+        "Autumn Sage",
+        "Curry Leaf",
+        "French Marigold"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nStart\nHOME GARDEN\nFind Plant \n\nChoo e plant  that fit your bed .\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\nNot li ted\nBEST SPOT\nSunny border  where long bloom  can  upport pollinator .\n\nA tough perennial  age with long bloom window  in warm garden .\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nLIGHT\nBright Light\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nWarm container  near the kitchen for quick harve t .\n\nA container-friendly culinary plant that benefit  from  teady warmth.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagete  patula\n\nLIGHT\nFull Sun\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nEdge  near vegetable  where pollinator  and companion flower  help.\n\nA compact flower for pollinator edge  and companion planting.",
+      "viewportWidth": 390,
+      "docScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "cards": [],
+      "overflowing": []
+    }
+  },
+  {
+    "file": "02-find-plants-desktop-before.png",
+    "path": "/sample-garden/catalogue",
+    "metrics": {
+      "h1": "Find Plants",
+      "h2s": [
+        "Autumn Sage",
+        "Curry Leaf",
+        "French Marigold"
+      ],
+      "firstText": "Garden.io\nGarden\nThi  Week\nPlant \nFind\nLook around\nStart\nHOME GARDEN\nFind Plant \n\nChoo e plant  that fit your bed .\n\nSUMMER\n3 PLANTS\nPERENNIAL\nAutumn Sage\nShrub\n\nSalvia greggii\n\nLIGHT\nFull Sun\nWATER\nLow\nHEIGHT\nNot li ted\nBEST SPOT\nSunny border  where long bloom  can  upport pollinator .\n\nA tough perennial  age with long bloom window  in warm garden .\n\nPERENNIAL\nCurry Leaf\nShrub\n\nMurraya koenigii\n\nLIGHT\nBright Light\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nWarm container  near the kitchen for quick harve t .\n\nA container-friendly culinary plant that benefit  from  teady warmth.\n\nANNUAL\nFrench Marigold\nFlower\n\nTagete  patula\n\nLIGHT\nFull Sun\nWATER\nModerate\nHEIGHT\nNot li ted\nBEST SPOT\nEdge  near vegetable  where pollinator  and companion flower  help.\n\nA compact flower for pollinator edge  and companion planting.",
+      "viewportWidth": 1280,
+      "docScrollWidth": 1280,
+      "bodyScrollWidth": 1280,
+      "cards": [],
+      "overflowing": []
+    }
+  }
+]

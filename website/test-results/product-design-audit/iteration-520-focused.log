@@ -1,0 +1,13 @@
+
+> garden-io-website@0.1.0 test
+> vitest run empty-state-content.test.ts sample-garden.test.ts app-flow-visual-css.test.ts
+
+
+ RUN  v4.1.7 /Users/preston/Code/garden.io/website
+
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  08:33:56
+   Duration  381ms (transform 376ms, setup 0ms, import 534ms, tests 84ms, environment 0ms)
+

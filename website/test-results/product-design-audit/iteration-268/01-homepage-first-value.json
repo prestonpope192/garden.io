@@ -1,0 +1,52 @@
+{
+  "metrics": {
+    "firstPanel": null,
+    "h1": "Your garden, smarter.",
+    "links": [
+      {
+        "href": "#top",
+        "text": "Garden.io"
+      },
+      {
+        "href": "#plants",
+        "text": "Find plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      },
+      {
+        "href": "/catalog/calendula",
+        "text": "CalendulaBloom and companion notesRemember bloom timing, nearby vegetables, and when deadheading helped."
+      },
+      {
+        "href": "/catalog/cilantro",
+        "text": "CilantroHarvest and heat notesTrack harvests, bolting, and where it stayed tender longest."
+      },
+      {
+        "href": "/catalog/bell-pepper",
+        "text": "Bell PepperContainer and harvest notesTrack watering, blossom set, heat stress, and first harvests together."
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      }
+    ],
+    "textLength": 1466,
+    "textStart": "Garden.io Find plants Start your garden Your garden, smarter. Start with one bed or plant. Then save notes and photos as you garden, so every answer has the right context. Start your garden See a sample garden Use it like a garden journal that can answer back. A small map plus a few notes is enough to make help feel specific. CALENDULA Blooming along the bed edge Next step: note how long this flush lasts before deadheading. HOW IT HELPS A smarter garden starts with simple notes. Save what happened once. The next question can use the right plant, bed, photo, and season. Map your garden Add beds and plants once so every note lands in the right place. Record what happened Save blooms, harvests, pests, watering, weather, and photos while they are fresh. Ask with memory Get a next step based on the plant's history, place, season, and photos. YOUR PLANTS Each plant keeps its own story. Photos,",
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/"
+  }
+}

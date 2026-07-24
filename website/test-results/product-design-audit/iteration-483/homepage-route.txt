@@ -1,0 +1,4 @@
+FOUND: Keep what helped
+FOUND: Keep the helpful note with the plant or bed it belongs to.
+MISSING: Keep what helped with the plant or bed it belongs to.
+MISSING: Save useful care with the plant or bed it belongs to.

@@ -1,0 +1,4 @@
+FOUND: Simple garden habit
+FOUND: Add a note or photo. Keep what helped with the right plant.
+MISSING: Add a note or photo. Keep what helped with the plant it belongs to.
+FOUND: Your garden, smarter.

@@ -1,0 +1,424 @@
+{
+  "mobile": {
+    "plants": {
+      "url": "http://127.0.0.1:3021/sample-garden/plants",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "My Plants"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "Choose a plant"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Calendula",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Cilantro",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Cucumber",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Calendula",
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nStart\nHOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nCalendula\nFlower\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nFlowering\nHarvest in ~12 days\n\nNext step: Note bloom duration\nCilantro\nHerb · Annual\n\nKitchen Garden · Herb Bed\n\n4 plants · 3 weeks in ground\n\nNext step: Harvest cilantro before afternoon heat\nCucumber\nVine · Annual\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nCalendula\nFlower\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nVegetative\nHarvest in ~24 days\n\nNext step: Check the herb bed after afternoon heat\nCHOOSE A PLANT\n\n4 growing plants across 3 beds. Pick one to see notes, photos, and next steps.\n\n4 plants have care this week.",
+      "textLength": 814
+    },
+    "care": {
+      "url": "http://127.0.0.1:3021/sample-garden/calendar",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "This Week"
+        },
+        {
+          "tag": "H2",
+          "text": "June 22–28, 2026"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "Care this week",
+        "This season",
+        "Later care",
+        "Ideas for later"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nStart\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nCucumber in Container Row, Kitchen Garden\nWATER\nJun 23\nHarvest cilantro before afternoon heat\nCilantro in Herb Bed, Kitchen Garden\nHARVEST\nJun 25\nNote bloom duration\nCalendula in Bloom Border, Pollinator Edge\nNOTE\nJun 27\nCheck the herb bed after afternoon heat\nCalendula in Herb Bed, Kitchen Garden\nCHECK\nJun 28\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 30\nRefresh mulch on exposed soil\nHerb Bed in Kitchen Garden\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat spell\n\nA steady deep-watering habit prevents stress during summer peaks.\n\nLater\nAdd one more bed when you need room\n\nIf this area starts to feel crowded, one clear bed gives future plants a place to go.",
+      "textLength": 1031
+    },
+    "memory": {
+      "url": "http://127.0.0.1:3021/sample-garden/property",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "My Garden"
+        },
+        {
+          "tag": "H2",
+          "text": "Backyard Garden"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "What needs care next",
+        "Garden layout"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Herb Bed2",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Cilantro ·4",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Calendula ·2",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Container Row1",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Cucumber",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Bloom Border1",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Calendula ·6",
+          "aria": null,
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nStart\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nWHAT NEEDS CARE NEXT\n\n2 areas, 3 beds, 4 growing plants. Pick a place or plant to see its notes and next step.\n\nNext step: Water deeply before the hot afternoon (Jun 23)\n\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n2\nCilantro ·4\nCalendula ·2\nContainer Row\n1\nCucumber\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n1\nCalendula ·6",
+      "textLength": 596
+    }
+  },
+  "desktop": {
+    "plants": {
+      "url": "http://127.0.0.1:3021/sample-garden/plants",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "My Plants"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "Choose a plant"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Calendula",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Cilantro",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Cucumber",
+          "href": null
+        },
+        {
+          "text": "",
+          "aria": "Select Calendula",
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nMy Plants\n\nChoose a plant to see its notes, photos, and next steps.\n\nSUMMER\nCalendula\nFlower\n\nPollinator Edge · Bloom Border\n\n6 plants · 4 weeks, 5 days in ground\n\nFlowering\nHarvest in ~12 days\n\nNext step: Note bloom duration\nCilantro\nHerb · Annual\n\nKitchen Garden · Herb Bed\n\n4 plants · 3 weeks in ground\n\nNext step: Harvest cilantro before afternoon heat\nCucumber\nVine · Annual\n\nKitchen Garden · Container Row\n\n1 plant · 8 weeks, 2 days in ground\n\nNext step: Water deeply before the hot afternoon\nCalendula\nFlower\n\nKitchen Garden · Herb Bed\n\n2 plants · 3 weeks in ground\n\nVegetative\nHarvest in ~24 days\n\nNext step: Check the herb bed after afternoon heat\nMY PLANTS\nCHOOSE A PLANT\n\n4 growing plants across 3 beds. Pick one to see notes, photos, and next steps.\n\n4 plants have care this week.",
+      "textLength": 836
+    },
+    "care": {
+      "url": "http://127.0.0.1:3021/sample-garden/calendar",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "This Week"
+        },
+        {
+          "tag": "H2",
+          "text": "June 22–28, 2026"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "Care this week",
+        "This season",
+        "Later care",
+        "Ideas for later"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nThis Week\n\nStart with this week's care. Let the rest wait.\n\nSUMMER\nJune 22–28, 2026\nCARE THIS WEEK\n4 things to do\nWater deeply before the hot afternoon\nCucumber in Container Row, Kitchen Garden\nWATER\n\nFocus on the cucumber container and newly planted herbs.\n\nJun 23\nHarvest cilantro before afternoon heat\nCilantro in Herb Bed, Kitchen Garden\nHARVEST\n\nCut the outer stems before the next hot stretch pushes it toward bolting.\n\nJun 25\nNote bloom duration\nCalendula in Bloom Border, Pollinator Edge\nNOTE\n\nNotice how long this flush lasts before deadheading.\n\nJun 27\nCheck the herb bed after afternoon heat\nCalendula in Herb Bed, Kitchen Garden\nCHECK\n\nAdd a note if leaves are still wilting by evening.\n\nJun 28\nTHIS SEASON\nSummer\nCentral Texas\nSow small batches of quick crops every couple of weeks.\nWater deeply at the root zone during heat spells.\nCheck leafy greens for bolting and heat stress.\nLATER CARE\nJun 30\nRefresh mulch on exposed soil\nHerb Bed in Kitchen Garden\nIDEAS FOR LATER\nThis season\nSet a watering rhythm before the next heat spell\n\nA steady deep-watering habit prevents stress during summer peaks.\n\nLater\nAdd one more bed when you need room\n\nIf this area starts to feel crowded, one clear bed gives future plants a place to go.",
+      "textLength": 1286
+    },
+    "memory": {
+      "url": "http://127.0.0.1:3021/sample-garden/property",
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "My Garden"
+        },
+        {
+          "tag": "H2",
+          "text": "Backyard Garden"
+        }
+      ],
+      "labels": [
+        "Home garden",
+        "What needs care next",
+        "Garden layout"
+      ],
+      "buttons": [
+        {
+          "text": "Garden.io",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Ask",
+          "aria": null,
+          "href": "/sample-garden/ask"
+        },
+        {
+          "text": "Start",
+          "aria": "Start your garden",
+          "href": "/app/my-property"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": "Kitchen Garden area, 2 beds",
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": "Pollinator Edge area, 1 bed",
+          "href": null
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Herb Bed2",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Cilantro ·4",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Calendula ·2",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Container Row1",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Cucumber",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Bloom Border1",
+          "aria": null,
+          "href": null
+        },
+        {
+          "text": "Calendula ·6",
+          "aria": null,
+          "href": null
+        }
+      ],
+      "oldTerms": [],
+      "visibleOverflow": [],
+      "textStart": "Garden.io\nAsk\nLook around\nStart\nHOME GARDEN\nMy Garden\n\nSee each area, bed, plant, and note by place.\n\nSUMMER\nGARDEN\nHome garden · Backyard Garden\nWHAT NEEDS CARE NEXT\n\n2 areas, 3 beds, 4 growing plants. Pick a place or plant to see its notes and next step.\n\nNext step: Water deeply before the hot afternoon (Jun 23)\n\nGARDEN LAYOUT\nBackyard Garden\n\nHome garden · Central Texas · Growing zone 8b · Summer\n\nKitchen Garden\n2 BEDS\n\nHerbs and daily cooking plants · Morning sun\n\nHerb Bed\n2\nCilantro ·4\nCalendula ·2\nContainer Row\n1\nCucumber\nPollinator Edge\n1 BED\n\nFlowers, perennial color, and beneficial insects · Full sun\n\nBloom Border\n1\nCalendula ·6",
+      "textLength": 645
+    }
+  }
+}

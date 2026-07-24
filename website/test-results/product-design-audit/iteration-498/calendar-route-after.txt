@@ -1,0 +1,5 @@
+FOUND: This week
+FOUND: Weekly care
+MISSING: This Week
+FOUND: Start with what needs care. Let the rest wait.
+FOUND: 3 garden jobs this week

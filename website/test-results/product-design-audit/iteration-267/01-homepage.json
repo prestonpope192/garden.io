@@ -1,0 +1,57 @@
+{
+  "metrics": {
+    "h1": "Your garden, smarter.",
+    "h2s": [
+      "A smarter garden starts with simple notes.",
+      "Each plant keeps its own story.",
+      "Start with the garden you already have."
+    ],
+    "links": [
+      {
+        "href": "#top",
+        "text": "Garden.io"
+      },
+      {
+        "href": "#plants",
+        "text": "Find plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      },
+      {
+        "href": "/catalog/calendula",
+        "text": "CalendulaBloom and companion notesRemember bloom timing, nearby vegetables, and when deadheading helped."
+      },
+      {
+        "href": "/catalog/cilantro",
+        "text": "CilantroHarvest and heat notesTrack harvests, bolting, and where it stayed tender longest."
+      },
+      {
+        "href": "/catalog/bell-pepper",
+        "text": "Bell PepperContainer and harvest notesTrack watering, blossom set, heat stress, and first harvests together."
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/sample-garden",
+        "text": "See a sample garden"
+      }
+    ],
+    "textLength": 1460,
+    "textStart": "Garden.io Find plants Start your garden Your garden, smarter. Add a quick note or photo as you garden. When you need help, your plants, beds, and season are already in context. Start your garden See a sample garden Use it like a garden journal that can answer back. The more you save, the more useful each answer becomes. CALENDULA Blooming along the bed edge Next step: note how long this flush lasts before deadheading. HOW IT HELPS A smarter garden starts with simple notes. Save what happened once. The next question can use the right plant, bed, photo, and season. Map your garden Add beds and plants once so every note lands in the right place. Record what happened Save blooms, harvests, pests, watering, weather, and photos while they are fresh. Ask with memory Get a next step based on the plant's history, place, season, and photos. YOUR PLANTS Each plant keeps its own story. Photos, notes",
+    "title": "Garden.io | Your Garden, Smarter",
+    "url": "http://127.0.0.1:3021/"
+  },
+  "snapshotStart": "- main:\n  - link \"Garden.io\":\n    - /url: \"#top\"\n  - navigation \"Primary\":\n    - link \"Find plants\":\n      - /url: \"#plants\"\n  - link \"Start your garden\":\n    - /url: /app/my-property\n  - heading \"Your garden, smarter.\" [level=1]\n  - paragraph: Add a quick note or photo as you garden. When you need help, your plants, beds, and season are already in context.\n  - link \"Start your garden\":\n    - /url: /app/my-property\n  - link \"See a sample garden\":\n    - /url: /sample-garden\n  - paragraph: Use it like a garden journal that can answer back. The more you save, the more useful each answer becomes.\n  - generic \"Calendula garden note\":\n    - img \"Calendula in bloom.\"\n    - generic: Calendula\n    - strong: Blooming along the bed edge\n    - paragraph: \"Next step: note how long this flush lasts before deadheading.\"\n  - generic: How it helps\n  - heading \"A smarter garden starts with simple notes.\" [level=2]\n  - paragraph: Save what happened once. The next question can use the right plant, bed, photo, and season.\n  - article:\n    - strong: Map your garden\n    - paragraph: Add beds and plants once so every note lands in the right place.\n  - article:\n    - strong: Record what happened\n    - paragraph: Save blooms, harvests, pests, watering, weather, and photos while they are fresh.\n  - article:\n    - strong: Ask with memory\n    - paragraph: Get a next step based on the plant's history, place, season, and photos.\n  - generic: Your plants\n  - heading \"Each plant keeps its own story.\" [level=2]\n  - paragraph: Photos, notes, harvests, and next steps all stay with the right plant.\n  - link \"Calendula. Calendula Bloom and companion notes Remember bloom timing, nearby vegetables, and when deadheading helped.\":\n    - /url: /catalog/calendula\n    - img \"Calendula.\"\n    - generic: Calendula\n    - strong: Bloom and companion notes\n    - paragraph: Remember bloom timing, nearby vegetables, and when deadheading helped.\n  - link \"Cilantro. Cilantro Harvest and heat notes Track harvests, bolting, and where it stayed tender longest.\":\n    - /url: /catalog/cilantro\n    - img \"Cilantro.\"\n    - generic: Cilantro\n    - strong: Harvest and heat notes\n    - paragraph: Track harvests, bolting, and where it stayed tender longest.\n  - link \"Bell Pepper. Bell Pepper Container and harvest notes Track watering, blossom set, heat stress, and first harvests together.\":\n    - /url: /catalog/bell-pepper\n    - img \"Bell Pepper.\"\n    - generic: Bell Pepper\n    - strong: Container and harvest notes\n    - paragraph: Track watering, blossom set, heat stress, and first harvests together.\n  - heading \"Start with the garden you already have.\" [level=2]\n  - paragraph: Add one bed or plant. Each small note makes future answers more useful.\n  - link \"Start your garden\":\n    - /url: /app/my-property\n  - link \"See a sample garden\":\n    - /url: /sample-garden\n  - paragraph: Garden.io\n  - paragraph: A living memory for your garden\n- alert"
+}

@@ -1,0 +1,38 @@
+{
+  "initial": {
+    "forbidden": [],
+    "overflow": 0,
+    "send": {
+      "disabled": true,
+      "h": 54,
+      "label": "Add a note first",
+      "tag": "button",
+      "visible": true,
+      "w": 147
+    },
+    "smallTargets": [],
+    "suggested": [
+      {
+        "disabled": false,
+        "h": 48,
+        "label": "Leaves are yellowing",
+        "tag": "button",
+        "visible": true,
+        "w": 149
+      },
+      {
+        "disabled": false,
+        "h": 48,
+        "label": "Heavy rain last night",
+        "tag": "button",
+        "visible": true,
+        "w": 153
+      }
+    ],
+    "textSample": "Garden.io Today My Garden Weekly care Plant Journal Choose plants Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add a note or photo. Keep what helps for later. What changed in your garden? Add a photo Add a note first A little context makes the answer more useful. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "url": "http://127.0.0.1:3021/tour/ask"
+  },
+  "typedLimitation": {
+    "note": "Browser control typing changed DOM textarea value in this environment but did not trigger React state; not used as product-failure evidence."
+  }
+}

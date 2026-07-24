@@ -9,7 +9,7 @@ function cx(...classNames: Array<string | false | null | undefined>) {
 
 type SpecimenLabelProps = {
   children: ReactNode;
-  tone?: "default" | "olive" | "clay";
+  tone?: "default" | "olive" | "clay" | "berry";
   className?: string;
 };
 
@@ -52,6 +52,7 @@ export function InkStamp({ children, tone = "olive", className }: InkStampProps)
 
 type PlateCardProps = {
   plateNumber: string;
+  label?: string;
   title: string;
   subtitle: string;
   illustration?: ReactNode;
@@ -60,7 +61,7 @@ type PlateCardProps = {
 };
 
 export function PlateCard({
-  plateNumber,
+  label,
   title,
   subtitle,
   illustration,
@@ -70,7 +71,7 @@ export function PlateCard({
   return (
     <article className={cx("plate-card", className)}>
       <div className="plate-card__head">
-        <SpecimenLabel tone="clay">Plate {plateNumber}</SpecimenLabel>
+        <SpecimenLabel tone="clay">{label ?? "Plant photo"}</SpecimenLabel>
         <span className="plate-card__rule" />
       </div>
       {illustration ? <div className="plate-card__illustration">{illustration}</div> : null}
@@ -89,8 +90,11 @@ type JournalPageProps = {
   label: string;
   title: string;
   subtitle?: string;
+  kicker?: ReactNode;
+  headerMeta?: ReactNode;
   children: ReactNode;
   className?: string;
+  variant?: "standard" | "editorial" | "ledger";
 };
 
 export function JournalPage({
@@ -99,18 +103,25 @@ export function JournalPage({
   label,
   title,
   subtitle,
+  kicker,
+  headerMeta,
   children,
-  className
+  className,
+  variant = "standard"
 }: JournalPageProps) {
   return (
-    <article className={cx("journal-page", `journal-page--${side}`, className)}>
+    <article className={cx("journal-page", `journal-page--${side}`, `journal-page--${variant}`, className)}>
       <header className="journal-page__header">
-        <div>
+        <div className="journal-page__header-copy">
           <SpecimenLabel>{label}</SpecimenLabel>
+          {kicker ? <p className="journal-page__kicker">{kicker}</p> : null}
           <h2>{title}</h2>
           {subtitle ? <p className="journal-page__subtitle">{subtitle}</p> : null}
         </div>
-        <div className="journal-page__folio">Folio {folio}</div>
+        <div className="journal-page__header-side">
+          <div className="journal-page__folio">Section {folio}</div>
+          {headerMeta ? <div className="journal-page__meta">{headerMeta}</div> : null}
+        </div>
       </header>
       <div className="journal-page__body">{children}</div>
     </article>
@@ -120,57 +131,127 @@ export function JournalPage({
 type JournalSpreadProps = {
   children: ReactNode;
   className?: string;
+  layout?: "balanced" | "feature-left" | "feature-right";
 };
 
-export function JournalSpread({ children, className }: JournalSpreadProps) {
-  return <section className={cx("journal-spread", className)}>{children}</section>;
+export function JournalSpread({ children, className, layout = "balanced" }: JournalSpreadProps) {
+  return <section className={cx("journal-spread", `journal-spread--${layout}`, className)}>{children}</section>;
 }
 
-const prototypeNav = [
-  { href: "/app", label: "Notebook" },
-  { href: "/app/my-property", label: "My Property" },
-  { href: "/app/calendar", label: "Calendar" },
-  { href: "/app/my-plants", label: "My Plants" },
-  { href: "/app/plant-catalogue", label: "Plant Catalogue" }
+const appNav = [
+  { href: "/app/my-property", label: "My Garden" },
+  { href: "/app/calendar", label: "Weekly care" },
+  { href: "/app/my-plants", label: "Plant Journal" },
+  { href: "/app/plant-catalogue", label: "Choose plants" }
 ];
 
 type JournalShellProps = {
   currentPath: string;
   children: ReactNode;
+  signOut?: () => void;
+  userEmail?: string;
 };
 
-export function JournalShell({ currentPath, children }: JournalShellProps) {
+export function JournalShell({ currentPath, children, signOut, userEmail }: JournalShellProps) {
   return (
     <div className="journal-shell">
       <header className="journal-shell__header">
-        <div className="journal-shell__identity">
-          <SpecimenLabel tone="olive">Prototype folio</SpecimenLabel>
-          <div>
+        <div className="journal-shell__topline">
+          <div className="journal-shell__identity">
             <Link className="journal-shell__brand" href="/">
               Garden.io
             </Link>
-            <p className="journal-shell__tagline">A living botanical notebook for growers managing real complexity.</p>
+            <nav aria-label="Garden sections" className="journal-shell__nav">
+              {appNav.map((item) => (
+                <Link
+                  key={item.href}
+                  className={cx("journal-shell__nav-link", currentPath === item.href && "is-active")}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
-        </div>
-        <nav aria-label="Prototype module navigation" className="journal-shell__nav">
-          {prototypeNav.map((item) => (
-            <Link
-              key={item.href}
-              className={cx("journal-shell__nav-link", currentPath === item.href && "is-active")}
-              href={item.href}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-      </header>
 
-      <div className="journal-shell__meta">
-        <SpecimenLabel>Field edition 01</SpecimenLabel>
-        <p>Styled prototype shell. Static data, tactile layout, and journal-first navigation language.</p>
-      </div>
+          <details className="journal-shell__user-menu">
+            <summary className="journal-shell__user-toggle">
+              <span className="journal-shell__avatar" aria-hidden="true">
+                {userEmail ? userEmail[0].toUpperCase() : "P"}
+              </span>
+              <span className="sr-only">Open user menu</span>
+            </summary>
+            <div className="journal-shell__user-dropdown">
+              <Link href="/app/my-property">My Garden</Link>
+              <Link href="/app/my-plants">Plant Journal</Link>
+              <Link href="/app/calendar">Weekly care</Link>
+              <Link href="/app/plant-catalogue">Choose plants</Link>
+              <button type="button" onClick={signOut}>Log out</button>
+            </div>
+          </details>
+        </div>
+
+        <p className="journal-shell__tagline">Remember what happened and what helped.</p>
+      </header>
 
       <div className="journal-shell__body">{children}</div>
     </div>
+  );
+}
+
+type FieldTextProps = {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  required?: boolean;
+  type?: string;
+};
+
+export function FieldText({ label, value, onChange, placeholder, required, type }: FieldTextProps) {
+  return (
+    <label className="garden-field">
+      <span>{label}</span>
+      <input
+        className="input"
+        type={type ?? "text"}
+        required={required}
+        placeholder={placeholder}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+      />
+    </label>
+  );
+}
+
+type FieldSelectProps = {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  /** Convenience: renders an em-dash empty option followed by these choices. */
+  options?: string[];
+  /** Full control over the option list; ignored when `options` is given. */
+  children?: ReactNode;
+};
+
+export function FieldSelect({ label, value, onChange, options, children }: FieldSelectProps) {
+  return (
+    <label className="garden-field">
+      <span>{label}</span>
+      <select className="input" value={value} onChange={(event) => onChange(event.target.value)}>
+        {options ? (
+          <>
+            <option value="">—</option>
+            {options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </>
+        ) : (
+          children
+        )}
+      </select>
+    </label>
   );
 }

@@ -1,0 +1,20 @@
+{
+  "h1": "Plant Journal",
+  "href": "http://127.0.0.1:3021/tour/plants",
+  "links": [
+    {
+      "href": "/tour/ask",
+      "text": "Garden.io"
+    },
+    {
+      "href": "/tour/ask",
+      "text": "Today"
+    },
+    {
+      "href": "/app/my-property",
+      "text": "Start your garden"
+    }
+  ],
+  "pathname": "/tour/plants",
+  "visibleTextHasSampleGarden": false
+}

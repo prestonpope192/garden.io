@@ -1,0 +1,327 @@
+[
+  {
+    "name": "home",
+    "route": "/",
+    "buttons": [],
+    "clientWidth": 1265,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Your garden, smarter.",
+    "h2s": [
+      "A small habit for fewer garden guesses.",
+      "See each plant's season in one place."
+    ],
+    "links": [
+      {
+        "href": "#top",
+        "text": "Garden.io"
+      },
+      {
+        "href": "#plants",
+        "text": "Choose plants"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/tour",
+        "text": "Tour a garden journal"
+      },
+      {
+        "href": "/catalog/apple",
+        "text": "AppleFirst bloom and fruit setKeep bloom dates, pruning notes, fruit set, and harvests together."
+      },
+      {
+        "href": "/catalog/borage",
+        "text": "BorageBees in the borageNote blooms, reseeding, companion planting, and pollinator visits."
+      },
+      {
+        "href": "/catalog/bouquet-dill",
+        "text": "Bouquet DillSown, cut, gone to seedKeep sowing dates, cut stems, flowers, seed heads, and next plantings."
+      }
+    ],
+    "pathname": "/",
+    "scrollWidth": 1265,
+    "textSample": "Garden.io Choose plants Your garden, smarter. Note what changed. Keep what helped. See what works. Start your garden Tour a garden journal Start with one plant. Add notes as the season unfolds. APPLE First bloom Apr. 12. Compare fruit set and harvest later. SIMPLE GARDEN HABIT A small habit for fewer garden guesses. Add the note now. Use it when the next decision comes. Give each plant a home Choose where it grows once. Notes and photos stay where they belong. Notice what changed Jot the change while it is fresh: blooms, pests, rain, harvests, or yellow leaves. See what worked Look back before you water, prune, replant, or ask for help. YOUR PLANTS See each plant's season in one place. Keep bloom dates, pests, harvests, and what helped as the season changes. APPLE First bloom and fruit set Keep bloom dates, pruning notes, fruit set, and harvests together. BORAGE Bees in the borage Note blooms, reseeding, companion planting, and pollinator visits. BOUQUET DILL Sown, cut, gone to seed Keep sowing dates, cut stems, flowers, seed heads, and next plantings. Garden.io A living notebook for your garden",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "tour-ask",
+    "route": "/tour/ask",
+    "buttons": [
+      "See what helps",
+      "Leaves are yellowing",
+      "Heavy rain last night"
+    ],
+    "clientWidth": 1265,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Your garden, smarter.",
+    "h2s": [],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      },
+      {
+        "href": "/tour/property",
+        "text": "My Garden"
+      },
+      {
+        "href": "/tour/calendar",
+        "text": "Weekly care"
+      },
+      {
+        "href": "/tour/catalogue",
+        "text": "Choose plants"
+      }
+    ],
+    "pathname": "/tour/ask",
+    "scrollWidth": 1265,
+    "textSample": "Garden.io Start your garden TODAY 4 plants in 3 beds Your garden, smarter. Add what changed. Keep what helped. What changed in your garden? Add a photo See what helps Keep it where it belongs in your garden. Leaves are yellowing Heavy rain last night My Garden Weekly care Choose plants",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "tour-property",
+    "route": "/tour/property",
+    "buttons": [
+      "Kitchen Garden2 beds",
+      "Pollinator Edge1 bed",
+      "Kitchen Garden2 beds",
+      "Herb Bed2",
+      "Bouquet Dill ·4",
+      "Borage ·2",
+      "Container Row1",
+      "Bell Pepper",
+      "Pollinator Edge1 bed",
+      "Bloom Border1",
+      "Borage ·6",
+      "View Bell Pepper notes"
+    ],
+    "clientWidth": 1280,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "My Garden",
+    "h2s": [
+      "Backyard Garden"
+    ],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "pathname": "/tour/property",
+    "scrollWidth": 1280,
+    "textSample": "Garden.io Today Start your garden WHERE THINGS GROW My Garden See what grows where, and what happened there. SUMMER WHERE THINGS GROW Backyard Garden Central Texas · Growing zone 8b · Summer Kitchen Garden 2 BEDS Herbs and daily cooking plants · Morning sun Herb Bed 2 Bouquet Dill ·4 Borage ·2 Container Row 1 Bell Pepper Pollinator Edge 1 BED Flowers, perennial color, and beneficial insects · Full sun Bloom Border 1 Borage ·6 GARDEN Backyard Garden THIS WEEK Bell Pepper Water deeply before the hot afternoon · Jun 24 Container Row · Kitchen Garden 4 plants in 3 beds. Start with Bell Pepper. Read its notes before you act. View Bell Pepper notes",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "tour-calendar",
+    "route": "/tour/calendar",
+    "buttons": [
+      "Kitchen Garden2 beds",
+      "Pollinator Edge1 bed"
+    ],
+    "clientWidth": 1280,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Weekly care",
+    "h2s": [
+      "June 22–28, 2026"
+    ],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "pathname": "/tour/calendar",
+    "scrollWidth": 1280,
+    "textSample": "Garden.io Today Start your garden THIS WEEK Weekly care Start with what needs care. Let the rest wait. SUMMER June 22–28, 2026 FIRST UP 3 care notes this week TODAY Water deeply before the hot afternoon Bell Pepper in Container Row, Kitchen Garden WATER Focus on the bell pepper container and newly planted herbs. Jun 24 LATER THIS WEEK Harvest dill before afternoon heat Bouquet Dill in Herb Bed, Kitchen Garden Note bloom duration Borage in Bloom Border, Pollinator Edge",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "tour-plants",
+    "route": "/tour/plants",
+    "buttons": [
+      "Kitchen Garden2 beds",
+      "Pollinator Edge1 bed"
+    ],
+    "clientWidth": 1265,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Plant Journal",
+    "h2s": [],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "pathname": "/tour/plants",
+    "scrollWidth": 1265,
+    "textSample": "Garden.io Today Start your garden YOUR PLANTS Plant Journal Choose one plant to see what happened and what helped. SUMMER Bell Pepper Vegetable · Annual Kitchen Garden · Container Row 1 plant · 8 weeks, 2 days in ground This week: Water deeply before the hot afternoon Bouquet Dill Herb · Annual Kitchen Garden · Herb Bed 4 plants · 3 weeks in ground This week: Harvest dill before afternoon heat Borage Flower · Annual Pollinator Edge · Bloom Border 6 plants · 4 weeks, 5 days in ground This week: Note bloom duration Borage Flower · Annual Kitchen Garden · Herb Bed 2 plants · 3 weeks in ground This week: Check the herb bed after afternoon heat PLANT NOTES CHOOSE A PLANT 4 plants in 3 beds. Start with Bell Pepper. Choose any plant when you want its notes. 4 plants need care this week.",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "tour-catalogue",
+    "route": "/tour/catalogue",
+    "buttons": [
+      "Kitchen Garden2 beds",
+      "Pollinator Edge1 bed"
+    ],
+    "clientWidth": 1265,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Field Guide",
+    "h2s": [
+      "Bell Pepper",
+      "Borage",
+      "Bouquet Dill"
+    ],
+    "links": [
+      {
+        "href": "/tour/ask",
+        "text": "Garden.io"
+      },
+      {
+        "href": "/tour/ask",
+        "text": "Today"
+      },
+      {
+        "href": "/app/my-property",
+        "text": "Start your garden"
+      }
+    ],
+    "pathname": "/tour/catalogue",
+    "scrollWidth": 1265,
+    "textSample": "Garden.io Today Start your garden FOR YOUR BEDS Field Guide Choose plants for the beds you have. SUMMER 3 PLANTS TO CHOOSE FROM ANNUAL Bell Pepper Vegetable BEST SPOT Warm containers or bed edges where watering and heat stress are easy to notice. SUN Full Sun WATER High GOOD TO REMEMBER Watering, support, harvest, and pests. ANNUAL Borage Flower BEST SPOT Sunny bed edges where pollinator visits and reseeding are easy to watch. SUN Full Sun WATER Moderate GOOD TO REMEMBER Bloom timing, pollinator visits, and deadheading. ANNUAL Bouquet Dill Herb BEST SPOT A sunny herb bed where repeat sowings and harvest timing stay visible. SUN Full Sun WATER Moderate GOOD TO REMEMBER Harvest timing, heat stress, and flavor.",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  },
+  {
+    "name": "app-entry",
+    "route": "/app",
+    "buttons": [
+      "Email me a start link"
+    ],
+    "clientWidth": 1265,
+    "flags": {
+      "ai": false,
+      "beta": false,
+      "comingSoon": false,
+      "earlyAccess": false,
+      "product": false,
+      "prototype": false,
+      "record": false,
+      "sampleGarden": false,
+      "task": false
+    },
+    "h1": "Your garden, smarter.",
+    "h2s": [],
+    "links": [
+      {
+        "href": "/tour",
+        "text": "Tour a garden journal"
+      },
+      {
+        "href": "/catalog",
+        "text": "Choose plants"
+      }
+    ],
+    "pathname": "/app/my-property",
+    "scrollWidth": 1265,
+    "textSample": "START YOUR GARDEN Your garden, smarter. Remember what you planted, what changed, and what helped in one calm garden notebook. Give one plant a home. Choose where it grows so notes stay where they belong. Enter your email. We'll send a link to start your garden. EMAIL ADDRESS Email me a start link Tour a garden journal Choose plants",
+    "title": "Garden.io | Your Garden, Smarter",
+    "overflow": 0
+  }
+]

@@ -1,0 +1,107 @@
+<svg viewBox="0 0 640 800" width="640" height="800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Paper -->
+  <rect width="640" height="800" rx="28" fill="#F5EEDD"/>
+  <!-- Frame -->
+  <rect x="24" y="24" width="592" height="752" rx="22" stroke="#C7B38A" stroke-width="2"/>
+
+  <!-- Main stem from bottom center, curving up-left -->
+  <path d="M 310 560 C 308 510 304 460 298 415 C 292 370 283 330 274 290 C 265 250 256 212 250 178 C 246 155 244 138 244 125" stroke="#6C5A3A" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Side branch right to pedicel -->
+  <path d="M 292 400 C 318 388 350 382 382 386 C 408 390 422 400 424 412" stroke="#6C5A3A" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+  <!-- Pedicel holding tomato -->
+  <path d="M 424 412 C 426 428 420 444 412 456" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Compound leaf 1: midrib from stem at y~420, 5 leaflets -->
+  <path d="M 296 420 C 264 408 236 396 210 384" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- terminal leaflet -->
+  <path d="M 210 384 C 194 370 190 350 200 336 C 210 322 228 320 240 332 C 252 344 252 364 242 378 C 232 390 218 390 210 384 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.40"/>
+  <path d="M 210 384 L 218 356" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 218 356 C 212 342 210 330 212 322" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 2 -->
+  <path d="M 228 394 C 213 380 212 360 224 347 C 236 334 254 335 260 348 C 266 361 260 380 248 390 C 240 398 232 398 228 394 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.36"/>
+  <path d="M 228 394 L 238 368" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 3 -->
+  <path d="M 248 404 C 236 389 236 368 250 356 C 264 344 280 346 284 360 C 288 374 280 393 266 402 C 257 409 251 409 248 404 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.38"/>
+  <path d="M 248 404 L 260 378" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 4 -->
+  <path d="M 240 412 C 224 398 222 376 234 362 C 246 348 264 350 268 365 C 272 380 263 400 250 410 C 244 415 242 415 240 412 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.34"/>
+  <path d="M 240 412 L 250 386" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 5 -->
+  <path d="M 258 416 C 244 402 243 380 257 368 C 271 356 288 360 290 375 C 292 390 282 408 268 415 C 262 419 260 419 258 416 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.35"/>
+  <path d="M 258 416 L 268 390" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Compound leaf 2: midrib from stem at y~290, arching left -->
+  <path d="M 280 295 C 252 280 225 268 200 260" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- terminal leaflet -->
+  <path d="M 200 260 C 186 246 184 226 196 213 C 208 200 226 200 234 214 C 242 228 238 248 226 260 C 216 270 204 268 200 260 Z" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.40"/>
+  <path d="M 200 260 L 210 232" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 210 232 C 204 218 203 207 206 200" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 2 -->
+  <path d="M 218 270 C 205 255 204 234 217 222 C 230 210 248 212 252 226 C 256 240 248 260 234 269 C 225 276 220 276 218 270 Z" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.37"/>
+  <path d="M 218 270 L 230 245" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 3 -->
+  <path d="M 236 278 C 225 263 226 242 240 230 C 254 218 270 222 272 237 C 274 252 264 270 250 278 C 242 284 238 284 236 278 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.37"/>
+  <path d="M 236 278 L 248 254" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 4 small -->
+  <path d="M 228 284 C 214 270 214 250 228 238 C 242 226 258 230 260 244 C 262 258 252 276 238 283 C 232 287 230 287 228 284 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.33"/>
+  <path d="M 228 284 L 240 260" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 5 small -->
+  <path d="M 246 288 C 233 274 234 254 248 243 C 262 232 278 236 278 250 C 278 264 267 281 253 287 C 248 290 248 290 246 288 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.34"/>
+  <path d="M 246 288 L 256 264" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Compound leaf 3: midrib from stem at y~175, arching left -->
+  <path d="M 253 180 C 234 168 216 158 200 152" stroke="#6C5A3A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- terminal leaflet -->
+  <path d="M 200 152 C 188 138 188 118 200 107 C 212 96 230 98 236 112 C 242 126 236 147 224 155 C 214 162 202 160 200 152 Z" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.42"/>
+  <path d="M 200 152 L 210 126" stroke="#7D6740" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 210 126 C 205 113 204 103 206 98" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 2 -->
+  <path d="M 216 162 C 204 147 204 126 218 115 C 232 104 250 108 252 122 C 254 136 244 155 230 163 C 222 169 218 168 216 162 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.38"/>
+  <path d="M 216 162 L 228 138" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 3 -->
+  <path d="M 233 170 C 222 155 224 134 238 124 C 252 114 268 118 268 132 C 268 146 257 164 243 171 C 237 175 235 174 233 170 Z" stroke="#7D6740" stroke-width="3" fill="#D8C49C" fill-opacity="0.37"/>
+  <path d="M 233 170 L 244 147" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 4 -->
+  <path d="M 225 176 C 212 161 213 140 228 129 C 243 118 260 123 260 138 C 260 153 248 170 234 176 C 228 179 227 179 225 176 Z" stroke="#7D6740" stroke-width="3" fill="#D3BF98" fill-opacity="0.33"/>
+  <path d="M 225 176 L 236 152" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- leaflet 5 -->
+  <path d="M 242 179 C 230 164 231 143 246 133 C 261 123 278 128 276 143 C 274 158 261 174 247 179 C 243 181 243 181 242 179 Z" stroke="#7D6740" stroke-width="3" fill="#D6C29A" fill-opacity="0.34"/>
+  <path d="M 242 179 L 252 156" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Tomato fruit: beefsteak, layered ellipses -->
+  <!-- outer body -->
+  <ellipse cx="412" cy="488" rx="46" ry="42" stroke="#6C5A3A" stroke-width="4" fill="#D3BF98" fill-opacity="0.45"/>
+  <!-- inner highlight layer -->
+  <ellipse cx="410" cy="485" rx="35" ry="32" stroke="none" fill="#D8C49C" fill-opacity="0.32"/>
+  <!-- ribbing curves over shoulder -->
+  <path d="M 396 450 C 394 458 394 466 397 474" stroke="#7D6740" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 406 447 C 404 456 404 464 406 472" stroke="#7D6740" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 416 447 C 415 456 415 464 417 472" stroke="#7D6740" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 427 450 C 426 458 427 466 430 473" stroke="#7D6740" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- calyx 5 sepals -->
+  <path d="M 412 453 L 406 440 M 412 453 L 418 440 M 412 453 L 399 447 M 412 453 L 425 447 M 412 453 L 412 438" stroke="#7D6740" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- short stem on calyx -->
+  <path d="M 412 438 C 412 433 413 428 414 424" stroke="#6C5A3A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- highlight curve -->
+  <path d="M 388 470 C 390 462 397 458 404 462" stroke="#7D6740" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Annotation 1: ribbed shoulder (right side, anchor end) -->
+  <line x1="450" y1="462" x2="526" y2="440" stroke="#A78545" stroke-width="3"/>
+  <text x="572" y="445" font-family="serif" font-size="24" fill="#7D6740" text-anchor="end">ribbed shoulder</text>
+
+  <!-- Annotation 2: compound leaf (left) -->
+  <line x1="245" y1="395" x2="170" y2="368" stroke="#A78545" stroke-width="3"/>
+  <text x="64" y="372" font-family="serif" font-size="24" fill="#7D6740">compound leaf</text>
+
+  <!-- Caption dividers -->
+  <path d="M120 598H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M120 640H520" stroke="#C7B38A" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <!-- Latin name -->
+  <text x="60" y="685" fill="#6C5A3A" font-family="serif" font-size="26">Solanum lycopersicum 'Cherokee Purple'</text>
+
+  <!-- Plate line -->
+  <text x="60" y="726" fill="#7D6740" font-family="serif" font-size="24">Plate 109 · Cherokee Purple Tomato</text>
+</svg>

@@ -1,0 +1,1013 @@
+[
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/01-home-mobile-before.png",
+    "metrics": {
+      "route": "/",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 3166,
+      "horizontalOverflow": false,
+      "wordCount": 245,
+      "textStart": [
+        "Garden.io",
+        "Find plants",
+        "Know what to do next in your garden.",
+        "Keep plants, photos, notes, and care in one place so every next step has context.",
+        "Start your garden",
+        "Look around",
+        "Find plants that fit",
+        "Built for busy gardeners who need a quick answer, not another spreadsheet.",
+        "FRENCH MARIGOLD",
+        "Blooming in the pollinator edge",
+        "Next step: keep watering steady this week and note how long the bloom lasts.",
+        "HOW IT HELPS",
+        "Keep beds, plants, notes, photos, and next steps in one place.",
+        "Add a quick note now. Know what to do later.",
+        "Map what you have",
+        "Add beds and plants once so every note has a place.",
+        "Save quick notes",
+        "Capture photos, blooms, harvests, pests, weather, and care while they are fresh.",
+        "Ask what to do next",
+        "When a plant looks off, get a next step based on its notes, bed, photo, and season.",
+        "YOUR PLANTS",
+        "Each plant keeps its own story.",
+        "Photos, notes, harvests, and next steps all stay with the right plant.",
+        "FRENCH MARIGOLD",
+        "Bloom and companion notes",
+        "Remember when it bloomed and what nearby plants it helped.",
+        "FOXGLOVE",
+        "Bloom stalk and pollinator notes"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Know what to do next in your garden."
+        },
+        {
+          "tag": "h2",
+          "text": "Keep beds, plants, notes, photos, and next steps in one place."
+        },
+        {
+          "tag": "h2",
+          "text": "Each plant keeps its own story."
+        },
+        {
+          "tag": "h2",
+          "text": "Start with one bed and one plant."
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "#top",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants",
+          "href": "#plants",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "tag": "a"
+        },
+        {
+          "text": "FRENCH MARIGOLD\nBloom and companion notes\n\nRemember when it bloomed and what nearby plants it helped.",
+          "href": "/catalog/french-marigold",
+          "tag": "a"
+        },
+        {
+          "text": "FOXGLOVE\nBloom stalk and pollinator notes\n\nTrack bloom spikes, bee activity, and when stalks need cutting back.",
+          "href": "/catalog/foxglove",
+          "tag": "a"
+        },
+        {
+          "text": "CURRY LEAF\nContainer watering notes\n\nSee container moves, watering changes, and what helped it grow.",
+          "href": "/catalog/curry-leaf",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        }
+      ],
+      "imageSummary": [
+        {
+          "alt": "French Marigold in bloom.",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 25,
+            "y": 458,
+            "w": 340,
+            "h": 260
+          },
+          "complete": true,
+          "naturalWidth": 1080
+        },
+        {
+          "alt": "French Marigold.",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 21,
+            "y": 1598,
+            "w": 348,
+            "h": 210
+          },
+          "complete": true,
+          "naturalWidth": 750
+        },
+        {
+          "alt": "Foxglove.",
+          "src": "foxglove.jpg",
+          "rect": {
+            "x": 21,
+            "y": 1980,
+            "w": 348,
+            "h": 210
+          },
+          "complete": true,
+          "naturalWidth": 750
+        },
+        {
+          "alt": "Curry Leaf.",
+          "src": "curry-leaf.jpg",
+          "rect": {
+            "x": 21,
+            "y": 2362,
+            "w": 348,
+            "h": 210
+          },
+          "complete": true,
+          "naturalWidth": 750
+        }
+      ],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/02-home-desktop-before.png",
+    "metrics": {
+      "route": "/",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 1280,
+      "viewportHeight": 900,
+      "docWidth": 1280,
+      "bodyWidth": 1280,
+      "scrollHeight": 2092,
+      "horizontalOverflow": false,
+      "wordCount": 248,
+      "textStart": [
+        "Garden.io",
+        "Find plants",
+        "Start your garden",
+        "Know what to do next in your garden.",
+        "Keep plants, photos, notes, and care in one place so every next step has context.",
+        "Start your garden",
+        "Look around",
+        "Find plants that fit",
+        "Built for busy gardeners who need a quick answer, not another spreadsheet.",
+        "FRENCH MARIGOLD",
+        "Blooming in the pollinator edge",
+        "Next step: keep watering steady this week and note how long the bloom lasts.",
+        "HOW IT HELPS",
+        "Keep beds, plants, notes, photos, and next steps in one place.",
+        "Add a quick note now. Know what to do later.",
+        "Map what you have",
+        "Add beds and plants once so every note has a place.",
+        "Save quick notes",
+        "Capture photos, blooms, harvests, pests, weather, and care while they are fresh.",
+        "Ask what to do next",
+        "When a plant looks off, get a next step based on its notes, bed, photo, and season.",
+        "YOUR PLANTS",
+        "Each plant keeps its own story.",
+        "Photos, notes, harvests, and next steps all stay with the right plant.",
+        "FRENCH MARIGOLD",
+        "Bloom and companion notes",
+        "Remember when it bloomed and what nearby plants it helped.",
+        "FOXGLOVE"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Know what to do next in your garden."
+        },
+        {
+          "tag": "h2",
+          "text": "Keep beds, plants, notes, photos, and next steps in one place."
+        },
+        {
+          "tag": "h2",
+          "text": "Each plant keeps its own story."
+        },
+        {
+          "tag": "h2",
+          "text": "Start with one bed and one plant."
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "#top",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants",
+          "href": "#plants",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "tag": "a"
+        },
+        {
+          "text": "FRENCH MARIGOLD\nBloom and companion notes\n\nRemember when it bloomed and what nearby plants it helped.",
+          "href": "/catalog/french-marigold",
+          "tag": "a"
+        },
+        {
+          "text": "FOXGLOVE\nBloom stalk and pollinator notes\n\nTrack bloom spikes, bee activity, and when stalks need cutting back.",
+          "href": "/catalog/foxglove",
+          "tag": "a"
+        },
+        {
+          "text": "CURRY LEAF\nContainer watering notes\n\nSee container moves, watering changes, and what helped it grow.",
+          "href": "/catalog/curry-leaf",
+          "tag": "a"
+        },
+        {
+          "text": "Start your garden",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        }
+      ],
+      "imageSummary": [
+        {
+          "alt": "French Marigold in bloom.",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 768,
+            "y": 144,
+            "w": 457,
+            "h": 461
+          },
+          "complete": true,
+          "naturalWidth": 1080
+        },
+        {
+          "alt": "French Marigold.",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 33,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          },
+          "complete": true,
+          "naturalWidth": 750
+        },
+        {
+          "alt": "Foxglove.",
+          "src": "foxglove.jpg",
+          "rect": {
+            "x": 452,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          },
+          "complete": true,
+          "naturalWidth": 750
+        },
+        {
+          "alt": "Curry Leaf.",
+          "src": "curry-leaf.jpg",
+          "rect": {
+            "x": 870,
+            "y": 1344,
+            "w": 377,
+            "h": 230
+          },
+          "complete": true,
+          "naturalWidth": 750
+        }
+      ],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/03-sample-property-mobile-before.png",
+    "metrics": {
+      "route": "/sample-garden/property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1083,
+      "horizontalOverflow": false,
+      "wordCount": 113,
+      "textStart": [
+        "Garden.io",
+        "Garden",
+        "This Week",
+        "Plants",
+        "Find",
+        "Start",
+        "HOME GARDEN",
+        "My Garden",
+        "See each area, bed, plant, and note by place.",
+        "SUMMER",
+        "WHAT NEEDS CARE NEXT",
+        "2 areas, 3 beds, 4 growing plants. Pick a place or plant to see its notes and next step.",
+        "Next step: Water deeply before the hot afternoon (Jun 22)",
+        "GARDEN LAYOUT",
+        "Backyard Garden",
+        "Home garden · Central Texas · Growing zone 8b · Summer",
+        "Kitchen Garden",
+        "2 BEDS",
+        "Herbs and daily cooking plants · Morning sun",
+        "Herb Bed",
+        "1",
+        "French Marigold ·2",
+        "Container Row",
+        "1",
+        "Curry Leaf",
+        "Pollinator Edge",
+        "1 BED",
+        "Flowers, perennial color, and beneficial insects · Full sun"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "My Garden"
+        },
+        {
+          "tag": "h2",
+          "text": "Backyard Garden"
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "tag": "a"
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "tag": "a"
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "tag": "a"
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "tag": "a"
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "tag": "a"
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Kitchen Garden\n2 BEDS",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Herb Bed\n1",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "French Marigold ·2",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Container Row\n1",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Curry Leaf",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Pollinator Edge\n1 BED",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Bloom Border\n2",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "French Marigold ·6",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Foxglove ·2",
+          "href": "",
+          "tag": "button"
+        }
+      ],
+      "imageSummary": [],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/04-sample-calendar-mobile-before.png",
+    "metrics": {
+      "route": "/sample-garden/calendar",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1547,
+      "horizontalOverflow": false,
+      "wordCount": 186,
+      "textStart": [
+        "Garden.io",
+        "Garden",
+        "This Week",
+        "Plants",
+        "Find",
+        "Start",
+        "HOME GARDEN",
+        "This Week",
+        "Start with this week's care. Let the rest wait.",
+        "SUMMER",
+        "June 22–28, 2026",
+        "CARE THIS WEEK",
+        "4 things to do",
+        "Water deeply before the hot afternoon",
+        "Curry Leaf in Container Row, Kitchen Garden",
+        "WATER",
+        "Jun 22",
+        "Cut back spent foxglove stalks",
+        "Foxglove in Bloom Border, Pollinator Edge",
+        "CARE",
+        "Jun 24",
+        "Note bloom duration",
+        "French Marigold in Bloom Border, Pollinator Edge",
+        "NOTE",
+        "Jun 26",
+        "Check the herb bed after afternoon heat",
+        "French Marigold in Herb Bed, Kitchen Garden",
+        "CHECK"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "This Week"
+        },
+        {
+          "tag": "h2",
+          "text": "June 22–28, 2026"
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "tag": "a"
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "tag": "a"
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "tag": "a"
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "tag": "a"
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "tag": "a"
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": "",
+          "tag": "button"
+        }
+      ],
+      "imageSummary": [],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/05-sample-plants-mobile-before.png",
+    "metrics": {
+      "route": "/sample-garden/plants",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1194,
+      "horizontalOverflow": false,
+      "wordCount": 147,
+      "textStart": [
+        "Garden.io",
+        "Garden",
+        "This Week",
+        "Plants",
+        "Find",
+        "Start",
+        "HOME GARDEN",
+        "My Plants",
+        "Choose a plant to see its notes, photos, and next steps.",
+        "SUMMER",
+        "French Marigold",
+        "Flower · Annual",
+        "Pollinator Edge · Bloom Border",
+        "6 plants · 4 weeks, 5 days in ground",
+        "Next step: Note bloom duration",
+        "Foxglove",
+        "Flower",
+        "Pollinator Edge · Bloom Border",
+        "2 plants · 11 weeks, 5 days in ground",
+        "Next step: Cut back spent foxglove stalks",
+        "Curry Leaf",
+        "Shrub · Perennial",
+        "Kitchen Garden · Container Row",
+        "1 plant · 8 weeks, 2 days in ground",
+        "Next step: Water deeply before the hot afternoon",
+        "French Marigold",
+        "Flower · Annual",
+        "Kitchen Garden · Herb Bed"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "My Plants"
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "tag": "a"
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "tag": "a"
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "tag": "a"
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "tag": "a"
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "tag": "a"
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Select French Marigold",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Select Foxglove",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Select Curry Leaf",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Select French Marigold",
+          "href": "",
+          "tag": "button"
+        }
+      ],
+      "imageSummary": [
+        {
+          "alt": "French Marigold",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 35,
+            "y": 504,
+            "w": 82,
+            "h": 82
+          },
+          "complete": true,
+          "naturalWidth": 96
+        },
+        {
+          "alt": "Foxglove",
+          "src": "foxglove.jpg",
+          "rect": {
+            "x": 35,
+            "y": 651,
+            "w": 82,
+            "h": 82
+          },
+          "complete": true,
+          "naturalWidth": 96
+        },
+        {
+          "alt": "Curry Leaf",
+          "src": "curry-leaf.jpg",
+          "rect": {
+            "x": 35,
+            "y": 798,
+            "w": 82,
+            "h": 82
+          },
+          "complete": true,
+          "naturalWidth": 96
+        },
+        {
+          "alt": "French Marigold",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 35,
+            "y": 966,
+            "w": 82,
+            "h": 82
+          },
+          "complete": true,
+          "naturalWidth": 96
+        }
+      ],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/06-sample-catalogue-mobile-before.png",
+    "metrics": {
+      "route": "/sample-garden/catalogue",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 1782,
+      "horizontalOverflow": false,
+      "wordCount": 117,
+      "textStart": [
+        "Garden.io",
+        "Garden",
+        "This Week",
+        "Plants",
+        "Find",
+        "Start",
+        "HOME GARDEN",
+        "Find Plants",
+        "Choose plants that fit your beds.",
+        "SUMMER",
+        "3 PLANTS",
+        "PERENNIAL",
+        "Curry Leaf",
+        "Shrub",
+        "Murraya koenigii",
+        "BEST SPOT",
+        "Warm containers near the kitchen for quick harvests.",
+        "LIGHT",
+        "Bright Light",
+        "WATER",
+        "Moderate",
+        "A container-friendly culinary plant that benefits from steady warmth.",
+        "BIENNIAL",
+        "Foxglove",
+        "Flower",
+        "Digitalis purpurea",
+        "BEST SPOT",
+        "Part-sun borders where tall bloom stalks have room and can draw pollinators."
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Find Plants"
+        },
+        {
+          "tag": "h2",
+          "text": "Curry Leaf"
+        },
+        {
+          "tag": "h2",
+          "text": "Foxglove"
+        },
+        {
+          "tag": "h2",
+          "text": "French Marigold"
+        }
+      ],
+      "links": [
+        {
+          "text": "Garden.io",
+          "href": "/",
+          "tag": "a"
+        },
+        {
+          "text": "Garden",
+          "href": "/sample-garden/property",
+          "tag": "a"
+        },
+        {
+          "text": "This Week",
+          "href": "/sample-garden/calendar",
+          "tag": "a"
+        },
+        {
+          "text": "Plants",
+          "href": "/sample-garden/plants",
+          "tag": "a"
+        },
+        {
+          "text": "Find",
+          "href": "/sample-garden/catalogue",
+          "tag": "a"
+        },
+        {
+          "text": "Start",
+          "href": "/app/my-property",
+          "tag": "a"
+        },
+        {
+          "text": "Kitchen Garden2 beds",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Pollinator Edge1 bed",
+          "href": "",
+          "tag": "button"
+        }
+      ],
+      "imageSummary": [
+        {
+          "alt": "Curry Leaf",
+          "src": "curry-leaf.jpg",
+          "rect": {
+            "x": 34,
+            "y": 278,
+            "w": 321,
+            "h": 150
+          },
+          "complete": true,
+          "naturalWidth": 256
+        },
+        {
+          "alt": "Foxglove",
+          "src": "foxglove.jpg",
+          "rect": {
+            "x": 34,
+            "y": 747,
+            "w": 321,
+            "h": 150
+          },
+          "complete": true,
+          "naturalWidth": 256
+        },
+        {
+          "alt": "French Marigold",
+          "src": "french-marigold.jpg",
+          "rect": {
+            "x": 34,
+            "y": 1234,
+            "w": 321,
+            "h": 150
+          },
+          "complete": true,
+          "naturalWidth": 256
+        }
+      ],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/07-app-entry-mobile-before.png",
+    "metrics": {
+      "route": "/app/my-property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 390,
+      "viewportHeight": 900,
+      "docWidth": 390,
+      "bodyWidth": 390,
+      "scrollHeight": 900,
+      "horizontalOverflow": false,
+      "wordCount": 78,
+      "textStart": [
+        "ASK YOUR GARDEN",
+        "Know what to do next.",
+        "Ask with a quick note or photo. Your beds, plants, notes, and care stay together.",
+        "First, make a place for your garden notes.",
+        "Name your garden.",
+        "Add one bed.",
+        "Add one plant.",
+        "Then every photo, note, and care step knows where it belongs.",
+        "Enter your email and we'll send a link back to this page. No password needed.",
+        "EMAIL ADDRESS",
+        "Email me the link",
+        "Look around",
+        "Find plants that fit"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Know what to do next."
+        }
+      ],
+      "links": [
+        {
+          "text": "Email me the link",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "tag": "a"
+        }
+      ],
+      "imageSummary": [],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  },
+  {
+    "file": "/Users/preston/Code/garden.io/website/test-results/product-design-audit/iteration-237/screenshots/08-app-entry-desktop-before.png",
+    "metrics": {
+      "route": "/app/my-property",
+      "title": "Garden.io | Know What Your Garden Needs",
+      "viewportWidth": 1280,
+      "viewportHeight": 900,
+      "docWidth": 1280,
+      "bodyWidth": 1280,
+      "scrollHeight": 900,
+      "horizontalOverflow": false,
+      "wordCount": 78,
+      "textStart": [
+        "ASK YOUR GARDEN",
+        "Know what to do next.",
+        "Ask with a quick note or photo. Your beds, plants, notes, and care stay together.",
+        "First, make a place for your garden notes.",
+        "Name your garden.",
+        "Add one bed.",
+        "Add one plant.",
+        "Then every photo, note, and care step knows where it belongs.",
+        "Enter your email and we'll send a link back to this page. No password needed.",
+        "EMAIL ADDRESS",
+        "Email me the link",
+        "Look around",
+        "Find plants that fit"
+      ],
+      "headings": [
+        {
+          "tag": "h1",
+          "text": "Know what to do next."
+        }
+      ],
+      "links": [
+        {
+          "text": "Email me the link",
+          "href": "",
+          "tag": "button"
+        },
+        {
+          "text": "Look around",
+          "href": "/sample-garden",
+          "tag": "a"
+        },
+        {
+          "text": "Find plants that fit",
+          "href": "/catalog",
+          "tag": "a"
+        }
+      ],
+      "imageSummary": [],
+      "hasBetaCopy": false,
+      "hasDeveloperCopy": false,
+      "hasSvgImage": false
+    }
+  }
+]
