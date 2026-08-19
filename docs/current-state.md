@@ -10,7 +10,7 @@ This document is the canonical cold-start summary of the repository as it exists
 - Primary executable surface: [`website/`](../website/).
 - Primary local database contract: checked-in SQL under [`supabase/sql/`](../supabase/sql/).
 - Primary product intent docs: [`../PRODUCT_SPEC.md`](../PRODUCT_SPEC.md) and [`product/specs/`](product/specs/).
-- Latest working-session records: [`handoff/`](handoff/) — July 7, 2026 design audit, the three improvement passes shipped that day (uncommitted on `codex/garden-private-beta-mvp`), and the prioritized backlog with the next-pass prompt.
+- Latest working-session records: [`handoff/`](handoff/) plus the [2026-08-19 finish-line report](qa/2026-08-19-discovery-five-finish-line.md).
 
 ## What Is Implemented
 
@@ -79,6 +79,8 @@ Evidence:
 - Per-plant **planting timeline**: a past -> today -> upcoming arc built by a pure, tested `buildPlantTimeline()` — planting milestone, observations/diagnoses, completed tasks, a "today + lifecycle stage" divider, open tasks, projected harvest, and suggested next actions. Shown both in the property detail drawer and a Timeline tab in Plant Journal.
 - Per-planting **outcome capture**: record harvest quantity/quality and a success/partial/failure result; outcomes show on the timeline as harvest milestones. Backed by `garden_plant_outcomes` (migration `43`).
 - **History-cited recommendations**: a per-(bed × plant) and per-plant performance memory feeds the suggestion engine, so recommendations cite the grower's real track record ("your X averaged 4.5/5 over 2 harvests — keep doing what works"; or a caution for weak history).
+- AI diagnosis responses now carry bounded evidence facts and an explicit confirmation flag; malformed provider responses are rejected before reaching the UI.
+- Authenticated app activity emits a small allowlisted event set for memory-loop activation and weekly-return measurement; the event contract and query live in [`docs/analytics/product-events.md`](analytics/product-events.md).
 
 Evidence:
 - [`website/lib/garden-timeline.ts`](../website/lib/garden-timeline.ts), [`website/components/plant-timeline.tsx`](../website/components/plant-timeline.tsx)
@@ -90,6 +92,7 @@ Evidence:
 ### Supabase schema and import tooling
 
 - Garden app SQL exists for properties, zones, beds, plants, notes, care, outcomes, and related app records.
+- Migration 46 adds an atomic shared rate-limit counter and authenticated product-event table, and hardens observation/task writes against cross-property plant references.
 - Older SQL filenames may still contain historical launch naming, but the current app surface should be described in user-facing garden language.
 - Import helpers exist for starter workbook ingestion and plant-record ingestion.
 
@@ -134,6 +137,7 @@ docker compose up --build -d
 ```bash
 cd website
 npm test
+npm run check:hygiene
 ```
 
 ### Environment

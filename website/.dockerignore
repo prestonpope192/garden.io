@@ -10,3 +10,12 @@ coverage
 .gitignore
 .vscode
 .vercel
+test-results
+playwright-report
+blob-report
+output
+**/chrome-*
+**/Default/Cookies
+**/Default/Login Data*
+**/Default/*Web Data
+**/Local State

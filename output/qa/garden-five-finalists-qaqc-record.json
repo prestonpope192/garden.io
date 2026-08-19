@@ -1,0 +1,71 @@
+{
+  "project": "garden.io",
+  "source_of_truth": "local",
+  "records": [
+    {
+      "check_id": "GARDEN-HYGIENE-001",
+      "coverage_key": "repository-artifact-hygiene",
+      "behavior": "Tracked source excludes browser profiles, generated test artifacts, and obvious credential material.",
+      "surface": "Git repository and website/scripts/check-repo-hygiene.mjs",
+      "fixtures": "NONE",
+      "steps": ["Run npm run check:hygiene from website/", "Run the repository hygiene Vitest test"],
+      "success_criteria": ["The hygiene command exits 0", "No website/test-results path or browser credential database is tracked"],
+      "environment_scope": "local repository",
+      "safety": "read-only validation plus recoverable index cleanup",
+      "tests": ["website/tests/repo-hygiene.test.ts"],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-ABUSE-001",
+      "coverage_key": "shared-auth-and-ai-rate-limit",
+      "behavior": "Magic-link and paid AI requests use a shared atomic rate-limit function and fail closed when it is unavailable.",
+      "surface": "website/lib/rate-limit.ts, /api/auth/magic-link, /api/diagnose, public.consume_rate_limit",
+      "fixtures": "Authenticated test user for diagnose; synthetic email/IP keys for auth",
+      "steps": ["Exercise the RPC-backed limiter", "Exercise the unavailable-store path", "Verify the live function returns true then false at limit 1"],
+      "success_criteria": ["The shared RPC receives hashed keys and bounded windows", "Unavailable storage returns 503", "A request over the limit returns 429"],
+      "environment_scope": "local plus configured Supabase project",
+      "safety": "non-destructive",
+      "tests": ["website/tests/rate-limit.test.ts"],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-RLS-001",
+      "coverage_key": "observation-task-plant-tenant-isolation",
+      "behavior": "Observation and task writes cannot attach a plant belonging to another property.",
+      "surface": "supabase/sql/46-private-beta-abuse-boundary-and-events.sql",
+      "fixtures": "Two authenticated users, one property and plant per user",
+      "steps": ["Attempt same-property observation/task writes", "Attempt a cross-property plant attachment", "Read back policy definitions"],
+      "success_criteria": ["Valid same-property writes remain allowed", "Cross-property plant references are rejected by WITH CHECK"],
+      "environment_scope": "configured Supabase project",
+      "safety": "additive RLS policy hardening",
+      "tests": ["Migration verification command recorded in finish-line report"],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-ANALYTICS-001",
+      "coverage_key": "authenticated-memory-loop-events",
+      "behavior": "Authenticated garden activity emits bounded allowlisted events that can measure weekly return and memory activation.",
+      "surface": "website/lib/product-events.ts, /api/analytics/events, garden_product_events",
+      "fixtures": "Authenticated test user",
+      "steps": ["Post app_opened with bounded metadata", "Reject an unknown event", "Verify event metadata is sanitized before insert"],
+      "success_criteria": ["Only allowlisted events persist under the authenticated user", "Event metadata contains no oversized or invalid keys"],
+      "environment_scope": "local plus configured Supabase project",
+      "safety": "non-destructive",
+      "tests": ["website/tests/analytics-events-route.test.ts", "website/tests/product-events.test.ts"],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-AI-001",
+      "coverage_key": "diagnosis-evidence-and-confirmation-contract",
+      "behavior": "AI diagnosis responses include explicit evidence facts and a confirmation flag, and malformed responses are rejected.",
+      "surface": "website/app/api/diagnose/route.ts, website/components/diagnose-panel.tsx",
+      "fixtures": "Mocked structured model response with context and grower report",
+      "steps": ["Submit a valid diagnosis response", "Confirm evidence renders and saves with the note", "Submit a response missing evidence"],
+      "success_criteria": ["Evidence source and confirmation state are returned", "Missing contract fields produce a retryable 502"],
+      "environment_scope": "local deterministic harness; provider-backed run requires approved OpenAI key and authenticated user",
+      "safety": "non-destructive",
+      "tests": ["website/tests/diagnose-evidence-route.test.ts", "website/tests/diagnose-panel-content.test.ts", "website/tests/diagnose-panel-evidence.test.tsx"],
+      "status": "ready"
+    }
+  ]
+}

@@ -72,6 +72,8 @@ describe("DiagnosePanel content", () => {
     expect(panelSource).not.toContain("Reading plant notes...");
     expect(panelSource).not.toContain("Reading notes for {context.name}...");
     expect(panelSource).toContain("Watch for:");
+    expect(panelSource).toContain("Why it fits this garden");
+    expect(panelSource).toContain("Confirm before acting:");
     expect(panelSource).toContain("Needs a closer look");
     expect(panelSource).toContain("Keep with this plant");
     expect(panelSource).not.toContain("Worth checking");

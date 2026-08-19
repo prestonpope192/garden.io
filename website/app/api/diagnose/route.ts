@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getRequestUser } from "@/lib/supabase-server";
+import { createRequestSupabaseClient, getRequestUser } from "@/lib/supabase-server";
 import { checkDiagnoseRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
@@ -59,9 +59,24 @@ const DIAGNOSIS_SCHEMA = {
       }
     },
     actions: { type: "array", items: { type: "string" }, description: "Concrete care steps, most useful first." },
-    follow_up: { type: "string", description: "A short thing to watch for or confirm, or empty string." }
+    follow_up: { type: "string", description: "A short thing to watch for or confirm, or empty string." },
+    evidence: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        properties: {
+          fact: { type: "string" },
+          source: { type: "string", enum: ["garden_context", "grower_report", "photo"] },
+          used_for: { type: "string" }
+        },
+        required: ["fact", "source", "used_for"]
+      },
+      description: "The specific observations or context facts that support the answer."
+    },
+    needs_confirmation: { type: "boolean", description: "Whether the grower should inspect or confirm before acting." }
   },
-  required: ["summary", "causes", "actions", "follow_up"]
+  required: ["summary", "causes", "actions", "follow_up", "evidence", "needs_confirmation"]
 };
 
 const SYSTEM_PROMPT = [
@@ -69,6 +84,8 @@ const SYSTEM_PROMPT = [
   "Ground every answer in the context provided — plants, stage, bed conditions, season, zone, recent notes.",
   "Be concrete and actionable. Prefer organic / regenerative practices.",
   "Be honest about uncertainty: when unsure, say so plainly, lower the confidence, and recommend an inspection step instead of guessing.",
+  "For evidence, name only facts present in the supplied context, grower report, or photo; never invent observations.",
+  "Set needs_confirmation true when the answer depends on an inspection, photo interpretation, or incomplete context.",
   "Never be alarmist. Keep it brief and practical."
 ].join(" ");
 
@@ -107,7 +124,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Per-user rate limit.
-  const limited = checkDiagnoseRateLimit(user.id);
+  const limited = await checkDiagnoseRateLimit(user.id, createRequestSupabaseClient(request));
   if (!limited.ok) {
     return NextResponse.json({ ok: false, message: limited.message }, { status: limited.status });
   }
@@ -140,7 +157,7 @@ export async function POST(request: NextRequest) {
       text:
         `${buildContextText(body.context)}\n\n` +
         `What I'm seeing: ${symptoms || "(see the attached photo)"}\n\n` +
-        "Give likely causes with confidence, a short why-for-this-context, concrete care steps, and one thing to watch or confirm."
+        "Give likely causes with confidence, a short why-for-this-context, evidence facts. Give concrete care steps, and one thing to watch or confirm."
     }
   ];
   if (body.imageDataUrl) {
@@ -197,7 +214,24 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const diagnosis = JSON.parse(content);
+    const diagnosis = JSON.parse(content) as {
+      summary?: unknown;
+      causes?: unknown;
+      actions?: unknown;
+      follow_up?: unknown;
+      evidence?: unknown;
+      needs_confirmation?: unknown;
+    };
+    if (
+      typeof diagnosis.summary !== "string" ||
+      !Array.isArray(diagnosis.causes) ||
+      !Array.isArray(diagnosis.actions) ||
+      typeof diagnosis.follow_up !== "string" ||
+      !Array.isArray(diagnosis.evidence) ||
+      typeof diagnosis.needs_confirmation !== "boolean"
+    ) {
+      return NextResponse.json({ ok: false, message: DIAGNOSIS_RETRY_MESSAGE }, { status: 502 });
+    }
     return NextResponse.json({ ok: true, diagnosis });
   } catch {
     return NextResponse.json({ ok: false, message: DIAGNOSIS_RETRY_MESSAGE }, { status: 502 });

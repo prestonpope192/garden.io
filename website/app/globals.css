@@ -10082,6 +10082,20 @@ button.garden-breadcrumb__crumb:hover {
   gap: 0.4rem;
 }
 
+.garden-diagnose__group ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--ink);
+  font-size: 0.84rem;
+}
+
+.garden-diagnose__group li span {
+  color: var(--clay);
+  font-size: 0.76rem;
+}
+
 .garden-diagnose__action {
   display: flex;
   align-items: center;

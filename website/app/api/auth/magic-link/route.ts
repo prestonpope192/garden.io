@@ -1,10 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 import { getServerSupabaseConfig } from "@/lib/supabase-server";
+import { checkMagicLinkRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
-function authRedirect(request: Request, auth: "invalid_email" | "missing_config" | "send_failed" | "sent") {
+function authRedirect(request: Request, auth: "invalid_email" | "missing_config" | "send_failed" | "sent" | "rate_limited") {
   const redirectUrl = new URL("/app/my-property", request.url);
   redirectUrl.searchParams.set("auth", auth);
   return NextResponse.redirect(redirectUrl, 303);
@@ -43,6 +44,12 @@ export async function POST(request: Request) {
       persistSession: false
     }
   });
+
+  const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const limited = await checkMagicLinkRateLimit(supabase, email, forwardedFor);
+  if (!limited.ok) {
+    return authRedirect(request, limited.status === 429 ? "rate_limited" : "send_failed");
+  }
 
   const { error } = await supabase.auth.signInWithOtp({
     email,

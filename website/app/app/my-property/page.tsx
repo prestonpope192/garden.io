@@ -1,6 +1,7 @@
 import { GardenApp } from "@/components/garden-app";
 import {
   SIGN_IN_SEND_FAILED_MESSAGE,
+  SIGN_IN_RATE_LIMITED_MESSAGE,
   SIGN_IN_SENT_MESSAGE,
   SIGN_IN_UNAVAILABLE_MESSAGE,
   type AuthGateResult
@@ -32,6 +33,13 @@ function getAuthResult(auth: string | undefined): AuthGateResult | null {
     return {
       status: "error",
       message: SIGN_IN_SEND_FAILED_MESSAGE
+    };
+  }
+
+  if (auth === "rate_limited") {
+    return {
+      status: "error",
+      message: SIGN_IN_RATE_LIMITED_MESSAGE
     };
   }
 

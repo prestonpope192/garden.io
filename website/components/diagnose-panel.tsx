@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SpecimenLabel } from "@/components/journal-primitives";
 import { getTodayISO } from "@/lib/garden-app-helpers";
+import { recordProductEvent } from "@/lib/product-events";
 
 export type DiagnoseContext = {
   name: string;
@@ -20,7 +21,15 @@ export type DiagnoseContext = {
 };
 
 type Cause = { cause: string; confidence: "high" | "medium" | "low"; detail: string };
-type Diagnosis = { summary: string; causes: Cause[]; actions: string[]; follow_up: string };
+type Evidence = { fact: string; source: "garden_context" | "grower_report" | "photo"; used_for: string };
+type Diagnosis = {
+  summary: string;
+  causes: Cause[];
+  actions: string[];
+  follow_up: string;
+  evidence: Evidence[];
+  needs_confirmation: boolean;
+};
 
 type DiagnosePanelProps = {
   context: DiagnoseContext;
@@ -36,6 +45,7 @@ function diagnosisToNote(diagnosis: Diagnosis): string {
   const lines = [`Plant note — ${diagnosis.summary}`];
   if (top) lines.push(`Possible cause: ${top.cause}.`);
   if (diagnosis.actions.length) lines.push(`Try first: ${diagnosis.actions.slice(0, 2).join("; ")}.`);
+  if (diagnosis.evidence.length) lines.push(`Why it fits: ${diagnosis.evidence.slice(0, 2).map((item) => item.fact).join("; ")}.`);
   return lines.join("\n");
 }
 
@@ -163,6 +173,7 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
   async function saveToRecord() {
     if (!result) return;
     await addObservation(diagnosisToNote(result));
+    recordProductEvent("diagnosis_saved", { needs_confirmation: result.needs_confirmation });
     setSaved(true);
   }
 
@@ -220,6 +231,14 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
               <p>{cause.detail}</p>
             </div>
           ))}
+          {result.evidence.length > 0 ? (
+            <div className="garden-diagnose__group" aria-label="Evidence for this garden answer">
+              <SpecimenLabel tone="olive">Why it fits this garden</SpecimenLabel>
+              <ul>
+                {result.evidence.map((item, index) => <li key={index}>{item.fact} <span>({item.used_for})</span></li>)}
+              </ul>
+            </div>
+          ) : null}
           {result.actions.length > 0 ? (
             <div className="garden-diagnose__group">
               <SpecimenLabel tone="clay">Try first</SpecimenLabel>
@@ -235,6 +254,9 @@ export function DiagnosePanel({ context, addTask, addObservation, seed }: Diagno
           ) : null}
           {result.follow_up ? (
             <p className="garden-diagnose__followup"><span>Watch for:</span> {result.follow_up}</p>
+          ) : null}
+          {result.needs_confirmation ? (
+            <p className="garden-diagnose__followup"><span>Confirm before acting:</span> inspect the plant and compare the suggested cause with what you see.</p>
           ) : null}
           <div className="garden-diagnose__save">
             <button className="folio-button" type="button" onClick={saveToRecord} disabled={saved}>

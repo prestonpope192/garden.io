@@ -24,6 +24,8 @@ export const SIGN_IN_SENT_MESSAGE =
   "Check your email for your start link.";
 export const SIGN_IN_SEND_FAILED_MESSAGE =
   "We couldn't send the link. Please try again in a moment.";
+export const SIGN_IN_RATE_LIMITED_MESSAGE =
+  "Too many start-link requests. Please try again later.";
 
 const validateEmail = (value: string) => {
   const normalizedEmail = value.trim();

@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "smoke:auth-confirm": "node scripts/smoke-auth-confirm.mjs",
+    "check:hygiene": "node scripts/check-repo-hygiene.mjs",
     "start": "next start",
     "test": "vitest run",
     "test:browser": "playwright test",

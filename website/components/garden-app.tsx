@@ -28,6 +28,7 @@ import { PlantsView } from "@/components/views/plants-view";
 import { PropertyView } from "@/components/views/property-view";
 import { getCatalogPlantName } from "@/components/views/shared";
 import { QuickLog } from "@/components/quick-log";
+import { recordProductEvent } from "@/lib/product-events";
 
 type GardenAppView = "ask" | "property" | "calendar" | "plants" | "catalogue";
 
@@ -395,6 +396,10 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
   }, []);
 
   useEffect(() => {
+    recordProductEvent("app_opened", { view });
+  }, [session.user.id, view]);
+
+  useEffect(() => {
     if (!activeProperty && snapshot.properties[0]) {
       setSelectedPropertyId(snapshot.properties[0].id);
     }
@@ -606,7 +611,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       });
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.noteSaved, { reload: "observations" });
+    }, GARDEN_MUTATION_MESSAGES.noteSaved, { reload: "observations" }).then(() => {
+      recordProductEvent("observation_saved", { has_note: Boolean(note.trim()) });
+    });
 
   const deleteObservation = (id: string) =>
     runMutation(async () => {
@@ -675,7 +682,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       });
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.careAdded, { reload: "tasks" });
+    }, GARDEN_MUTATION_MESSAGES.careAdded, { reload: "tasks" }).then(() => {
+      recordProductEvent("care_task_added", { has_due_date: Boolean(input.dueOn) });
+    });
 
   const updateTaskStatus = async (task: GardenTask) => {
     const completing = task.status !== "done";
@@ -696,7 +705,10 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         completing ? GARDEN_MUTATION_MESSAGES.careCompleted : GARDEN_MUTATION_MESSAGES.careReopened,
         { rethrow: true, reload: "tasks" }
       );
-      if (completing) setUndoTask({ ...task, status: "done" });
+      if (completing) {
+        setUndoTask({ ...task, status: "done" });
+        recordProductEvent("care_task_completed", { had_due_date: Boolean(task.due_on) });
+      }
     } catch {
       // runMutation already surfaced the failure notice.
     }
