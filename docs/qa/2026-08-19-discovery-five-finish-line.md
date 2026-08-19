@@ -73,19 +73,20 @@ records are local source-of-truth and not synchronized to a dashboard/database.
 - Post-condition evidence: tables, function, grants, policy expressions, and
   atomic first-call/over-limit behavior verified with `psql`; validation script
   returned `migration-46-validation-passed`.
-- Deployment: not requested and not performed.
+- Deployment: completed after this report's initial local-only checkpoint; see
+  `docs/qa/2026-08-19-production-deployment-closeout.md`.
 
 ## Proof matrix
 
 | Boundary | Status | Evidence |
 | --- | --- | --- |
 | Local source and tests | proved | Focused Vitest, typecheck, build, hygiene command |
-| Committed/merged | not requested | Current work remains on local `main`; no commit created |
-| Hosted environment | blocked | No deployment requested |
+| Committed/merged | proved | Commit `2732fb23210e89b7322374c0644d47c0c402a33e` on `main` |
+| Hosted environment | proved for public route health | Production deployment `dpl_AbTtqAstyrm4bxspghu9pcfYF5fv` and stable alias route checks |
 | Shared database/provider configuration | proved for migration and RLS canary | Live Supabase catalog/policies/function verified; two-owner rollback-scoped negative canaries passed; OpenAI provider call not exercised |
 | Authenticated provider-backed behavior | blocked | Requires approved authenticated test session and live OpenAI call |
-| Production deployment | not requested | No deploy performed |
-| Customer-visible release | not ready | Release/deploy proof and authenticated canary remain outstanding |
+| Production deployment | proved | Vercel production deployment from `main`, source SHA verified |
+| Customer-visible release | route health proved / authenticated canary pending | Public routes and expected redirects verified; authenticated provider behavior remains unrun |
 
 ## Finish-line sequence status
 
@@ -97,11 +98,11 @@ records are local source-of-truth and not synchronized to a dashboard/database.
 | Required database migrations/data setup | completed | Migration 46 applied and validated |
 | QA/QC records | completed locally | Five records created |
 | Docs/changelog | completed | Current-state, analytics contract, and this report updated |
-| Release notes | deferred | No deployment or release request |
+| Release notes | deferred | Deployment closeout is recorded; no separate customer release note requested |
 | Social copy | deferred | Internal/security/measurement work |
 | Marketing assets | not applicable | Infrastructure and QA finish-line scope |
 | Asset bundle | not applicable | No marketing assets generated |
-| Release readiness | incomplete | Authenticated provider-backed and hosted proof absent |
+| Release readiness | partial | Deployment and public route proof complete; authenticated provider-backed canary remains absent |
 
 ## Remaining blockers
 
@@ -109,7 +110,7 @@ records are local source-of-truth and not synchronized to a dashboard/database.
   existed; a durable top-ten acceptance set still needs a rerun/persisted scan.
 - Run an approved authenticated browser/provider canary for magic-link,
   diagnosis evidence rendering, and event persistence; the negative
-  cross-tenant RLS canary is complete.
+  cross-tenant RLS canary and public production route checks are complete.
 - If the repository needs historical secret removal, perform a separately
   coordinated history scan/rewrite and any required session/key rotation; this
   finish line only removed the tracked artifact exposure window.
