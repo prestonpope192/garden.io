@@ -26,6 +26,33 @@
         "website/tests/garden-app-mutations.test.tsx::keeps the AI ask home available without a property while setup views redirect"
       ],
       "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-FIRST-RUN-002",
+      "coverage_key": "ai-home-empty-property-questions",
+      "behavior": "A grower without a saved property can submit text or photo questions and receive an answer, while answer notes and care tasks remain unavailable until setup.",
+      "surface": "website/components/views/garden-ask-view.tsx, /app/my-property",
+      "fixtures": "Authenticated mock session represented by GardenAskView props with no active property; deterministic diagnosis stub; synthetic image file",
+      "steps": [
+        "Render GardenAskView with activeProperty=null and the deterministic diagnosis stub",
+        "Submit a text question and assert the answer renders",
+        "Submit an image file and assert the answer request carries image data",
+        "Assert Keep note and Add to weekly care are disabled in both answer states",
+        "Assert quickLog and addTask are not called"
+      ],
+      "success_criteria": [
+        "Text questions work before setup",
+        "Photo questions work before setup",
+        "The setup handoff remains available as a secondary action",
+        "Notes and care tasks cannot be persisted without a property"
+      ],
+      "environment_scope": "local deterministic component harness",
+      "safety": "read-only validation",
+      "tests": [
+        "website/tests/garden-ask-empty-state.test.tsx::answers a text question while keeping note and care persistence disabled",
+        "website/tests/garden-ask-empty-state.test.tsx::submits a photo question before setup without calling persistence handlers"
+      ],
+      "status": "ready"
     }
   ]
 }

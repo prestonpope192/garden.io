@@ -79,13 +79,17 @@
 
 - Batch status: `in_progress`.
 - Current feature: `GARDEN-AI-002` — no-property ask state.
-- Current commit: `4413d9a`.
+- Current commit: `e8d630b`.
 - Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
 - `GARDEN-AI-001` status: `complete`; route guard and paired empty-property/setup regression committed in `4413d9a`.
 - `GARDEN-AI-001` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-001`; local record created, no database sync.
-- `GARDEN-AI-001` polish: three focused review passes queued for the feature; no additional change selected because the route guard is the smallest safe fix and existing ask styling already covers the handoff.
+- `GARDEN-AI-001` polish: three focused passes completed; layout/style/animation, usability/mobile, and copy/spacing reviews selected no additional change because the route guard is the smallest safe fix and existing ask styling already covers the handoff.
 - `GARDEN-AI-001` test: `npm test -- --run tests/garden-app-mutations.test.tsx` — passed, 1 file / 5 tests.
-- Exact next action: exercise the empty-property composer with a text question and a photo, verify a useful answer renders, and prove note/care persistence controls remain disabled.
+- `GARDEN-AI-002` status: `complete`; empty text/photo behavior covered in `ffd8137`; copy clarity polish committed in `e8d630b`.
+- `GARDEN-AI-002` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-002`; local record created, no database sync.
+- `GARDEN-AI-002` polish: three focused passes completed; layout/style/animation and usability/mobile reviews selected no additional change, copy/spacing added explicit “Ask first” guidance and a regression assertion.
+- `GARDEN-AI-002` test: `npm test -- --run tests/garden-ask-empty-state.test.tsx tests/garden-app-mutations.test.tsx` — passed, 2 files / 7 tests.
+- Exact next action: add populated-property regression coverage for memory, context, target selection, answer actions, and save/care behavior.
 
 ## Closeout
 
