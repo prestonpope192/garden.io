@@ -880,6 +880,15 @@ export function GardenAskView(props: GardenAskViewProps) {
     );
   }
 
+  function renderFeedback() {
+    return (
+      <>
+        {error ? <p className="garden-ai-message garden-ai-message--error" role="alert">{error}</p> : null}
+        {message ? <p className="garden-ai-message" role="status">{message}</p> : null}
+      </>
+    );
+  }
+
   function renderContextChips(turn: GardenChatTurn) {
     if (!turn.plantContexts.length) return null;
     return (
@@ -1088,6 +1097,7 @@ export function GardenAskView(props: GardenAskViewProps) {
               </button>
             </div>
           ) : null}
+          {renderFeedback()}
         </div>
       ) : (
         <div className="garden-ai-chat-shell">
@@ -1115,8 +1125,7 @@ export function GardenAskView(props: GardenAskViewProps) {
             ) : null}
           </div>
 
-          {error ? <p className="garden-ai-message garden-ai-message--error" role="alert">{error}</p> : null}
-          {message ? <p className="garden-ai-message" role="status">{message}</p> : null}
+          {renderFeedback()}
 
           <div className="garden-ai-chat-composer">
             {renderComposer("chat")}

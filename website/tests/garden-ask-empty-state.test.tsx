@@ -107,4 +107,18 @@ describe("GardenAskView without a saved property", () => {
     expect(quickLog).not.toHaveBeenCalled();
     expect(addTask).not.toHaveBeenCalled();
   });
+
+  it("shows an initial diagnosis error while keeping the composer available", async () => {
+    const askGarden = vi.fn<AskGarden>(async () => {
+      throw new Error("Garden service unavailable.");
+    });
+    renderEmptyAsk({ askGarden });
+    const prompt = screen.getByRole("textbox", { name: "Ask about your garden" });
+
+    fireEvent.change(prompt, { target: { value: "Why are my leaves wilting?" } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    expect((await screen.findByRole("alert")).textContent).toContain("Garden service unavailable.");
+    expect(screen.getByRole("textbox", { name: "Ask about your garden" })).toBeTruthy();
+  });
 });
