@@ -90,6 +90,50 @@ describe("GardenRecordsApp mutations (mocked Supabase)", () => {
     await waitFor(() => expect(routerHolder.replace).toHaveBeenCalledWith("/app/my-garden"));
   });
 
+  it("does not mark an AI answer kept when the garden save fails", async () => {
+    const session = createMockSession();
+    const mock = createMockSupabaseClient({
+      session,
+      tables: {
+        garden_properties: { select: { data: [existingProperty], error: null } },
+        garden_observations: { insert: { error: { message: "insert failed" } } }
+      }
+    });
+    supabaseClientHolder.current = mock.client;
+    vi.stubGlobal("fetch", vi.fn(async (input: RequestInfo | URL) => {
+      const url = typeof input === "string" ? input : input.toString();
+      if (url.includes("/api/plant-profiles")) {
+        return new Response(JSON.stringify({ ok: true, profiles: [] }), { status: 200 });
+      }
+      if (url.includes("/api/diagnose")) {
+        return new Response(JSON.stringify({
+          ok: true,
+          diagnosis: {
+            summary: "Check the tomato leaves for early stress.",
+            causes: [],
+            actions: ["Check the soil before watering."],
+            follow_up: "Watch for spots that spread after the next watering."
+          }
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ ok: false, message: `Unhandled fetch in test: ${url}` }), { status: 404 });
+    }));
+
+    renderAskView();
+    const prompt = await screen.findByRole("textbox", { name: "Ask about your garden" });
+    fireEvent.change(prompt, { target: { value: "Why are my tomatoes wilting?" } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await screen.findByRole("heading", { name: "Check the tomato leaves for early stress." });
+    const keepNote = screen.getByRole("button", { name: "Keep note" }) as HTMLButtonElement;
+    fireEvent.click(keepNote);
+
+    await waitFor(() => expect(mock.mutations.some((entry) => entry.table === "garden_observations" && entry.op === "insert")).toBe(true));
+    await waitFor(() => expect(screen.getAllByRole("alert").some((node) => node.textContent === GARDEN_MUTATION_MESSAGES.changeFailed)).toBe(true));
+    expect(keepNote.disabled).toBe(false);
+    expect(keepNote.textContent).toBe("Keep note");
+  });
+
   it("shows the success notice and re-fetches the snapshot after a successful mutation", async () => {
     stubPlantProfilesFetch([]);
     const session = createMockSession();

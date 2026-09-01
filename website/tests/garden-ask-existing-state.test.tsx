@@ -167,7 +167,8 @@ describe("GardenAskView with an existing property", () => {
       file: null,
       zoneId: "zone-1",
       bedId: null,
-      plantInstanceId: null
+      plantInstanceId: null,
+      rethrow: true
     });
     expect(addTask).toHaveBeenCalledWith({
       title: "Water slowly at the soil line.",
@@ -176,7 +177,8 @@ describe("GardenAskView with an existing property", () => {
       propertyId: property.id,
       zoneId: "zone-1",
       bedId: null,
-      plantInstanceId: null
+      plantInstanceId: null,
+      rethrow: true
     });
   });
 
@@ -229,5 +231,55 @@ describe("GardenAskView with an existing property", () => {
 
     await waitFor(() => expect(quickLog).toHaveBeenCalledTimes(1));
     expect(quickLog).toHaveBeenCalledWith(expect.objectContaining({ file: photo }));
+  });
+
+  it("keeps persistence controls retryable when saving fails", async () => {
+    const quickLog = vi.fn(async () => {
+      throw new Error("save failed");
+    });
+    const addTask = vi.fn(async () => {
+      throw new Error("task failed");
+    });
+    const askGarden = vi.fn(async () => ({
+      summary: "Check the tomato leaves for early stress.",
+      causes: [],
+      actions: ["Check the soil before watering."],
+      follow_up: "Watch for spots that spread after the next watering."
+    }));
+
+    render(
+      createElement(GardenAskView, {
+        activeProperty: property,
+        zones: [zone],
+        beds: [bed],
+        plants: [plant],
+        observations: [observation],
+        tasks: [task],
+        isSaving: false,
+        quickLog,
+        addTask,
+        updateTaskStatus: async () => undefined,
+        askGarden,
+        promptExamples: ["Why are my tomatoes wilting?"]
+      })
+    );
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "Why are my tomatoes wilting?" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Check the tomato leaves for early stress." });
+
+    const keepNote = screen.getByRole("button", { name: "Keep note" }) as HTMLButtonElement;
+    fireEvent.click(keepNote);
+    await screen.findByRole("alert");
+    expect(keepNote.disabled).toBe(false);
+    expect(keepNote.textContent).toBe("Keep note");
+
+    const addToCare = screen.getByRole("button", { name: "Add to weekly care" }) as HTMLButtonElement;
+    fireEvent.click(addToCare);
+    await screen.findByRole("alert");
+    expect(addToCare.disabled).toBe(false);
+    expect(addToCare.textContent).toBe("Add to weekly care");
   });
 });

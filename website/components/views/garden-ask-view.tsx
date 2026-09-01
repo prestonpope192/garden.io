@@ -56,6 +56,7 @@ type QuickLogInput = {
   zoneId: string | null;
   bedId: string | null;
   plantInstanceId: string | null;
+  rethrow?: boolean;
 };
 
 export type GardenAskViewProps = {
@@ -75,6 +76,7 @@ export type GardenAskViewProps = {
     zoneId?: string | null;
     bedId?: string | null;
     plantInstanceId?: string | null;
+    rethrow?: boolean;
   }) => Promise<void>;
   updateTaskStatus: (task: GardenTask) => Promise<void>;
   askGarden?: (input: {
@@ -693,11 +695,19 @@ export function GardenAskView(props: GardenAskViewProps) {
 
   async function saveAnswerToGarden(turn: GardenChatTurn) {
     if (!props.activeProperty || savedNotes.has(turn.id)) return;
-    await props.quickLog({
-      note: answerNote(turn.prompt, turn.diagnosis),
-      file: turn.file,
-      ...targetScope(saveTarget, props.zones, props.beds, props.plants)
-    });
+    setError("");
+    try {
+      await props.quickLog({
+        note: answerNote(turn.prompt, turn.diagnosis),
+        file: turn.file,
+        ...targetScope(saveTarget, props.zones, props.beds, props.plants),
+        rethrow: true
+      });
+    } catch {
+      setMessage("");
+      setError("That change didn't go through. Check the details and try again.");
+      return;
+    }
     setSavedNotes((items) => new Set(items).add(turn.id));
     setShowTargetPicker(false);
     setMessage(`Kept with ${targetLabel(saveTarget, props.zones, props.beds, props.plants)}.`);
@@ -707,15 +717,23 @@ export function GardenAskView(props: GardenAskViewProps) {
     const actionKey = `${turn.id}:${index}`;
     if (!props.activeProperty || savedActions.has(actionKey)) return;
     const scope = targetScope(saveTarget, props.zones, props.beds, props.plants);
-    await props.addTask({
-      title: action,
-      dueOn: getTodayISO(),
-      notes: `From this garden note: ${turn.diagnosis.summary}`,
-      propertyId: props.activeProperty.id,
-      zoneId: scope.zoneId,
-      bedId: scope.bedId,
-      plantInstanceId: scope.plantInstanceId
-    });
+    setError("");
+    try {
+      await props.addTask({
+        title: action,
+        dueOn: getTodayISO(),
+        notes: `From this garden note: ${turn.diagnosis.summary}`,
+        propertyId: props.activeProperty.id,
+        zoneId: scope.zoneId,
+        bedId: scope.bedId,
+        plantInstanceId: scope.plantInstanceId,
+        rethrow: true
+      });
+    } catch {
+      setMessage("");
+      setError("That change didn't go through. Check the details and try again.");
+      return;
+    }
     setSavedActions((items) => new Set(items).add(actionKey));
     setMessage("Added to weekly care.");
   }
