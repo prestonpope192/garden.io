@@ -109,6 +109,7 @@ const task: GardenTask = {
 
 afterEach(() => {
   cleanup();
+  vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
 
@@ -177,5 +178,56 @@ describe("GardenAskView with an existing property", () => {
       bedId: null,
       plantInstanceId: null
     });
+  });
+
+  it("keeps a submitted photo attached when the answer is saved", async () => {
+    const quickLog = vi.fn(async () => undefined);
+    const photo = new File(["photo bytes"], "garden.jpg", { type: "image/jpeg" });
+    const askGarden = vi.fn(async () => ({
+      summary: "Check the tomato leaves for early stress.",
+      causes: [],
+      actions: ["Check the soil before watering."],
+      follow_up: "Watch for spots that spread after the next watering."
+    }));
+    vi.stubGlobal("URL", {
+      createObjectURL: vi.fn(() => "blob:garden-photo"),
+      revokeObjectURL: vi.fn()
+    });
+    class FailingImage {
+      onerror: (() => void) | null = null;
+
+      set src(_value: string) {
+        this.onerror?.();
+      }
+    }
+    vi.stubGlobal("Image", FailingImage);
+
+    render(
+      createElement(GardenAskView, {
+        activeProperty: property,
+        zones: [zone],
+        beds: [bed],
+        plants: [plant],
+        observations: [observation],
+        tasks: [task],
+        isSaving: false,
+        quickLog,
+        addTask: async () => undefined,
+        updateTaskStatus: async () => undefined,
+        askGarden,
+        promptExamples: ["Why are my tomatoes wilting?"]
+      })
+    );
+
+    const fileInput = document.querySelector('input[type="file"]');
+    expect(fileInput).not.toBeNull();
+    fireEvent.change(fileInput as HTMLInputElement, { target: { files: [photo] } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await screen.findByRole("heading", { name: "Check the tomato leaves for early stress." });
+    fireEvent.click(screen.getByRole("button", { name: "Keep note" }));
+
+    await waitFor(() => expect(quickLog).toHaveBeenCalledTimes(1));
+    expect(quickLog).toHaveBeenCalledWith(expect.objectContaining({ file: photo }));
   });
 });

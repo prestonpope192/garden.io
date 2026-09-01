@@ -43,6 +43,7 @@ type GardenPlantContext = {
 type GardenChatTurn = {
   id: string;
   prompt: string;
+  file: File | null;
   diagnosis: GardenAskDiagnosis;
   plantContexts: GardenPlantContext[];
 };
@@ -667,6 +668,7 @@ export function GardenAskView(props: GardenAskViewProps) {
         {
           id: `${Date.now()}-${turns.length}`,
           prompt: turnPrompt,
+          file,
           diagnosis: nextDiagnosis,
           plantContexts: identifyPlantContexts({
             prompt: turnPrompt,
@@ -693,7 +695,7 @@ export function GardenAskView(props: GardenAskViewProps) {
     if (!props.activeProperty || savedNotes.has(turn.id)) return;
     await props.quickLog({
       note: answerNote(turn.prompt, turn.diagnosis),
-      file,
+      file: turn.file,
       ...targetScope(saveTarget, props.zones, props.beds, props.plants)
     });
     setSavedNotes((items) => new Set(items).add(turn.id));
