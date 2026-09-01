@@ -58,6 +58,7 @@ describe("GardenAskView without a saved property", () => {
         imageDataUrl: null
       })
     );
+    expect(screen.getByRole("note").textContent).toContain("Ask first, then set up your garden");
     expect(screen.getByRole("link", { name: "Get started" }).getAttribute("href")).toBe("/app/my-garden");
     expect((screen.getByRole("button", { name: "Keep note" }) as HTMLButtonElement).disabled).toBe(true);
     expect((screen.getByRole("button", { name: "Add to weekly care" }) as HTMLButtonElement).disabled).toBe(true);

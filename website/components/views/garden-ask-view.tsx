@@ -769,7 +769,7 @@ export function GardenAskView(props: GardenAskViewProps) {
       <form className={`garden-ai-composer${mode === "chat" ? " garden-ai-composer--chat" : ""}`} onSubmit={submitGardenQuestion}>
         {!props.activeProperty && (
           <div className="garden-notice" role="note">
-            Set up your garden to save notes and care tasks from your answers.{' '}
+            Ask first, then set up your garden when you want to save notes and care tasks.{' '}
             <a href="/app/my-garden" className="garden-link-button">Get started</a>
           </div>
         )}
