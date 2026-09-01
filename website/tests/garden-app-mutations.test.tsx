@@ -16,6 +16,7 @@ import {
 // file (including the GardenApp import above), so the factory can only close
 // over a `vi.hoisted` reference, not a plain `let`.
 const supabaseClientHolder = vi.hoisted(() => ({ current: undefined as unknown }));
+const routerHolder = vi.hoisted(() => ({ push: vi.fn(), replace: vi.fn() }));
 
 vi.mock("@/lib/supabase-browser", () => ({
   createBrowserSupabaseClient: () => supabaseClientHolder.current,
@@ -27,8 +28,8 @@ vi.mock("@/lib/supabase-browser", () => ({
 
 vi.mock("next/navigation", () => ({
   useRouter: () => ({
-    push: () => undefined,
-    replace: () => undefined
+    push: routerHolder.push,
+    replace: routerHolder.replace
   })
 }));
 
@@ -52,8 +53,14 @@ function renderPropertyView() {
   return render(createElement(GardenApp, { authResult: null, view: "property" }));
 }
 
+function renderAskView() {
+  return render(createElement(GardenApp, { authResult: null, view: "ask" }));
+}
+
 beforeEach(() => {
   supabaseClientHolder.current = undefined;
+  routerHolder.push.mockClear();
+  routerHolder.replace.mockClear();
 });
 
 afterEach(() => {
@@ -63,6 +70,26 @@ afterEach(() => {
 });
 
 describe("GardenRecordsApp mutations (mocked Supabase)", () => {
+  it("keeps the AI ask home available without a property while setup views redirect", async () => {
+    stubPlantProfilesFetch([]);
+    const session = createMockSession();
+    const mock = createMockSupabaseClient({ session, tables: {} });
+    supabaseClientHolder.current = mock.client;
+
+    renderAskView();
+
+    await screen.findByRole("textbox", { name: "Ask about your garden" });
+    expect(screen.getByRole("link", { name: "Get started" }).getAttribute("href")).toBe("/app/my-garden");
+    expect(routerHolder.replace).not.toHaveBeenCalled();
+
+    cleanup();
+    routerHolder.replace.mockClear();
+    renderPropertyView();
+
+    await screen.findByText("Start with the place you grow.");
+    await waitFor(() => expect(routerHolder.replace).toHaveBeenCalledWith("/app/my-garden"));
+  });
+
   it("shows the success notice and re-fetches the snapshot after a successful mutation", async () => {
     stubPlantProfilesFetch([]);
     const session = createMockSession();

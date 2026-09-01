@@ -300,8 +300,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     });
     setStatus("ready");
 
-    // Auto-navigate new users to the garden setup view.
-    if (!hasAutoNavigated.current && propertiesResult.data && propertiesResult.data.length === 0) {
+    // Auto-navigate setup views for new users, but keep the AI home available
+    // before setup so they can get a useful answer first.
+    if (view !== "ask" && !hasAutoNavigated.current && propertiesResult.data && propertiesResult.data.length === 0) {
       hasAutoNavigated.current = true;
       router.replace('/app/my-garden');
     }
