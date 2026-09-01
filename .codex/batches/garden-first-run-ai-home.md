@@ -77,7 +77,7 @@
 
 ## Execution ledger
 
-- Batch status: `in_progress`.
+- Batch status: `complete_local_only`.
 - Current feature: batch closeout readiness.
 - Current commit before closeout record: `2162f47`.
 - Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
