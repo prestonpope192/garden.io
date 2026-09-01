@@ -900,6 +900,7 @@ export function GardenAskView(props: GardenAskViewProps) {
   function renderAssistantTurn(turn: GardenChatTurn) {
     const turnFollowUp = cleanFollowUp(turn.diagnosis.follow_up);
     const noteSaved = savedNotes.has(turn.id);
+    const setupHintId = `garden-ai-setup-hint-${turn.id}`;
     return (
       <article className="garden-ai-message-bubble garden-ai-message-bubble--assistant" aria-label="Garden answer" key={`${turn.id}-assistant`}>
         <div className="garden-ai-answer">
@@ -913,6 +914,7 @@ export function GardenAskView(props: GardenAskViewProps) {
                 <div className="garden-ai-action garden-ai-action--primary">
                   <span>{turn.diagnosis.actions[0]}</span>
                   <button
+                    aria-describedby={!props.activeProperty ? setupHintId : undefined}
                     className="folio-button"
                     type="button"
                     disabled={!props.activeProperty || props.isSaving || savedActions.has(`${turn.id}:0`)}
@@ -967,6 +969,7 @@ export function GardenAskView(props: GardenAskViewProps) {
                 Add more detail
               </button>
               <button
+                aria-describedby={!props.activeProperty ? setupHintId : undefined}
                 className="button"
                 type="button"
                 disabled={!props.activeProperty || props.isSaving || noteSaved}
@@ -976,8 +979,8 @@ export function GardenAskView(props: GardenAskViewProps) {
               </button>
             </div>
             {!props.activeProperty ? (
-              <p className="garden-ai-save__hint">
-                Start your garden to keep notes where they belong.
+              <p className="garden-ai-save__hint" id={setupHintId}>
+                Start your garden to save notes or add care tasks.
               </p>
             ) : null}
           </section>

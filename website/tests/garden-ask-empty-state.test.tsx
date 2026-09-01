@@ -62,8 +62,13 @@ describe("GardenAskView without a saved property", () => {
     );
     expect(screen.getByRole("note").textContent).toContain("Ask first, then set up your garden");
     expect(screen.getByRole("link", { name: "Get started" }).getAttribute("href")).toBe("/app/my-garden");
-    expect((screen.getByRole("button", { name: "Keep note" }) as HTMLButtonElement).disabled).toBe(true);
-    expect((screen.getByRole("button", { name: "Add to weekly care" }) as HTMLButtonElement).disabled).toBe(true);
+    const keepNote = screen.getByRole("button", { name: "Keep note" }) as HTMLButtonElement;
+    const addToCare = screen.getByRole("button", { name: "Add to weekly care" }) as HTMLButtonElement;
+    const setupHint = screen.getByText("Start your garden to save notes or add care tasks.");
+    expect(keepNote.disabled).toBe(true);
+    expect(addToCare.disabled).toBe(true);
+    expect(keepNote.getAttribute("aria-describedby")).toBe(setupHint.id);
+    expect(addToCare.getAttribute("aria-describedby")).toBe(setupHint.id);
     expect(quickLog).not.toHaveBeenCalled();
     expect(addTask).not.toHaveBeenCalled();
   });

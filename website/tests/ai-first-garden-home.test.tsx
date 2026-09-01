@@ -332,7 +332,8 @@ describe("Today garden home", () => {
     expect(askViewSource).toContain("routes.care");
     expect(askViewSource).toContain("routes.guide");
     expect(askViewSource).toContain('memory: "/app/my-garden"');
-    expect(askViewSource).toContain("Start your garden to keep notes where they belong.");
+    expect(askViewSource).toContain("Start your garden to save notes or add care tasks.");
+    expect(askViewSource).toContain("aria-describedby={!props.activeProperty ? setupHintId : undefined}");
     expect(askViewSource).not.toContain("Start your garden to keep notes with the right plant.");
     expect(askViewSource).not.toContain("Start your garden to save notes with the right plant.");
     expect(askViewSource).not.toContain("Start your garden to keep notes and care like this.");
