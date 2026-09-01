@@ -2,7 +2,7 @@
 import { createElement } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { GardenAskView } from "@/components/views/garden-ask-view";
+import { GardenAskView, type GardenAskViewProps } from "@/components/views/garden-ask-view";
 
 const diagnosis = {
   summary: "Give the plant a drink and check the soil again tomorrow.",
@@ -11,11 +11,13 @@ const diagnosis = {
   follow_up: "Watch for leaves that stay wilted after watering."
 };
 
-function renderEmptyAsk(overrides: { askGarden?: typeof vi.fn } = {}) {
+type AskGarden = NonNullable<GardenAskViewProps["askGarden"]>;
+
+function renderEmptyAsk(overrides: { askGarden?: AskGarden } = {}) {
   const quickLog = vi.fn(async () => undefined);
   const addTask = vi.fn(async () => undefined);
   const updateTaskStatus = vi.fn(async () => undefined);
-  const askGarden = overrides.askGarden ?? vi.fn(async () => diagnosis);
+  const askGarden = overrides.askGarden ?? vi.fn<AskGarden>(async () => diagnosis);
 
   render(
     createElement(GardenAskView, {
