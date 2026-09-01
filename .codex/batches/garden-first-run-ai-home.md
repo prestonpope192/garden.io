@@ -78,8 +78,8 @@
 ## Execution ledger
 
 - Batch status: `in_progress`.
-- Current feature: `GARDEN-AI-004` — automated coverage.
-- Current commit: `ca9a8c5`.
+- Current feature: batch closeout readiness.
+- Current commit before closeout record: `2162f47`.
 - Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
 - `GARDEN-AI-001` status: `complete`; route guard and paired empty-property/setup regression committed in `4413d9a`.
 - `GARDEN-AI-001` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-001`; local record created, no database sync.
@@ -93,11 +93,16 @@
 - `GARDEN-AI-003` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-003`; local record created, no database sync.
 - `GARDEN-AI-003` polish: three focused passes completed; existing memory, context, target-selection, note, and care controls required no additional product change.
 - `GARDEN-AI-003` test: `npm test -- --run tests/garden-ask-existing-state.test.tsx` — passed, 1 file / 1 test.
-- `GARDEN-AI-004` status: `in_progress`; focused route, empty-state, existing-state, markup, and CSS coverage now exists.
+- `GARDEN-AI-004` status: `complete`; coverage and docs are committed in `f377e65`, `042abb8`, and `2162f47`.
 - `GARDEN-AI-004` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-004`; local record created, no database sync.
-- Exact next action: run the aggregate feature tests, typecheck, hygiene, build, and local browser suite; reconcile the final worktree and proof matrix.
+- `GARDEN-AI-004` test: aggregate focused Vitest — passed, 7 files / 26 tests; `npm run typecheck`, `npm run check:hygiene`, and `npm run build` — passed; `PLAYWRIGHT_BASE_URL=http://localhost:3011 npm run test:browser` — passed, 11 Chromium tests.
+- Implementation commits: `4413d9a` route guard; `ffd8137` empty-state tests; `e8d630b` copy polish; `ca9a8c5` populated-state tests; `f377e65` test typing repair; `042abb8` current-state docs; `2162f47` finish-line report.
+- Finish-line report: `docs/qa/2026-09-01-garden-first-run-ai-home-finish-line.md`.
+- Hot-fix loops: unavailable matcher corrected; deterministic photo fallback harness added; callback type corrected; all repaired checks retested.
+- Truth matrix: local source/tests/browser `proved`; merged/hosted/production/customer-visible `not requested/not claimed`; authenticated provider-backed proof `blocked` by absent local credentials/session; shared database/provider `not applicable` and excluded.
+- Exact next action: later run the local collapse workflow from `codex/bulk-garden-first-run-ai-home-20260901`; do not push, merge, deploy, or collapse in this task.
 
 ## Closeout
 
 - Deferred work: analytics measurement batch; conversation persistence across setup navigation.
-- Closeout integration SHA:
+- Closeout integration SHA: not performed; local-only batch handoff.
