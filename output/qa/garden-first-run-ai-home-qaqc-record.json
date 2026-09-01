@@ -1,0 +1,31 @@
+{
+  "project": "garden.io",
+  "source_of_truth": "local",
+  "records": [
+    {
+      "check_id": "GARDEN-FIRST-RUN-001",
+      "coverage_key": "ai-home-empty-property-routing",
+      "behavior": "A signed-in grower with zero properties stays on the AI ask home, while a direct setup-oriented garden view still redirects to the setup route.",
+      "surface": "website/components/garden-app.tsx, /app/my-property, /app/my-garden",
+      "fixtures": "Authenticated mock session with an empty garden_properties result",
+      "steps": [
+        "Render GardenApp with view=ask and zero garden properties",
+        "Assert the Ask about your garden composer and Get started handoff are visible",
+        "Assert the router does not replace the AI ask route",
+        "Render GardenApp with view=property and the same empty property result",
+        "Assert the setup view renders and the router replaces the route with /app/my-garden"
+      ],
+      "success_criteria": [
+        "The AI composer remains available before setup",
+        "The setup handoff links to /app/my-garden",
+        "Direct setup-oriented views retain the existing empty-property redirect"
+      ],
+      "environment_scope": "local deterministic component harness",
+      "safety": "read-only validation",
+      "tests": [
+        "website/tests/garden-app-mutations.test.tsx::keeps the AI ask home available without a property while setup views redirect"
+      ],
+      "status": "ready"
+    }
+  ]
+}

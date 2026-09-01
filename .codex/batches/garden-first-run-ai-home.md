@@ -78,10 +78,14 @@
 ## Execution ledger
 
 - Batch status: `in_progress`.
-- Current feature: `GARDEN-AI-001` — empty-property routing.
-- Current commit: `05f522e`.
+- Current feature: `GARDEN-AI-002` — no-property ask state.
+- Current commit: `4413d9a`.
 - Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
-- Exact next action: add the route regression that proves the AI ask view stays on its composer with zero properties while the direct setup route retains its redirect.
+- `GARDEN-AI-001` status: `complete`; route guard and paired empty-property/setup regression committed in `4413d9a`.
+- `GARDEN-AI-001` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-001`; local record created, no database sync.
+- `GARDEN-AI-001` polish: three focused review passes queued for the feature; no additional change selected because the route guard is the smallest safe fix and existing ask styling already covers the handoff.
+- `GARDEN-AI-001` test: `npm test -- --run tests/garden-app-mutations.test.tsx` — passed, 1 file / 5 tests.
+- Exact next action: exercise the empty-property composer with a text question and a photo, verify a useful answer renders, and prove note/care persistence controls remain disabled.
 
 ## Closeout
 
