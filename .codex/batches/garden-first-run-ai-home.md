@@ -56,6 +56,18 @@
 - Broad validation: repository-native Vitest, typecheck, hygiene, build, and browser suite.
 - Authenticated browser proof requires an approved test session; unavailable proof must remain blocked rather than pass.
 
+## Baseline validation evidence
+
+- `npm ci`: completed in this worktree; installed dependencies only into ignored `node_modules`; npm reported six high-severity audit findings in the existing dependency graph. No dependency files changed.
+- `npm test`: 36 test files and 167 tests passed.
+- `npm run typecheck`: passed.
+- `npm run check:hygiene`: passed for 253 tracked files.
+- `npm run build`: passed; Next.js compiled and generated the expected route set.
+- `npm run test:browser`: 11 tests passed. Local Supabase DNS failures were logged for unconfigured backend calls; no hosted or authenticated provider proof is claimed.
+- Local server: `npm run dev -- --hostname 127.0.0.1 --port 3011`, session `29362`, reachable at `http://127.0.0.1:3011`. `/` and `/tour/ask` returned 200; `/app` returned 307 to `/app/my-property`.
+- Runtime targets: no `.env` or `.env.local` files are present in this worktree; app is running in public/demo and unconfigured-backend mode.
+- Generated-only `website/next-env.d.ts` changes from Next.js dev/build were restored; no product edits were made.
+
 ## Commits
 
 - Initial manifest commit: `bab8454` (`chore: add garden first-run batch manifest`).
