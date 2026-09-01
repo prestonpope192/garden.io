@@ -73,6 +73,15 @@
 - Initial manifest commit: `bab8454` (`chore: add garden first-run batch manifest`).
 - Manifest commit-record update: `23272e2` (`chore: record garden batch manifest commit`).
 - Baseline validation evidence: `7e12f50` (`chore: record garden baseline validation`).
+- Setup commit list: `05f522e` (`chore: list garden batch setup commits`).
+
+## Execution ledger
+
+- Batch status: `in_progress`.
+- Current feature: `GARDEN-AI-001` — empty-property routing.
+- Current commit: `05f522e`.
+- Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
+- Exact next action: add the route regression that proves the AI ask view stays on its composer with zero properties while the direct setup route retains its redirect.
 
 ## Closeout
 
