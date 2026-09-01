@@ -28,6 +28,62 @@
       "status": "ready"
     },
     {
+      "check_id": "GARDEN-FIRST-RUN-003",
+      "coverage_key": "ai-home-existing-property-regression",
+      "behavior": "An existing property retains garden memory, plant context links, target selection, note saving, and care-task actions after the AI home changes.",
+      "surface": "website/components/views/garden-ask-view.tsx, /app/my-property",
+      "fixtures": "Existing property with one place, bed, growing tomato, recent observation, open care task, and deterministic diagnosis stub",
+      "steps": [
+        "Render GardenAskView with populated property records",
+        "Assert memory facts and the latest note are visible",
+        "Submit a plant-specific question and assert the plant context link",
+        "Change the answer target to the place",
+        "Keep the note and add the primary care action",
+        "Assert both persistence handlers receive the selected property scope"
+      ],
+      "success_criteria": [
+        "Existing memory remains visible",
+        "Plant context remains attached to the answer",
+        "Changing the target scopes note and care writes to the selected place",
+        "Existing answer actions remain available and use the existing property"
+      ],
+      "environment_scope": "local deterministic component harness",
+      "safety": "read-only validation with mocked persistence handlers",
+      "tests": [
+        "website/tests/garden-ask-existing-state.test.tsx::retains memory, plant context, target selection, note save, and care actions"
+      ],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-FIRST-RUN-004",
+      "coverage_key": "ai-home-first-run-regression-suite",
+      "behavior": "The first-run AI home has executable coverage for empty-property routing, no-property text/photo answers, guarded persistence, and populated-property regressions.",
+      "surface": "website/components/garden-app.tsx, website/components/views/garden-ask-view.tsx, /app/my-property, /app/my-garden",
+      "fixtures": "Local deterministic component fixtures; authenticated hosted fixture not required for local contract coverage",
+      "steps": [
+        "Run the empty-property routing and mutation regression file",
+        "Run the empty-property ask component file",
+        "Run the existing-property ask component file",
+        "Run the normal Vitest command and verify the focused files are included"
+      ],
+      "success_criteria": [
+        "Empty ask stays on the composer while setup redirects remain intact",
+        "Text and photo questions work without a property",
+        "Persistence actions remain guarded without a property",
+        "Existing-property memory and actions remain intact",
+        "All focused tests are part of the repository-native Vitest suite"
+      ],
+      "environment_scope": "local deterministic test suite",
+      "safety": "read-only validation",
+      "tests": [
+        "website/tests/garden-app-mutations.test.tsx",
+        "website/tests/garden-ask-empty-state.test.tsx",
+        "website/tests/garden-ask-existing-state.test.tsx",
+        "website/tests/ai-first-garden-home.test.tsx"
+      ],
+      "status": "ready"
+    },
+    {
       "check_id": "GARDEN-FIRST-RUN-002",
       "coverage_key": "ai-home-empty-property-questions",
       "behavior": "A grower without a saved property can submit text or photo questions and receive an answer, while answer notes and care tasks remain unavailable until setup.",

@@ -78,8 +78,8 @@
 ## Execution ledger
 
 - Batch status: `in_progress`.
-- Current feature: `GARDEN-AI-002` — no-property ask state.
-- Current commit: `e8d630b`.
+- Current feature: `GARDEN-AI-004` — automated coverage.
+- Current commit: `ca9a8c5`.
 - Migrations/env/provider operations: none required or performed; analytics and shared-database work remain excluded.
 - `GARDEN-AI-001` status: `complete`; route guard and paired empty-property/setup regression committed in `4413d9a`.
 - `GARDEN-AI-001` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-001`; local record created, no database sync.
@@ -89,7 +89,13 @@
 - `GARDEN-AI-002` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-002`; local record created, no database sync.
 - `GARDEN-AI-002` polish: three focused passes completed; layout/style/animation and usability/mobile reviews selected no additional change, copy/spacing added explicit “Ask first” guidance and a regression assertion.
 - `GARDEN-AI-002` test: `npm test -- --run tests/garden-ask-empty-state.test.tsx tests/garden-app-mutations.test.tsx` — passed, 2 files / 7 tests.
-- Exact next action: add populated-property regression coverage for memory, context, target selection, answer actions, and save/care behavior.
+- `GARDEN-AI-003` status: `complete`; populated-property regression committed in `ca9a8c5`.
+- `GARDEN-AI-003` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-003`; local record created, no database sync.
+- `GARDEN-AI-003` polish: three focused passes completed; existing memory, context, target-selection, note, and care controls required no additional product change.
+- `GARDEN-AI-003` test: `npm test -- --run tests/garden-ask-existing-state.test.tsx` — passed, 1 file / 1 test.
+- `GARDEN-AI-004` status: `in_progress`; focused route, empty-state, existing-state, markup, and CSS coverage now exists.
+- `GARDEN-AI-004` finish-line coverage: `output/qa/garden-first-run-ai-home-qaqc-record.json`, check `GARDEN-FIRST-RUN-004`; local record created, no database sync.
+- Exact next action: run the aggregate feature tests, typecheck, hygiene, build, and local browser suite; reconcile the final worktree and proof matrix.
 
 ## Closeout
 
