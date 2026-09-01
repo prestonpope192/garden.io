@@ -71,6 +71,8 @@
 ## Commits
 
 - Initial manifest commit: `bab8454` (`chore: add garden first-run batch manifest`).
+- Manifest commit-record update: `23272e2` (`chore: record garden batch manifest commit`).
+- Baseline validation evidence: `7e12f50` (`chore: record garden baseline validation`).
 
 ## Closeout
 
