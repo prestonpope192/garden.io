@@ -57,6 +57,8 @@ Evidence:
   - `Plant Journal`
   - `Choose plants`
 - `/app/my-property` is the authenticated Today entry by default: users describe what changed or add a photo, then save the useful note or care where it belongs.
+- A signed-in grower with no property can ask a text question or upload a photo before setup; the answer remains usable immediately, while note and care persistence stays disabled until a property exists and the setup link remains secondary.
+- `/app/my-garden` remains the direct property/setup path, including the empty-property redirect used by setup-oriented views.
 - The no-account sample tour uses the same Today interaction model while surfacing sample memory up front so visitors can see what context the assistant has before asking.
 - The map-style garden record is available as Garden Memory at `/app/garden-memory`, and `/app/my-property?zone=...&bed=...&plant=...` still opens the map context for deep links.
 - The first garden-name screen remains inside the Garden Memory/property view. After a property exists, the first useful setup path is Place -> Bed -> Plant, deriving progress from existing records instead of persisted onboarding state.
@@ -66,6 +68,9 @@ Evidence:
 - [`website/app/app/my-property/page.tsx`](../website/app/app/my-property/page.tsx)
 - [`website/app/app/garden-memory/page.tsx`](../website/app/app/garden-memory/page.tsx)
 - [`website/components/views/garden-ask-view.tsx`](../website/components/views/garden-ask-view.tsx)
+- [`website/tests/garden-app-mutations.test.tsx`](../website/tests/garden-app-mutations.test.tsx)
+- [`website/tests/garden-ask-empty-state.test.tsx`](../website/tests/garden-ask-empty-state.test.tsx)
+- [`website/tests/garden-ask-existing-state.test.tsx`](../website/tests/garden-ask-existing-state.test.tsx)
 - [`website/components/views/property-view.tsx`](../website/components/views/property-view.tsx)
 - [`website/lib/garden-app-helpers.ts`](../website/lib/garden-app-helpers.ts)
 - [`website/app/app/calendar/page.tsx`](../website/app/app/calendar/page.tsx)
