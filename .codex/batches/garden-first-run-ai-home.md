@@ -58,7 +58,7 @@
 
 ## Commits
 
-- Initial manifest commit: to be recorded after commit.
+- Initial manifest commit: `bab8454` (`chore: add garden first-run batch manifest`).
 
 ## Closeout
 
