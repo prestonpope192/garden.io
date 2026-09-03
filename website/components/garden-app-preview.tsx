@@ -120,6 +120,29 @@ async function askSampleGarden(input: {
   const question = input.symptoms.trim().toLowerCase();
   const photoLead = input.imageDataUrl ? "From the photo and garden notes: " : "";
 
+  if (question.includes("changed since last") || question.includes("since last time")) {
+    return {
+      summary: photoLead + "Compare today’s leaves with the last note before changing care.",
+      causes: [
+        {
+          cause: "The latest note is the useful baseline",
+          confidence: "high",
+          detail: "Your garden memory already records the last visible change, so a fresh note can make the next answer more specific."
+        }
+      ],
+      actions: [
+        "Describe whether the newest growth looks better, worse, or unchanged.",
+        "Add a photo from the same angle if the plant looks different.",
+        "Keep the comparison with the same plant so the season stays legible."
+      ],
+      follow_up: "Watch whether new growth changes after the next care step.",
+      evidence: [
+        { fact: "Your garden has a recent plant note to compare against.", source: "garden_context", used_for: "sets the comparison baseline" },
+        { fact: "Summer heat affects the kitchen containers differently from the beds.", source: "garden_context", used_for: "keeps the change tied to this garden" }
+      ]
+    };
+  }
+
   if (question.includes("rain") || question.includes("water")) {
     return {
       summary: `${photoLead}Feel the containers first; water only where the top inch is dry.`,
@@ -140,7 +163,11 @@ async function askSampleGarden(input: {
         "Water deeply at the root zone if the potting mix is dry.",
         "Add a note tonight if leaves are still wilting after shade returns."
       ],
-      follow_up: "Look for leaves that recover after the afternoon heat breaks."
+      follow_up: "Look for leaves that recover after the afternoon heat breaks.",
+      evidence: [
+        { fact: "The Container Row dries quickly after warm nights.", source: "garden_context", used_for: "makes soil feel more useful than a calendar" },
+        { fact: "Summer in Central Texas can wilt leaves even when deeper soil is moist.", source: "garden_context", used_for: "keeps heat stress in the comparison" }
+      ]
     };
   }
 
@@ -164,7 +191,11 @@ async function askSampleGarden(input: {
         "Plant one small batch and watch it for three evenings.",
         "Save a note if the leaves wilt after afternoon heat."
       ],
-      follow_up: "Watch whether the spot gets morning sun without harsh late-day exposure."
+      follow_up: "Watch whether the spot gets morning sun without harsh late-day exposure.",
+      evidence: [
+        { fact: "Kitchen Garden already holds herbs and cooking plants.", source: "garden_context", used_for: "supports the suggested placement" },
+        { fact: "Containers in this garden dry quickly.", source: "garden_context", used_for: "sets the watering expectation" }
+      ]
     };
   }
 
@@ -187,7 +218,12 @@ async function askSampleGarden(input: {
         "Inspect the most affected leaves for pests or spotting.",
         "Compare old leaves and new growth before pruning or feeding."
       ],
-    follow_up: "Look for whether the issue is on old leaves, new growth, or the whole plant."
+    follow_up: "Look for whether the issue is on old leaves, new growth, or the whole plant.",
+    evidence: [
+      { fact: "This garden is in summer with containers, herbs, and bloom borders.", source: "garden_context", used_for: "frames the first checks" },
+      { fact: "Borage, Bouquet Dill, and Bell Pepper are in different beds.", source: "garden_context", used_for: "keeps the answer place-specific" }
+    ],
+    needs_confirmation: true
   };
 }
 

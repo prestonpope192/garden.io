@@ -57,6 +57,8 @@ Evidence:
   - `Plant Journal`
   - `Choose plants`
 - `/app/my-property` is the authenticated Today entry by default: users describe what changed or add a photo, then save the useful note or care where it belongs.
+- A signed-in grower with no property can ask a text question or upload a photo before setup; the answer remains usable immediately, while note and care persistence stays disabled until a property exists and the setup link remains secondary.
+- `/app/my-garden` remains the direct property/setup path, including the empty-property redirect used by setup-oriented views.
 - The no-account sample tour uses the same Today interaction model while surfacing sample memory up front so visitors can see what context the assistant has before asking.
 - The map-style garden record is available as Garden Memory at `/app/garden-memory`, and `/app/my-property?zone=...&bed=...&plant=...` still opens the map context for deep links.
 - The first garden-name screen remains inside the Garden Memory/property view. After a property exists, the first useful setup path is Place -> Bed -> Plant, deriving progress from existing records instead of persisted onboarding state.
@@ -66,6 +68,9 @@ Evidence:
 - [`website/app/app/my-property/page.tsx`](../website/app/app/my-property/page.tsx)
 - [`website/app/app/garden-memory/page.tsx`](../website/app/app/garden-memory/page.tsx)
 - [`website/components/views/garden-ask-view.tsx`](../website/components/views/garden-ask-view.tsx)
+- [`website/tests/garden-app-mutations.test.tsx`](../website/tests/garden-app-mutations.test.tsx)
+- [`website/tests/garden-ask-empty-state.test.tsx`](../website/tests/garden-ask-empty-state.test.tsx)
+- [`website/tests/garden-ask-existing-state.test.tsx`](../website/tests/garden-ask-existing-state.test.tsx)
 - [`website/components/views/property-view.tsx`](../website/components/views/property-view.tsx)
 - [`website/lib/garden-app-helpers.ts`](../website/lib/garden-app-helpers.ts)
 - [`website/app/app/calendar/page.tsx`](../website/app/app/calendar/page.tsx)
@@ -76,6 +81,8 @@ Evidence:
 
 - Quick notes/photos can be kept with the relevant garden, place, bed, or plant.
 - AI plant help uses OpenAI vision, grounded in plant context, with useful answers persistable as observations. Route: `/api/diagnose`.
+- Garden answers can expand into source-specific evidence and a confirmation cue; answer-level follow-up controls keep “what changed” comparisons tied to the answer that originated them.
+- Garden Memory combines photos, observations, completed care, and plant outcomes into scoped plant/place/garden timelines. Planned care stays in the upcoming/Weekly care surfaces, long place histories can expand, photo groups use season plus year, and private photos render only when an existing signed media URL is available.
 - Per-plant **planting timeline**: a past -> today -> upcoming arc built by a pure, tested `buildPlantTimeline()` — planting milestone, observations/diagnoses, completed tasks, a "today + lifecycle stage" divider, open tasks, projected harvest, and suggested next actions. Shown both in the property detail drawer and a Timeline tab in Plant Journal.
 - Per-planting **outcome capture**: record harvest quantity/quality and a success/partial/failure result; outcomes show on the timeline as harvest milestones. Backed by `garden_plant_outcomes` (migration `43`).
 - **History-cited recommendations**: a per-(bed × plant) and per-plant performance memory feeds the suggestion engine, so recommendations cite the grower's real track record ("your X averaged 4.5/5 over 2 harvests — keep doing what works"; or a caution for weak history).

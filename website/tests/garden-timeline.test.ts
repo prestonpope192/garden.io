@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { buildPlantTimeline, summarizeOutcome } from "@/lib/garden-timeline";
+import {
+  buildGardenMemoryTimeline,
+  buildPlantTimeline,
+  seasonForDate,
+  summarizeOutcome,
+} from "@/lib/garden-timeline";
 import type {
   GardenObservation,
   GardenPlantInstance,
@@ -134,6 +139,59 @@ function makeOutcome(overrides: Partial<GardenPlantOutcome> = {}): GardenPlantOu
 }
 
 describe("buildPlantTimeline", () => {
+  it("infers calendar seasons for dated memories", () => {
+    expect(seasonForDate("2026-01-12")).toBe("Winter");
+    expect(seasonForDate("2026-04-12")).toBe("Spring");
+    expect(seasonForDate("2026-07-12")).toBe("Summer");
+    expect(seasonForDate("2026-10-12")).toBe("Fall");
+    expect(seasonForDate("not-a-date")).toBeNull();
+  });
+
+  it("builds a scoped memory timeline with photos, care, and outcomes", () => {
+    const plant = makePlant();
+    const items = buildGardenMemoryTimeline({
+      plants: [plant],
+      plantNames: { [plant.id]: "Tomato" },
+      scope: { kind: "bed", id: plant.bed_id },
+      observations: [makeObservation({ image_path: "user/tomato.jpg", observed_at: "2026-07-02" })],
+      tasks: [
+        makeTask({ id: "completed-care", status: "done", completed_at: "2026-07-03" }),
+        makeTask({ id: "future-care", status: "open", due_on: "2026-07-09" }),
+      ],
+      outcomes: [makeOutcome({ harvested_on: "2026-07-05", notes: "Sweet fruit." })],
+    });
+
+    expect(items.map((item) => item.kind)).toEqual(["outcome", "task", "note"]);
+    expect(items[0]).toMatchObject({
+      title: "Care outcome",
+      detail: "3.5 kg · quality 4/5 · grew well — Sweet fruit.",
+      season: "Summer",
+      plantName: "Tomato",
+    });
+    expect(items[2]).toMatchObject({
+      imagePath: "user/tomato.jpg",
+      season: "Summer",
+    });
+    expect(items.map((item) => item.id)).not.toContain("task:future-care");
+  });
+
+  it("includes descendant plant records at property scope and excludes other scopes", () => {
+    const plant = makePlant();
+    const otherPlant = makePlant({ id: "plant-2", bed_id: "bed-2", zone_id: "zone-2" });
+    const items = buildGardenMemoryTimeline({
+      plants: [plant, otherPlant],
+      scope: { kind: "property" },
+      observations: [
+        makeObservation({ id: "plant-note" }),
+        makeObservation({ id: "other-note", plant_instance_id: otherPlant.id, bed_id: otherPlant.bed_id, zone_id: otherPlant.zone_id }),
+      ],
+      tasks: [],
+      outcomes: [],
+    });
+
+    expect(items.map((item) => item.id)).toEqual(["note:plant-note", "note:other-note"]);
+  });
+
   it("buckets by nature: happened → past, to-do → upcoming", () => {
     const plant = makePlant();
     const tl = buildPlantTimeline(plant, {

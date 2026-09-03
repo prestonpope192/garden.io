@@ -504,6 +504,71 @@ describe("sample garden content", () => {
     expect(html).not.toContain("Field note");
   });
 
+  it("lets a long place memory reveal older entries without hiding their count", () => {
+    const activeBed = snapshot.beds[0];
+    const activeZone = snapshot.zones.find((zone) => zone.id === activeBed.zone_id) ?? null;
+    const observations = Array.from({ length: 13 }, (_, index) => ({
+      ...snapshot.observations[0],
+      id: `long-memory-${index}`,
+      zone_id: activeBed.zone_id,
+      bed_id: activeBed.id,
+      plant_instance_id: null,
+      note: `Memory entry ${index + 1}`,
+      observed_at: `2026-06-${String(index + 1).padStart(2, "0")}T12:00:00Z`,
+    }));
+
+    const html = renderToStaticMarkup(
+      createElement(PropertyView, {
+        activeProperty: snapshot.properties[0],
+        activeZone,
+        activeBed,
+        activePlant: null,
+        zones: snapshot.zones,
+        beds: snapshot.beds,
+        plants: snapshot.plants,
+        plantProfiles: snapshot.plantProfiles,
+        observations,
+        tasks: [],
+        outcomes: [],
+        selectedZoneId: activeZone?.id ?? "",
+        selectedBedId: activeBed.id,
+        selectedPlantId: "",
+        setSelectedZoneId: () => undefined,
+        setSelectedBedId: () => undefined,
+        setSelectedPlantId: () => undefined,
+        isSaving: false,
+        isLoading: false,
+        createProperty: noop,
+        updateProperty: noop,
+        deleteProperty: noop,
+        createZone: noop,
+        updateZone: noop,
+        deleteZone: noop,
+        mediaUrls: {},
+        createBed: noop,
+        updateBed: noop,
+        deleteBed: noop,
+        addPlant: noop,
+        updatePlant: noop,
+        deletePlant: noop,
+        updatePlantStatus: noop,
+        addObservation: noop,
+        deleteObservation: noop,
+        addTask: noop,
+        updateTaskStatus: noop,
+        deleteTask: noop,
+        addPlantOutcome: noop,
+        deletePlantOutcome: noop,
+        isReadOnly: true
+      })
+    );
+
+    expect(html).toContain("Show 1 older entry");
+    expect(html).toContain('aria-expanded="false"');
+    expect(html).toContain("Memory entry 13");
+    expect(html).not.toContain("Memory entry 1<");
+  });
+
   it("keeps the sample Plants default drawer focused on choosing a plant", () => {
     const html = renderToStaticMarkup(
       createElement(GardenAppPreview, {

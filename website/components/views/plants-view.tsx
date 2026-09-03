@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useMemo, FormEvent } from "react";
+import { useEffect, useState, useMemo, FormEvent, KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 import { FieldSelect, SpecimenLabel, InkStamp } from "@/components/journal-primitives";
 import {
@@ -171,7 +171,13 @@ function PlantThumbnail({
   alt: string;
   size?: number;
 }) {
-  if (src) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
+  if (src && !failed) {
     return (
       <div
         className="garden-plants-thumb"
@@ -184,6 +190,7 @@ function PlantThumbnail({
           height={size}
           className="garden-plants-thumb__img"
           unoptimized={src.startsWith("/")}
+          onError={() => setFailed(true)}
         />
       </div>
     );
@@ -1321,6 +1328,29 @@ export function PlantsView({
     setShowPlantFilters(false);
   }
 
+  function moveTabFocus<T extends string>(
+    event: KeyboardEvent<HTMLButtonElement>,
+    tabs: readonly T[],
+    active: T,
+    onSelect: (tab: T) => void
+  ) {
+    const currentIndex = tabs.indexOf(active);
+    let nextIndex: number | null = null;
+
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % tabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = tabs.length - 1;
+    if (nextIndex === null) return;
+
+    event.preventDefault();
+    onSelect(tabs[nextIndex]);
+    const tabButtons = event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>(
+      ':scope > [role="tab"]'
+    );
+    tabButtons?.[nextIndex]?.focus();
+  }
+
   // ── Deep link ─────────────────────────────────────────────────────────────
   function buildDeepLink(plant: GardenPlantInstance): string {
     const params = new URLSearchParams();
@@ -1629,11 +1659,22 @@ export function PlantsView({
             {visibleStatusTabs.map(({ id, label, count }) => (
               <button
                 key={id}
+                id={`garden-plants-status-tab-${id}`}
                 role="tab"
                 type="button"
                 className={`garden-plants-tab${activeTab === id ? " is-active" : ""}`}
                 aria-selected={activeTab === id}
+                aria-controls="garden-plants-status-panel"
+                tabIndex={activeTab === id ? 0 : -1}
                 onClick={() => changeTab(id)}
+                onKeyDown={(event) =>
+                  moveTabFocus(
+                    event,
+                    visibleStatusTabs.map((tab) => tab.id),
+                    activeTab,
+                    changeTab
+                  )
+                }
               >
                 {label}
                 <span className="garden-plants-tab__count">{count}</span>
@@ -1661,41 +1702,24 @@ export function PlantsView({
         )}
 
         {/* Tab panels */}
-        {activeTab === "growing" && (
-          <div
-            role="tabpanel"
-            aria-label="Growing plants"
-            className="garden-plants-panel"
-          >
-            {gridView === "grid"
+        <div
+          id="garden-plants-status-panel"
+          role="tabpanel"
+          aria-labelledby={`garden-plants-status-tab-${activeTab}`}
+          className="garden-plants-panel"
+        >
+          {activeTab === "growing"
+            ? gridView === "grid"
               ? renderGrowingGrid()
-              : renderGrowingList()}
-          </div>
-        )}
-
-        {activeTab === "archived" && (
-          <div
-            role="tabpanel"
-            aria-label="Past plants"
-            className="garden-plants-panel"
-          >
-            {gridView === "grid"
-              ? renderArchivedGrid()
-              : renderArchivedList()}
-          </div>
-        )}
-
-        {activeTab === "wishlist" && (
-          <div
-            role="tabpanel"
-            aria-label="Plants to try"
-            className="garden-plants-panel"
-          >
-            {gridView === "grid"
-              ? renderWishlistGrid()
-              : renderWishlistList()}
-          </div>
-        )}
+              : renderGrowingList()
+            : activeTab === "archived"
+              ? gridView === "grid"
+                ? renderArchivedGrid()
+                : renderArchivedList()
+              : gridView === "grid"
+                ? renderWishlistGrid()
+                : renderWishlistList()}
+        </div>
       </div>
 
       {/* ── Right drawer ──────────────────────────────────────────────────── */}
@@ -1771,25 +1795,43 @@ export function PlantsView({
           </div>
         ) : (
           <>
-            <div className="garden-drawer__tabs" role="tablist">
+            <div className="garden-drawer__tabs" role="tablist" aria-label="Plant journal sections">
               {(isReadOnly
                 ? (["info", "timeline"] as PlantsDrawerVisibleTab[])
                 : (["info", "timeline", "actions"] as PlantsDrawerVisibleTab[])
               ).map((tab) => (
                 <button
                   key={tab}
+                  id={`garden-plants-drawer-tab-${tab}`}
                   role="tab"
                   type="button"
                   aria-selected={drawerTab === tab}
+                  aria-controls="garden-plants-drawer-panel"
+                  tabIndex={drawerTab === tab ? 0 : -1}
                   className={`garden-drawer__tab${drawerTab === tab ? " is-active" : ""}`}
                   onClick={() => setDrawerTab(tab)}
+                  onKeyDown={(event) =>
+                    moveTabFocus(
+                      event,
+                      isReadOnly
+                        ? (["info", "timeline"] as const)
+                        : (["info", "timeline", "actions"] as const),
+                      drawerTab as PlantsDrawerVisibleTab,
+                      setDrawerTab
+                    )
+                  }
                 >
                   {PLANTS_DRAWER_TAB_LABELS[tab]}
                 </button>
               ))}
             </div>
 
-            <div className="garden-drawer__body">
+            <div
+              id="garden-plants-drawer-panel"
+              className="garden-drawer__body"
+              role="tabpanel"
+              aria-labelledby={`garden-plants-drawer-tab-${drawerTab}`}
+            >
               {drawerTab === "info" && (
                 <DrawerInfo
                   plants={plants}

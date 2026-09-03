@@ -431,10 +431,10 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
       harvest_quantity: 4.5,
       harvest_unit: "lb",
       quality_rating: 4,
-      harvested_on: "2025-09-12",
-      notes: "Good yield. Picked before the first cold snap.",
-      created_at: "2025-09-12T10:00:00Z",
-      updated_at: "2025-09-12T10:00:00Z"
+      harvested_on: isoWithOffset(-4),
+      notes: "Good yield after steady watering through the hot stretch.",
+      created_at: stamp(4),
+      updated_at: stamp(4)
     },
     {
       id: "demo-outcome-2",
@@ -444,10 +444,10 @@ export function buildDemoGardenSnapshot(profiles: GardenPlantProfile[]): GardenS
       harvest_quantity: 6,
       harvest_unit: "stems",
       quality_rating: 5,
-      harvested_on: "2025-08-03",
+      harvested_on: isoWithOffset(-6),
       notes: "Harvested before bolting. Tender stems, strong flavor.",
-      created_at: "2025-08-03T08:00:00Z",
-      updated_at: "2025-08-03T08:00:00Z"
+      created_at: stamp(6),
+      updated_at: stamp(6)
     }
   ];
 
