@@ -110,7 +110,7 @@ indexes, RLS enablement, policies, and same-property plant constraint.
 | Local source | Proved | Clean isolated branch descending from current `origin/main` |
 | Local deterministic | Proved | 8 focused files / 60 tests, catalog validation, and typecheck; production build had already passed at the same code SHA before docs/catalog-only edits |
 | Local rendered browser | Proved | 13 focused Chromium tests against the exact worktree on port 3011 |
-| Committed branch | Proved locally | Finish-line commits recorded after final review |
+| Committed branch | Proved locally | Finish-line package commit `c20d4c6` |
 | Pushed / merged | Not requested | No push or merge |
 | Canonical database | Blocked | Connection and live catalog unavailable; no new SQL in diff |
 | Hosted authenticated | Blocked | No authorized hosted target/session in this worktree |
@@ -146,10 +146,9 @@ indexes, RLS enablement, policies, and same-property plant constraint.
 
 ## Exact next actions
 
-1. Commit the QA catalog, report, and release draft after review.
-2. In a separately authorized environment, verify the canonical outcomes schema
+1. In a separately authorized environment, verify the canonical outcomes schema
    and policies, then run authenticated outcome-save and signed-photo journeys.
-3. Merge or deploy only with exact repo/target/SHA approval.
+2. Merge or deploy only with exact repo/target/SHA approval.
 
 Focused logs: `/tmp/garden-finish-line/focused-vitest.log`,
 `/tmp/garden-finish-line/typecheck.log`, and
