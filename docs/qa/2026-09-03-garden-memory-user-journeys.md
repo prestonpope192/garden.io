@@ -91,7 +91,7 @@ Stateful external operations: none.
 
 | Layer | Result |
 | --- | --- |
-| Local deterministic | Pass: 39 Vitest files / 185 tests, typecheck, hygiene, and production build. |
+| Local deterministic | Pass: 39 Vitest files / 185 tests, typecheck, hygiene for 260 tracked files, and production build. |
 | Rendered local browser | Pass: Chromium 13/13, plus screenshots for Stories 3–5. |
 | Remote database / RLS | Not run; test callbacks and repository fixtures only. |
 | Hosted authenticated | Not run; Arc was not applicable because no hosted authenticated target was authorized. |
@@ -116,5 +116,6 @@ Full logs: `/tmp/garden-user-stories/full-vitest.log`, `typecheck.log`,
 `story-3-history-refined.png`, `story-4-returning-grower.png`, and
 `story-5-empty-photo-journal.png` in the same directory.
 
-Current blocker: none. Exact next safe action: review and commit the local
-feature-scoped repairs and coverage. Next gated action: none.
+Current blocker: none. Feature-scoped implementation and coverage commit:
+`eef816d`. Exact next safe action: merge or deploy only when separately
+requested. Next gated action: none.
