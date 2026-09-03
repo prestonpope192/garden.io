@@ -66,3 +66,47 @@ test("sample Garden Memory drawer scope stays readable on mobile", async ({ page
     expect((labelBox?.x ?? 0) + (labelBox?.width ?? 0)).toBeLessThan(scopeTextBox?.x ?? 0);
   }
 });
+
+test("sample plant history turns recorded outcomes into resilient next-season guidance", async ({ page }) => {
+  await page.route("**/_next/image?url=**", (route) => route.abort());
+  await page.goto("/tour/plants");
+
+  await expect(page.locator(".garden-plants-thumb--fallback")).toHaveCount(4);
+  await page.getByText("Bell Pepper", { exact: true }).first().click();
+  await page.getByRole("tab", { name: "History" }).click();
+
+  const timeline = page.getByLabel("Garden memory timeline");
+  await expect(timeline).toContainText("Harvested · 4.5 lb · quality 4/5 · grew well");
+  await expect(timeline).toContainText("Bell Pepper has done well for you");
+  await expect(timeline).toContainText("From your garden notes");
+  await expect(timeline).toContainText("Keep doing what works: same spot, same timing.");
+  await expect(page.getByText("Kitchen Garden · Container Row").first()).toBeVisible();
+});
+
+test("a returning grower can separate remembered events from work that still needs care", async ({ page }) => {
+  await page.goto("/tour/ask");
+
+  const snapshot = page.getByLabel("Garden memory snapshot");
+  await expect(snapshot).toContainText("Latest note: First strong bloom after two hot days.");
+  await snapshot.getByRole("link", { name: "Open garden memory" }).click();
+
+  const memory = page.getByLabel("Garden memory timeline");
+  await expect(memory).toContainText("2 observations");
+  await expect(memory).toContainText("0 completed care items");
+  await expect(memory).toContainText("2 outcomes");
+  await expect(memory).not.toContainText("Refresh mulch on exposed soil");
+
+  await page.getByRole("link", { name: "Weekly care" }).click();
+  await expect(page.getByRole("heading", { name: "Weekly care" })).toBeVisible();
+  await expect(page.getByText("Water deeply before the hot afternoon")).toBeVisible();
+  await expect(page.getByText("Harvest dill before afternoon heat")).toBeVisible();
+
+  await page.getByRole("link", { name: "Today" }).click();
+  const composer = page.getByRole("textbox", { name: "Ask about your garden" });
+  await composer.fill("What changed since last time?");
+  await page.getByRole("button", { name: "Send" }).click();
+  await expect(page.getByRole("heading", { name: /Compare today’s leaves with the last note/ })).toBeVisible();
+  await page.getByText("Why this answer fits your garden").click();
+  await expect(page.getByText("Your garden has a recent plant note to compare against.")).toBeVisible();
+  await expect(page.getByText("Describe whether the newest growth looks better, worse, or unchanged.")).toBeVisible();
+});

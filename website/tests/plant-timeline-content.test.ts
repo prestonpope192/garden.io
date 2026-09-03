@@ -72,7 +72,7 @@ describe("PlantTimeline content", () => {
 
   it("shows a seasonal photo journal alongside the memory timeline", () => {
     const snapshot = buildDemoGardenSnapshot([]);
-    const plant = snapshot.plants[0];
+    const plant = snapshot.plants.find((candidate) => candidate.id === "demo-plant-bell-pepper")!;
     const observation: GardenObservation = {
       id: "photo-observation",
       property_id: plant.property_id,
@@ -93,13 +93,22 @@ describe("PlantTimeline content", () => {
       created_at: "2025-07-02T00:00:00Z",
       updated_at: "2025-07-02T00:00:00Z",
     };
+    const unsignedObservation: GardenObservation = {
+      ...observation,
+      id: "unsigned-photo-observation",
+      note: "This private image has no authorized display URL.",
+      image_path: "user-1/private-growth.jpg",
+      observed_at: "2024-07-02T00:00:00Z",
+      created_at: "2024-07-02T00:00:00Z",
+      updated_at: "2024-07-02T00:00:00Z",
+    };
 
     const html = renderToStaticMarkup(
       createElement(PlantTimeline, {
         plant,
-        observations: [olderObservation, observation],
+        observations: [unsignedObservation, olderObservation, observation],
         tasks: [],
-        outcomes: [],
+        outcomes: snapshot.outcomes.filter((outcome) => outcome.plant_instance_id === plant.id),
         suggestions: [],
         mediaUrls: {
           "user-1/new-growth.jpg": "https://example.com/new-growth.jpg",
@@ -121,6 +130,10 @@ describe("PlantTimeline content", () => {
     expect(html.indexOf(">Summer 2026<")).toBeLessThan(html.indexOf(">Summer 2025<"));
     expect(html).toContain("New growth held after the rain.");
     expect(html).toContain("new-growth.jpg");
+    expect(html).not.toContain("private-growth.jpg");
+    expect(html).toContain("This private image has no authorized display URL.");
+    expect(html).toContain('alt=""');
+    expect(html).toContain("Good yield after steady watering through the hot stretch.");
   });
 
   it("labels suggestions as care ideas instead of product steps", () => {

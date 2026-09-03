@@ -171,7 +171,13 @@ function PlantThumbnail({
   alt: string;
   size?: number;
 }) {
-  if (src) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
+  if (src && !failed) {
     return (
       <div
         className="garden-plants-thumb"
@@ -184,6 +190,7 @@ function PlantThumbnail({
           height={size}
           className="garden-plants-thumb__img"
           unoptimized={src.startsWith("/")}
+          onError={() => setFailed(true)}
         />
       </div>
     );
