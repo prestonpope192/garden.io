@@ -30,7 +30,7 @@
     {
       "check_id": "GARDEN-FIRST-RUN-003",
       "coverage_key": "ai-home-existing-property-regression",
-      "behavior": "An existing property retains garden memory, plant context links, target selection, note saving, and care-task actions after the AI home changes.",
+      "behavior": "An existing property retains garden memory, source-specific evidence, plant context links, target selection, retryable note/care actions, and answer-specific change follow-ups.",
       "surface": "website/components/views/garden-ask-view.tsx, /app/my-property",
       "fixtures": "Existing property with one place, bed, growing tomato, recent observation, open care task, and deterministic diagnosis stub",
       "steps": [
@@ -39,18 +39,26 @@
         "Submit a plant-specific question and assert the plant context link",
         "Change the answer target to the place",
         "Keep the note and add the primary care action",
-        "Assert both persistence handlers receive the selected property scope"
+        "Assert both persistence handlers receive the selected property scope",
+        "Force each persistence handler to fail and assert its control remains retryable",
+        "Create two answers, start a comparison from the older answer, and assert the older prompt and summary are sent as previous-answer context"
       ],
       "success_criteria": [
         "Existing memory remains visible",
         "Plant context remains attached to the answer",
         "Changing the target scopes note and care writes to the selected place",
-        "Existing answer actions remain available and use the existing property"
+        "Existing answer actions remain available and use the existing property",
+        "Evidence labels name only the sources returned by the answer",
+        "Failed writes do not display false success or disable retry",
+        "A comparison started from an older answer remains bound to that answer"
       ],
       "environment_scope": "local deterministic component harness",
       "safety": "read-only validation with mocked persistence handlers",
       "tests": [
-        "website/tests/garden-ask-existing-state.test.tsx::retains memory, plant context, target selection, note save, and care actions"
+        "website/tests/garden-ask-existing-state.test.tsx::retains memory, plant context, target selection, note save, and care actions",
+        "website/tests/garden-ask-existing-state.test.tsx::keeps persistence controls retryable when saving fails",
+        "website/tests/garden-ask-existing-state.test.tsx::keeps an older answer's comparison follow-up tied to that answer",
+        "website/e2e/garden-ask-chat.spec.ts::garden ask stays in a chat thread and links plant context"
       ],
       "status": "ready"
     },
