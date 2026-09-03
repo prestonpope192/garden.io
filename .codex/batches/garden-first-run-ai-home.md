@@ -121,6 +121,9 @@
 - Readback: no unresolved index entries or conflict markers; all incoming
   commits are reachable from local `main`; the two pre-existing untracked
   output directories and historical stash remained untouched.
+- Cleanup: the temporary worktree was removed and the fully merged local batch
+  branch was deleted with a non-force delete after removing its obsolete
+  `origin/main` upstream association. No remote ref was changed.
 - Migrations/data/provider operations: no new migration, schema, seed,
   backfill, environment, provider, or shared-data operation was introduced or
   performed. Canonical database, authenticated hosted, and provider-backed
