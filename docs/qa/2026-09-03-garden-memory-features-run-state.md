@@ -34,7 +34,7 @@ task, outcome, and private-media records; no new schema is planned.
 | --- | --- | --- |
 | Local source/tests | Proven locally | 38 files / 181 Vitest tests passed; typecheck passed; hygiene passed for 257 tracked files; production build passed. |
 | Local browser/demo | Proven locally | Exact worktree on `http://localhost:3011`; 11/11 Chromium checks passed, including mobile garden and plant memory views. |
-| Committed branch | Proven locally | Commit `ad053ef` (`feat: add garden memory feature loop`) contains the reviewed task-owned diff. |
+| Committed branch | Proven locally | Commit `692ba24` (`feat: add garden memory feature loop`) contains the reviewed task-owned diff. |
 | Hosted/authenticated/provider | Not claimed | No authenticated provider configuration is present in this worktree. |
 | Production/customer-visible | Not performed | No deployment or external communication requested. |
 
@@ -48,7 +48,7 @@ focused tests followed by the existing full validation sequence.
 Current blocker: none.
 
 Local validation artifacts: `/tmp/garden-memory-full-vitest-final-3.log`,
-`/tmp/garden-memory-typecheck-final-4.log`, `/tmp/garden-memory-hygiene-final.log`,
+`/tmp/garden-memory-typecheck-final-4.log`, `/tmp/garden-memory-hygiene-final-2.log`,
 `/tmp/garden-memory-build-final-2.log`, and `/tmp/garden-memory-browser-final-2.log`.
 
 Reusable session: local dev server session `39262` is serving the exact feature
