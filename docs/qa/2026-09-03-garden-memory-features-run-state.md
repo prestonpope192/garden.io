@@ -84,6 +84,6 @@ Refinement logs: `/tmp/garden-mib-focused-3.log`,
 `/tmp/garden-mib-hygiene.log`, `/tmp/garden-mib-build.log`, and
 `/tmp/garden-mib-browser.log`.
 
-Current blocker: none. Refinement commit: pending final reviewed commit.
+Current blocker: none. Refinement commit: `7373a17`.
 Next safe action: commit the reviewed local refinement. Next gated action: none;
 deployment, provider configuration, and shared-data changes remain unrequested.
