@@ -5111,6 +5111,23 @@ p {
   font-weight: 700;
 }
 
+.garden-ai-followup__prompt {
+  justify-self: start;
+  min-height: 40px;
+  border: 1px solid rgba(85, 104, 79, 0.28);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 251, 245, 0.74);
+  color: var(--olive);
+  padding: 0.38rem 0.72rem;
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.78rem;
+}
+
+.garden-ai-followup__prompt:hover,
+.garden-ai-followup__prompt:focus-visible {
+  background: rgba(216, 222, 204, 0.48);
+}
+
 .garden-ai-why,
 .garden-ai-more-checks {
   overflow: hidden;
@@ -5148,6 +5165,68 @@ p {
 .garden-ai-why .garden-ai-cause-list,
 .garden-ai-why__fallback {
   padding: 0.85rem 0.9rem 0.9rem;
+}
+
+.garden-ai-evidence-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.85rem 0.9rem 0.9rem;
+  list-style: none;
+}
+
+.garden-ai-evidence {
+  display: grid;
+  gap: 0.28rem;
+  border-top: 1px solid rgba(94, 74, 46, 0.14);
+  padding-top: 0.7rem;
+}
+
+.garden-ai-evidence:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.garden-ai-evidence > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.45rem 0.75rem;
+}
+
+.garden-ai-evidence strong {
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.garden-ai-evidence > div > span {
+  color: var(--olive);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.garden-ai-evidence p,
+.garden-ai-why__confirmation {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.garden-ai-why__confirmation {
+  margin: 0 0.9rem 0.9rem;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.7rem;
+}
+
+.garden-ai-why__confirmation span {
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-weight: 700;
 }
 
 .garden-ai-more-checks .garden-ai-secondary-actions {
@@ -5834,12 +5913,17 @@ button.garden-breadcrumb__crumb:hover {
   }
 
   .garden-ai-followup,
+  .garden-ai-followup__prompt,
   .garden-ai-why summary,
   .garden-ai-more-checks summary,
   .garden-ai-why .garden-ai-cause-list,
   .garden-ai-more-checks .garden-ai-secondary-actions,
   .garden-ai-why__fallback {
     padding-inline: 0.72rem;
+  }
+
+  .garden-ai-why__confirmation {
+    margin-inline: 0.72rem;
   }
 
   .garden-ai-save-target {
@@ -9808,6 +9892,133 @@ button.garden-breadcrumb__crumb:hover {
   gap: 0.5rem;
 }
 
+.garden-timeline__header,
+.garden-photo-journal__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 0.7rem;
+}
+
+.garden-timeline__header > span,
+.garden-photo-journal__header > span {
+  color: var(--ink-muted);
+  font-family: var(--font-label), serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.garden-memory-preview {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.garden-memory-preview__intro,
+.garden-memory-preview__more {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.garden-memory-preview__more {
+  text-align: center;
+  font-style: italic;
+}
+
+.garden-photo-journal {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.25rem 0 0.8rem;
+  border: 1px solid rgba(94, 74, 46, 0.14);
+  border-radius: var(--radius-md);
+  background: linear-gradient(145deg, rgba(216, 222, 204, 0.34), rgba(255, 251, 245, 0.72));
+  padding: 0.75rem;
+}
+
+.garden-photo-journal__intro {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.garden-photo-journal__seasons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.garden-photo-journal__season {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.garden-photo-journal__season-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.garden-photo-journal__season-heading h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body), serif;
+  font-size: 0.96rem;
+}
+
+.garden-photo-journal__season-heading span {
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+}
+
+.garden-photo-journal__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.55rem;
+}
+
+.garden-photo-journal__card {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(94, 74, 46, 0.14);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 251, 245, 0.8);
+}
+
+.garden-photo-journal__card img {
+  width: 100%;
+  aspect-ratio: 1.3;
+  object-fit: cover;
+}
+
+.garden-photo-journal__card figcaption {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.45rem 0.5rem 0.55rem;
+}
+
+.garden-photo-journal__card time {
+  color: var(--clay);
+  font-family: var(--font-label), serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.garden-photo-journal__card figcaption span {
+  color: var(--ink-soft);
+  font-size: 0.77rem;
+  line-height: 1.3;
+}
+
 .garden-timeline__item {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -9885,6 +10096,14 @@ button.garden-breadcrumb__crumb:hover {
 
 .garden-timeline__tag--suggestion {
   color: var(--olive, var(--clay));
+}
+
+.garden-timeline__tag--photo {
+  color: var(--olive);
+}
+
+.garden-timeline__tag--outcome {
+  color: var(--ink-olive, var(--olive));
 }
 
 .garden-timeline__divider {

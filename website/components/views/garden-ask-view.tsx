@@ -26,11 +26,19 @@ type GardenAskCause = {
   detail: string;
 };
 
+export type GardenAskEvidence = {
+  fact: string;
+  source: "garden_context" | "grower_report" | "photo";
+  used_for: string;
+};
+
 export type GardenAskDiagnosis = {
   summary: string;
   causes: GardenAskCause[];
   actions: string[];
   follow_up: string;
+  evidence?: GardenAskEvidence[];
+  needs_confirmation?: boolean;
 };
 
 type GardenPlantContext = {
@@ -336,7 +344,13 @@ function confidenceLabel(confidence: GardenAskCause["confidence"]) {
   return "Worth a look";
 }
 
-function buildGardenContext(props: GardenAskViewProps) {
+function evidenceSourceLabel(source: GardenAskEvidence["source"]) {
+  if (source === "garden_context") return "Garden context";
+  if (source === "grower_report") return "Your note";
+  return "Photo";
+}
+
+function buildGardenContext(props: GardenAskViewProps, previousTurn?: GardenChatTurn) {
   const growingPlants = props.plants.filter((plant) => plant.status === "growing");
   const plantNames = growingPlants.slice(0, 8).map((plant) => getCatalogPlantName(plant));
   const recentNotes = props.observations.slice(0, 6).map((observation) => observation.note);
@@ -350,7 +364,14 @@ function buildGardenContext(props: GardenAskViewProps) {
     ].filter(Boolean).join(" | ") || null,
     season: props.activeProperty?.season ?? null,
     hardinessZone: props.activeProperty?.growing_zone ?? null,
-    recentNotes
+    recentNotes,
+    previousAnswer: previousTurn
+      ? {
+          prompt: previousTurn.prompt.slice(0, 220),
+          summary: previousTurn.diagnosis.summary.slice(0, 260),
+          followUp: cleanFollowUp(previousTurn.diagnosis.follow_up).slice(0, 220)
+        }
+      : null
   };
 }
 
@@ -472,7 +493,7 @@ function plantTerms(plant: GardenPlantInstance) {
 }
 
 function isContextualFollowUp(haystack: string) {
-  return /\b(it|its|this|that|these|those|they|them|same|plant|leaves|leaf|fruit|blooms|flowers|ready|prune|harvest|water)\b/.test(haystack);
+  return /\b(it|its|this|that|these|those|they|them|same|plant|leaves|leaf|fruit|blooms|flowers|ready|prune|harvest|water|changed|change|last|since)\b/.test(haystack);
 }
 
 function identifyPlantContexts(
@@ -626,8 +647,8 @@ export function GardenAskView(props: GardenAskViewProps) {
     requestAnimationFrame(() => promptRef.current?.focus());
   }
 
-  async function getDiagnosis(cleanPrompt: string, imageDataUrl: string | null) {
-    const context = buildGardenContext(props);
+  async function getDiagnosis(cleanPrompt: string, imageDataUrl: string | null, previousTurn?: GardenChatTurn) {
+    const context = buildGardenContext(props, previousTurn);
     if (props.askGarden) {
       return props.askGarden({
         context,
@@ -662,9 +683,10 @@ export function GardenAskView(props: GardenAskViewProps) {
     setMessage("");
     setShowTargetPicker(false);
     setPendingPrompt(turnPrompt);
+    const previousTurn = conversation.at(-1);
     try {
       const imageDataUrl = file ? await compressImage(file) : null;
-      const nextDiagnosis = await getDiagnosis(cleanPrompt, imageDataUrl);
+      const nextDiagnosis = await getDiagnosis(cleanPrompt, imageDataUrl, previousTurn);
       setConversation((turns) => [
         ...turns,
         {
@@ -738,8 +760,8 @@ export function GardenAskView(props: GardenAskViewProps) {
     setMessage("Added to weekly care.");
   }
 
-  function startFollowUp() {
-    setPrompt("");
+  function startFollowUp(seed = "") {
+    setPrompt(seed);
     setMessage("");
     setError("");
     requestAnimationFrame(() => promptRef.current?.focus());
@@ -928,6 +950,7 @@ export function GardenAskView(props: GardenAskViewProps) {
 
   function renderAssistantTurn(turn: GardenChatTurn) {
     const turnFollowUp = cleanFollowUp(turn.diagnosis.follow_up);
+    const evidence = turn.diagnosis.evidence ?? [];
     const noteSaved = savedNotes.has(turn.id);
     const setupHintId = `garden-ai-setup-hint-${turn.id}`;
     return (
@@ -961,6 +984,13 @@ export function GardenAskView(props: GardenAskViewProps) {
               <p className="garden-ai-followup">
                 <span>Watch for:</span> {turnFollowUp}
               </p>
+              <button
+                className="garden-ai-followup__prompt"
+                type="button"
+                onClick={() => startFollowUp("What changed since last time?")}
+              >
+                What changed since last time?
+              </button>
             </section>
           ) : null}
 
@@ -994,7 +1024,7 @@ export function GardenAskView(props: GardenAskViewProps) {
               </label>
             ) : null}
             <div className="garden-ai-save__actions">
-              <button className="folio-button" type="button" onClick={startFollowUp}>
+              <button className="folio-button" type="button" onClick={() => startFollowUp()}>
                 Add more detail
               </button>
               <button
@@ -1017,10 +1047,22 @@ export function GardenAskView(props: GardenAskViewProps) {
           <section className="garden-ai-answer__section garden-ai-why-section">
             <details className="garden-ai-why">
               <summary>
-                <SpecimenLabel tone="clay">Why this step fits</SpecimenLabel>
-                <span>See the notes and season behind this step.</span>
+                <SpecimenLabel tone="clay">Why this answer fits your garden</SpecimenLabel>
+                <span>See the notes, season, and photo behind this answer.</span>
               </summary>
-              {turn.diagnosis.causes.length ? (
+              {evidence.length ? (
+                <ul className="garden-ai-evidence-list" aria-label="Garden answer evidence">
+                  {evidence.map((item, index) => (
+                    <li className="garden-ai-evidence" key={`${item.source}-${item.fact}-${index}`}>
+                      <div>
+                        <strong>{item.fact}</strong>
+                        <span>{evidenceSourceLabel(item.source)}</span>
+                      </div>
+                      <p>{item.used_for}</p>
+                    </li>
+                  ))}
+                </ul>
+              ) : turn.diagnosis.causes.length ? (
                 <div className="garden-ai-cause-list">
                   {turn.diagnosis.causes.map((cause) => (
                     <div className="garden-ai-cause" key={`${cause.cause}-${cause.confidence}`}>
@@ -1035,6 +1077,11 @@ export function GardenAskView(props: GardenAskViewProps) {
               ) : (
                 <p className="garden-ai-why__fallback">From your notes and season.</p>
               )}
+              {turn.diagnosis.needs_confirmation ? (
+                <p className="garden-ai-why__confirmation">
+                  <span>Confirm before acting:</span> inspect the plant and compare the suggested cause with what you see.
+                </p>
+              ) : null}
             </details>
           </section>
 

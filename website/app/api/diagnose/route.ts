@@ -32,6 +32,11 @@ type DiagnoseContext = {
   season?: string | null;
   hardinessZone?: string | null;
   recentNotes?: string[];
+  previousAnswer?: {
+    prompt?: string | null;
+    summary?: string | null;
+    followUp?: string | null;
+  } | null;
 };
 
 type DiagnoseBody = {
@@ -104,7 +109,11 @@ function buildContextText(ctx: DiagnoseContext): string {
     ctx.plantedOn ? `Planted on: ${ctx.plantedOn}` : null,
     ctx.season ? `Season: ${ctx.season}` : null,
     ctx.hardinessZone ? `USDA hardiness zone: ${ctx.hardinessZone}` : null,
-    ctx.recentNotes && ctx.recentNotes.length ? `Recent notes: ${ctx.recentNotes.join("; ")}` : null
+    ctx.recentNotes && ctx.recentNotes.length ? `Recent notes: ${ctx.recentNotes.join("; ")}` : null,
+    ctx.previousAnswer?.summary || ctx.previousAnswer?.prompt
+      ? `${ctx.previousAnswer.prompt ? `Previous garden question: ${ctx.previousAnswer.prompt}\n` : ""}` +
+        `Previous garden answer: ${ctx.previousAnswer.summary || "(no summary)"}${ctx.previousAnswer.followUp ? ` Watch-for: ${ctx.previousAnswer.followUp}` : ""}`
+      : null
   ].filter(Boolean).join("\n");
 }
 

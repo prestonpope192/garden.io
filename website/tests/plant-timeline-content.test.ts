@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { PLANT_TIMELINE_COPY, PlantTimeline } from "@/components/plant-timeline";
 import { buildDemoGardenSnapshot } from "@/lib/demo-garden-snapshot";
-import type { GardenPlantOutcome } from "@/lib/garden-app-types";
+import type { GardenObservation, GardenPlantOutcome } from "@/lib/garden-app-types";
 import { formatSuggestionSignal, type GardenSuggestion } from "@/lib/garden-suggestions";
 
 const noop = async () => undefined;
@@ -65,6 +65,46 @@ describe("PlantTimeline content", () => {
     expect(html).not.toContain(">Result<");
     expect(html).not.toContain(">milestone<");
     expect(html).not.toMatch(/\b2026-\d{2}-\d{2}\b/);
+  });
+
+  it("shows a seasonal photo journal alongside the memory timeline", () => {
+    const snapshot = buildDemoGardenSnapshot([]);
+    const plant = snapshot.plants[0];
+    const observation: GardenObservation = {
+      id: "photo-observation",
+      property_id: plant.property_id,
+      zone_id: plant.zone_id,
+      bed_id: plant.bed_id,
+      plant_instance_id: plant.id,
+      note: "New growth held after the rain.",
+      image_path: "user-1/new-growth.jpg",
+      observed_at: "2026-07-02T00:00:00Z",
+      created_at: "2026-07-02T00:00:00Z",
+      updated_at: "2026-07-02T00:00:00Z",
+    };
+
+    const html = renderToStaticMarkup(
+      createElement(PlantTimeline, {
+        plant,
+        observations: [observation],
+        tasks: [],
+        outcomes: [],
+        suggestions: [],
+        mediaUrls: { "user-1/new-growth.jpg": "https://example.com/new-growth.jpg" },
+        today: "2026-07-03",
+        addTask: noop,
+        addPlantOutcome: noop,
+        deletePlantOutcome: noop,
+      })
+    );
+
+    expect(html).toContain("Memory timeline");
+    expect(html).toContain("Plant journal · photos, notes, care, and outcomes");
+    expect(html).toContain("Seasonal photo journal");
+    expect(html).toContain("1 photo memory");
+    expect(html).toContain(">Summer<");
+    expect(html).toContain("New growth held after the rain.");
+    expect(html).toContain("new-growth.jpg");
   });
 
   it("labels suggestions as care ideas instead of product steps", () => {

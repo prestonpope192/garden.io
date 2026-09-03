@@ -269,12 +269,12 @@ describe("Today garden home", () => {
     expect(askViewSource).toContain("Worth a look");
     expect(askViewSource).not.toContain("Worth checking");
     expect(askViewSource).toContain('className="garden-ai-why"');
-    expect(askViewSource).toContain("Why this step fits");
-    expect(askViewSource).toContain("See the notes and season behind this step.");
+    expect(askViewSource).toContain("Why this answer fits your garden");
+    expect(askViewSource).toContain("See the notes, season, and photo behind this answer.");
     expect(askViewSource).not.toContain("See the notes, season, and garden details behind it.");
     expect(askViewSource).not.toContain("What I used");
     expect(askViewSource).not.toContain("Show the notes, season, and garden details behind this.");
-    expect(askViewSource).not.toContain("Why this answer");
+    expect(askViewSource).not.toContain("Why this step fits");
     expect(askViewSource).not.toContain("Show the garden context behind this answer.");
     expect(askViewSource).not.toContain("<h1>{diagnosis.summary}</h1>");
     expect(askViewSource).not.toContain("Look for: {diagnosis.follow_up}");

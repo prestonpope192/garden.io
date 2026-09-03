@@ -2,7 +2,7 @@
 import { createElement } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { GardenAskView } from "@/components/views/garden-ask-view";
+import { GardenAskView, type GardenAskViewProps } from "@/components/views/garden-ask-view";
 import type {
   GardenBed,
   GardenObservation,
@@ -121,7 +121,9 @@ describe("GardenAskView with an existing property", () => {
       summary: "Water the tomatoes at the soil line.",
       causes: [{ cause: "Dry soil", confidence: "high" as const, detail: "The bed is drying between waterings." }],
       actions: ["Water slowly at the soil line.", "Check the soil again tomorrow."],
-      follow_up: "Watch for leaves that stay wilted after watering."
+      follow_up: "Watch for leaves that stay wilted after watering.",
+      evidence: [{ fact: "The Tomato Bed dries between waterings.", source: "garden_context" as const, used_for: "supports the watering step" }],
+      needs_confirmation: true
     }));
 
     render(
@@ -153,6 +155,11 @@ describe("GardenAskView with an existing property", () => {
     const contextChip = screen.getByRole("link", { name: "Tomato" });
     expect(contextChip.getAttribute("href")).toBe("/app/my-garden?plant=plant-1");
     expect(screen.getByRole("button", { name: "Add to weekly care" })).toBeTruthy();
+    fireEvent.click(screen.getByText("Why this answer fits your garden"));
+    expect(screen.getByText("The Tomato Bed dries between waterings.")).toBeTruthy();
+    expect(screen.getByText("Confirm before acting:")).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "What changed since last time?" }));
+    expect((screen.getByPlaceholderText("Ask a follow-up...") as HTMLTextAreaElement).value).toBe("What changed since last time?");
 
     fireEvent.click(screen.getByRole("button", { name: "Change" }));
     fireEvent.change(screen.getByRole("combobox"), { target: { value: "zone:zone-1" } });
@@ -281,5 +288,45 @@ describe("GardenAskView with an existing property", () => {
     await screen.findByRole("alert");
     expect(addToCare.disabled).toBe(false);
     expect(addToCare.textContent).toBe("Add to weekly care");
+  });
+
+  it("sends the previous answer as context for a change-since-last-time follow-up", async () => {
+    const askGarden = vi.fn(async (_input: Parameters<NonNullable<GardenAskViewProps["askGarden"]>>[0]) => ({
+      summary: "Compare the newest leaves with the last note.",
+      causes: [],
+      actions: ["Describe what changed."],
+      follow_up: "Watch the newest growth."
+    }));
+
+    render(
+      createElement(GardenAskView, {
+        activeProperty: property,
+        zones: [zone],
+        beds: [bed],
+        plants: [plant],
+        observations: [observation],
+        tasks: [task],
+        isSaving: false,
+        quickLog: async () => undefined,
+        addTask: async () => undefined,
+        updateTaskStatus: async () => undefined,
+        askGarden,
+        promptExamples: ["Why are my tomatoes wilting?"]
+      })
+    );
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "Why are my tomatoes wilting?" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Compare the newest leaves with the last note." });
+    fireEvent.click(screen.getByRole("button", { name: "What changed since last time?" }));
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await waitFor(() => expect(askGarden).toHaveBeenCalledTimes(2));
+    expect(askGarden.mock.calls[1][0].context.previousAnswer).toMatchObject({
+      prompt: "Why are my tomatoes wilting?",
+      summary: "Compare the newest leaves with the last note."
+    });
   });
 });

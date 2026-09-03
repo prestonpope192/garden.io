@@ -58,6 +58,60 @@ export const PLANT_TIMELINE_COPY = {
   nothingPlanned: "No care planned yet."
 };
 
+export function SeasonalPhotoJournal({
+  items,
+  mediaUrls,
+}: {
+  items: TimelineItem[];
+  mediaUrls: Record<string, string>;
+}) {
+  const photos = items.filter((item) => item.imagePath && mediaUrls[item.imagePath]);
+  if (!photos.length) return null;
+
+  const bySeason = new Map<string, TimelineItem[]>();
+  for (const photo of photos) {
+    const season = photo.season ?? "Garden";
+    bySeason.set(season, [...(bySeason.get(season) ?? []), photo]);
+  }
+
+  return (
+    <section className="garden-photo-journal" aria-label="Seasonal photo journal">
+      <div className="garden-photo-journal__header">
+        <SpecimenLabel tone="olive">Seasonal photo journal</SpecimenLabel>
+        <span>{photos.length} photo {photos.length === 1 ? "memory" : "memories"}</span>
+      </div>
+      <p className="garden-photo-journal__intro">
+        Photos, observations, care, and outcomes stay together so each season teaches the next one.
+      </p>
+      <div className="garden-photo-journal__seasons">
+        {Array.from(bySeason.entries()).map(([season, seasonPhotos]) => (
+          <section className="garden-photo-journal__season" key={season} aria-label={season}>
+            <div className="garden-photo-journal__season-heading">
+              <h3>{season}</h3>
+              <span>{seasonPhotos.length} {seasonPhotos.length === 1 ? "entry" : "entries"}</span>
+            </div>
+            <div className="garden-photo-journal__grid">
+              {seasonPhotos.map((item) => {
+                const src = item.imagePath ? mediaUrls[item.imagePath] : undefined;
+                if (!src) return null;
+                return (
+                  <figure className="garden-photo-journal__card" key={item.id}>
+                    <img src={src} alt={item.detail || "Garden photo"} />
+                    <figcaption>
+                      <time dateTime={item.date}>{item.date ? formatGardenDate(item.date) : "Undated"}</time>
+                      <span>{item.detail || "Garden photo"}</span>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function TimelineRow({
   item,
   mediaUrls,
@@ -144,7 +198,14 @@ function TimelineRow({
           </div>
         ) : (
           <>
-            <p className="garden-timeline__text">{item.detail}</p>
+            <p className="garden-timeline__text">
+              {item.imagePath ? (
+                <span className="garden-timeline__tag garden-timeline__tag--photo">
+                  {item.season ?? "photo"}
+                </span>
+              ) : null}
+              {item.detail}
+            </p>
             {photo ? (
               <img className="garden-timeline__photo" src={photo} alt={item.detail || "Garden photo"} />
             ) : null}
@@ -365,8 +426,12 @@ export function PlantTimeline({
     : undefined;
 
   return (
-    <div className="garden-timeline garden-timeline--arc">
-      <SpecimenLabel>Plant journal</SpecimenLabel>
+    <div aria-label="Garden memory timeline" className="garden-timeline garden-timeline--arc">
+      <div className="garden-timeline__header">
+        <SpecimenLabel>Memory timeline</SpecimenLabel>
+        <span>Plant journal · photos, notes, care, and outcomes</span>
+      </div>
+      <SeasonalPhotoJournal items={timeline.past} mediaUrls={mediaUrls} />
 
       {isEmpty ? (
         <p className="garden-drawer__muted">

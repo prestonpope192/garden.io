@@ -20,6 +20,7 @@ import {
 } from "@/lib/garden-suggestions";
 import { deriveLifecycleStage, harvestReadiness } from "@/lib/garden-phenology";
 import { buildFrostAlert, type ForecastDay } from "@/lib/garden-frost";
+import { buildGardenMemoryTimeline } from "@/lib/garden-timeline";
 import { DiagnosePanel } from "@/components/diagnose-panel";
 import { PlantTimeline, type AddPlantOutcomeInput } from "@/components/plant-timeline";
 import type {
@@ -752,6 +753,14 @@ export function PropertyView(props: PropertyViewProps) {
     }
 
     if (focus === "property") {
+      const propertyMemoryItems = buildGardenMemoryTimeline({
+        observations: props.observations,
+        tasks: props.tasks,
+        outcomes: props.outcomes,
+        plants: props.plants,
+        plantNames: Object.fromEntries(props.plants.map((plant) => [plant.id, getCatalogPlantName(plant)])),
+        scope: { kind: "property" },
+      });
       return (
         <div className="garden-drawer__section garden-property-guide">
           <SpecimenLabel tone="olive">
@@ -815,6 +824,45 @@ export function PropertyView(props: PropertyViewProps) {
               </>
             )}
           </div>
+          {setupProgress.isComplete && propertyMemoryItems.length > 0 ? (
+            <section className="garden-memory-preview" aria-label="Garden memory timeline">
+              <div className="garden-timeline__header">
+                <SpecimenLabel>Memory timeline</SpecimenLabel>
+                <span>{propertyMemoryItems.length} moments across your garden</span>
+              </div>
+              <p className="garden-memory-preview__intro">
+                Photos, observations, care, and outcomes gathered in one seasonal record.
+              </p>
+              <div className="garden-timeline">
+                {propertyMemoryItems.slice(0, 6).map((entry) => (
+                  <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={entry.id}>
+                    <span className="garden-timeline__date">{entry.date ? formatGardenDate(entry.date) : "—"}</span>
+                    <div className="garden-timeline__body">
+                      {entry.kind === "task" ? (
+                        <p className="garden-timeline__text">
+                          <span className="garden-timeline__tag">{entry.status === "done" ? "✓ done" : "care"}</span>
+                          {entry.plantName ? `${entry.plantName} · ` : ""}{entry.title}
+                        </p>
+                      ) : (
+                        <p className="garden-timeline__text">
+                          <span className={`garden-timeline__tag garden-timeline__tag--${entry.kind === "outcome" ? "outcome" : entry.imagePath ? "photo" : "note"}`}>
+                            {entry.kind === "outcome" ? entry.season ?? "result" : entry.imagePath ? entry.season ?? "photo" : "note"}
+                          </span>
+                          {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
+                        </p>
+                      )}
+                      {entry.kind === "note" && entry.imagePath && props.mediaUrls[entry.imagePath] ? (
+                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.detail || "Garden photo"} />
+                      ) : null}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {propertyMemoryItems.length > 6 ? (
+                <p className="garden-memory-preview__more">Choose a place or plant to open its complete memory arc.</p>
+              ) : null}
+            </section>
+          ) : null}
         </div>
       );
     }
@@ -883,16 +931,20 @@ export function PropertyView(props: PropertyViewProps) {
         : focus === "bed"
           ? `${plural(growing(props.plants.filter((plant) => plant.bed_id === activeBed?.id)).length, "growing plant")} here`
           : [activeBed?.name, activeZone?.name].filter(Boolean).join(" · ") || "Plant in your garden";
-    type TimelineEntry = { id: string; kind: "note" | "task"; date: string; title: string; note?: string; imagePath?: string | null; status?: string };
-    const allTimelineItems: TimelineEntry[] = [
-      ...props.observations
-        .filter((o) => scopeMatch(o.zone_id, o.bed_id, o.plant_instance_id))
-        .map((o) => ({ id: o.id, kind: "note" as const, date: (o.observed_at || o.created_at || "").slice(0, 10), title: "", note: o.note, imagePath: o.image_path })),
-      ...props.tasks
-        .filter((t) => scopeMatch(t.zone_id, t.bed_id, t.plant_instance_id))
-        .map((t) => ({ id: t.id, kind: "task" as const, date: (t.completed_at || t.due_on || t.created_at || "").slice(0, 10), title: t.title, status: t.status }))
-    ]
-      .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+    const memoryScope =
+      focus === "zone"
+        ? { kind: "zone" as const, id: activeZone?.id ?? "" }
+        : focus === "bed"
+          ? { kind: "bed" as const, id: activeBed?.id ?? "" }
+          : { kind: "plant" as const, id: activePlant?.id ?? "" };
+    const allTimelineItems = buildGardenMemoryTimeline({
+      observations: props.observations,
+      tasks: props.tasks,
+      outcomes: props.outcomes,
+      plants: props.plants,
+      plantNames: Object.fromEntries(props.plants.map((plant) => [plant.id, getCatalogPlantName(plant)])),
+      scope: memoryScope,
+    });
     const timeline = allTimelineItems.slice(0, 12);
 
     const plantTimelineSuggestions =
@@ -963,23 +1015,40 @@ export function PropertyView(props: PropertyViewProps) {
           />
         ) : timeline.length > 0 ? (
           <div className="garden-timeline">
-            <SpecimenLabel>Notes and care</SpecimenLabel>
+            <div className="garden-timeline__header">
+              <SpecimenLabel>Notes and care</SpecimenLabel>
+              <span>Photos, observations, care, and outcomes</span>
+            </div>
             {timeline.map((entry) => (
-              <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={`${entry.kind}-${entry.id}`}>
+              <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={entry.id}>
                 <span className="garden-timeline__date">{entry.date ? formatGardenDate(entry.date) : "—"}</span>
                 <div className="garden-timeline__body">
                   {entry.kind === "task" ? (
                     <p className="garden-timeline__text">
                       <span className="garden-timeline__tag">{entry.status === "done" ? "✓ done" : "care"}</span> {entry.title}
                     </p>
+                  ) : entry.kind === "outcome" ? (
+                    <p className="garden-timeline__text">
+                      <span className="garden-timeline__tag garden-timeline__tag--outcome">
+                        {entry.season ?? "result"}
+                      </span>
+                      {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
+                    </p>
                   ) : (
                     <>
-                      <p className="garden-timeline__text">{entry.note}</p>
+                      <p className="garden-timeline__text">
+                        {entry.imagePath ? (
+                          <span className="garden-timeline__tag garden-timeline__tag--photo">
+                            {entry.season ?? "photo"}
+                          </span>
+                        ) : null}
+                        {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
+                      </p>
                       {entry.imagePath && props.mediaUrls[entry.imagePath] ? (
-                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.note || "Garden photo"} />
+                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.detail || "Garden photo"} />
                       ) : null}
                       {isReadOnly ? null : (
-                        <button className="garden-link-button" type="button" onClick={() => props.deleteObservation(entry.id)} disabled={busy}>
+                        <button className="garden-link-button" type="button" onClick={() => props.deleteObservation(entry.id.replace(/^note:/, ""))} disabled={busy}>
                           Remove note
                         </button>
                       )}
