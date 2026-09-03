@@ -23,7 +23,7 @@ a stateful local component fixture. Account/tenant: test-only local fixture.
 
 ### Story 1 — Diagnose a plant and track recovery
 
-The grower asks about yellow pepper leaves, inspects grounding, saves the answer
+The grower asks about a wilting tomato plant, inspects grounding, saves the answer
 as an observation, adds one recommended action to Weekly Care, returns to the
 originating answer, asks what changed, and receives a comparison grounded in the
 same plant. Pass requires observable answer context, independent save/care
