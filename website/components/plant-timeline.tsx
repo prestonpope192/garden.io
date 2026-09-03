@@ -65,12 +65,14 @@ export function SeasonalPhotoJournal({
   items: TimelineItem[];
   mediaUrls: Record<string, string>;
 }) {
-  const photos = items.filter((item) => item.imagePath && mediaUrls[item.imagePath]);
-  if (!photos.length) return null;
+  const photos = items
+    .filter((item) => item.imagePath && mediaUrls[item.imagePath])
+    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   const bySeason = new Map<string, TimelineItem[]>();
   for (const photo of photos) {
-    const season = photo.season ?? "Garden";
+    const year = /^\d{4}-\d{2}-\d{2}$/.test(photo.date) ? photo.date.slice(0, 4) : "";
+    const season = photo.season ? `${photo.season}${year ? ` ${year}` : ""}` : year || "Garden";
     bySeason.set(season, [...(bySeason.get(season) ?? []), photo]);
   }
 
@@ -83,31 +85,37 @@ export function SeasonalPhotoJournal({
       <p className="garden-photo-journal__intro">
         Photos, observations, care, and outcomes stay together so each season teaches the next one.
       </p>
-      <div className="garden-photo-journal__seasons">
-        {Array.from(bySeason.entries()).map(([season, seasonPhotos]) => (
-          <section className="garden-photo-journal__season" key={season} aria-label={season}>
-            <div className="garden-photo-journal__season-heading">
-              <h3>{season}</h3>
-              <span>{seasonPhotos.length} {seasonPhotos.length === 1 ? "entry" : "entries"}</span>
-            </div>
-            <div className="garden-photo-journal__grid">
-              {seasonPhotos.map((item) => {
-                const src = item.imagePath ? mediaUrls[item.imagePath] : undefined;
-                if (!src) return null;
-                return (
-                  <figure className="garden-photo-journal__card" key={item.id}>
-                    <img src={src} alt={item.detail || "Garden photo"} />
-                    <figcaption>
-                      <time dateTime={item.date}>{item.date ? formatGardenDate(item.date) : "Undated"}</time>
-                      <span>{item.detail || "Garden photo"}</span>
-                    </figcaption>
-                  </figure>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
+      {photos.length ? (
+        <div className="garden-photo-journal__seasons">
+          {Array.from(bySeason.entries()).map(([season, seasonPhotos]) => (
+            <section className="garden-photo-journal__season" key={season} aria-label={season}>
+              <div className="garden-photo-journal__season-heading">
+                <h3>{season}</h3>
+                <span>{seasonPhotos.length} {seasonPhotos.length === 1 ? "entry" : "entries"}</span>
+              </div>
+              <div className="garden-photo-journal__grid">
+                {seasonPhotos.map((item) => {
+                  const src = item.imagePath ? mediaUrls[item.imagePath] : undefined;
+                  if (!src) return null;
+                  return (
+                    <figure className="garden-photo-journal__card" key={item.id}>
+                      <img src={src} alt="" />
+                      <figcaption>
+                        <time dateTime={item.date}>{item.date ? formatGardenDate(item.date) : "Undated"}</time>
+                        <span>{item.detail || "Garden photo"}</span>
+                      </figcaption>
+                    </figure>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        <p className="garden-photo-journal__empty">
+          Photo notes will gather here by season, making change easier to see over time.
+        </p>
+      )}
     </section>
   );
 }
@@ -137,7 +145,7 @@ function TimelineRow({
         item.projected ? " is-projected" : ""
       }${isOutcome ? " is-outcome" : ""}`}
     >
-      <span className="garden-timeline__date">{item.date ? formatGardenDate(item.date) : "—"}</span>
+      <time className="garden-timeline__date" dateTime={item.date || undefined}>{item.date ? formatGardenDate(item.date) : "—"}</time>
       <div className="garden-timeline__body">
         {item.kind === "milestone" ? (
           <>
@@ -207,7 +215,7 @@ function TimelineRow({
               {item.detail}
             </p>
             {photo ? (
-              <img className="garden-timeline__photo" src={photo} alt={item.detail || "Garden photo"} />
+              <img className="garden-timeline__photo" src={photo} alt="" />
             ) : null}
           </>
         )}
@@ -426,7 +434,7 @@ export function PlantTimeline({
     : undefined;
 
   return (
-    <div aria-label="Garden memory timeline" className="garden-timeline garden-timeline--arc">
+    <section aria-label="Garden memory timeline" className="garden-timeline garden-timeline--arc">
       <div className="garden-timeline__header">
         <SpecimenLabel>Memory timeline</SpecimenLabel>
         <span>Plant journal · photos, notes, care, and outcomes</span>
@@ -489,6 +497,6 @@ export function PlantTimeline({
       {isReadOnly ? null : (
         <OutcomeForm plant={plant} addPlantOutcome={addPlantOutcome} today={today} busy={busy} />
       )}
-    </div>
+    </section>
   );
 }

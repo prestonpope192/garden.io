@@ -5112,6 +5112,9 @@ p {
 }
 
 .garden-ai-followup__prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   justify-self: start;
   min-height: 40px;
   border: 1px solid rgba(85, 104, 79, 0.28);
@@ -5121,6 +5124,11 @@ p {
   padding: 0.38rem 0.72rem;
   font-family: var(--font-label), "Baskerville", serif;
   font-size: 0.78rem;
+}
+
+.garden-ai-followup__prompt::after {
+  content: "→";
+  font-size: 0.9rem;
 }
 
 .garden-ai-followup__prompt:hover,
@@ -5139,10 +5147,39 @@ p {
 .garden-ai-why summary,
 .garden-ai-more-checks summary {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.3rem;
   cursor: pointer;
   list-style: none;
   padding: 0.78rem 0.9rem;
+}
+
+.garden-ai-why summary > *,
+.garden-ai-more-checks summary > * {
+  grid-column: 1;
+}
+
+.garden-ai-why summary::after,
+.garden-ai-more-checks summary::after {
+  content: "+";
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--clay);
+  font-family: var(--font-label), "Baskerville", serif;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.garden-ai-why[open] summary::after,
+.garden-ai-more-checks[open] summary::after {
+  content: "−";
+}
+
+.garden-ai-why summary:focus-visible,
+.garden-ai-more-checks summary:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: -3px;
 }
 
 .garden-ai-why summary::-webkit-details-marker,
@@ -9929,6 +9966,53 @@ button.garden-breadcrumb__crumb:hover {
 .garden-memory-preview__more {
   text-align: center;
   font-style: italic;
+}
+
+.garden-memory-preview__counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.garden-memory-preview__counts span {
+  border: 1px solid rgba(85, 104, 79, 0.2);
+  border-radius: var(--radius-pill);
+  background: rgba(216, 222, 204, 0.28);
+  color: var(--olive);
+  padding: 0.22rem 0.5rem;
+  font-family: var(--font-label), serif;
+  font-size: 0.68rem;
+}
+
+.garden-memory-preview__empty,
+.garden-photo-journal__empty {
+  margin: 0;
+  border: 1px dashed rgba(85, 104, 79, 0.24);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 251, 245, 0.5);
+  color: var(--ink-muted);
+  padding: 0.7rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.garden-memory-preview__expand {
+  justify-self: center;
+  min-height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--olive);
+  padding: 0.35rem 0.5rem;
+  font-family: var(--font-label), serif;
+  font-size: 0.76rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.garden-memory-preview__expand:focus-visible {
+  outline: 2px solid var(--olive);
+  outline-offset: 2px;
 }
 
 .garden-photo-journal {

@@ -51,6 +51,8 @@ describe("PlantTimeline content", () => {
     expect(PLANT_TIMELINE_COPY.outcomeHeading).toBe("How did this planting go?");
     expect(PLANT_TIMELINE_COPY.saveOutcome).toBe("Keep in plant journal");
     expect(PLANT_TIMELINE_COPY.empty).toContain("Keep a note, photo, harvest, or lesson");
+    expect(html).toContain("0 photo memories");
+    expect(html).toContain("Photo notes will gather here by season");
     expect(html).not.toContain("Plant history");
     expect(html).not.toContain("Remove from history");
     expect(PLANT_TIMELINE_COPY.empty).not.toContain("No plant history yet");
@@ -64,7 +66,8 @@ describe("PlantTimeline content", () => {
     expect(html).not.toContain("How it went");
     expect(html).not.toContain(">Result<");
     expect(html).not.toContain(">milestone<");
-    expect(html).not.toMatch(/\b2026-\d{2}-\d{2}\b/);
+    expect(html).not.toMatch(/>2026-\d{2}-\d{2}</);
+    expect(html).toContain('dateTime="2026-06-01"');
   });
 
   it("shows a seasonal photo journal alongside the memory timeline", () => {
@@ -82,15 +85,26 @@ describe("PlantTimeline content", () => {
       created_at: "2026-07-02T00:00:00Z",
       updated_at: "2026-07-02T00:00:00Z",
     };
+    const olderObservation: GardenObservation = {
+      ...observation,
+      id: "older-photo-observation",
+      image_path: "user-1/older-growth.jpg",
+      observed_at: "2025-07-02T00:00:00Z",
+      created_at: "2025-07-02T00:00:00Z",
+      updated_at: "2025-07-02T00:00:00Z",
+    };
 
     const html = renderToStaticMarkup(
       createElement(PlantTimeline, {
         plant,
-        observations: [observation],
+        observations: [olderObservation, observation],
         tasks: [],
         outcomes: [],
         suggestions: [],
-        mediaUrls: { "user-1/new-growth.jpg": "https://example.com/new-growth.jpg" },
+        mediaUrls: {
+          "user-1/new-growth.jpg": "https://example.com/new-growth.jpg",
+          "user-1/older-growth.jpg": "https://example.com/older-growth.jpg",
+        },
         today: "2026-07-03",
         addTask: noop,
         addPlantOutcome: noop,
@@ -101,8 +115,10 @@ describe("PlantTimeline content", () => {
     expect(html).toContain("Memory timeline");
     expect(html).toContain("Plant journal · photos, notes, care, and outcomes");
     expect(html).toContain("Seasonal photo journal");
-    expect(html).toContain("1 photo memory");
-    expect(html).toContain(">Summer<");
+    expect(html).toContain("2 photo memories");
+    expect(html).toContain(">Summer 2026<");
+    expect(html).toContain(">Summer 2025<");
+    expect(html.indexOf(">Summer 2026<")).toBeLessThan(html.indexOf(">Summer 2025<"));
     expect(html).toContain("New growth held after the rain.");
     expect(html).toContain("new-growth.jpg");
   });

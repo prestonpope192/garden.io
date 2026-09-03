@@ -270,7 +270,9 @@ describe("Today garden home", () => {
     expect(askViewSource).not.toContain("Worth checking");
     expect(askViewSource).toContain('className="garden-ai-why"');
     expect(askViewSource).toContain("Why this answer fits your garden");
-    expect(askViewSource).toContain("See the notes, season, and photo behind this answer.");
+    expect(askViewSource).toContain("function evidenceDescription");
+    expect(askViewSource).toContain("See what this answer is based on and what still needs checking.");
+    expect(askViewSource).not.toContain("See the notes, season, and photo behind this answer.");
     expect(askViewSource).not.toContain("See the notes, season, and garden details behind it.");
     expect(askViewSource).not.toContain("What I used");
     expect(askViewSource).not.toContain("Show the notes, season, and garden details behind this.");
@@ -338,7 +340,7 @@ describe("Today garden home", () => {
     expect(askViewSource).not.toContain("Start your garden to save notes with the right plant.");
     expect(askViewSource).not.toContain("Start your garden to keep notes and care like this.");
     expect(askViewSource).not.toContain("Start your garden before saving notes or care.");
-    expect(askViewSource).toContain("From your notes and season.");
+    expect(askViewSource).not.toContain("From your notes and season.");
     expect(askViewSource).not.toContain("From your notes, season, and garden details.");
     expect(askViewSource).not.toContain("Based on what you shared, your season, and recent garden notes.");
     expect(askViewSource).toContain("From this garden note:");

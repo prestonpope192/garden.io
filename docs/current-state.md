@@ -81,8 +81,8 @@ Evidence:
 
 - Quick notes/photos can be kept with the relevant garden, place, bed, or plant.
 - AI plant help uses OpenAI vision, grounded in plant context, with useful answers persistable as observations. Route: `/api/diagnose`.
-- Garden answers can expand into grounded evidence and a confirmation cue; the next-turn prompt can compare what changed with the prior question, answer, and watch-for note.
-- Garden Memory combines photos, observations, care, and plant outcomes into scoped plant/place/garden timelines; dated memories receive a calendar-season label and private photos render only when an existing signed media URL is available.
+- Garden answers can expand into source-specific evidence and a confirmation cue; answer-level follow-up controls keep “what changed” comparisons tied to the answer that originated them.
+- Garden Memory combines photos, observations, completed care, and plant outcomes into scoped plant/place/garden timelines. Planned care stays in the upcoming/Weekly care surfaces, long place histories can expand, photo groups use season plus year, and private photos render only when an existing signed media URL is available.
 - Per-plant **planting timeline**: a past -> today -> upcoming arc built by a pure, tested `buildPlantTimeline()` — planting milestone, observations/diagnoses, completed tasks, a "today + lifecycle stage" divider, open tasks, projected harvest, and suggested next actions. Shown both in the property detail drawer and a Timeline tab in Plant Journal.
 - Per-planting **outcome capture**: record harvest quantity/quality and a success/partial/failure result; outcomes show on the timeline as harvest milestones. Backed by `garden_plant_outcomes` (migration `43`).
 - **History-cited recommendations**: a per-(bed × plant) and per-plant performance memory feeds the suggestion engine, so recommendations cite the grower's real track record ("your X averaged 4.5/5 over 2 harvests — keep doing what works"; or a caution for weak history).

@@ -154,7 +154,10 @@ describe("buildPlantTimeline", () => {
       plantNames: { [plant.id]: "Tomato" },
       scope: { kind: "bed", id: plant.bed_id },
       observations: [makeObservation({ image_path: "user/tomato.jpg", observed_at: "2026-07-02" })],
-      tasks: [makeTask({ status: "done", completed_at: "2026-07-03" })],
+      tasks: [
+        makeTask({ id: "completed-care", status: "done", completed_at: "2026-07-03" }),
+        makeTask({ id: "future-care", status: "open", due_on: "2026-07-09" }),
+      ],
       outcomes: [makeOutcome({ harvested_on: "2026-07-05", notes: "Sweet fruit." })],
     });
 
@@ -169,6 +172,7 @@ describe("buildPlantTimeline", () => {
       imagePath: "user/tomato.jpg",
       season: "Summer",
     });
+    expect(items.map((item) => item.id)).not.toContain("task:future-care");
   });
 
   it("includes descendant plant records at property scope and excludes other scopes", () => {

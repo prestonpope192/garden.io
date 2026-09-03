@@ -134,6 +134,9 @@ export function buildGardenMemoryTimeline(input: BuildGardenMemoryTimelineInput)
   }
 
   for (const task of input.tasks) {
+    // Memory is a record of care that happened. Open tasks remain in Weekly
+    // care (and in the plant timeline's upcoming section) until completed.
+    if (task.status !== "done") continue;
     if (!matchesMemoryScope(input.scope, task.zone_id, task.bed_id, task.plant_instance_id)) continue;
     const date = (task.completed_at || task.due_on || task.created_at || "").slice(0, 10);
     items.push({

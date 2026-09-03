@@ -122,7 +122,11 @@ describe("GardenAskView with an existing property", () => {
       causes: [{ cause: "Dry soil", confidence: "high" as const, detail: "The bed is drying between waterings." }],
       actions: ["Water slowly at the soil line.", "Check the soil again tomorrow."],
       follow_up: "Watch for leaves that stay wilted after watering.",
-      evidence: [{ fact: "The Tomato Bed dries between waterings.", source: "garden_context" as const, used_for: "supports the watering step" }],
+      evidence: [
+        { fact: "The Tomato Bed dries between waterings.", source: "garden_context" as const, used_for: "supports the watering step" },
+        { fact: "You reported wilting leaves.", source: "grower_report" as const, used_for: "identifies the visible symptom" },
+        { fact: "The photo shows the lower canopy.", source: "photo" as const, used_for: "narrows where to inspect" }
+      ],
       needs_confirmation: true
     }));
 
@@ -156,6 +160,7 @@ describe("GardenAskView with an existing property", () => {
     expect(contextChip.getAttribute("href")).toBe("/app/my-garden?plant=plant-1");
     expect(screen.getByRole("button", { name: "Add to weekly care" })).toBeTruthy();
     fireEvent.click(screen.getByText("Why this answer fits your garden"));
+    expect(screen.getByText("See the garden context, details you shared, and photo behind this answer.")).toBeTruthy();
     expect(screen.getByText("The Tomato Bed dries between waterings.")).toBeTruthy();
     expect(screen.getByText("Confirm before acting:")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "What changed since last time?" }));
@@ -320,6 +325,7 @@ describe("GardenAskView with an existing property", () => {
     });
     fireEvent.click(screen.getByRole("button", { name: "Send" }));
     await screen.findByRole("heading", { name: "Compare the newest leaves with the last note." });
+    expect(screen.getByText("See what this answer is based on and what still needs checking.")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "What changed since last time?" }));
     fireEvent.click(screen.getByRole("button", { name: "Send" }));
 
@@ -327,6 +333,53 @@ describe("GardenAskView with an existing property", () => {
     expect(askGarden.mock.calls[1][0].context.previousAnswer).toMatchObject({
       prompt: "Why are my tomatoes wilting?",
       summary: "Compare the newest leaves with the last note."
+    });
+  });
+
+  it("keeps an older answer's comparison follow-up tied to that answer", async () => {
+    const askGarden = vi.fn(async (input: Parameters<NonNullable<GardenAskViewProps["askGarden"]>>[0]) => ({
+      summary: `Answer for ${input.symptoms}`,
+      causes: [],
+      actions: ["Describe what changed."],
+      follow_up: "Watch the newest growth."
+    }));
+
+    render(
+      createElement(GardenAskView, {
+        activeProperty: property,
+        zones: [zone],
+        beds: [bed],
+        plants: [plant],
+        observations: [observation],
+        tasks: [task],
+        isSaving: false,
+        quickLog: async () => undefined,
+        addTask: async () => undefined,
+        updateTaskStatus: async () => undefined,
+        askGarden,
+        promptExamples: ["First garden question"]
+      })
+    );
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "First garden question" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Answer for First garden question" });
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "Second garden question" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Answer for Second garden question" });
+
+    fireEvent.click(screen.getAllByRole("button", { name: "What changed since last time?" })[0]);
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await waitFor(() => expect(askGarden).toHaveBeenCalledTimes(3));
+    expect(askGarden.mock.calls[2][0].context.previousAnswer).toMatchObject({
+      prompt: "First garden question",
+      summary: "Answer for First garden question"
     });
   });
 });

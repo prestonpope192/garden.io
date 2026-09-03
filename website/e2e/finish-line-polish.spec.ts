@@ -49,9 +49,13 @@ test("sample Garden Memory drawer scope stays readable on mobile", async ({ page
     await expect(memoryTimeline).toBeVisible();
     await expect(memoryTimeline).toContainText("Memory timeline");
     if (path === "/tour/property") {
-      await expect(memoryTimeline).toContainText("outcomes gathered in one seasonal record.");
+      await expect(memoryTimeline).toContainText("what you noticed, what you did, and how the garden responded");
+      await expect(memoryTimeline).toContainText("2 observations");
+      await expect(memoryTimeline).toContainText("2 outcomes");
+      await expect(memoryTimeline).not.toContainText("Refresh mulch on exposed soil");
     } else {
       await expect(memoryTimeline).toContainText("Plant journal · photos, notes, care, and outcomes");
+      await expect(memoryTimeline).toContainText("Photo notes will gather here by season");
     }
 
     const labelBox = await scope.locator(".ink-stamp").boundingBox();

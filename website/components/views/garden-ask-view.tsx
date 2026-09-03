@@ -350,6 +350,19 @@ function evidenceSourceLabel(source: GardenAskEvidence["source"]) {
   return "Photo";
 }
 
+function evidenceDescription(evidence: GardenAskEvidence[], hasCauses: boolean) {
+  const sources = Array.from(new Set(evidence.map((item) => item.source))).map((source) => {
+    if (source === "garden_context") return "garden context";
+    if (source === "grower_report") return "details you shared";
+    return "photo";
+  });
+  if (sources.length === 1) return `See the ${sources[0]} behind this answer.`;
+  if (sources.length === 2) return `See the ${sources[0]} and ${sources[1]} behind this answer.`;
+  if (sources.length > 2) return `See the ${sources.slice(0, -1).join(", ")}, and ${sources.at(-1)} behind this answer.`;
+  if (hasCauses) return "See why these possibilities fit your garden.";
+  return "See what this answer is based on and what still needs checking.";
+}
+
 function buildGardenContext(props: GardenAskViewProps, previousTurn?: GardenChatTurn) {
   const growingPlants = props.plants.filter((plant) => plant.status === "growing");
   const plantNames = growingPlants.slice(0, 8).map((plant) => getCatalogPlantName(plant));
@@ -567,6 +580,7 @@ export function GardenAskView(props: GardenAskViewProps) {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const [conversation, setConversation] = useState<GardenChatTurn[]>([]);
+  const [followUpTurnId, setFollowUpTurnId] = useState<string | null>(null);
   const [pendingPrompt, setPendingPrompt] = useState("");
   const [saveTarget, setSaveTarget] = useState<AskTarget>({ kind: "property", id: "property" });
   const [showTargetPicker, setShowTargetPicker] = useState(false);
@@ -683,7 +697,9 @@ export function GardenAskView(props: GardenAskViewProps) {
     setMessage("");
     setShowTargetPicker(false);
     setPendingPrompt(turnPrompt);
-    const previousTurn = conversation.at(-1);
+    const previousTurn =
+      (followUpTurnId ? conversation.find((turn) => turn.id === followUpTurnId) : null) ??
+      conversation.at(-1);
     try {
       const imageDataUrl = file ? await compressImage(file) : null;
       const nextDiagnosis = await getDiagnosis(cleanPrompt, imageDataUrl, previousTurn);
@@ -706,6 +722,7 @@ export function GardenAskView(props: GardenAskViewProps) {
         }
       ]);
       setPrompt("");
+      setFollowUpTurnId(null);
       onFile(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "We couldn't look at your garden right now.");
@@ -760,8 +777,9 @@ export function GardenAskView(props: GardenAskViewProps) {
     setMessage("Added to weekly care.");
   }
 
-  function startFollowUp(seed = "") {
+  function startFollowUp(seed = "", turn?: GardenChatTurn) {
     setPrompt(seed);
+    setFollowUpTurnId(turn?.id ?? null);
     setMessage("");
     setError("");
     requestAnimationFrame(() => promptRef.current?.focus());
@@ -987,7 +1005,7 @@ export function GardenAskView(props: GardenAskViewProps) {
               <button
                 className="garden-ai-followup__prompt"
                 type="button"
-                onClick={() => startFollowUp("What changed since last time?")}
+                onClick={() => startFollowUp("What changed since last time?", turn)}
               >
                 What changed since last time?
               </button>
@@ -1024,7 +1042,7 @@ export function GardenAskView(props: GardenAskViewProps) {
               </label>
             ) : null}
             <div className="garden-ai-save__actions">
-              <button className="folio-button" type="button" onClick={() => startFollowUp()}>
+              <button className="folio-button" type="button" onClick={() => startFollowUp("", turn)}>
                 Add more detail
               </button>
               <button
@@ -1048,7 +1066,7 @@ export function GardenAskView(props: GardenAskViewProps) {
             <details className="garden-ai-why">
               <summary>
                 <SpecimenLabel tone="clay">Why this answer fits your garden</SpecimenLabel>
-                <span>See the notes, season, and photo behind this answer.</span>
+                <span>{evidenceDescription(evidence, turn.diagnosis.causes.length > 0)}</span>
               </summary>
               {evidence.length ? (
                 <ul className="garden-ai-evidence-list" aria-label="Garden answer evidence">
@@ -1075,7 +1093,9 @@ export function GardenAskView(props: GardenAskViewProps) {
                   ))}
                 </div>
               ) : (
-                <p className="garden-ai-why__fallback">From your notes and season.</p>
+                <p className="garden-ai-why__fallback">
+                  No specific supporting evidence was returned. Treat this as a starting point and confirm what you see.
+                </p>
               )}
               {turn.diagnosis.needs_confirmation ? (
                 <p className="garden-ai-why__confirmation">

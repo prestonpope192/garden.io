@@ -260,6 +260,7 @@ export function PropertyView(props: PropertyViewProps) {
   const [confirmDelete, setConfirmDelete] = useState<{ message: string; run: () => void } | null>(null);
   const [setupWizardOpen, setSetupWizardOpen] = useState(setupIncomplete);
   const [setupWizardDismissed, setSetupWizardDismissed] = useState(false);
+  const [showAllMemoryEntries, setShowAllMemoryEntries] = useState(false);
 
   const [propertyDraft, setPropertyDraft] = useState<PropertyInput>(EMPTY_PROPERTY);
   const [zoneDraft, setZoneDraft] = useState<ZoneInput>(EMPTY_ZONE);
@@ -362,6 +363,7 @@ export function PropertyView(props: PropertyViewProps) {
   useEffect(() => {
     setIsEditing(false);
     setConfirmDelete(null);
+    setShowAllMemoryEntries(false);
   }, [focusKey]);
 
   // Keep the add-plant select pointed at a real, loaded profile.
@@ -761,6 +763,11 @@ export function PropertyView(props: PropertyViewProps) {
         plantNames: Object.fromEntries(props.plants.map((plant) => [plant.id, getCatalogPlantName(plant)])),
         scope: { kind: "property" },
       });
+      const memoryCounts = [
+        [propertyMemoryItems.filter((item) => item.kind === "note").length, "observation"],
+        [propertyMemoryItems.filter((item) => item.kind === "task").length, "completed care item"],
+        [propertyMemoryItems.filter((item) => item.kind === "outcome").length, "outcome"],
+      ] as const;
       return (
         <div className="garden-drawer__section garden-property-guide">
           <SpecimenLabel tone="olive">
@@ -824,43 +831,60 @@ export function PropertyView(props: PropertyViewProps) {
               </>
             )}
           </div>
-          {setupProgress.isComplete && propertyMemoryItems.length > 0 ? (
+          {setupProgress.isComplete ? (
             <section className="garden-memory-preview" aria-label="Garden memory timeline">
               <div className="garden-timeline__header">
                 <SpecimenLabel>Memory timeline</SpecimenLabel>
-                <span>{propertyMemoryItems.length} moments across your garden</span>
+                <span>
+                  {propertyMemoryItems.length
+                    ? plural(propertyMemoryItems.length, "remembered moment")
+                    : "Ready for your first memory"}
+                </span>
               </div>
               <p className="garden-memory-preview__intro">
-                Photos, observations, care, and outcomes gathered in one seasonal record.
+                A record of what you noticed, what you did, and how the garden responded.
               </p>
-              <div className="garden-timeline">
-                {propertyMemoryItems.slice(0, 6).map((entry) => (
-                  <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={entry.id}>
-                    <span className="garden-timeline__date">{entry.date ? formatGardenDate(entry.date) : "—"}</span>
-                    <div className="garden-timeline__body">
-                      {entry.kind === "task" ? (
-                        <p className="garden-timeline__text">
-                          <span className="garden-timeline__tag">{entry.status === "done" ? "✓ done" : "care"}</span>
-                          {entry.plantName ? `${entry.plantName} · ` : ""}{entry.title}
-                        </p>
-                      ) : (
-                        <p className="garden-timeline__text">
-                          <span className={`garden-timeline__tag garden-timeline__tag--${entry.kind === "outcome" ? "outcome" : entry.imagePath ? "photo" : "note"}`}>
-                            {entry.kind === "outcome" ? entry.season ?? "result" : entry.imagePath ? entry.season ?? "photo" : "note"}
-                          </span>
-                          {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
-                        </p>
-                      )}
-                      {entry.kind === "note" && entry.imagePath && props.mediaUrls[entry.imagePath] ? (
-                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.detail || "Garden photo"} />
-                      ) : null}
-                    </div>
+              {propertyMemoryItems.length ? (
+                <>
+                  <div className="garden-memory-preview__counts" aria-label="Garden memory contents">
+                    {memoryCounts.map(([count, label]) => (
+                      <span key={label}>{plural(count, label)}</span>
+                    ))}
                   </div>
-                ))}
-              </div>
-              {propertyMemoryItems.length > 6 ? (
-                <p className="garden-memory-preview__more">Choose a place or plant to open its complete memory arc.</p>
-              ) : null}
+                  <div className="garden-timeline">
+                    {propertyMemoryItems.slice(0, 6).map((entry) => (
+                      <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={entry.id}>
+                        <time className="garden-timeline__date" dateTime={entry.date || undefined}>{entry.date ? formatGardenDate(entry.date) : "—"}</time>
+                        <div className="garden-timeline__body">
+                          {entry.kind === "task" ? (
+                            <p className="garden-timeline__text">
+                              <span className="garden-timeline__tag">care</span>{" "}
+                              {entry.plantName ? `${entry.plantName} · ` : ""}{entry.title}
+                            </p>
+                          ) : (
+                            <p className="garden-timeline__text">
+                              <span className={`garden-timeline__tag garden-timeline__tag--${entry.kind === "outcome" ? "outcome" : entry.imagePath ? "photo" : "note"}`}>
+                                {entry.kind === "outcome" ? "outcome" : entry.imagePath ? "photo" : "note"}
+                              </span>
+                              {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
+                            </p>
+                          )}
+                          {entry.kind === "note" && entry.imagePath && props.mediaUrls[entry.imagePath] ? (
+                            <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt="" />
+                          ) : null}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {propertyMemoryItems.length > 6 ? (
+                    <p className="garden-memory-preview__more">Choose a place or plant to open its complete memory arc.</p>
+                  ) : null}
+                </>
+              ) : (
+                <p className="garden-memory-preview__empty">
+                  Your first note, photo, completed care item, or outcome will begin this record.
+                </p>
+              )}
             </section>
           ) : null}
         </div>
@@ -945,7 +969,7 @@ export function PropertyView(props: PropertyViewProps) {
       plantNames: Object.fromEntries(props.plants.map((plant) => [plant.id, getCatalogPlantName(plant)])),
       scope: memoryScope,
     });
-    const timeline = allTimelineItems.slice(0, 12);
+    const timeline = showAllMemoryEntries ? allTimelineItems : allTimelineItems.slice(0, 12);
 
     const plantTimelineSuggestions =
       focus === "plant" && activePlant
@@ -1014,23 +1038,23 @@ export function PropertyView(props: PropertyViewProps) {
             isReadOnly={isReadOnly}
           />
         ) : timeline.length > 0 ? (
-          <div className="garden-timeline">
+          <section className="garden-timeline" aria-label={`${detailTitle} notes and completed care`}>
             <div className="garden-timeline__header">
               <SpecimenLabel>Notes and care</SpecimenLabel>
-              <span>Photos, observations, care, and outcomes</span>
+              <span>Photos, observations, completed care, and outcomes</span>
             </div>
             {timeline.map((entry) => (
               <div className={`garden-timeline__item garden-timeline__item--${entry.kind}`} key={entry.id}>
-                <span className="garden-timeline__date">{entry.date ? formatGardenDate(entry.date) : "—"}</span>
+                <time className="garden-timeline__date" dateTime={entry.date || undefined}>{entry.date ? formatGardenDate(entry.date) : "—"}</time>
                 <div className="garden-timeline__body">
                   {entry.kind === "task" ? (
                     <p className="garden-timeline__text">
-                      <span className="garden-timeline__tag">{entry.status === "done" ? "✓ done" : "care"}</span> {entry.title}
+                      <span className="garden-timeline__tag">care</span> {entry.title}
                     </p>
                   ) : entry.kind === "outcome" ? (
                     <p className="garden-timeline__text">
                       <span className="garden-timeline__tag garden-timeline__tag--outcome">
-                        {entry.season ?? "result"}
+                        outcome
                       </span>
                       {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
                     </p>
@@ -1045,7 +1069,7 @@ export function PropertyView(props: PropertyViewProps) {
                         {entry.plantName ? `${entry.plantName} · ` : ""}{entry.detail}
                       </p>
                       {entry.imagePath && props.mediaUrls[entry.imagePath] ? (
-                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt={entry.detail || "Garden photo"} />
+                        <img className="garden-timeline__photo" src={props.mediaUrls[entry.imagePath]} alt="" />
                       ) : null}
                       {isReadOnly ? null : (
                         <button className="garden-link-button" type="button" onClick={() => props.deleteObservation(entry.id.replace(/^note:/, ""))} disabled={busy}>
@@ -1057,12 +1081,19 @@ export function PropertyView(props: PropertyViewProps) {
                 </div>
               </div>
             ))}
-            {allTimelineItems.length > 12 && (
-              <p className="garden-drawer__muted" style={{fontSize: '0.72rem', textAlign: 'center', marginTop: '0.5rem'}}>
-                Showing 12 of {allTimelineItems.length} entries
-              </p>
-            )}
-          </div>
+            {allTimelineItems.length > 12 ? (
+              <button
+                aria-expanded={showAllMemoryEntries}
+                className="garden-memory-preview__expand"
+                type="button"
+                onClick={() => setShowAllMemoryEntries((value) => !value)}
+              >
+                {showAllMemoryEntries
+                  ? "Show recent entries"
+                  : `Show ${allTimelineItems.length - 12} older ${allTimelineItems.length - 12 === 1 ? "entry" : "entries"}`}
+              </button>
+            ) : null}
+          </section>
         ) : null}
 
         {isReadOnly ? null : (

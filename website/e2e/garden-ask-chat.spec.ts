@@ -24,6 +24,7 @@ test("garden ask stays in a chat thread and links plant context", async ({ page 
   await expect(userBubbles.first()).toContainText("what should I do with my bell pepper?");
   await expect(assistantBubbles).toHaveCount(1);
   await expect(page.getByText("Why this answer fits your garden")).toHaveCount(1);
+  await expect(page.getByText("See the garden context behind this answer.")).toHaveCount(1);
   await expect(page.getByText("This garden is in summer with containers, herbs, and bloom borders.")).toHaveCount(1);
 
   const contextChip = page.locator(".garden-ai-context-chip", { hasText: "Bell Pepper" });

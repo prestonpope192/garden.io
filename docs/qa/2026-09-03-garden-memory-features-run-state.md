@@ -54,3 +54,36 @@ Local validation artifacts: `/tmp/garden-memory-full-vitest-final-3.log`,
 Reusable session: local dev server session `39262` is serving the exact feature
 worktree at `http://localhost:3011`; inspect before reuse and do not start a
 duplicate.
+
+## Make It Better refinement pass
+
+Direct screenshot review and one bounded read-only subagent audit converged on
+a “memory truthfulness” refinement:
+
+- completed care is historical memory; open tasks remain planned care
+- answer-specific follow-ups retain their originating answer as context
+- photo journals group and order memories by season plus year
+- long place/bed histories offer an explicit older-entry expansion
+- evidence descriptions name only sources actually returned
+- evidence disclosures expose visible open/closed and keyboard-focus cues
+- plants with no photos still explain how the seasonal journal will grow
+
+Weak ideas rejected: fake sample photos, hemisphere assumptions without a
+product policy, AI visual-change detection, a gallery/lightbox redesign, and a
+new provenance schema.
+
+Refinement proof: focused Vitest 41/41; full Vitest 38 files / 183 tests;
+typecheck passed; hygiene passed for 258 tracked files; production build passed;
+Chromium 11/11 passed; desktop/mobile screenshots inspected at
+`/tmp/garden-mib/ask-evidence-refined.png`,
+`/tmp/garden-mib/property-mobile-refined.png`, and
+`/tmp/garden-mib/plant-timeline-refined.png`.
+
+Refinement logs: `/tmp/garden-mib-focused-3.log`,
+`/tmp/garden-mib-vitest.log`, `/tmp/garden-mib-typecheck-final.log`,
+`/tmp/garden-mib-hygiene.log`, `/tmp/garden-mib-build.log`, and
+`/tmp/garden-mib-browser.log`.
+
+Current blocker: none. Refinement commit: pending final reviewed commit.
+Next safe action: commit the reviewed local refinement. Next gated action: none;
+deployment, provider configuration, and shared-data changes remain unrequested.
