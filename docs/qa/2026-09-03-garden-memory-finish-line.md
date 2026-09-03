@@ -153,3 +153,24 @@ indexes, RLS enablement, policies, and same-property plant constraint.
 Focused logs: `/tmp/garden-finish-line/focused-vitest.log`,
 `/tmp/garden-finish-line/typecheck.log`, and
 `/tmp/garden-finish-line/focused-browser.log`.
+
+## Final accessibility refinement
+
+The last make-it-better pass completed the ARIA tab interaction for the Plants
+status switcher and the Plant Journal drawer:
+
+- each selected tab is the only tab in its group in the keyboard tab order;
+- Left/Right Arrow, Home, and End activate and focus the expected tab;
+- each visible panel is linked to its active tab with stable
+  `aria-controls`/`aria-labelledby` identifiers;
+- the journal tab group now has an accessible name.
+
+Focused proof at the final feature SHA:
+
+- `npm run typecheck` — passed;
+- `npx vitest run tests/empty-state-content.test.ts tests/plant-timeline-content.test.ts tests/plant-timeline-interactions.test.tsx` — 3 files / 14 tests passed;
+- `PLAYWRIGHT_BASE_URL=http://localhost:3011 npm run test:browser -- e2e/finish-line-polish.spec.ts` — 6 Chromium tests passed, including keyboard movement, focus, selection, wrapping, and panel linkage.
+
+The independent read-only audit worker failed to initialize because its agent
+endpoint returned HTTP 404. It made no edits and supplied no evidence; the
+local code and browser audit remained authoritative.

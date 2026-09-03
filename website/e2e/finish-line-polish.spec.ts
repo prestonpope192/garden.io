@@ -83,6 +83,40 @@ test("sample plant history turns recorded outcomes into resilient next-season gu
   await expect(page.getByText("Kitchen Garden · Container Row").first()).toBeVisible();
 });
 
+test("plant status and journal tabs work from the keyboard", async ({ page }) => {
+  await page.goto("/tour/plants");
+
+  const statusTabList = page.getByRole("tablist", { name: "Plant status" });
+  const statusTabs = statusTabList.getByRole("tab");
+  const growingTab = statusTabs.first();
+  const nextStatusTab = statusTabs.nth(1);
+  const nextStatusTabId = await nextStatusTab.getAttribute("id");
+  await growingTab.focus();
+  await growingTab.press("ArrowRight");
+  await expect(nextStatusTab).toBeFocused();
+  await expect(nextStatusTab).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("#garden-plants-status-panel")).toHaveAttribute(
+    "aria-labelledby",
+    nextStatusTabId ?? ""
+  );
+
+  await nextStatusTab.press("Home");
+  await expect(growingTab).toBeFocused();
+  await page.getByText("Bell Pepper", { exact: true }).first().click();
+
+  const detailsTab = page.getByRole("tab", { name: "Details" });
+  await detailsTab.focus();
+  await detailsTab.press("ArrowRight");
+  const historyTab = page.getByRole("tab", { name: "History" });
+  await expect(historyTab).toBeFocused();
+  await expect(historyTab).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("tabpanel", { name: "History" })).toContainText("Memory timeline");
+
+  await historyTab.press("ArrowRight");
+  await expect(detailsTab).toBeFocused();
+  await expect(detailsTab).toHaveAttribute("aria-selected", "true");
+});
+
 test("a returning grower can separate remembered events from work that still needs care", async ({ page }) => {
   await page.goto("/tour/ask");
 
