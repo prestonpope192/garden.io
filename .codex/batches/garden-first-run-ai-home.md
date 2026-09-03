@@ -100,9 +100,31 @@
 - Finish-line report: `docs/qa/2026-09-01-garden-first-run-ai-home-finish-line.md`.
 - Hot-fix loops: unavailable matcher corrected; deterministic photo fallback harness added; callback type corrected; all repaired checks retested.
 - Truth matrix: local source/tests/browser `proved`; merged/hosted/production/customer-visible `not requested/not claimed`; authenticated provider-backed proof `blocked` by absent local credentials/session; shared database/provider `not applicable` and excluded.
-- Exact next action: later run the local collapse workflow from `codex/bulk-garden-first-run-ai-home-20260901`; do not push, merge, deploy, or collapse in this task.
+- Subsequent accepted scope added Garden Memory, seasonal photo journals,
+  source-specific answer evidence, answer-bound “What changed since last time?”
+  follow-ups, plant outcomes, long-history expansion, resilient thumbnails, and
+  keyboard-accessible plant/journal tabs. Those additions and their journey
+  evidence are recorded in the 2026-09-03 QA and release-note artifacts.
 
 ## Closeout
 
-- Deferred work: analytics measurement batch; conversation persistence across setup navigation.
-- Closeout integration SHA: not performed; local-only batch handoff.
+- Local integration target: `main`, used as the repository's documented local
+  integration equivalent because no local or remote `dev` branch exists.
+- Pre-merge target SHA: `5869a9c1a661ebf4fd06d865c713a2af90b3b2c1`.
+- Closeout integration SHA before this record: `cfd55e0` (`Merge Garden first-run AI home batch`).
+- Closeout validation on the final feature SHA `0cbe775`: `npm test` passed 39
+  files / 185 tests; typecheck passed; hygiene passed for 263 tracked files;
+  production build passed; full local Chromium passed 14/14 against the exact
+  worktree. An initial 14-case browser attempt reached no application route
+  because the reused server had stopped; one fresh exact-worktree server was
+  started and the unchanged suite passed.
+- Readback: no unresolved index entries or conflict markers; all incoming
+  commits are reachable from local `main`; the two pre-existing untracked
+  output directories and historical stash remained untouched.
+- Migrations/data/provider operations: no new migration, schema, seed,
+  backfill, environment, provider, or shared-data operation was introduced or
+  performed. Canonical database, authenticated hosted, and provider-backed
+  acceptance remain release gates rather than local closeout proof.
+- Deferred work: analytics measurement batch; conversation persistence across
+  setup navigation; authorized canonical database/auth/provider verification;
+  push, deployment, and customer-visible release.
