@@ -76,6 +76,7 @@ begin
   where n.nspname = 'public'
     and c.relkind = 'r'
     and c.relname like 'garden_%'
+    and c.relname <> 'garden_rate_limits'
     and not c.relrowsecurity;
 
   if rls_disabled_count > 0 then
