@@ -77,7 +77,8 @@ begin
   end if;
 
   select count(*) into mvp_plant_count
-  from catalog.plant_profiles;
+  from catalog.plant_profiles
+  where deleted_at is null;
 
   select count(*) into profile_count
   from catalog.plant_profile_catalogue_view;
