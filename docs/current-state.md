@@ -10,7 +10,7 @@ This document is the canonical cold-start summary of the repository as it exists
 - Primary executable surface: [`website/`](../website/).
 - Primary local database contract: checked-in SQL under [`supabase/sql/`](../supabase/sql/).
 - Primary product intent docs: [`../PRODUCT_SPEC.md`](../PRODUCT_SPEC.md) and [`product/specs/`](product/specs/).
-- Latest working-session records: [`handoff/`](handoff/) plus the [2026-08-19 finish-line report](qa/2026-08-19-discovery-five-finish-line.md).
+- Latest working-session records: [`handoff/`](handoff/), the [2026-09-28 Garden Memory release closeout](qa/2026-09-28-garden-memory-release-closeout.md), and the [2026-08-19 finish-line report](qa/2026-08-19-discovery-five-finish-line.md).
 
 ## What Is Implemented
 

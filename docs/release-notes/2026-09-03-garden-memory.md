@@ -1,6 +1,9 @@
 # Garden.io Garden Memory
 
-Status: unpublished local release draft. Not merged, deployed, or announced.
+Status: merged and deployed to production on 2026-09-28. Not announced. See
+`docs/qa/2026-09-28-garden-memory-release-closeout.md` for route and release
+evidence. Authenticated persistence, live database schema, provider, and signed
+photo acceptance remain unverified.
 
 ## Summary
 
@@ -40,17 +43,19 @@ answer can build on what actually happened in your garden.
 ## QA status
 
 Feature-scoped deterministic and Chromium journeys are covered in
-`docs/qa/2026-09-03-garden-memory-finish-line.md`. Local proof does not establish
-canonical-database state, authenticated hosted behavior, live OpenAI grounding,
-signed-photo delivery, deployment, or customer visibility.
+`docs/qa/2026-09-03-garden-memory-finish-line.md`. Production deployment and
+public-route checks are recorded in
+`docs/qa/2026-09-28-garden-memory-release-closeout.md`. Neither local nor public
+route checks establish canonical-database state, authenticated hosted behavior,
+live OpenAI grounding, signed-photo delivery, or customer visibility.
 
 ## Known limitations
 
 - Season labels currently use calendar seasons rather than a garden-specific
   hemisphere policy.
 - Real signed-photo delivery still needs authenticated hosted acceptance.
-- This draft must not be published until database, hosted, provider, and
-  deployment checks are completed for the intended release target.
+- Database schema and authenticated persistence still need verification before
+  calling the complete Garden Memory workflow accepted.
 
 ## Assets
 
