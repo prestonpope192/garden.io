@@ -717,7 +717,7 @@ export function GardenAskView(props: GardenAskViewProps) {
             beds: props.beds,
             zones: props.zones,
             memoryRoute: routes.memory,
-            previousPlantContexts: turns.at(-1)?.plantContexts
+            previousPlantContexts: previousTurn?.plantContexts
           })
         }
       ]);

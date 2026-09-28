@@ -382,4 +382,68 @@ describe("GardenAskView with an existing property", () => {
       summary: "Answer for First garden question"
     });
   });
+
+  it("keeps an older answer's plant context on its follow-up", async () => {
+    const basilProfile = {
+      ...profile,
+      plant_profile_id: "profile-2",
+      slug: "basil",
+      display_name: "Basil",
+      primary_common_name: "Basil",
+      botanical_name_full: "Ocimum basilicum"
+    } as GardenPlantProfile;
+    const basilBed: GardenBed = { ...bed, id: "bed-2", name: "Basil Bed" };
+    const basilPlant = {
+      ...plant,
+      id: "plant-2",
+      bed_id: basilBed.id,
+      plant_profile_id: basilProfile.plant_profile_id,
+      plant_profile: basilProfile
+    } as GardenPlantInstance;
+    const askGarden = vi.fn(async (input: Parameters<NonNullable<GardenAskViewProps["askGarden"]>>[0]) => ({
+      summary: `Answer for ${input.symptoms}`,
+      causes: [],
+      actions: ["Describe what changed."],
+      follow_up: "Watch the newest growth."
+    }));
+
+    render(
+      createElement(GardenAskView, {
+        activeProperty: property,
+        zones: [zone],
+        beds: [bed, basilBed],
+        plants: [plant, basilPlant],
+        observations: [observation],
+        tasks: [task],
+        isSaving: false,
+        quickLog: async () => undefined,
+        addTask: async () => undefined,
+        updateTaskStatus: async () => undefined,
+        askGarden,
+        promptExamples: ["First tomato question"]
+      })
+    );
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "First tomato question" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Answer for First tomato question" });
+
+    fireEvent.change(screen.getByRole("textbox", { name: "Ask about your garden" }), {
+      target: { value: "Second basil question" }
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Answer for Second basil question" });
+
+    fireEvent.click(screen.getAllByRole("button", { name: "What changed since last time?" })[0]);
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await screen.findByRole("heading", { name: "Answer for What changed since last time?" });
+
+    const plantLinks = screen.getAllByRole("link").filter((link) =>
+      link.getAttribute("href")?.startsWith("/app/my-garden?plant=")
+    );
+    expect(plantLinks.at(-1)?.getAttribute("href")).toBe("/app/my-garden?plant=plant-1");
+    expect(plantLinks.at(-1)?.getAttribute("href")).not.toBe("/app/my-garden?plant=plant-2");
+  });
 });
