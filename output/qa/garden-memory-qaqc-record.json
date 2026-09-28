@@ -128,6 +128,30 @@
         "website/e2e/finish-line-polish.spec.ts::sample plant history turns recorded outcomes into resilient next-season guidance"
       ],
       "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-MEMORY-006",
+      "coverage_key": "garden-ask-older-answer-plant-context",
+      "behavior": "A follow-up started from an older Garden Ask answer keeps that answer's plant context instead of inheriting the newest turn's plant links.",
+      "surface": "website/components/views/garden-ask-view.tsx, /app/my-property",
+      "fixtures": "Existing Garden Ask property with tomato plant A and basil plant B in separate beds",
+      "steps": [
+        "Ask a question about tomato A and wait for its answer",
+        "Ask a second question about basil B and wait for its answer",
+        "Start What changed since last time? from tomato A's older answer",
+        "Verify the resulting follow-up links to tomato A and not basil B"
+      ],
+      "success_criteria": [
+        "The follow-up uses the selected older answer as its comparison context",
+        "The follow-up plant link remains tomato A even when basil B is the newest turn",
+        "No link to basil B is added to the follow-up started from tomato A"
+      ],
+      "environment_scope": "local deterministic component harness",
+      "safety": "synthetic plant fixtures and mocked diagnosis callback; no persistence or provider call",
+      "tests": [
+        "website/tests/garden-ask-existing-state.test.tsx::keeps an older answer's plant context on its follow-up"
+      ],
+      "status": "ready"
     }
   ]
 }
