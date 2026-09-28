@@ -300,8 +300,9 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     });
     setStatus("ready");
 
-    // Auto-navigate new users to the garden setup view.
-    if (!hasAutoNavigated.current && propertiesResult.data && propertiesResult.data.length === 0) {
+    // Auto-navigate setup views for new users, but keep the AI home available
+    // before setup so they can get a useful answer first.
+    if (view !== "ask" && !hasAutoNavigated.current && propertiesResult.data && propertiesResult.data.length === 0) {
       hasAutoNavigated.current = true;
       router.replace('/app/my-garden');
     }
@@ -628,6 +629,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     zoneId: string | null;
     bedId: string | null;
     plantInstanceId: string | null;
+    rethrow?: boolean;
   }) => {
     if (!activeProperty) {
       setNotice(GARDEN_MUTATION_MESSAGES.addGardenFirst);
@@ -653,7 +655,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
         image_path: imagePath
       });
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.savedToGarden, { reload: "observations" });
+    }, GARDEN_MUTATION_MESSAGES.savedToGarden, { rethrow: input.rethrow, reload: "observations" });
   };
 
   const addTask = (input: {
@@ -664,6 +666,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
     zoneId?: string | null;
     bedId?: string | null;
     plantInstanceId?: string | null;
+    rethrow?: boolean;
   }) =>
     runMutation(async () => {
       // Callers that know their scope (e.g. the per-plant timeline) pass it
@@ -682,7 +685,7 @@ function GardenRecordsApp({ session, view }: { session: Session; view: GardenApp
       });
 
       if (error) throw error;
-    }, GARDEN_MUTATION_MESSAGES.careAdded, { reload: "tasks" }).then(() => {
+    }, GARDEN_MUTATION_MESSAGES.careAdded, { rethrow: input.rethrow, reload: "tasks" }).then(() => {
       recordProductEvent("care_task_added", { has_due_date: Boolean(input.dueOn) });
     });
 

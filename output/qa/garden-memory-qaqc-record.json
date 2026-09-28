@@ -1,0 +1,133 @@
+{
+  "project": "garden.io",
+  "source_of_truth": "local",
+  "records": [
+    {
+      "check_id": "GARDEN-MEMORY-001",
+      "coverage_key": "garden-memory-history-plan-separation",
+      "behavior": "Garden Memory shows observations, completed care, and outcomes as history while open and future tasks remain in Weekly Care.",
+      "surface": "website/lib/garden-timeline.ts, website/components/views/property-view.tsx, /tour/property, /tour/calendar",
+      "fixtures": "Repository sample garden with observations, outcomes, and open dated care tasks",
+      "steps": [
+        "Open the sample Today screen and follow Open garden memory",
+        "Verify the garden-level memory counts and remembered events",
+        "Verify an open future task is absent from memory",
+        "Open Weekly Care and verify the planned task remains visible"
+      ],
+      "success_criteria": [
+        "Memory counts observations, completed care, and outcomes independently",
+        "Open or future work never appears as completed history",
+        "Planned work remains reachable in Weekly Care"
+      ],
+      "environment_scope": "local deterministic and rendered sample-garden browser",
+      "safety": "read-only repository fixtures",
+      "tests": [
+        "website/tests/garden-timeline.test.ts::builds a scoped memory timeline with photos, care, and outcomes",
+        "website/e2e/finish-line-polish.spec.ts::a returning grower can separate remembered events from work that still needs care"
+      ],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-MEMORY-002",
+      "coverage_key": "garden-memory-long-place-history-expansion",
+      "behavior": "A place or bed with more than twelve memories shows the recent twelve first and exposes every older entry through an explicit expandable control.",
+      "surface": "website/components/views/property-view.tsx",
+      "fixtures": "Test-only place with thirteen dated observations",
+      "steps": [
+        "Render the selected place with thirteen observations",
+        "Verify twelve timeline rows are initially rendered",
+        "Verify the control reports one older entry and aria-expanded=false",
+        "Activate the control and verify all thirteen rows are visible"
+      ],
+      "success_criteria": [
+        "Long history is not silently truncated",
+        "The collapsed count is accurate",
+        "Expansion state is programmatically exposed"
+      ],
+      "environment_scope": "local deterministic component harness",
+      "safety": "read-only test fixture",
+      "tests": [
+        "website/tests/sample-garden.test.ts::lets a long place memory reveal older entries without hiding their count"
+      ],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-MEMORY-003",
+      "coverage_key": "seasonal-photo-journal-authorized-media",
+      "behavior": "A plant photo journal explains its empty state, groups authorized photos by season and year newest-first, and never renders an image without an available media URL.",
+      "surface": "website/components/plant-timeline.tsx, /tour/property?plant=<id>",
+      "fixtures": "Plant with photo observations from Summer 2025 and Summer 2026 plus one image path without a media URL",
+      "steps": [
+        "Render a plant with no authorized photo URLs and verify the instructive empty state",
+        "Provide authorized media URLs for two dated observations in the same season across different years",
+        "Verify Summer 2026 and Summer 2025 are separate and newest-first",
+        "Verify the observation without a media URL remains text-only"
+      ],
+      "success_criteria": [
+        "The empty journal remains discoverable",
+        "Same-season photos from different years are not merged",
+        "Only authorized media URLs become image sources",
+        "Duplicate timeline images use decorative alt text while their captions remain visible"
+      ],
+      "environment_scope": "local deterministic renderer and rendered sample-garden browser",
+      "safety": "synthetic media URLs; no upload or provider call",
+      "tests": [
+        "website/tests/plant-timeline-content.test.ts::shows a seasonal photo journal alongside the memory timeline",
+        "website/e2e/finish-line-polish.spec.ts::sample Garden Memory drawer scope stays readable on mobile"
+      ],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-MEMORY-004",
+      "coverage_key": "plant-outcome-capture-history-guidance",
+      "behavior": "A grower can record a harvest or lesson, retain entered data after a failed save, and receive next-season guidance derived only from matching outcome history.",
+      "surface": "website/components/plant-timeline.tsx, website/lib/garden-performance.ts, website/lib/garden-suggestions.ts, /tour/plants",
+      "fixtures": "Bell Pepper with a successful 4.0/5 outcome plus isolated strong, weak, empty, and unrelated-history fixtures",
+      "steps": [
+        "Submit a complete harvest or lesson and verify the callback payload",
+        "Force the save callback to fail and verify the form and entered note remain available",
+        "Generate suggestions from strong, weak, empty, and unrelated histories",
+        "Open Bell Pepper History and verify the recorded outcome and recommendation are visible"
+      ],
+      "success_criteria": [
+        "Numeric and date fields are serialized correctly",
+        "Failed persistence does not discard the user's draft",
+        "Strong and weak recommendations cite only matching garden history",
+        "No history recommendation is invented when no outcome exists"
+      ],
+      "environment_scope": "local deterministic and rendered sample-garden browser; remote persistence excluded",
+      "safety": "mocked callbacks and repository fixtures",
+      "tests": [
+        "website/tests/plant-timeline-interactions.test.tsx::records a complete harvest or lesson and closes after confirmation",
+        "website/tests/plant-timeline-interactions.test.tsx::keeps the entered outcome open when persistence fails",
+        "website/tests/garden-suggestions-history.test.ts::history-cited suggestions",
+        "website/e2e/finish-line-polish.spec.ts::sample plant history turns recorded outcomes into resilient next-season guidance"
+      ],
+      "status": "ready"
+    },
+    {
+      "check_id": "GARDEN-MEMORY-005",
+      "coverage_key": "plant-journal-thumbnail-failure-fallback",
+      "behavior": "Plant Journal replaces unavailable remote artwork with a readable initial-letter thumbnail instead of exposing a broken image.",
+      "surface": "website/components/views/plants-view.tsx, /tour/plants",
+      "fixtures": "Sample plant list with image optimizer requests deterministically aborted",
+      "steps": [
+        "Abort journal thumbnail image requests before opening the sample Plant Journal",
+        "Wait for each image error handler",
+        "Verify every plant card renders the local initial-letter fallback",
+        "Open Bell Pepper History and verify the journal remains usable"
+      ],
+      "success_criteria": [
+        "No broken-image icon remains after an image request fails",
+        "Each failed thumbnail has a stable local fallback",
+        "Plant selection and History navigation still work"
+      ],
+      "environment_scope": "local rendered Chromium",
+      "safety": "read-only request interception",
+      "tests": [
+        "website/e2e/finish-line-polish.spec.ts::sample plant history turns recorded outcomes into resilient next-season guidance"
+      ],
+      "status": "ready"
+    }
+  ]
+}

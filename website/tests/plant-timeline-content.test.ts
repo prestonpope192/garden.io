@@ -3,7 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { PLANT_TIMELINE_COPY, PlantTimeline } from "@/components/plant-timeline";
 import { buildDemoGardenSnapshot } from "@/lib/demo-garden-snapshot";
-import type { GardenPlantOutcome } from "@/lib/garden-app-types";
+import type { GardenObservation, GardenPlantOutcome } from "@/lib/garden-app-types";
 import { formatSuggestionSignal, type GardenSuggestion } from "@/lib/garden-suggestions";
 
 const noop = async () => undefined;
@@ -51,6 +51,8 @@ describe("PlantTimeline content", () => {
     expect(PLANT_TIMELINE_COPY.outcomeHeading).toBe("How did this planting go?");
     expect(PLANT_TIMELINE_COPY.saveOutcome).toBe("Keep in plant journal");
     expect(PLANT_TIMELINE_COPY.empty).toContain("Keep a note, photo, harvest, or lesson");
+    expect(html).toContain("0 photo memories");
+    expect(html).toContain("Photo notes will gather here by season");
     expect(html).not.toContain("Plant history");
     expect(html).not.toContain("Remove from history");
     expect(PLANT_TIMELINE_COPY.empty).not.toContain("No plant history yet");
@@ -64,7 +66,74 @@ describe("PlantTimeline content", () => {
     expect(html).not.toContain("How it went");
     expect(html).not.toContain(">Result<");
     expect(html).not.toContain(">milestone<");
-    expect(html).not.toMatch(/\b2026-\d{2}-\d{2}\b/);
+    expect(html).not.toMatch(/>2026-\d{2}-\d{2}</);
+    expect(html).toContain('dateTime="2026-06-01"');
+  });
+
+  it("shows a seasonal photo journal alongside the memory timeline", () => {
+    const snapshot = buildDemoGardenSnapshot([]);
+    const plant = snapshot.plants.find((candidate) => candidate.id === "demo-plant-bell-pepper")!;
+    const observation: GardenObservation = {
+      id: "photo-observation",
+      property_id: plant.property_id,
+      zone_id: plant.zone_id,
+      bed_id: plant.bed_id,
+      plant_instance_id: plant.id,
+      note: "New growth held after the rain.",
+      image_path: "user-1/new-growth.jpg",
+      observed_at: "2026-07-02T00:00:00Z",
+      created_at: "2026-07-02T00:00:00Z",
+      updated_at: "2026-07-02T00:00:00Z",
+    };
+    const olderObservation: GardenObservation = {
+      ...observation,
+      id: "older-photo-observation",
+      image_path: "user-1/older-growth.jpg",
+      observed_at: "2025-07-02T00:00:00Z",
+      created_at: "2025-07-02T00:00:00Z",
+      updated_at: "2025-07-02T00:00:00Z",
+    };
+    const unsignedObservation: GardenObservation = {
+      ...observation,
+      id: "unsigned-photo-observation",
+      note: "This private image has no authorized display URL.",
+      image_path: "user-1/private-growth.jpg",
+      observed_at: "2024-07-02T00:00:00Z",
+      created_at: "2024-07-02T00:00:00Z",
+      updated_at: "2024-07-02T00:00:00Z",
+    };
+
+    const html = renderToStaticMarkup(
+      createElement(PlantTimeline, {
+        plant,
+        observations: [unsignedObservation, olderObservation, observation],
+        tasks: [],
+        outcomes: snapshot.outcomes.filter((outcome) => outcome.plant_instance_id === plant.id),
+        suggestions: [],
+        mediaUrls: {
+          "user-1/new-growth.jpg": "https://example.com/new-growth.jpg",
+          "user-1/older-growth.jpg": "https://example.com/older-growth.jpg",
+        },
+        today: "2026-07-03",
+        addTask: noop,
+        addPlantOutcome: noop,
+        deletePlantOutcome: noop,
+      })
+    );
+
+    expect(html).toContain("Memory timeline");
+    expect(html).toContain("Plant journal · photos, notes, care, and outcomes");
+    expect(html).toContain("Seasonal photo journal");
+    expect(html).toContain("2 photo memories");
+    expect(html).toContain(">Summer 2026<");
+    expect(html).toContain(">Summer 2025<");
+    expect(html.indexOf(">Summer 2026<")).toBeLessThan(html.indexOf(">Summer 2025<"));
+    expect(html).toContain("New growth held after the rain.");
+    expect(html).toContain("new-growth.jpg");
+    expect(html).not.toContain("private-growth.jpg");
+    expect(html).toContain("This private image has no authorized display URL.");
+    expect(html).toContain('alt=""');
+    expect(html).toContain("Good yield after steady watering through the hot stretch.");
   });
 
   it("labels suggestions as care ideas instead of product steps", () => {

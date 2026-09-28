@@ -25,6 +25,8 @@ import {
 
 export type TimelineItemKind = "milestone" | "note" | "task" | "suggestion";
 
+export type TimelineSeason = "Winter" | "Spring" | "Summer" | "Fall";
+
 export type TimelineItem = {
   id: string;
   kind: TimelineItemKind;
@@ -39,9 +41,20 @@ export type TimelineItem = {
   overdue?: boolean;
   /** True for not-yet-real items (phenology projection, suggestion). */
   projected?: boolean;
+  /** Calendar season inferred from the item's observed/harvest date. */
+  season?: TimelineSeason | null;
   /** Present when kind === "suggestion" so the caller can commit it to a task. */
   suggestion?: GardenSuggestion;
 };
+
+export function seasonForDate(date: string): TimelineSeason | null {
+  const month = Number(date.slice(5, 7));
+  if (!Number.isInteger(month) || month < 1 || month > 12) return null;
+  if (month === 12 || month <= 2) return "Winter";
+  if (month <= 5) return "Spring";
+  if (month <= 8) return "Summer";
+  return "Fall";
+}
 
 export type PlantTimeline = {
   /** Things that happened — chronological, oldest → newest. */
@@ -61,6 +74,100 @@ export type BuildPlantTimelineInput = {
   /** Today as YYYY-MM-DD (caller supplies for determinism). */
   today: string;
 };
+
+export type GardenMemoryScope =
+  | { kind: "property" }
+  | { kind: "zone"; id: string }
+  | { kind: "bed"; id: string }
+  | { kind: "plant"; id: string };
+
+export type GardenMemoryItem = {
+  id: string;
+  kind: "note" | "task" | "outcome";
+  date: string;
+  title: string;
+  detail?: string;
+  imagePath?: string | null;
+  status?: GardenTaskStatus;
+  season?: TimelineSeason | null;
+  plantName?: string;
+};
+
+export type BuildGardenMemoryTimelineInput = {
+  observations: GardenObservation[];
+  tasks: GardenTask[];
+  outcomes: GardenPlantOutcome[];
+  plants: GardenPlantInstance[];
+  plantNames?: Record<string, string>;
+  scope: GardenMemoryScope;
+};
+
+function matchesMemoryScope(
+  scope: GardenMemoryScope,
+  zoneId: string | null,
+  bedId: string | null,
+  plantInstanceId: string | null
+) {
+  if (scope.kind === "property") return true;
+  if (scope.kind === "zone") return zoneId === scope.id;
+  if (scope.kind === "bed") return bedId === scope.id;
+  return plantInstanceId === scope.id;
+}
+
+export function buildGardenMemoryTimeline(input: BuildGardenMemoryTimelineInput): GardenMemoryItem[] {
+  const items: GardenMemoryItem[] = [];
+  const plantNames = input.plantNames ?? {};
+
+  for (const observation of input.observations) {
+    if (!matchesMemoryScope(input.scope, observation.zone_id, observation.bed_id, observation.plant_instance_id)) continue;
+    const date = (observation.observed_at || observation.created_at || "").slice(0, 10);
+    items.push({
+      id: `note:${observation.id}`,
+      kind: "note",
+      date,
+      title: "Observation",
+      detail: observation.note,
+      imagePath: observation.image_path,
+      season: seasonForDate(date),
+      plantName: observation.plant_instance_id ? plantNames[observation.plant_instance_id] : undefined,
+    });
+  }
+
+  for (const task of input.tasks) {
+    // Memory is a record of care that happened. Open tasks remain in Weekly
+    // care (and in the plant timeline's upcoming section) until completed.
+    if (task.status !== "done") continue;
+    if (!matchesMemoryScope(input.scope, task.zone_id, task.bed_id, task.plant_instance_id)) continue;
+    const date = (task.completed_at || task.due_on || task.created_at || "").slice(0, 10);
+    items.push({
+      id: `task:${task.id}`,
+      kind: "task",
+      date,
+      title: task.title,
+      detail: task.notes ?? undefined,
+      status: task.status,
+      season: seasonForDate(date),
+      plantName: task.plant_instance_id ? plantNames[task.plant_instance_id] : undefined,
+    });
+  }
+
+  for (const outcome of input.outcomes) {
+    const plant = input.plants.find((candidate) => candidate.id === outcome.plant_instance_id);
+    if (!plant || !matchesMemoryScope(input.scope, plant.zone_id, plant.bed_id, plant.id)) continue;
+    const date = (outcome.harvested_on || outcome.created_at || "").slice(0, 10);
+    items.push({
+      id: `outcome:${outcome.id}`,
+      kind: "outcome",
+      date,
+      title: "Care outcome",
+      detail: [summarizeOutcome(outcome), outcome.notes ?? ""].filter(Boolean).join(" — ") || "Outcome recorded",
+      season: seasonForDate(date),
+      plantName: plantNames[plant.id],
+    });
+  }
+
+  return items.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+}
 
 function formatOutcomeResult(result: GardenPlantOutcome["result"]): string {
   if (result === "success") return "grew well";
@@ -136,13 +243,15 @@ export function buildPlantTimeline(
   // 2. Observations / diagnoses (3B persists diagnoses as observations).
   for (const o of input.observations) {
     if (o.plant_instance_id !== plant.id) continue;
+    const date = (o.observed_at || o.created_at || "").slice(0, 10);
     past.push({
       id: `note:${o.id}`,
       kind: "note",
-      date: (o.observed_at || o.created_at || "").slice(0, 10),
+      date,
       title: "",
       detail: o.note,
       imagePath: o.image_path,
+      season: seasonForDate(date),
     });
   }
 
@@ -150,12 +259,14 @@ export function buildPlantTimeline(
   for (const o of input.outcomes) {
     if (o.plant_instance_id !== plant.id) continue;
     const summary = summarizeOutcome(o);
+    const date = (o.harvested_on || o.created_at || "").slice(0, 10);
     past.push({
       id: `outcome:${o.id}`,
       kind: "milestone",
-      date: (o.harvested_on || o.created_at || "").slice(0, 10),
+      date,
       title: o.harvest_quantity !== null && o.harvest_quantity !== undefined ? "Harvested" : "What happened",
       detail: [summary, o.notes ?? ""].filter(Boolean).join(" — ") || undefined,
+      season: seasonForDate(date),
     });
   }
 

@@ -23,6 +23,9 @@ test("garden ask stays in a chat thread and links plant context", async ({ page 
   await expect(userBubbles).toHaveCount(1);
   await expect(userBubbles.first()).toContainText("what should I do with my bell pepper?");
   await expect(assistantBubbles).toHaveCount(1);
+  await expect(page.getByText("Why this answer fits your garden")).toHaveCount(1);
+  await expect(page.getByText("See the garden context behind this answer.")).toHaveCount(1);
+  await expect(page.getByText("This garden is in summer with containers, herbs, and bloom borders.")).toHaveCount(1);
 
   const contextChip = page.locator(".garden-ai-context-chip", { hasText: "Bell Pepper" });
   await expect(contextChip).toHaveCount(1);
@@ -32,7 +35,8 @@ test("garden ask stays in a chat thread and links plant context", async ({ page 
   const followUpComposer = page.locator(".garden-ai-composer--chat textarea");
   await expect(followUpComposer).toHaveAttribute("placeholder", "Ask a follow-up...");
   await followUpComposer.click();
-  await followUpComposer.pressSequentially("should I prune it now?");
+  await page.locator(".garden-ai-followup__prompt").first().click();
+  await expect(followUpComposer).toHaveValue("What changed since last time?");
   await expect(page.locator(".garden-ai-send")).toBeEnabled();
   await page.locator(".garden-ai-send").click();
 
